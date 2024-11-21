@@ -49,7 +49,7 @@ model SynchronousMachine4WindingsInternalParameters "Synchronous machine with 4 
   // Output variables
   Modelica.Blocks.Interfaces.RealOutput omega(unit = "rad/s") "Angular frequency in rad/s for system object" annotation (
     Placement(visible = true, transformation(origin = {106, -40}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {101, 59}, extent = {{-11, -11}, {11, 11}}, rotation = 0)));
-// Other per-unit variables
+  // Other per-unit variables
   Modelica.Blocks.Interfaces.RealOutput omegaPu(start = 1) "Angular frequency in p.u." annotation (
     Placement(visible = true, transformation(origin = {106, -20}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {100, 20}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Types.PerUnit iDPu(start = 0) "Current of direct axis damper in p.u";
@@ -69,33 +69,32 @@ model SynchronousMachine4WindingsInternalParameters "Synchronous machine with 4 
   Types.PerUnit PePu(start = -PStart/SNom) "Electrical power in p.u. (base SNom)";
   Types.PerUnit PePuPNom = PePu*SNom/PNom "Electrical active power in p.u. (base PNom)";
 
-  // SI-unit variables
+// SI-unit variables
   Types.Frequency f = systemPowerGrids.fNom*omegaPu "Frequency of rotation of d-q axes";
   Modelica.Blocks.Interfaces.RealOutput VPu "Port voltage magnitude [pu]" annotation (
     Placement(visible = true, transformation(origin = {106, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {100, -60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Interfaces.RealOutput PPu "Active Power Production [pu base PNom]" annotation (
     Placement(visible = true, transformation(origin = {106, 20}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {100, -20}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 initial equation
-  // Scaling factor for excitation p.u. voltage
+// Scaling factor for excitation p.u. voltage
   if excitationPuType == Types.Choices.ExcitationPuType.Kundur then
     kuf = 1 "Choice of per-unit as per Kundur textbook";
   else
     kuf = rfPu / MdPu "Base voltage gives 1 p.u. air-gap stator voltage at no load";
   end if;
-  // Equations to compute start values
-  // these equations are the same that involve the actual variables in the equation section
-  // except that they involve the start values instead, and they do not contain terms which
-  // are zero at steady state (e.g., all the damping winding currents)
-  // the Modelica tool figures out automatically how to solve them for the unknown parameters
+// Equations to compute start values
+// these equations are the same that involve the actual variables in the equation section
+// except that they involve the start values instead, and they do not contain terms which
+// are zero at steady state (e.g., all the damping winding currents)
+// the Modelica tool figures out automatically how to solve them for the unknown parameters
   udPuStart = raPu*idPuStart - omegaNomPu*lambdaqPuStart;
   uqPuStart = raPu*iqPuStart + omegaNomPu*lambdadPuStart;
   lambdadPuStart = (MdPu + LdPu)*idPuStart + MdPu*ifPuStart;
   ufPuStart =  rfPu*ifPuStart;
   ufPuInStart = ufPuStart/kuf;
-
-  // Equations to determine the initial state values
+// Equations to determine the initial state values
   if initOpt == InitializationOption.noInit then
-    // No initial equations
+// No initial equations
   else
     omegaPu = omegaNomPu;
     der(omegaPu) = 0;
@@ -109,15 +108,14 @@ initial equation
     der(lambdaQ2Pu) = 0;
   end if;
 equation
-  // Flux linkages
+// Flux linkages
   lambdadPu = (MdPu + LdPu) * idPu + MdPu * ifPu + MdPu * iDPu;
   lambdafPu =     MdPu      *idPu + (MdPu + LfPu + mrcPu)*ifPu +    (MdPu + mrcPu)    *iDPu;
   lambdaDPu =     MdPu      *idPu +     (MdPu + mrcPu)   *ifPu + (MdPu + LDPu + mrcPu)*iDPu;
   lambdaqPu = (MqPu + LqPu) *iqPu +         MqPu         *iQ1Pu +        MqPu         *iQ2Pu;
   lambdaQ1Pu =     MqPu     *iqPu +     (MqPu + LQ1Pu)   *iQ1Pu +        MqPu         *iQ2Pu;
   lambdaQ2Pu =     MqPu     *iqPu +         MqPu         *iQ1Pu +    (MqPu + LQ2Pu)   *iQ2Pu;
-
-  // Equivalent circuit equations in Park's coordinates
+// Equivalent circuit equations in Park's coordinates
   if neglectTransformerTerms then
     udPu = raPu * idPu - omegaPu * lambdaqPu;
     uqPu = raPu * iqPu + omegaPu * lambdadPu;
@@ -129,19 +127,16 @@ equation
   0    =  rDPu *iDPu  + der(lambdaDPu)/omegaBase;
   0    =  rQ1Pu*iQ1Pu + der(lambdaQ1Pu)/omegaBase;
   0    =  rQ2Pu*iQ2Pu + der(lambdaQ2Pu)/omegaBase;
-
-  // Mechanical equations
+// Mechanical equations
   der(theta) = (omegaPu - omegaRefPu) * omegaBase;
   2*H*der(omegaPu) = (CmPu*PNom/SNom - CePu) - DPu*(omegaPu - omegaRefPu);
   CePu = lambdaqPu*idPu - lambdadPu*iqPu;
   PePu = CePu*omegaPu;
   PmPu = CmPu*omegaPu;
   omega = omegaPu*omegaBase;
-
-  // Excitation voltage p.u. conversion
+// Excitation voltage p.u. conversion
   ufPu = ufPuIn * kuf;
-
-  // Output signal equations
+// Output signal equations
   VPu = port.VPu;
   PPu = -port.P/PNom;
 annotation (
@@ -169,5 +164,6 @@ annotation (
 <li><code>Types.ExcitationPuType.nominalStatorVoltageNoLoad</code>: 1 p.u. of excitation voltage gives 1 p.u. of air-gap stator voltage at no-load conditions</li>
 <li><code>Types.ExcitationPuType.Kundur</code>: base voltage as in Kundur, Power Systems Stability and Control, Chapter 3. Note that in this case, typical p.u. values are less than 0.001</li>
 </ul>
-</body></html>"));
+</body></html>"),
+  Icon);
 end SynchronousMachine4WindingsInternalParameters;

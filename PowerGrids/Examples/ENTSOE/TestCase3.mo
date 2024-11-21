@@ -8,9 +8,9 @@ model TestCase3 "Test Case 3, Section 5.3, focuses on the dynamic behavior of th
   PowerGrids.Electrical.Buses.Bus NTLV(SNom = 5e+08, UNom = 21000, portVariablesPhases = true, portVariablesPu = true)  annotation (
     Placement(transformation(origin = {-2, -22}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
   PowerGrids.Electrical.Buses.BusFault NTHV(R = 0.05, SNom = 5e+08, UNom = 380000, UStart = 1.050 * 380e3, X = 0, portVariablesPhases = true, portVariablesPu = true, startTime = 0.1, stopTime = 0.2)  annotation (
-    Placement(transformation(origin = {42, -22}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
+    Placement(transformation(origin = {38, -22}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
   PowerGrids.Electrical.Branches.TransformerFixedRatio TGEN(PStartA = 4.75e+08, PStartB = -4.75e+08, QStartA = 1.56e+08, QStartB = -7.6e+07, R = 0.15e-2 * 419 ^ 2 / 500, SNom = 5e+08, UNomA = 21000, UNomB = 419000, UPhaseStartA = 0.161146, UPhaseStartB = 0, UStartA = 0.992 * 21e3, UStartB = 1.050 * 380e3, X = 16e-2 * 419 ^ 2 / 500, portVariablesPhases = true, portVariablesPu = true, rFixed = 419 / 21)  annotation (
-    Placement(transformation(origin = {20, -22}, extent = {{-10, -10}, {10, 10}})));
+    Placement(transformation(origin = {18, -22}, extent = {{-10, -10}, {10, 10}})));
   PowerGrids.Electrical.Controls.TurbineGovernors.IEEE_TGOV1 TGOV(R = 0.05, T1 = 0.5, T2 = 3, T3 = 10, VMax = 1)  annotation (
     Placement(visible = true, transformation(origin = {-62, 28}, extent = {{-10, 10}, {10, -10}}, rotation = 0)));
   PowerGrids.Electrical.Controls.ExcitationSystems.IEEE_AC4A AVR(Ka = 200, Ta = 0.05, Tb = 10, Tc = 3, VrMax = 4)  annotation (
@@ -24,9 +24,9 @@ model TestCase3 "Test Case 3, Section 5.3, focuses on the dynamic behavior of th
   Modelica.Blocks.Sources.RealExpression RefLPu(y = 475 / 500 * 0.05)  annotation (
     Placement(visible = true, transformation(origin = {-98, 24}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   PowerGrids.Electrical.Loads.LoadImpedancePQ GRIDL(PRef = 4.75e+08, QRef = 7.6e+07, SNom = 5e+08, UNom = 380000, URef = 1.05 * 380e3, portVariablesPhases = true, portVariablesPu = true)  annotation (
-    Placement(transformation(origin = {56, -38}, extent = {{-10, -10}, {10, 10}})));
+    Placement(transformation(origin = {50, -38}, extent = {{-10, -10}, {10, 10}})));
   Electrical.Buses.EquivalentGrid GRID(R_X = 1 / 10, SNom = 5e+08, SSC = 2.5e+09, UNom = 380000, URef = 1.050 * 380e3, c = 1.1, portVariablesPhases = true, portVariablesPu = true)  annotation (
-    Placement(transformation(origin = {72, -22}, extent = {{-10, -10}, {10, 10}})));
+    Placement(transformation(origin = {66, -22}, extent = {{-10, -10}, {10, 10}})));
 
   Types.PerUnit AA_01_GEN_Upu = GEN.port.VPu "Fig. 5.7, terminal voltage";
   Types.PerUnit AA_02_GEN_efd = GEN.ufPuIn "Fig. 5.8, excitation voltage";
@@ -39,23 +39,23 @@ model TestCase3 "Test Case 3, Section 5.3, focuses on the dynamic behavior of th
 
 equation
   connect(GRID.terminal, NTHV.terminal) annotation (
-    Line(points = {{72, -22}, {34, -22}}));
+    Line(points = {{66, -22}, {30, -22}}));
   connect(VrefPu.y, AVR.VrefPu) annotation (
     Line(points = {{-88.8, -31}, {-89.3, -31}, {-89.3, -31}, {-85.8, -31}, {-85.8, -18}, {-79.8, -18}, {-79.8, -18}, {-71.8, -18}}, color = {0, 0, 127}));
   connect(TGEN.terminalB, NTHV.terminal) annotation (
-    Line(points = {{30, -22}, {42, -22}}));
+    Line(points = {{28, -22}, {38, -22}}));
   connect(NTHV.terminal, GRIDL.terminal) annotation (
-    Line(points = {{42, -22}, {56, -22}, {56, -38}}));
+    Line(points = {{38, -22}, {50, -22}, {50, -38}}));
   connect(GEN.PPu, PSS.Vsi2Pu) annotation (
-    Line(points = {{-16, -2}, {-4, -2}, {-4, 50}, {-124, 50}, {-124, -6}, {-108, -6}}, color = {0, 0, 127}));
+    Line(points = {{-16, -2}, {-4, -2}, {-4, 50}, {-120, 50}, {-120, -6}, {-108, -6}}, color = {0, 0, 127}));
   connect(GEN.VPu, AVR.VcPu) annotation (
-    Line(points = {{-16, -6}, {0, -6}, {0, 54}, {-128, 54}, {-128, -14}, {-72, -14}}, color = {0, 0, 127}));
+    Line(points = {{-16, -6}, {0, -6}, {0, 54}, {-124, 54}, {-124, -14}, {-72, -14}}, color = {0, 0, 127}));
   connect(RefLPu.y, TGOV.RefLPu) annotation (
     Line(points = {{-87, 24}, {-72, 24}}, color = {0, 0, 127}));
   connect(zero.y, AVR.VuelPu) annotation (
     Line(points = {{-88.8, -48}, {-79.8, -48}, {-79.8, -22}, {-71.8, -22}}, color = {0, 0, 127}));
   connect(GEN.omegaPu, PSS.Vsi1Pu) annotation (
-    Line(points = {{-16, 2}, {-8, 2}, {-8, 44}, {-118, 44}, {-118, 6}, {-108, 6}}, color = {0, 0, 127}));
+    Line(points = {{-16, 2}, {-8, 2}, {-8, 44}, {-116, 44}, {-116, 6}, {-108, 6}}, color = {0, 0, 127}));
   connect(PSS.VstPu, AVR.VsPu) annotation (
     Line(points = {{-87, 0}, {-76.5, 0}, {-76.5, -10}, {-72, -10}}, color = {0, 0, 127}));
   connect(AVR.efdPu, GEN.ufPuIn) annotation (
@@ -65,7 +65,7 @@ equation
   connect(TGOV.PMechPu, GEN.PmPu) annotation (
     Line(points = {{-52, 28}, {-44, 28}, {-44, 4}, {-40, 4}, {-40, 4}, {-36, 4}}, color = {0, 0, 127}));
   connect(NTLV.terminal, TGEN.terminalA) annotation (
-    Line(points = {{-2, -22}, {10, -22}}));
+    Line(points = {{-2, -22}, {8, -22}}));
   connect(GEN.terminal, NTLV.terminal) annotation (
     Line(points = {{-26, 0}, {-26, -22}, {-2, -22}}));
   annotation (
