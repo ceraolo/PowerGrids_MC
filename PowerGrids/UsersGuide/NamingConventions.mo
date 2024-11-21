@@ -1,10 +1,9 @@
 within PowerGrids.UsersGuide;
-
 package NamingConventions
   extends Modelica.Icons.Information;
-annotation(
+annotation (
     preferredView = "info",
-    Documentation(info = "<html>
+    Documentation(info="<html>
 <p>This section contains the naming and style guidelines for the PowerGrids library development. If you want to contribute to the library, please make sure you follow them strictly, to ensure a consistent style throughout the whole library.</p>
 
 <p>When writing a Modelica model, please respect the general <a href=\"modelica://Modelica.UsersGuide.Conventions\" >Modelica conventions</a> and follow the recommendations below.</p>
@@ -76,7 +75,7 @@ e.g tInteger, t0...</li>
 
 <h3>Types conventions</h3>
 
-<p dir=\"auto\">Preferably use the types defined in the <a href=\"modelica://PowerGrids.Types\">PowerGrids.Types</a> package, or possibly locally redefined types with ad-hoc nominal attributes. For other units, please use <a href=\"modelica://Modelica.SIunits\">Modelica.SIunits</a> types. Use the appropriate unit for <code>PerUnit</code> variables. Avoid using plain <code>Real</code> variables that lack dimensional information and prevent automatic dimension checking on physical equations.</p>
+<p dir=\"auto\">Preferably use the types defined in the <a href=\"modelica://PowerGrids.Types\">PowerGrids.Types</a> package, or possibly locally redefined types with ad-hoc nominal attributes. For other units, please use <a href=\"modelica://Modelica.Units.SI\">Modelica.SIunits</a> types. Use the appropriate unit for <code>PerUnit</code> variables. Avoid using plain <code>Real</code> variables that lack dimensional information and prevent automatic dimension checking on physical equations.</p>
 
 <h2>Model structure conventions</h2>
 

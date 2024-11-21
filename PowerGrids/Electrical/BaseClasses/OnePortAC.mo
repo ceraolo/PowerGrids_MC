@@ -1,5 +1,4 @@
 within PowerGrids.Electrical.BaseClasses;
-
 partial model OnePortAC "Base class for AC components with one port"
   import PowerGrids.Types.Choices.LocalInitializationOption;
   parameter Types.Voltage UNom(start = 400e3) "Nominal/rated line-to-line voltage" annotation(Evaluate = true);
@@ -19,9 +18,9 @@ partial model OnePortAC "Base class for AC components with one port"
   parameter Types.ReactivePower QStart = 0 "Start value of reactive power flowing into the port"
     annotation(Dialog(tab = "Initialization"));
 
-  PowerGrids.Interfaces.TerminalAC terminal
-    (v(re(start = port.vStart.re), im(start = port.vStart.im)),
-     i(re(start = port.iStart.re), im(start = port.iStart.im))) annotation(
+  PowerGrids.Interfaces.TerminalAC terminal(
+     v(re(start = port.vStart.re), im(start = port.vStart.im)),
+     i(re(start = port.iStart.re), im(start = port.iStart.im))) annotation (
     Placement(visible = true, transformation(origin = {-1.42109e-14, 98}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-1.42109e-14, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   PortAC port(final UNom = UNom, final SNom = SNom,
               final portVariablesPu = portVariablesPu,
@@ -40,7 +39,7 @@ equation
     // Further two initial equations will be needed (e.g. in the controller)
     // to enforce P,V at the port or achieve actuator saturation if that is not possible
     CM.real(terminal.v*CM.conj(terminal.i)) = port.PStart;
-    CM.'abs'(terminal.v) = port.VStart;
+    Modelica.ComplexMath.abs(terminal.v) = port.VStart;
     port.Q = port.QStart;
     port.v.re*port.vStart.im = port.v.im*port.vStart.re;
   elseif initial() and localInit == LocalInitializationOption.PQ then
@@ -57,7 +56,7 @@ equation
     port.v = terminal.v;
     port.i = terminal.i;
   end if;
-  annotation(
+  annotation (
     Documentation(info = "<html>
 <p>This is the base class for all the components with an AC terminal. It contains a corresponding <code>PortAC</code> component to compute useful quantities for modelling and monitoring purposes.</p>
 </html>"));

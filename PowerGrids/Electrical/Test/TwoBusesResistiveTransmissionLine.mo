@@ -1,21 +1,20 @@
 within PowerGrids.Electrical.Test;
-
 model TwoBusesResistiveTransmissionLine
   extends Modelica.Icons.Example;
-  PowerGrids.Electrical.Buses.InfiniteBus infiniteBusA(SNom = 1e+07, UNom = 10000, portVariablesPu = true, theta = 0.523599) annotation(
+  PowerGrids.Electrical.Buses.InfiniteBus infiniteBusA(SNom = 1e+07, UNom = 10000, portVariablesPu = true, theta = 0.523599) annotation (
     Placement(visible = true, transformation(origin = {-40, 0}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  inner PowerGrids.Electrical.System systemPowerGrids annotation(
+  inner PowerGrids.Electrical.System systemPowerGrids annotation (
     Placement(visible = true, transformation(origin = {70, 70}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  PowerGrids.Electrical.Branches.LineConstantImpedance transmissionLine(R = 1, SNom = 1e+07, UNom = 10000, X = 0, portVariablesPhases = true, portVariablesPu = true) annotation(
+  PowerGrids.Electrical.Branches.LineConstantImpedance transmissionLine(R = 1, SNom = 1e+07, UNom = 10000, X = 0, portVariablesPhases = true, portVariablesPu = true) annotation (
     Placement(visible = true, transformation(origin = {0, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  PowerGrids.Electrical.Buses.InfiniteBus infiniteBusB(SNom = 1e+07, UNom = 9000, portVariablesPu = true, theta = 0.523599) annotation(
+  PowerGrids.Electrical.Buses.InfiniteBus infiniteBusB(SNom = 1e+07, UNom = 9000, portVariablesPu = true, theta = 0.523599) annotation (
     Placement(visible = true, transformation(origin = {38, 0}, extent = {{-10, 10}, {10, -10}}, rotation = -90)));
 equation
-  connect(infiniteBusA.terminal, transmissionLine.terminalA) annotation(
+  connect(infiniteBusA.terminal, transmissionLine.terminalA) annotation (
     Line(points = {{-40, 0}, {-10, 0}}));
-  connect(transmissionLine.terminalB, infiniteBusB.terminal) annotation(
+  connect(transmissionLine.terminalB, infiniteBusB.terminal) annotation (
     Line(points = {{10, 0}, {38, 0}}));
-  annotation(
+  annotation (
     Icon(coordinateSystem(grid = {0.1, 0.1})),
     Diagram(coordinateSystem(extent = {{-100, -100}, {100, 100}})),
     experiment(StopTime = 1, Interval = 0.02),

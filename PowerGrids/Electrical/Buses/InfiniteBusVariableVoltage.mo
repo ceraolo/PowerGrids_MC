@@ -6,20 +6,20 @@ model InfiniteBusVariableVoltage
   extends Icons.Bus;
   parameter Types.Voltage UFixed = UNom "Fixed source voltage modulus, phase-to-phase" annotation(Dialog(enable = not useThetaIn));
   parameter Types.Angle thetaFixed = 0 "Fixed angle of source voltage" annotation(Dialog(enable = not useThetaIn));
-  parameter Boolean useUIn = false "Use external input for source voltage magnitude" annotation(
+  parameter Boolean useUIn = false "Use external input for source voltage magnitude" annotation (
    Dialog(group = "external inputs"), choices(checkBox = true));
-  parameter Boolean useThetaIn = false "Use external input for source voltage angle" annotation(
+  parameter Boolean useThetaIn = false "Use external input for source voltage angle" annotation (
    Dialog(group = "external inputs"), choices(checkBox = true));
   parameter Types.Resistance R = 0 "Series resistance";
   parameter Types.Reactance X = 0 "Series reactance";
 
-  Modelica.Blocks.Interfaces.RealInput UIn(unit = "V", displayUnit = "kV") if useUIn "Source voltage modulus input, phase-to-phase, V" annotation(
+  Modelica.Blocks.Interfaces.RealInput UIn(unit = "V", displayUnit = "kV") if useUIn "Source voltage modulus input, phase-to-phase, V" annotation (
     Placement(visible = true, transformation(origin = {-98, 40}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-100, 40}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  Modelica.Blocks.Interfaces.RealInput thetaIn(unit = "rad", displayUnit = "deg") if useThetaIn "Source voltage phase angle input, rad" annotation(
+  Modelica.Blocks.Interfaces.RealInput thetaIn(unit = "rad", displayUnit = "deg") if useThetaIn "Source voltage phase angle input, rad" annotation (
     Placement(visible = true, transformation(origin = {-98, -26}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-100, -40}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
 
-protected
   // Auxiliary hidden connectors to manage the conditional connectors
+protected
   Modelica.Blocks.Interfaces.RealInput UAux "Source voltage modulus, phase-to-phase";
   Modelica.Blocks.Interfaces.RealInput thetaAux "Source voltage phase angle";
 
@@ -37,7 +37,7 @@ equation
 
    assert(UAux >= 0, "Magnitude must be positive");
 
-  annotation(
+  annotation (
     Icon(coordinateSystem(grid = {0.1, 0.1})),
     Diagram(coordinateSystem(extent = {{-200, -100}, {200, 100}})),
   Documentation(info = "<html>

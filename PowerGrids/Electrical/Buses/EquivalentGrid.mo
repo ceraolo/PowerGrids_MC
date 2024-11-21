@@ -1,5 +1,4 @@
 within PowerGrids.Electrical.Buses;
-
 model EquivalentGrid "Equivalent grid model characterized by short circuit capacity"
   extends PowerGrids.Electrical.Buses.BaseClasses.BusBase(
     e = eSource,
@@ -7,7 +6,7 @@ model EquivalentGrid "Equivalent grid model characterized by short circuit capac
     UStart = URef, UPhaseStart = 0);
   extends Icons.Grid;
   import Modelica.ComplexMath;
-  
+
   parameter Types.Voltage URef = UNom "Reference phase-to-phase voltage at connection terminal";
   parameter Types.Angle UPhaseRef = 0 "Voltage phase angle at connection terminal";
   parameter Types.ApparentPower SSC "Short-circuit capacity";
@@ -23,7 +22,7 @@ model EquivalentGrid "Equivalent grid model characterized by short circuit capac
 initial equation
   // Initial voltage at port fixed at reference values
   port. u= ComplexMath.fromPolar(URef, UPhaseRef);
-annotation(
+annotation (
     Documentation(info = "<html><head></head><body><p>This model describes an equivalent grid with an internal impedance driven by a constant voltage source.</p>
 <p>The impedance is computed to provide a power flow <code>SSC/c </code> out of the voltage source, assuming the voltage is set to the nominal value <code>UNom</code> and that the grid terminal is shorted to ground.</p>
 <p>The actual modulus and phase of the voltage source are computed to give the required voltage modulus and phase <code>URef, UPhaseRef</code> during initialization.</p>

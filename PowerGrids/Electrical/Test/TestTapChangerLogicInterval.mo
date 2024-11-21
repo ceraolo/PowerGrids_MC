@@ -1,18 +1,17 @@
 within PowerGrids.Electrical.Test;
-
 model TestTapChangerLogicInterval
   extends Modelica.Icons.Example;
-  extends PowerGrids.Electrical.Branches.BaseClasses.TapChangerPhaseShifterLogicInterval
-    (t1st = 3 "Time lag before changing the first tap", 
-    tNext = 2 "Time lag before changing subsequent taps", 
-    tapMin = 1 "Minimum tap", 
-    tapMax = 20 "Maximum tap", 
-    Ntap = 20 "Number of taps", 
-    actionSel = ActionType.direct "Tap direct or reverse action selector", 
-    lockedStart = false "Wether the tap-changer/phase-shifter is initially locked", 
-    runningStart = true "Wether the tap-changer/phase-shifter is initially running", 
-    tapStart = 10 "Initial tap", 
-    stateStart = State.standard "Initial state", 
+  extends PowerGrids.Electrical.Branches.BaseClasses.TapChangerPhaseShifterLogicInterval(
+     t1st = 3 "Time lag before changing the first tap",
+    tNext = 2 "Time lag before changing subsequent taps",
+    tapMin = 1 "Minimum tap",
+    tapMax = 20 "Maximum tap",
+    Ntap = 20 "Number of taps",
+    actionSel = ActionType.direct "Tap direct or reverse action selector",
+    lockedStart = false "Wether the tap-changer/phase-shifter is initially locked",
+    runningStart = true "Wether the tap-changer/phase-shifter is initially running",
+    tapStart = 10 "Initial tap",
+    stateStart = State.standard "Initial state",
     tToStandardState = 2 "Time lag before transition to standard state, in order to avoid chattering");
     Real U = sin(2*Modelica.Constants.pi*time/40) "Monitored Value";
     Real Umin = -0.5;
@@ -22,7 +21,7 @@ equation
   running = true;
   valueAboveMax = U > Umax;
   valueUnderMin = U < Umin;
-  annotation(
+  annotation (
     Icon(coordinateSystem(grid = {0.1, 0.1})),
     Diagram(coordinateSystem(extent = {{-200, -100}, {200, 100}})),
     experiment(StartTime = 0, StopTime = 80, Tolerance = 1e-06, Interval = 0.16),

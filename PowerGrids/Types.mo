@@ -1,5 +1,4 @@
 within PowerGrids;
-
 package Types "Domain-specific type definitions"
   extends Modelica.Icons.TypesPackage;
   type Voltage = SI.Voltage(nominal = 1e4, displayUnit = "kV");
@@ -15,7 +14,7 @@ package Types "Domain-specific type definitions"
   type Reactance = SI.Reactance;
   type Conductance = SI.Conductance;
   type Susceptance = SI.Susceptance;
-  type Impedance = SI.Impedance;  
+  type Impedance = SI.Impedance;
   type PerUnit = SI.PerUnit;
   type Time = SI.Time;
   operator record ComplexVoltage = SI.ComplexVoltage(re(nominal = 1e4, displayUnit="kV"), im(nominal = 1e4, displayUnit="kV"));
@@ -27,7 +26,7 @@ package Types "Domain-specific type definitions"
 
   package Choices
     extends Modelica.Icons.TypesPackage;
-  
+
     type ReferenceFrequency = enumeration(
          nominalFrequency "Nominal frequency",
          fixedReferenceGenerator "Fixed reference generator frequency",
@@ -47,7 +46,7 @@ package Types "Domain-specific type definitions"
       globalSteadyStateFixedPowerFlow "Global steady state, fixed power flow",
       localSteadyStateFixedPowerFlow "Local steady state, fixed power flow",
       noInit "No initial equations");
-  
+
     type LocalInitializationOption = enumeration(
       none "Global initialization",
       PV "Try to match PV",

@@ -1,5 +1,4 @@
 within PowerGrids.Electrical.BaseClasses;
-
 model ShuntConductance "Connects the port to ground via a conductor"
   extends OnePortAC;
   input Types.ComplexAdmittance Y "Shunt admittance";

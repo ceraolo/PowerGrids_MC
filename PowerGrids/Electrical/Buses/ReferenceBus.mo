@@ -1,5 +1,4 @@
 within PowerGrids.Electrical.Buses;
-
 model ReferenceBus "Reference bus for an isolated grid"
   extends PowerGrids.Electrical.BaseClasses.OnePortAC;
   extends Icons.Bus;
@@ -25,7 +24,7 @@ initial equation
 equation
   port.P = PSlack;
   port.Q = QSlack;
-  annotation(
+  annotation (
     Documentation(info = "<html><head></head><body><p>When an isolated synchronous grid is initialized in steady state, the reference angle remains undefined. In order to make the angles well defined, this ReferenceBus component should be used in the position where the power flow problem has the slack node.</p>
 <p>The purpose of this component when the grid is initialized in steady state is twofold:</p>
 <ul>

@@ -1,22 +1,22 @@
-within PowerGrids.Controls.Test;
+﻿within PowerGrids.Controls.Test;
 model TestLeadMOrderLag
   extends Modelica.Icons.Example;
-  PowerGrids.Controls.LeadMOrderLag leadLag( M = 1,T1 = 4, T2 = 2, initType = Modelica.Blocks.Types.Init.SteadyState, k = 10, yStart = 2)  annotation(
+  PowerGrids.Controls.LeadMOrderLag leadLag( M = 1,T1 = 4, T2 = 2, initType = Modelica.Blocks.Types.Init.SteadyState, k = 10, yStart = 2)  annotation (
     Placement(visible = true, transformation(origin = {0, 40}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  Modelica.Blocks.Sources.Step step(height = 1, offset = 1, startTime = 1)  annotation(
+  Modelica.Blocks.Sources.Step step(height = 1, offset = 1, startTime = 1)  annotation (
     Placement(visible = true, transformation(origin = {-80, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  Modelica.Blocks.Sources.RealExpression leadLagAnalyticSolution(y = 10 * (1 + (if time < 1 then 0 else 1 + exp(-(time - 1) / 2))))  annotation(
+  Modelica.Blocks.Sources.RealExpression leadLagAnalyticSolution(y = 10 * (1 + (if time < 1 then 0 else 1 + exp(-(time - 1) / 2))))  annotation (
     Placement(visible = true, transformation(origin = {110, 40}, extent = {{-30, -30}, {30, 30}}, rotation = 0)));
-  PowerGrids.Controls.LeadMOrderLag mOrderLag(M = 100, T1 = 1e-5, T2 = 1 / 100, initType = Modelica.Blocks.Types.Init.SteadyState, k = 1, yStart = 1) annotation(
+  PowerGrids.Controls.LeadMOrderLag mOrderLag(M = 100, T1 = 1e-5, T2 = 1 / 100, initType = Modelica.Blocks.Types.Init.SteadyState, k = 1, yStart = 1) annotation (
     Placement(visible = true, transformation(origin = {0, -60}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  Modelica.Blocks.Sources.RealExpression mOrderLagAnalyticSolution(y = 1 + (if time < 2 then 0 else 1)) annotation(
+  Modelica.Blocks.Sources.RealExpression mOrderLagAnalyticSolution(y = 1 + (if time < 2 then 0 else 1)) annotation (
     Placement(visible = true, transformation(origin = {110, -60}, extent = {{-30, -30}, {30, 30}}, rotation = 0)));
 equation
-  connect(step.y, mOrderLag.u) annotation(
+  connect(step.y, mOrderLag.u) annotation (
     Line(points = {{-58, 0}, {-42, 0}, {-42, -60}, {-24, -60}, {-24, -60}}, color = {0, 0, 127}));
-  connect(step.y, leadLag.u) annotation(
+  connect(step.y, leadLag.u) annotation (
     Line(points = {{-58, 0}, {-41, 0}, {-41, 40}, {-24, 40}}, color = {0, 0, 127}));
-  annotation(
+  annotation (
     Icon(coordinateSystem(grid = {0.1, 0.1})),
     Diagram(coordinateSystem(extent = {{-200, -100}, {200, 100}})),
   experiment(StartTime = 0, StopTime = 10, Tolerance = 1e-06, Interval = 0.01),

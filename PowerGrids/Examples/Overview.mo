@@ -1,8 +1,7 @@
 within PowerGrids.Examples;
-
 package Overview
   extends Modelica.Icons.Information;
-   annotation(
+   annotation (
     preferredView = "info",
     Documentation(info = "<html><head></head><body><p>This package contains a number of system examples to illustrate the functionality of the PowerGrids library.</p>
 <p>The <a href=\"modelica://PowerGrids.Examples.ENTSOE.Info\">ENTSOE</a> package contains test cases using a simple system model that is described in a publicly available ENTSO-E report, which compares the results obtained on a small and simple test case with different power system simulation tools. The differences observed advocate for the use of open-source models and software for power system modelling ad simulation.</p>

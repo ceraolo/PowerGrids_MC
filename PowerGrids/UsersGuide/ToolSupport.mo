@@ -1,5 +1,4 @@
 within PowerGrids.UsersGuide;
-
 package ToolSupport
   extends Modelica.Icons.Information;
 annotation(preferredView = "info",

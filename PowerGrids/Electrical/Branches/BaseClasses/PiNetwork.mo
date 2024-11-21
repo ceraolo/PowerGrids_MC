@@ -27,7 +27,7 @@ equation
   iAs = YA * vAt;
   iBs = YB * vB;
   iz = Y * vz;
-  annotation(
+  annotation (
     Documentation(info = "<html>
 <p>This is the base class for branch components that can be represented as Pi-network with an ideal transformer with complex ratio at port_a. A diagram of the model is shown in the figure.</p>
 <figure>

@@ -1,5 +1,4 @@
 within PowerGrids.UsersGuide.Tutorial;
-
 package LibraryArchitecture
   extends Modelica.Icons.Information;
 annotation(preferredView = "info",

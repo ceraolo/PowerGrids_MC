@@ -1,15 +1,14 @@
 within PowerGrids.Electrical.Controls.TurbineGovernors;
-
 model GovHydro4Kaplan
   extends BaseClasses.GovHydro4Base;
-  Modelica.Blocks.Tables.CombiTable1Ds tableGvPgv(smoothness = Modelica.Blocks.Types.Smoothness.MonotoneContinuousDerivative1, table = [0.1, 0; 0.4, 0.35; 0.5, 0.468; 0.7, 0.796; 0.8, 0.917; 0.9, 0.99; 1, 1]) annotation(
+  Modelica.Blocks.Tables.CombiTable1Ds tableGvPgv(smoothness = Modelica.Blocks.Types.Smoothness.MonotoneContinuousDerivative1, table = [0.1, 0; 0.4, 0.35; 0.5, 0.468; 0.7, 0.796; 0.8, 0.917; 0.9, 0.99; 1, 1]) annotation (
     Placement(visible = true, transformation(origin = {-170, -50}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
-  connect(deadBandDb2.y, tableGvPgv.u) annotation(
+  connect(deadBandDb2.y, tableGvPgv.u) annotation (
     Line(points = {{92, 50}, {100, 50}, {100, -26}, {-190, -26}, {-190, -50}, {-182, -50}, {-182, -50}}, color = {0, 0, 127}));
-  connect(div1.u1, tableGvPgv.y[1]) annotation(
+  connect(div1.u1, tableGvPgv.y[1]) annotation (
     Line(points = {{-142, -44}, {-150, -44}, {-150, -50}, {-158, -50}, {-158, -50}}, color = {0, 0, 127}));
-  annotation(
+  annotation (
     Icon(coordinateSystem(grid = {0.1, 0.1}, initialScale = 0.1), graphics = {Text(origin = {0, -39}, extent = {{-62, 17}, {62, -17}}, textString = "Pelton"), Text(origin = {4, -71}, extent = {{-62, 17}, {62, -17}}, textString = "Francis")}),
     Diagram(coordinateSystem(extent = {{-200, -100}, {200, 100}})),
     Documentation(info = "<html><head></head><body><div><div style=\"font-size: 12px;\"><span style=\"line-height: 12px;\">This class extends the <a href=\"Modelica:///PowerGrids.Electrical.Controls.TurbineGovernors.BaseClasses.GovHydro4Base\">GovHydro4Base</a> base class, implementing</span><span style=\"line-height: 12px;\">&nbsp;a governor which can be used for Kaplan turbines.</span></div><div style=\"font-size: 12px;\"><span style=\"line-height: 12px;\"><br></span></div><div style=\"font-size: 12px;\"><span style=\"line-height: 12px;\">The turbine characteristics is implemented as a linear interpolatipon of a given set of working points, which&nbsp;</span><span style=\"line-height: 12px;\">default values are shown in the following table:</span></div></div><div><div style=\"text-align: center;\"><span style=\"line-height: 12px;\"><br></span></div><span style=\"line-height: 12px;\"><table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"text-align: center;\">

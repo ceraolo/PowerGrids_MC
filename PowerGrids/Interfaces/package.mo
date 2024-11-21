@@ -1,12 +1,11 @@
 within PowerGrids;
-
 package Interfaces "Interfaces package"
   extends Modelica.Icons.InterfacesPackage;
 
   connector TerminalAC "Terminal for phasor-based AC connections"
     Types.ComplexVoltage v "Phase-to-ground voltage phasor";
     flow Types.ComplexCurrent i "Line current phasor";
-    annotation(
+    annotation (
       Icon(coordinateSystem(extent = {{-100, -100}, {100, 100}}, preserveAspectRatio = true, initialScale = 1, grid = {2, 2}), graphics = {Rectangle(origin = {92, 3}, fillColor = {85, 170, 255}, fillPattern = FillPattern.Solid, extent = {{-192, 97}, {8, -103}})}),
       Diagram(coordinateSystem(extent = {{-100, -100}, {100, 100}}, preserveAspectRatio = true, initialScale = 1, grid = {2, 2})),
   Documentation(info = "<html><head></head><body><p>

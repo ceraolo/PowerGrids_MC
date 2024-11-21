@@ -1,5 +1,4 @@
 within PowerGrids.Electrical.Machines;
-
 model SynchronousMachine4Windings "Synchronous machine with four windings - external parameters"
   // General-purpose start values are provided, to avoid division by zero errors.
   // These values don't need to be modified for specific machine instancces
@@ -17,9 +16,9 @@ model SynchronousMachine4Windings "Synchronous machine with four windings - exte
     final rQ2Pu(fixed = false, min = 1e-5, start = 0.001),
     final LQ1Pu(fixed = false, min = 1e-3, start = 0.5),
     final LQ2Pu(fixed = false, min = 1e-3, start = 0.1),
-    final thetaStart = 
-      UPhaseStart + 
-      atan2(xqPu*IStartPu*cosPhiStart - raPu*IStartPu*sinPhiStart, 
+    final thetaStart =
+      UPhaseStart +
+      atan2(xqPu*IStartPu*cosPhiStart - raPu*IStartPu*sinPhiStart,
             VStartPu + raPu*IStartPu*cosPhiStart + xqPu*IStartPu*sinPhiStart));
   // External parameters
   parameter Types.PerUnit xlPu "Stator leakage in p.u.";
@@ -58,7 +57,7 @@ model SynchronousMachine4Windings "Synchronous machine with four windings - exte
   final parameter Types.Time Tppd(fixed = false, min = 0,start = 0.1);
   final parameter Types.Time Tpq(fixed = false, min = 0, start = 1);
   final parameter Types.Time Tppq(fixed = false, min = 0, start = 0.1);
-  
+
   // Start values
   final parameter Types.PerUnit cosPhiStart = abs(PStart)/sqrt(PStart^2+QStart^2+1e-9*SNom)
     "Start value of power factor cos(phi)";
@@ -77,7 +76,7 @@ initial equation
 
   // Modelling assumption taken by Kundur
   LqPu = xlPu;
-  LdPu = xlPu; 
+  LdPu = xlPu;
 
   // Direct axis
   MdPu + LdPu = xdPu;
@@ -138,9 +137,9 @@ initial equation
   end if;
   xpqPu   = xqPu *Tpq /Tpq0;
   xppqPu  = xpqPu*Tppq/Tppq0;
-  
+
   mrcPu = 0;
-  annotation(
+  annotation (
     Documentation(info = "<html><head></head><body><p>Same as <a href=\"modelica://PowerGrids.Electrical.Machines.SynchronousMachine4WindingsInternalParameters\">SynchronousMachine4WindingsInternalParameters</a>, but using external parameters such as transient and sub-transient time constants.</p>
 <p>The parameter transformation is carried out according to the relationships described by P. Kundur, Power System Stability and Control, chapter 4.</p> 
 <p>Currently, only the case with zero Canay's coupling inductance is handled</p>

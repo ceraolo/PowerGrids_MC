@@ -1,28 +1,28 @@
-within PowerGrids.Controls.Test;
+﻿within PowerGrids.Controls.Test;
 model TestRampTrackingFilter
   extends Modelica.Icons.Example;
-  Modelica.Blocks.Sources.Step step(height = 1, offset = 1, startTime = 1)  annotation(
+  Modelica.Blocks.Sources.Step step(height = 1, offset = 1, startTime = 1)  annotation (
     Placement(visible = true, transformation(origin = {-90, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  PowerGrids.Controls.RampTrackingFilter rampTrackingFilter1(M = 2, N = 50, T1 = 1e-5, T2 = 1 / 100, initType = Modelica.Blocks.Types.Init.SteadyState, k = 10, yStart = 10)  annotation(
+  PowerGrids.Controls.RampTrackingFilter rampTrackingFilter1(M = 2, N = 50, T1 = 1e-5, T2 = 1 / 100, initType = Modelica.Blocks.Types.Init.SteadyState, k = 10, yStart = 10)  annotation (
     Placement(visible = true, transformation(origin = {-20, 60}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  PowerGrids.Controls.RampTrackingFilter rampTrackingFilter2(M = 1, N = 1, T1 = 2, T2 = 2, initType = Modelica.Blocks.Types.Init.SteadyState, k = 10, yStart = 10) annotation(
+  PowerGrids.Controls.RampTrackingFilter rampTrackingFilter2(M = 1, N = 1, T1 = 2, T2 = 2, initType = Modelica.Blocks.Types.Init.SteadyState, k = 10, yStart = 10) annotation (
     Placement(visible = true, transformation(origin = {-20, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  Modelica.Blocks.Sources.RealExpression rampTrackingFilter1AnalyticSolution(y = 10 * (if time < 2 then 1 else 2))  annotation(
+  Modelica.Blocks.Sources.RealExpression rampTrackingFilter1AnalyticSolution(y = 10 * (if time < 2 then 1 else 2))  annotation (
     Placement(visible = true, transformation(origin = {110, 60}, extent = {{-30, -30}, {30, 30}}, rotation = 0)));
-  Modelica.Blocks.Sources.RealExpression rampTrackingFilter2AnalyticSolution(y = 10 * (if time < 1 then 1 else 2)) annotation(
+  Modelica.Blocks.Sources.RealExpression rampTrackingFilter2AnalyticSolution(y = 10 * (if time < 1 then 1 else 2)) annotation (
     Placement(visible = true, transformation(origin = {114, -2}, extent = {{-30, -30}, {30, 30}}, rotation = 0)));
-  PowerGrids.Controls.RampTrackingFilter rampTrackingFilter3(M = 0, N = 0, T1 = 4, T2 = 2, initType = Modelica.Blocks.Types.Init.SteadyState, k = 10, yStart = 10) annotation(
+  PowerGrids.Controls.RampTrackingFilter rampTrackingFilter3(M = 0, N = 0, T1 = 4, T2 = 2, initType = Modelica.Blocks.Types.Init.SteadyState, k = 10, yStart = 10) annotation (
     Placement(visible = true, transformation(origin = {-20, -60}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  Modelica.Blocks.Sources.RealExpression rampTrackingFilter3AnalyticSolution(y = 10 * (if time < 1 then 1 else 2)) annotation(
+  Modelica.Blocks.Sources.RealExpression rampTrackingFilter3AnalyticSolution(y = 10 * (if time < 1 then 1 else 2)) annotation (
     Placement(visible = true, transformation(origin = {114, -62}, extent = {{-30, -30}, {30, 30}}, rotation = 0)));
 equation
-  connect(step.y, rampTrackingFilter3.u) annotation(
+  connect(step.y, rampTrackingFilter3.u) annotation (
     Line(points = {{-78, 0}, {-60, 0}, {-60, -60}, {-44, -60}, {-44, -60}}, color = {0, 0, 127}));
-  connect(step.y, rampTrackingFilter2.u) annotation(
+  connect(step.y, rampTrackingFilter2.u) annotation (
     Line(points = {{-78, 0}, {-44, 0}}, color = {0, 0, 127}));
-  connect(step.y, rampTrackingFilter1.u) annotation(
+  connect(step.y, rampTrackingFilter1.u) annotation (
     Line(points = {{-79, 0}, {-60, 0}, {-60, 60}, {-44, 60}}, color = {0, 0, 127}));
-  annotation(
+  annotation (
     Icon(coordinateSystem(grid = {0.1, 0.1})),
     Diagram(coordinateSystem(extent = {{-200, -100}, {200, 100}})),
   experiment(StartTime = 0, StopTime = 4, Tolerance = 1e-06, Interval = 0.01),

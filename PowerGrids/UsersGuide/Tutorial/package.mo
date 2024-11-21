@@ -1,12 +1,11 @@
 within PowerGrids.UsersGuide;
-
 package Tutorial
   extends Modelica.Icons.Information;
 
 
 
 
-  annotation(
+  annotation (
     preferredView = "info",
     Documentation(info = "<html>
 <p>This tutorial is meant to introduce beginners to the design and rationale of the PowerGrids library and to guide them through a series of examples that illustrate the library features, the system modelling patterns, and ultimately the way one can write his own component models.</p>

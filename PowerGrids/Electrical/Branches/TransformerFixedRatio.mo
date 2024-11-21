@@ -1,5 +1,4 @@
 within PowerGrids.Electrical.Branches;
-
 model TransformerFixedRatio "Transformer with fixed voltage ratio"
   extends BaseClasses.PiNetwork;
   extends Icons.Transformer;
@@ -15,7 +14,7 @@ equation
   Y = Complex(1)/Complex(R, X);
   YA = Complex(0);
   YB = Complex(G, B);
-annotation(
+annotation (
     Documentation(info = "<html><head></head><body><p>Transformer with fixed voltage ratio k = rFixed*exp(j*thetaFixed). The series impedance R+jX and shunt admittance G+jB are referred to the high-voltage side B.</p><p>Step-up transformers with fixed voltage ratio can be implemented by only setting <code>rFixed</code> and leaving  <code>thetaFixed</code> to zero default value. Phase shifters can be implemented by only setting  <code>thetaFixed</code> and leaving  <code>rFixed</code> to the default of 1.</p>
 <p>Implemented as a child class of <a href=\"modelica://PowerGrids.Electrical.Branches.BaseClasses.PiNetwork\">PiNetwork</a>, where Ya=0, Yb=G+jB and k = rFixed*exp(j*thetaFixed), see the corresponding documentation.</p>
 </body></html>"));

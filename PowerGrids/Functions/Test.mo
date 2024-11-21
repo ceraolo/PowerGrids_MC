@@ -1,5 +1,4 @@
 within PowerGrids.Functions;
-
 package Test
   extends Modelica.Icons.ExamplesPackage;
 

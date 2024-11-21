@@ -3,23 +3,23 @@ model System "System object"
   import PowerGrids.Types.Choices.ReferenceFrequency;
   import PowerGrids.Types.Choices.InitializationOption;
   parameter SI.Frequency fNom = 50 "Nominal system frequency";
-  parameter ReferenceFrequency referenceFrequency = 
+  parameter ReferenceFrequency referenceFrequency =
     ReferenceFrequency.nominalFrequency "Choice of reference frequency for generators";
-  parameter InitializationOption initOpt = 
+  parameter InitializationOption initOpt =
     InitializationOption.globalSteadyStateFixedSetPoints "Initialization option";
   final parameter SI.AngularVelocity omegaNom = fNom*2*Modelica.Constants.pi "Nominal system angular frequency";
 
-  Modelica.Blocks.Interfaces.RealInput omegaRefIn(unit = "rad/s") 
-    if referenceFrequency == ReferenceFrequency.fixedReferenceGenerator "Reference frequency input"  
-    annotation(
-      Placement(visible = true, transformation(origin = {-98, 2}, 
-      extent = {{-20, -20}, {20, 20}}, rotation = 0), 
+  Modelica.Blocks.Interfaces.RealInput omegaRefIn(unit = "rad/s")
+    if referenceFrequency == ReferenceFrequency.fixedReferenceGenerator "Reference frequency input"
+    annotation (
+      Placement(visible = true, transformation(origin = {-98, 2},
+      extent = {{-20, -20}, {20, 20}}, rotation = 0),
       iconTransformation(origin = {-98, 2}, extent = {{-20, -20}, {20, 20}},
-
       rotation = 0)));
+
   Types.AngularVelocity omegaRef = omegaRefInternal "Reference frequency";
 protected
-  Modelica.Blocks.Interfaces.RealInput omegaRefInternal(unit = "rad/s") 
+  Modelica.Blocks.Interfaces.RealInput omegaRefInternal(unit = "rad/s")
     "Protected connector for conditional connector handling";
 
 initial equation

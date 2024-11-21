@@ -1,5 +1,4 @@
 within PowerGrids.Electrical.Loads;
-
 model LoadImpedancePQ "Load model with impedance specified by PRef and QRef"
   extends PowerGrids.Electrical.Buses.BaseClasses.BusBase(
     e = Complex(0),
@@ -14,7 +13,7 @@ model LoadImpedancePQ "Load model with impedance specified by PRef and QRef"
   Types.ActivePower PRef(nominal = SNom) = PRefConst "Active power consumption at reference voltage, the default binding can be changed when instantiating";
   Types.ActivePower QRef(nominal = SNom) = QRefConst "Reactive power consumption at reference voltage, the default binding can be changed when instantiating";
 
-  annotation(
+  annotation (
     Icon(coordinateSystem(grid = {0.1, 0.1})),
     Diagram(coordinateSystem(extent = {{-200, -100}, {200, 100}})),
     Documentation(info = "<html><head></head><body>

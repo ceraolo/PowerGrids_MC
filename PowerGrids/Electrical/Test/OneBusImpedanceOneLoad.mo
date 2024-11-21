@@ -1,8 +1,8 @@
 within PowerGrids.Electrical.Test;
-
 model OneBusImpedanceOneLoad
-  extends OneBusOneLoad(infiniteBus.R = 0.3, infiniteBus.X = 1.5, infiniteBus.portVariablesPhases = true, infiniteBus.portVariablesPu = true, infiniteBus.generatorConvention = true);
-  annotation(
+  extends OneBusOneLoad(infiniteBus(
+                        R             = 0.3, X             = 1.5, portVariablesPhases             = true, portVariablesPu             = true, generatorConvention             = true));
+  annotation (
     experiment(StopTime = 1, Interval = 0.02),
     Documentation(info = "<html>
 <p>This model is similar to <a href=\"modelica://PowerGrids.Electrical.Test.OneBusOneLoad\">OneBusOneLoad</a>, save for the internal impedance of the bus, which is set to R = 0.3 Ohm and X = 1.5 Ohm.</p>

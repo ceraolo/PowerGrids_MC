@@ -13,27 +13,27 @@ block IEEE_TGOV1 "Simple Steam Turbine Governor - IEEE type TGOV1"
   parameter SI.PerUnit oversaturationPu = 0.1 "abs(u-usat)/(Vmax-Vmin) in case of saturated initial condition" annotation(Dialog(enable = fixInitialControlledVariable));
   final parameter Real delta = (firstOrderLim.yMax - firstOrderLim.yMin)*oversaturationPu "Actuator saturation margin";
 
-  Modelica.Blocks.Interfaces.RealInput RefLPu "Reference frequency/load input [pu]" annotation(
+  Modelica.Blocks.Interfaces.RealInput RefLPu "Reference frequency/load input [pu]" annotation (
     Placement(visible = true, transformation(origin = {-140, 50}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-100, 40}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  Modelica.Blocks.Interfaces.RealInput omegaPu "Frequency [pu]" annotation(
+  Modelica.Blocks.Interfaces.RealInput omegaPu "Frequency [pu]" annotation (
     Placement(visible = true, transformation(origin = {-140, -30}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-100, -40}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  Modelica.Blocks.Interfaces.RealOutput PMechPu "Mechanical turbine power [pu]" annotation(
+  Modelica.Blocks.Interfaces.RealOutput PMechPu "Mechanical turbine power [pu]" annotation (
     Placement(visible = true, transformation(origin = {130,50}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {100, 3.55271e-15}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  Modelica.Blocks.Math.Feedback errPu annotation(
+  Modelica.Blocks.Math.Feedback errPu annotation (
     Placement(visible = true, transformation(origin = {-70, 50}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Modelica.Blocks.Math.Feedback deltaOmegaPu annotation(
+  Modelica.Blocks.Math.Feedback deltaOmegaPu annotation (
     Placement(visible = true, transformation(origin = {-90, -30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Modelica.Blocks.Sources.Constant omegaRefPu(k = 1)  annotation(
+  Modelica.Blocks.Sources.Constant omegaRefPu(k = 1)  annotation (
     Placement(visible = true, transformation(origin = {-90, -70}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
-  Modelica.Blocks.Math.Gain gainDt(k = Dt)  annotation(
+  Modelica.Blocks.Math.Gain gainDt(k = Dt)  annotation (
     Placement(visible = true, transformation(origin = {10, -30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Modelica.Blocks.Math.Gain gainDivR(k = 1 / R)  annotation(
+  Modelica.Blocks.Math.Gain gainDivR(k = 1 / R)  annotation (
     Placement(visible = true, transformation(origin = {-30, 50}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  PowerGrids.Controls.FirstOrderWithNonWindupLimiter firstOrderLim(T = T1, initType = Modelica.Blocks.Types.Init.SteadyState, k = 1, yMax = VMax, yMin = VMin)  annotation(
+  PowerGrids.Controls.FirstOrderWithNonWindupLimiter firstOrderLim(T = T1, initType = Modelica.Blocks.Types.Init.SteadyState, k = 1, yMax = VMax, yMin = VMin)  annotation (
     Placement(visible = true, transformation(origin = {10, 50}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  PowerGrids.Controls.LeadLag leadLag(T1 = T2, T2 = T3, initType = Modelica.Blocks.Types.Init.SteadyState, k = 1)  annotation(
+  PowerGrids.Controls.LeadLag leadLag(T1 = T2, T2 = T3, initType = Modelica.Blocks.Types.Init.SteadyState, k = 1)  annotation (
     Placement(visible = true, transformation(origin = {50, 50}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Modelica.Blocks.Math.Feedback sumPMechPu annotation(
+  Modelica.Blocks.Math.Feedback sumPMechPu annotation (
     Placement(visible = true, transformation(origin = {90, 50}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 initial equation
   /* The following equation could be written as
@@ -60,29 +60,29 @@ initial equation
       simplified = PMechPu - PMechPuStart);
   end if;
 equation
-  connect(omegaRefPu.y, deltaOmegaPu.u2) annotation(
+  connect(omegaRefPu.y, deltaOmegaPu.u2) annotation (
     Line(points = {{-90, -58}, {-90, -58}, {-90, -38}, {-90, -38}}, color = {0, 0, 127}));
-  connect(gainDt.y, sumPMechPu.u2) annotation(
+  connect(gainDt.y, sumPMechPu.u2) annotation (
     Line(points = {{22, -30}, {90, -30}, {90, 42}, {90, 42}}, color = {0, 0, 127}));
-  connect(deltaOmegaPu.y, gainDt.u) annotation(
+  connect(deltaOmegaPu.y, gainDt.u) annotation (
     Line(points = {{-80, -30}, {-2, -30}, {-2, -30}, {-2, -30}}, color = {0, 0, 127}));
-  connect(deltaOmegaPu.y, errPu.u2) annotation(
+  connect(deltaOmegaPu.y, errPu.u2) annotation (
     Line(points = {{-80, -30}, {-70, -30}, {-70, 42}, {-70, 42}}, color = {0, 0, 127}));
-  connect(sumPMechPu.y, PMechPu) annotation(
+  connect(sumPMechPu.y, PMechPu) annotation (
     Line(points = {{99, 50}, {121, 50}, {121, 50}, {129, 50}}, color = {0, 0, 127}));
-  connect(leadLag.y, sumPMechPu.u1) annotation(
+  connect(leadLag.y, sumPMechPu.u1) annotation (
     Line(points = {{61, 50}, {79, 50}, {79, 50}, {81, 50}}, color = {0, 0, 127}));
-  connect(firstOrderLim.y, leadLag.u) annotation(
+  connect(firstOrderLim.y, leadLag.u) annotation (
     Line(points = {{21, 50}, {37, 50}, {37, 50}, {37, 50}}, color = {0, 0, 127}));
-  connect(gainDivR.y, firstOrderLim.u) annotation(
+  connect(gainDivR.y, firstOrderLim.u) annotation (
     Line(points = {{-19, 50}, {-3, 50}, {-3, 50}, {-3, 50}}, color = {0, 0, 127}));
-  connect(errPu.y, gainDivR.u) annotation(
+  connect(errPu.y, gainDivR.u) annotation (
     Line(points = {{-61, 50}, {-43, 50}, {-43, 50}, {-43, 50}}, color = {0, 0, 127}));
-  connect(RefLPu, errPu.u1) annotation(
+  connect(RefLPu, errPu.u1) annotation (
     Line(points = {{-140, 50}, {-78, 50}}, color = {0, 0, 127}));
-  connect(omegaPu, deltaOmegaPu.u1) annotation(
+  connect(omegaPu, deltaOmegaPu.u1) annotation (
     Line(points = {{-140, -30}, {-100, -30}, {-100, -30}, {-98, -30}}, color = {0, 0, 127}));
-  annotation(
+  annotation (
     Icon(coordinateSystem(grid = {0.1, 0.1}, initialScale = 0.1), graphics = {Rectangle(origin = {-1, -1}, extent = {{-99, 101}, {101, -99}}), Text(origin = {49, -25}, extent = {{-127, 27}, {33, -49}}, textString = "TGOV1"), Text(origin = {0, 120}, lineColor = {0, 0, 255}, extent = {{-80, 12}, {80, -12}}, textString = "%name"), Text(origin = {-6, 46}, extent = {{-60, 26}, {70, -40}}, textString = "IEEE")}),
     Diagram(coordinateSystem(extent = {{-200, -100}, {200, 100}})),
   Documentation(info = "<html>
