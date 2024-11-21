@@ -2,9 +2,9 @@ within PowerGrids.Examples.IEEE14bus;
 model IEEE14busPowerFlow "Power flow model of the IEEE 14-bus benchmark"
   extends Modelica.Icons.Example;
   inner PowerGrids.Electrical.System systemPowerGrids annotation (
-    Placement(visible = true, transformation(origin = {-170, 70}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(transformation(origin = {-140, 76}, extent = {{-10, -10}, {10, 10}})));
 
-  // Buses
+// Buses
   PowerGrids.Electrical.PowerFlow.SlackBus bus1(
     SNom = 100e6,
     U = 69e3*1.0598,
@@ -77,7 +77,7 @@ model IEEE14busPowerFlow "Power flow model of the IEEE 14-bus benchmark"
     annotation (
     Placement(visible = true, transformation(origin = {30, 80}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 
-  // Lines
+// Lines
   PowerGrids.Electrical.Branches.LineConstantImpedance L1to2(
     portVariablesPhases = true,
     R = 0.922682,
@@ -249,7 +249,7 @@ model IEEE14busPowerFlow "Power flow model of the IEEE 14-bus benchmark"
     annotation (
     Placement(visible = true, transformation(origin = {0, 72}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 
-  // LOADS
+// LOADS
   PowerGrids.Electrical.PowerFlow.PQBus Load2(
     portVariablesPhases = true,
     P = 21.7e6,
@@ -339,7 +339,7 @@ model IEEE14busPowerFlow "Power flow model of the IEEE 14-bus benchmark"
     annotation (
     Placement(visible = true, transformation(origin = {30, 94}, extent = {{-10, -10}, {10, 10}}, rotation = 180)));
 
-  // Capacitor bank
+// Capacitor bank
   PowerGrids.Electrical.Banks.CapacitorBankFixed Cbank9(
     portVariablesPhases = true,
     B = 0.099769,
@@ -348,7 +348,7 @@ model IEEE14busPowerFlow "Power flow model of the IEEE 14-bus benchmark"
     annotation (
     Placement(visible = true, transformation(origin = {110, 54}, extent = {{-10, -10}, {10, 10}}, rotation = 180)));
 
-  // Transformers
+// Transformers
   PowerGrids.Electrical.Branches.TransformerFixedRatio T4to7(
     portVariablesPhases = true,
     R = 0,
@@ -434,7 +434,7 @@ model IEEE14busPowerFlow "Power flow model of the IEEE 14-bus benchmark"
     annotation (
     Placement(visible = true, transformation(origin = {180, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
 
-  // Generators
+// Generators
   PowerGrids.Electrical.PowerFlow.PVBus GEN1(
     portVariablesPhases = true,
     SNom = 1211e6,
@@ -603,7 +603,7 @@ equation
     Line(points = {{120, -8}, {120, -8}, {120, 0}, {120, 0}}));
   annotation (
     Icon(coordinateSystem(grid = {0.1, 0.1})),
-    Diagram(coordinateSystem(extent = {{-200, -110}, {200, 110}}, grid = {0.5, 0.5})),
+    Diagram(coordinateSystem(extent = {{-160, 120}, {200, -120}}, grid = {0.5, 0.5})),
     experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-6, Interval = 0.002),
     __OpenModelica_commandLineOptions = "--daeMode --tearingMethod=minimalTearing",
     __OpenModelica_simulationFlags(nls="kinsol", lv="LOG_INIT_HOMOTOPY"));

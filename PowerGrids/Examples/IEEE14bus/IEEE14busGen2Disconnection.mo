@@ -9,6 +9,6 @@ equation
 
 annotation (
     Icon(coordinateSystem(grid = {0.1, 0.1})),
-    Diagram(coordinateSystem(extent = {{-200, -100}, {200, 100}}, grid = {0.5, 0.5})),
+    Diagram(coordinateSystem(extent = {{-180, 120}, {200, -120}}, grid = {0.5, 0.5})),
     experiment(StartTime = 0, StopTime = 40, Tolerance = 1e-6, Interval = 0.04));
 end IEEE14busGen2Disconnection;
