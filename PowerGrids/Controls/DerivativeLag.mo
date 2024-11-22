@@ -36,7 +36,7 @@ equation
   connect(u, gain.u) annotation (
     Line(points = {{-120, 0}, {-72, 0}, {-72, 0}, {-72, 0}}, color = {0, 0, 127}));
   annotation (
-    Icon(coordinateSystem(grid = {0.1, 0.1}, initialScale = 0.1), graphics = {Rectangle(lineColor = {0, 0, 127}, fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid, extent = {{-100, 100}, {100, -100}}), Text(origin = {4, -36}, extent = {{-60, 22}, {60, -22}}, textString = "1 + sT1"), Line(origin = {-12, 0}, points = {{-64, 0}, {86, 0}}), Text(origin = {8, 34}, extent = {{-60, 22}, {32, -14}}, textString = "sTd")}),
+    Icon(coordinateSystem(grid = {0.1, 0.1}, initialScale = 0.1), graphics={  Rectangle(lineColor = {0, 0, 127}, fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid, extent = {{-100, 100}, {100, -100}}), Text(origin = {4, -36}, extent = {{-60, 22}, {60, -22}}, textString = "1 + sT1"), Line(origin = {-12, 0}, points = {{-64, 0}, {86, 0}}), Text(origin = {8, 34}, extent = {{-60, 22}, {32, -14}}, textString = "sTd")}),
     Diagram(coordinateSystem(extent = {{-160, -100}, {160, 100}}, initialScale = 0.1), graphics = {Text(origin = {-92, -63}, extent = {{-2, 5}, {194, -23}}, textString = "The case noDynamics = true is handled via conditional blocks (see text view)
 When noDynamics = true the integrator block is not instantiated
 and the zero block is instantiated instead")}),

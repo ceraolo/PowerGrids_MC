@@ -65,7 +65,7 @@ equation
   connect(gain.y, limiterWithLag.u) annotation (
     Line(points = {{-38, -30}, {-12, -30}}, color = {0, 0, 127}));
   annotation (
-    Icon(coordinateSystem(grid = {0.1, 0.1}, initialScale = 0.1), graphics = {Rectangle(origin = {0, 1}, extent = {{-100, 99}, {100, -101}}), Text(origin = {24, 4}, extent = {{-94, 70}, {56, -72}}, textString = "VR
+    Icon(coordinateSystem(grid = {0.1, 0.1}, initialScale = 0.1), graphics={  Rectangle(origin = {0, 1}, extent = {{-100, 99}, {100, -101}}), Text(origin = {24, 4}, extent = {{-94, 70}, {56, -72}}, textString = "VR
 PROP"), Text(origin = {0, 120}, lineColor = {0, 0, 255}, extent = {{-80, 14}, {80, -14}}, textString = "%name")}),
     Diagram(coordinateSystem(extent = {{-200, -100}, {200, 100}})),
   Documentation(info = "<html><head></head><body><p>The class implements a simple model of a proportional static exictation with limiter.</p><p><span style=\"font-family: 'DejaVu Sans Mono'; font-size: 12px;\">The Limiter enforces saturations only after they were violated without interruption during a certain amount of time.</span>&nbsp;</p>

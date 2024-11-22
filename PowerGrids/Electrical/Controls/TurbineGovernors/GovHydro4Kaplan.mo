@@ -9,7 +9,7 @@ equation
   connect(div1.u1, tableGvPgv.y[1]) annotation (
     Line(points = {{-142, -44}, {-150, -44}, {-150, -50}, {-158, -50}, {-158, -50}}, color = {0, 0, 127}));
   annotation (
-    Icon(coordinateSystem(grid = {0.1, 0.1}, initialScale = 0.1), graphics = {Text(origin = {0, -39}, extent = {{-62, 17}, {62, -17}}, textString = "Pelton"), Text(origin = {4, -71}, extent = {{-62, 17}, {62, -17}}, textString = "Francis")}),
+    Icon(coordinateSystem(grid = {0.1, 0.1}, initialScale = 0.1), graphics={  Text(origin = {0, -39}, extent = {{-62, 17}, {62, -17}}, textString = "Pelton"), Text(origin = {4, -71}, extent = {{-62, 17}, {62, -17}}, textString = "Francis")}),
     Diagram(coordinateSystem(extent = {{-200, -100}, {200, 100}})),
     Documentation(info = "<html><head></head><body><div><div style=\"font-size: 12px;\"><span style=\"line-height: 12px;\">This class extends the <a href=\"Modelica:///PowerGrids.Electrical.Controls.TurbineGovernors.BaseClasses.GovHydro4Base\">GovHydro4Base</a> base class, implementing</span><span style=\"line-height: 12px;\">&nbsp;a governor which can be used for Kaplan turbines.</span></div><div style=\"font-size: 12px;\"><span style=\"line-height: 12px;\"><br></span></div><div style=\"font-size: 12px;\"><span style=\"line-height: 12px;\">The turbine characteristics is implemented as a linear interpolatipon of a given set of working points, which&nbsp;</span><span style=\"line-height: 12px;\">default values are shown in the following table:</span></div></div><div><div style=\"text-align: center;\"><span style=\"line-height: 12px;\"><br></span></div><span style=\"line-height: 12px;\"><table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"text-align: center;\">
 

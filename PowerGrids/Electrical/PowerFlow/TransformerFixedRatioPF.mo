@@ -1,4 +1,4 @@
-within PowerGrids.Electrical.Branches;
+within PowerGrids.Electrical.PowerFlow;
 model TransformerFixedRatioPF "Transformer with fixed voltage ratio"
   extends Branches.BaseClasses.PiNetwork_PF;
   extends Icons.Transformer;

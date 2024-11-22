@@ -8,7 +8,14 @@ equation
   port.P = P;
   port.U = U;
 annotation (
-    Icon(coordinateSystem(grid = {0.1, 0.1}, initialScale = 0.1), graphics={  Text(origin = {84, 10}, extent = {{-20, 20}, {40, -40}}, textString = "PV")}),
+    Icon(graphics={
+          Rectangle(
+          extent={{26.5,18.6},{88,-24.9}},
+          lineColor={28,108,200},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid,
+          pattern=LinePattern.None),
+          Text(origin={48.2,7.8}, extent = {{-20, 20}, {40, -40}}, textString = "PV")}),
     Documentation(info = "<html><head></head><body><p>PVBus: prescribes the line-to-line voltage magnitude <code>U</code> of the bus and the active power <code>P</code> entering the  bus.</p>
 </body></html>"));
 end PVBus;

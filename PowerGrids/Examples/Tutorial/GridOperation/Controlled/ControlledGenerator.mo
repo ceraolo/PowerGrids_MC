@@ -45,6 +45,6 @@ equation
   connect(GEN.omega, omega) annotation (
     Line(points = {{50, 6}, {54, 6}, {54, 12}, {64, 12}, {64, 12}}, color = {0, 0, 127}));
   annotation (
-    Icon(coordinateSystem(grid = {0.1, 0.1}, initialScale = 0.1), graphics = {Text(origin = {12, -74}, extent = {{-58, 10}, {34, -4}}, textString = "CONTROL"), Rectangle(origin = {0, -70}, extent = {{-50, 10}, {50, -10}})}),
+    Icon(coordinateSystem(grid = {0.1, 0.1}, initialScale = 0.1), graphics={  Text(origin = {12, -74}, extent = {{-58, 10}, {34, -4}}, textString = "CONTROL"), Rectangle(origin = {0, -70}, extent = {{-50, 10}, {50, -10}})}),
     Diagram(coordinateSystem(grid = {0.5, 0.5}, extent = {{-120, -100}, {120, 100}})));
 end ControlledGenerator;

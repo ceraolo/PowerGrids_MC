@@ -6,3 +6,6 @@ Test
 BusPF
 LineConstantImpedancePF
 LineConstantImpedanceWithBreakersPF
+TransformerFixedRatioPF
+TransformerFixedRatioWithBreakerPF
+CapacitorBankFixedPF
