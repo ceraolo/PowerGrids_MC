@@ -437,41 +437,41 @@ model IEEE14busPowerFlow "Power flow model of the IEEE 14-bus benchmark"
 // Generators
   PowerGrids.Electrical.PowerFlow.PVBus GEN1(
     portVariablesPhases = true,
-    SNom = 1211e6,
-    UNom = 24e3,
-    P = -232.36955e6,
-    U = 25.4068e3)
+    SNom=1211000000,
+    UNom=24000,
+    P=-229290000,
+    U=24000)
     annotation (
     Placement(visible = true, transformation(origin = {-130, 46}, extent = {{-10, -10}, {10, 10}}, rotation = 180)));
   PowerGrids.Electrical.PowerFlow.PVBus GEN2(
     portVariablesPhases = true,
-    SNom = 1120e6,
-    UNom = 24e3,
-    U = 25.1608e3,
-    P = -40e6)
+    SNom=1120000000,
+    UNom=24000,
+    U=24000,
+    P=-40000000)
     annotation (
     Placement(visible = true, transformation(origin={-148,-90},    extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   PowerGrids.Electrical.PowerFlow.PVBus GEN3(
     portVariablesPhases = true,
-    SNom = 1650e6,
-    UNom = 20e3,
-    U = 20.229e3,
-    P = 0.0)
+    SNom=1650000000,
+    UNom=20000,
+    U=20000,
+    P=0)
     annotation (
     Placement(visible = true, transformation(origin = {174, -90}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
   PowerGrids.Electrical.PowerFlow.PVBus GEN6(
     portVariablesPhases = true,
-    SNom = 80.0e6,
-    UNom = 13.8e3,
-    U = 14.7347e3,
+    SNom=80000000,
+    UNom=13800,
+    U=13800,
     P = 0)
     annotation (
     Placement(visible = true, transformation(origin = {-70, -10}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   PowerGrids.Electrical.PowerFlow.PVBus GEN8(
     portVariablesPhases = true,
-    SNom = 250e6,
-    UNom = 18e3,
-    U = 19.6461e3,
+    SNom=250000000,
+    UNom=18000,
+    U=18000,
     P = 0)
     annotation (
     Placement(visible = true, transformation(origin = {180, -26}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
