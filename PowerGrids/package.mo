@@ -6,7 +6,7 @@ package PowerGrids
 
   annotation (
     version="1.0.4",
-    conversion(noneFromVersion = "1.0.0",
+    conversion(noneFromVersion = "1.0.99",
                noneFromVersion = "1.0.1",
                noneFromVersion = "1.0.2"),
     uses(Modelica(version="4.0.0"), Complex(version="4.0.0")),

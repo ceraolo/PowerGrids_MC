@@ -42,22 +42,22 @@ model PortAC "AC port computing auxiliary quantities"
   Types.ActivePower   P(nominal = SBase, start = PStart) = S.re "Active power flowing into the port";
   Types.ReactivePower Q(nominal = SBase, start = QStart) = S.im "Reactive power flowing into the port";
 
-  Types.Voltage U(nominal = UBase, start = UStart) = Modelica.ComplexMath.abs(
-                                                              u) "Port voltage absolute value (phase-to-phase)";
-  Types.Current I(nominal = IBase, start = IStart) = Modelica.ComplexMath.abs(
-                                                              i) "Port current (positive entering)";
+  Types.Voltage U(nominal = UBase, start = UStart) = 
+        Modelica.ComplexMath.abs(u) "Port voltage absolute value (phase-to-phase)";
+  Types.Current I(nominal = IBase, start = IStart) = 
+         Modelica.ComplexMath.abs(i) "Port current (positive entering)";
 
-  Types.PerUnit        PPu(start = PStart/SBase) = if portVariablesPu then S.re/SBase else 0 "Active power flowing into the port in p.u. (base SBase)" annotation (
+  Types.PerUnit PPu(start = PStart/SBase) = if portVariablesPu then S.re/SBase else 0 "Active power flowing into the port in p.u. (base SBase)" annotation (
   HideResult = portVariablesPu);
-  Types.PerUnit        QPu(start = QStart/SBase) = if portVariablesPu then S.im/SBase else 0 "Reactive power flowing into the port in p.u. (base SBase)" annotation (
+  Types.PerUnit QPu(start = QStart/SBase) = if portVariablesPu then S.im/SBase else 0 "Reactive power flowing into the port in p.u. (base SBase)" annotation (
   HideResult = portVariablesPu);
   Types.ComplexPerUnit vPu(re(start = vStart.re/VBase),im(start = vStart.im/VBase)) = if portVariablesPu then u*(1/UBase) else Complex(0) "Complex voltage across the port in p.u. (base VBase)"  annotation (
   HideResult = portVariablesPu);
-  SI.PerUnit           VPu(start = VStart/VBase) = if portVariablesPu then U/UBase else 0 "Absolute value of voltage across the port in p.u. (base VBase)" annotation (
+  SI.PerUnit   VPu(start = VStart/VBase) = if portVariablesPu then U/UBase else 0 "Absolute value of voltage across the port in p.u. (base VBase)" annotation (
   HideResult = portVariablesPu);
   Types.ComplexPerUnit iPu(re(start = iStart.re/IBase), im(start = iStart.im/IBase)) = if portVariablesPu then i*(1/IBase) else Complex(0) "Complex current flowing into the port in p.u. (base IBase)" annotation (
   HideResult = portVariablesPu);
-  SI.PerUnit           IPu(start = IStart/IBase) = if portVariablesPu then I/IBase else 0 "Absolute value of complex current flowing into the port in p.u. (base IBase)" annotation (
+  SI.PerUnit   IPu(start = IStart/IBase) = if portVariablesPu then I/IBase else 0 "Absolute value of complex current flowing into the port in p.u. (base IBase)" annotation (
   HideResult = portVariablesPu);
 
   Types.Angle UPhase(start = UPhaseStart) = if portVariablesPhases then atan2(v.im, v.re) else 0 "Phase of voltage across the port"  annotation (

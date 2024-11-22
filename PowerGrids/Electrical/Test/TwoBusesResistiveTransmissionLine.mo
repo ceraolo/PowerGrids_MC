@@ -4,8 +4,8 @@ model TwoBusesResistiveTransmissionLine
   PowerGrids.Electrical.Buses.InfiniteBus infiniteBusA(SNom = 1e+07, UNom = 10000, portVariablesPu = true, theta = 0.523599) annotation (
     Placement(visible = true, transformation(origin = {-40, 0}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   inner PowerGrids.Electrical.System systemPowerGrids annotation (
-    Placement(visible = true, transformation(origin = {70, 70}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  PowerGrids.Electrical.Branches.LineConstantImpedance transmissionLine(R = 1, SNom = 1e+07, UNom = 10000, X = 0, portVariablesPhases = true, portVariablesPu = true) annotation (
+    Placement(transformation(origin = {50, 30}, extent = {{-10, -10}, {10, 10}})));
+  PowerGrids.Electrical.Branches.LineConstantImpedance transmissionLine(R = 1, SNom = 1e+07, UNom = 10000, X = 0, portVariablesPhases = true, portVariablesPu = true, showPFdata = true) annotation (
     Placement(visible = true, transformation(origin = {0, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   PowerGrids.Electrical.Buses.InfiniteBus infiniteBusB(SNom = 1e+07, UNom = 9000, portVariablesPu = true, theta = 0.523599) annotation (
     Placement(visible = true, transformation(origin = {38, 0}, extent = {{-10, 10}, {10, -10}}, rotation = -90)));
@@ -16,7 +16,7 @@ equation
     Line(points = {{10, 0}, {38, 0}}));
   annotation (
     Icon(coordinateSystem(grid = {0.1, 0.1})),
-    Diagram(coordinateSystem(extent = {{-100, -100}, {100, 100}})),
+    Diagram(coordinateSystem(extent = {{-60, 40}, {60, -20}})),
     experiment(StopTime = 1, Interval = 0.02),
     Documentation(info = "<html><head></head><body><p>This model demonstrates the dissipation of active power of a purely resistive transmission line, connected to two infinite buses, one with a phase-to-phase voltage U = 10 kV, one with a phase-to-phase voltage U = 9 kV, both with a 30 deg phase. The resistance of each conductor is 1 Ohm. </p>
 <p>As a consequence, the current flowing in each conductor is</p>
