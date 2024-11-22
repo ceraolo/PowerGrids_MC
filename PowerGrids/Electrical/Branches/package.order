@@ -10,3 +10,4 @@ TransformerWithPhaseShifterInterval
 TransformerWithPhaseShifterMax
 TransformerWithPhaseShifterTarget
 BaseClasses
+TransformerFixedRatioPF

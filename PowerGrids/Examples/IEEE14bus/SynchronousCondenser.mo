@@ -31,6 +31,6 @@ equation
   connect(PmPu.y, GEN.PmPu) annotation (
     Line(points = {{-58, 20}, {-50, 20}, {-50, 4}, {-36, 4}, {-36, 4}}, color = {0, 0, 127}));
   annotation (
-    Icon(coordinateSystem(grid = {0.1, 0.1}, initialScale = 0.1), graphics = {Text(origin = {12, -74}, extent = {{-58, 10}, {34, -4}}, textString = "CONTROL"), Rectangle(origin = {0, -70}, extent = {{-50, 10}, {50, -10}}), Text(origin = {-106, 0}, extent = {{-36, 40}, {36, -40}}, textString = "SC")}),
+    Icon(coordinateSystem(grid = {0.1, 0.1}, initialScale = 0.1), graphics={  Text(origin = {12, -74}, extent = {{-58, 10}, {34, -4}}, textString = "CONTROL"), Rectangle(origin = {0, -70}, extent = {{-50, 10}, {50, -10}}), Text(origin = {-106, 0}, extent = {{-36, 40}, {36, -40}}, textString = "SC")}),
     Diagram(coordinateSystem(extent = {{-200, -100}, {200, 100}}, grid = {0.5, 0.5})));
 end SynchronousCondenser;

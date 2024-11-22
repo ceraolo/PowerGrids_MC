@@ -80,5 +80,5 @@ model PortAC "AC port computing auxiliary quantities"
 
 <p>Per-unit quantities, angles and quantities using the generator convention are defined if the corresponding parameters <code>portVariablesPu</code>, <code>portVariablesAngles</code>, and <code>generatorConvention</code> are set to true, respectively.</p>
 </html>"),
-    Icon(graphics = {Rectangle(extent = {{-100, 100}, {100, -100}})}));
+    Icon(graphics={  Rectangle(extent = {{-100, 100}, {100, -100}})}));
 end PortAC;
