@@ -10,12 +10,12 @@ equation
 annotation (
     Icon(graphics={
           Rectangle(
-          extent={{26.5,18.6},{88,-24.9}},
+          extent={{26.5,24.6},{88,-18.9}},
           lineColor={28,108,200},
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid,
           pattern=LinePattern.None),
-          Text(origin={48.2,7.8}, extent = {{-20, 20}, {40, -40}}, textString = "PV")}),
+          Text(origin={48.2,9.8}, extent = {{-20, 20}, {40, -40}}, textString = "PV")}),
     Documentation(info = "<html><head></head><body><p>PVBus: prescribes the line-to-line voltage magnitude <code>U</code> of the bus and the active power <code>P</code> entering the  bus.</p>
 </body></html>"));
 end PVBus;

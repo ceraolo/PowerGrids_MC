@@ -33,15 +33,15 @@ equation
   connect(GEN.VPu, AVR.VcPu) annotation (
     Line(points = {{-16, 0}, {-8, 0}, {-8, 52}, {-114, 52}, {-114, -8}, {-72, -8}}, color = {0, 0, 127}));
   connect(zero2.y, LOAD.QRefIn) annotation (
-    Line(points = {{-4.8, -52}, {-0.6, -52}, {-0.6, -42}, {11.4, -42}}, color = {0, 0, 127}));
+    Line(points={{-4.8,-52},{-0.6,-52},{-0.6,-42},{12,-42}},            color = {0, 0, 127}));
   connect(zero.y, AVR.VuelPu) annotation (
-    Line(points = {{-90.8, -34}, {-79.6, -34}, {-79.6, -16}, {-71.6, -16}}, color = {0, 0, 127}));
+    Line(points={{-90.8,-34},{-79.6,-34},{-79.6,-16},{-72,-16}},            color = {0, 0, 127}));
   connect(zero.y, AVR.VsPu) annotation (
-    Line(points = {{-90.8, -34}, {-79.8, -34}, {-79.8, -4}, {-71.8, -4}}, color = {0, 0, 127}));
+    Line(points={{-90.8,-34},{-79.8,-34},{-79.8,-4},{-72,-4}},            color = {0, 0, 127}));
   connect(VrefPu.y, AVR.VrefPu) annotation (
-    Line(points = {{-90.8, -19}, {-85.6, -19}, {-85.6, -12}, {-71.6, -12}}, color = {0, 0, 127}));
+    Line(points={{-90.8,-19},{-85.6,-19},{-85.6,-12},{-72,-12}},            color = {0, 0, 127}));
   connect(PLoad.y, LOAD.PRefIn) annotation (
-    Line(points = {{-9.2, -28}, {-0.2, -28}, {-0.2, -36}, {11.8, -36}}, color = {0, 0, 127}));
+    Line(points={{-9.2,-28},{-0.2,-28},{-0.2,-36},{12,-36}},            color = {0, 0, 127}));
   connect(NGEN.terminal, LOAD.terminal) annotation (
     Line(points = {{14, -14}, {22, -14}, {22, -32}}));
   connect(RefLPu.y, TGOV.RefLPu) annotation (

@@ -1,7 +1,10 @@
 Test
 SlackBus
+SlackBusS
 PVBus
 PQBus
+PQBusS
+PVBusS
 ZLoad
 BusPF
 LineConstantImpedancePF

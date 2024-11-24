@@ -4,5 +4,6 @@ InfiniteBus
 InfiniteBusVariableVoltage
 BusFault
 EquivalentGrid
+EquivalentGridR
 Ground
 BaseClasses
