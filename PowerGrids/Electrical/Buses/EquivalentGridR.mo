@@ -1,7 +1,7 @@
 within PowerGrids.Electrical.Buses;
 model EquivalentGridR
 
-  //    y[1,1]=port.U;
+ //    y[1,1]=port.U;
 //    y[1,2]=port.UPhase;
 //    y[1,3]=port.P;
 //    y[1,4]=port.Q;

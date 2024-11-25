@@ -342,7 +342,7 @@ model IEEE14busPowerFlow "Power flow model of the IEEE 14-bus benchmark"
     Placement(visible = true, transformation(origin={30,90},    extent = {{-10, -10}, {10, 10}}, rotation = 180)));
 
 // Capacitor bank
-  PowerGrids.Electrical.PowerFlow.CapacitorBankFixedPF Cbank9(
+  PowerGrids.Electrical.Banks.CapacitorBankFixed Cbank9(
     portVariablesPhases = true,
     B = 0.099769,
     SNom = 100e6,
