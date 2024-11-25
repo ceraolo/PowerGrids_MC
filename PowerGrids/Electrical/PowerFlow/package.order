@@ -6,9 +6,4 @@ PQBus
 PQBusS
 PVBusS
 ZLoad
-BusPF
-LineConstantImpedancePF
-LineConstantImpedanceWithBreakersPF
-TransformerFixedRatioPF
-TransformerFixedRatioWithBreakerPF
 CapacitorBankFixedPF

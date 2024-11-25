@@ -3,9 +3,9 @@ model PowerFlow "Power flow for the basic grid used in the tutorial"
   extends Modelica.Icons.Example;
   PowerGrids.Electrical.PowerFlow.PVBus GEN(P = -4.75e+8, SNom = 5e+8, U = 20825.8, UNom = 21000, generatorConvention = false, portVariablesPhases = true, portVariablesPu = true)  annotation (
     Placement(visible = true, transformation(origin = {-50, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
-  PowerGrids.Electrical.PowerFlow.BusPF NTLV(SNom = 5e+8, UNom = 21000, portVariablesPhases = true, portVariablesPu = true)  annotation (
+  PowerGrids.Electrical.Buses.Bus NTLV(SNom = 5e+8, UNom = 21000, portVariablesPhases = true, portVariablesPu = true)  annotation (
     Placement(visible = true, transformation(origin = {-30, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
-  PowerGrids.Electrical.PowerFlow.TransformerFixedRatioPF TGEN(
+  PowerGrids.Electrical.Branches.TransformerFixedRatio TGEN(
     R=0.15e-2*419^2/500,
     SNom=5e+8,
     UNomA=21000,
@@ -17,7 +17,7 @@ model PowerFlow "Power flow for the basic grid used in the tutorial"
         origin={0,0},
         extent={{-10,-10},{10,10}},
         rotation=0)));
-  PowerGrids.Electrical.PowerFlow.BusPF NTHV(SNom = 5e+8, UNom = 380000, portVariablesPhases = true, portVariablesPu = true)  annotation (
+  PowerGrids.Electrical.Buses.Bus NTHV(SNom = 5e+8, UNom = 380000, portVariablesPhases = true, portVariablesPu = true)  annotation (
     Placement(visible = true, transformation(origin = {30, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
   inner PowerGrids.Electrical.System systemPowerGrids annotation (
     Placement(visible = true, transformation(origin = {-30, 30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));

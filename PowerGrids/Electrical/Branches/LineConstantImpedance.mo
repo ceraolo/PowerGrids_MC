@@ -10,7 +10,7 @@ model LineConstantImpedance "Transmission line with constant impedance"
   parameter Types.Reactance X "Series reactance";
   parameter Types.Conductance G = 0  "Shunt conductance";
   parameter Types.Susceptance B = 0 "Shunt susceptance";
-  
+
   parameter Boolean showPFdata=false "=true, if PowerFlow data are to be shown";
 
 equation
@@ -23,7 +23,6 @@ annotation (
 <p>Transmission line with constant series impedance R+jX and constant shunt admittance G+jB. </p>
 <p>Implemented as a child class of <a href=\"modelica://PowerGrids.Electrical.Branches.BaseClasses.PiNetwork\">PiNetwork</a>, where Ya=Yb=(G+jB)/2 and k = 1, see the corresponding documentation.</p>
 </html>"),
-
 Icon(graphics={
        Text(
           visible=showPFdata,
@@ -54,6 +53,5 @@ Icon(graphics={
           visible=showPFdata,
           extent={{40,-20},{168,-56}},
           lineColor={28,108,200},
-          textString=DynamicSelect("V", String(portB.U/portB.UNom, significantDigits=3)))})
-);
+          textString=DynamicSelect("V", String(portB.U/portB.UNom, significantDigits=3)))}));
 end LineConstantImpedance;

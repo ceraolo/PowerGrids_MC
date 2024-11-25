@@ -50,7 +50,5 @@ annotation (
           visible=showPFdata,
           extent={{38,-18},{174,-52}},
           lineColor={28,108,200},
-          textString=DynamicSelect("V", String(portB.U/portB.UNom, significantDigits=3)))})
-
-);
+          textString=DynamicSelect("V", String(portB.U/portB.UNom, significantDigits=3)))}));
 end TransformerFixedRatio;
