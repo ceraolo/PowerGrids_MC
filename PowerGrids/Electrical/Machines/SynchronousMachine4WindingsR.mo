@@ -1,9 +1,22 @@
 within PowerGrids.Electrical.Machines;
 model SynchronousMachine4WindingsR
-  /* This should be exactly equivalent to SynchronousMachine4WindingsR, 
-  but in Dymola this causes an erroneous error message */
 
-  extends SynchronousMachine4Windings;
+//    y[1,1]=port.U;
+//    y[1,2]=port.UPhase;
+//    y[1,3]=port.P;
+//    y[1,4]=port.Q;
+//    y[1,5]=port.VPu;
+//    y[1,6]=port.PPu;
+//    y[1,7]=port.QPu;
+
+//    PStart=GEN_.y[1, 3],
+//    QStart=GEN_.y[1, 4],
+//    UStart=GEN_.y[1, 1],
+//    UPhaseStart=GEN_.y[1, 2],
+
+
+  extends SynchronousMachine4Windings(PStart=y[1,3],QStart=y[1,4],
+UStart=y[1,1],UPhaseStart=y[1,2]);
 
   //Code to read output from previous PowerFlow run:
   final parameter String name = getInstanceName();
