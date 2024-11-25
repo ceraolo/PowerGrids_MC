@@ -1,6 +1,23 @@
 within PowerGrids.Electrical.Buses;
 model EquivalentGridR
-  extends EquivalentGrid;
+
+  //    y[1,1]=port.U;
+//    y[1,2]=port.UPhase;
+//    y[1,3]=port.P;
+//    y[1,4]=port.Q;
+//    y[1,5]=port.VPu;
+//    y[1,6]=port.PPu;
+//    y[1,7]=port.QPu;
+
+//    PStart=GEN_.y[1, 3],
+//    QStart=GEN_.y[1, 4],
+//    UStart=GEN_.y[1, 1],
+//    URef=GRID_.y[1, 1],
+//    UPhaseStart=GEN_.y[1, 2],
+
+
+  extends EquivalentGrid( PStart=y[1,3], QStart=y[1,4], UStart=y[1,1],
+URef=y[1,1], UPhaseStart=y[1,2]);
 
 
   //Code to read output from previous PowerFlow run:
