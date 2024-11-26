@@ -5,4 +5,5 @@ IEEE14busGen2Disconnection
 IEEE14busLine1to5Opening
 IEEE14busLoad2Variation
 ControlledGeneratorIEEE
+ControlledGeneratorR
 SynchronousCondenser

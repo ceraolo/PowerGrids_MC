@@ -109,15 +109,40 @@ model IEEE14busStaticNetwork "Dynamic model of the IEEE 14-bus system, operating
   PowerGrids.Electrical.Branches.TransformerFixedRatio Tgen8(portVariablesPhases = true, R = 0, X = 0.076176, B = 0, G = 0, rFixed = 0.766667, SNom = 250e6, UNomA = 18e3, UNomB = 13.8e3) annotation (
     Placement(visible = true, transformation(origin={166,0},    extent = {{-10, -10}, {10, 10}}, rotation = 90)));
   // Generators
-  PowerGrids.Examples.IEEE14bus.ControlledGeneratorIEEE GEN1(GEN(DPu = 0.0, H = 5.4, Tppd0 = 0.08, xpdPu = 0.384, Tpd0 = 8.094, raPu = 0.002796, xpqPu = 0.393, Tppq0 = 0.084, Tpq0 = 1.572, xppdPu = 0.264, xdPu = 2.22, xlPu = 0.202, xppqPu = 0.262, xqPu = 2.22, PNom = 1090e6, SNom = 1211e6, UNom = 24e3, PStart = -232.37e6, QStart = 15.7473e6, UStart = 25.4068e3, UPhaseStart = 0.0171006)) annotation (
+  PowerGrids.Examples.IEEE14bus.ControlledGeneratorIEEE GEN1(GEN(DPu = 0.0,
+      H = 5.4, Tppd0 = 0.08, xpdPu = 0.384, Tpd0 = 8.094, raPu = 0.002796,
+      xpqPu = 0.393, Tppq0 = 0.084, Tpq0 = 1.572, xppdPu = 0.264, xdPu = 2.22,
+      xlPu = 0.202, xppqPu = 0.262, xqPu = 2.22, PNom = 1090e6, SNom = 1211e6,
+      UNom = 24e3, PStart = -232.37e6, QStart = 15.7473e6, UStart = 25.4068e3,
+      UPhaseStart = 0.0171006)) annotation (
     Placement(transformation(origin={-138,46},    extent = {{-10, -10}, {10, 10}}, rotation = 180)));
-  PowerGrids.Examples.IEEE14bus.ControlledGeneratorIEEE GEN2(GEN(DPu = 0.0, H = 5.4, Tppd0 = 0.058, xpdPu = 0.407, Tpd0 = 9.651, raPu = 0.00357, xpqPu = 0.454, Tppq0 = 0.06, Tpq0 = 1.009, xppdPu = 0.3, xdPu = 2.57, xlPu = 0.219, xppqPu = 0.301, xqPu = 2.57, PNom = 1008e6, SNom = 1120e6, UNom = 24e3, PStart = -40e6, QStart = -42.7306e6, UStart = 25.1608e3, UPhaseStart = -0.0837392)) annotation (
+  PowerGrids.Examples.IEEE14bus.ControlledGeneratorIEEE GEN2(GEN(DPu = 0.0,
+     H = 5.4, Tppd0 = 0.058, xpdPu = 0.407, Tpd0 = 9.651, raPu = 0.00357,
+     xpqPu = 0.454, Tppq0 = 0.06, Tpq0 = 1.009, xppdPu = 0.3, xdPu = 2.57,
+     xlPu = 0.219, xppqPu = 0.301, xqPu = 2.57, PNom = 1008e6, SNom = 1120e6,
+     UNom = 24e3, PStart = -40e6, QStart = -42.7306e6, UStart = 25.1608e3,
+     UPhaseStart = -0.0837392)) annotation (
     Placement(transformation(origin={-158,-90},    extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  PowerGrids.Examples.IEEE14bus.SynchronousCondenser GEN3(GEN(DPu = 0.0, H = 5.625, Tppd0 = 0.065, xpdPu = 0.509, Tpd0 = 10.041, raPu = 0.00316, xpqPu = 0.601, Tppq0 = 0.094, Tpq0 = 1.22, xppdPu = 0.354, xdPu = 2.81, xlPu = 0.256, xppqPu = 0.377, xqPu = 2.62, PNom = 1485e6, SNom = 1650e6, UNom = 20e3, PStart = 0.0, QStart = -25.3998e6, UStart = 20.229e3, UPhaseStart = -0.22231)) annotation (
+  PowerGrids.Examples.IEEE14bus.SynchronousCondenser GEN3(GEN(DPu = 0.0,
+     H = 5.625, Tppd0 = 0.065, xpdPu = 0.509, Tpd0 = 10.041, raPu = 0.00316,
+     xpqPu = 0.601, Tppq0 = 0.094, Tpq0 = 1.22, xppdPu = 0.354, xdPu = 2.81,
+     xlPu = 0.256, xppqPu = 0.377, xqPu = 2.62, PNom = 1485e6, SNom = 1650e6,
+     UNom = 20e3, PStart = 0.0, QStart = -25.3998e6, UStart = 20.229e3,
+     UPhaseStart = -0.22231)) annotation (
     Placement(visible = true, transformation(origin={160,-90},    extent = {{-10, -10}, {10, 10}}, rotation = 90)));
-  PowerGrids.Examples.IEEE14bus.SynchronousCondenser GEN6(GEN(xpqPu = 0.225, Tpq0 = 3.0, DPu = 0.0, H = 4.975, Tppd0 = 0.04, xpdPu = 0.225, Tpd0 = 3.0, raPu = 0.004, Tppq0 = 0.06, xppdPu = 0.154, xdPu = 0.75, xlPu = 0.102, xppqPu = 0.154, xqPu = 0.45, PNom = 71.8e6, SNom = 80.0e6, UNom = 13.8e3, PStart = 0, QStart = -15.0186e6, UStart = 14.7347e3, UPhaseStart = -0.249364)) annotation (
+  PowerGrids.Examples.IEEE14bus.SynchronousCondenser GEN6(GEN(xpqPu = 0.225,
+     Tpq0 = 3.0, DPu = 0.0, H = 4.975, Tppd0 = 0.04, xpdPu = 0.225, Tpd0 = 3.0,
+     raPu = 0.004, Tppq0 = 0.06, xppdPu = 0.154, xdPu = 0.75, xlPu = 0.102,
+     xppqPu = 0.154, xqPu = 0.45, PNom = 71.8e6, SNom = 80.0e6, UNom = 13.8e3,
+     PStart = 0, QStart = -15.0186e6, UStart = 14.7347e3,
+     UPhaseStart = -0.249364)) annotation (
     Placement(visible = true, transformation(origin={-84,-10},    extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  PowerGrids.Examples.IEEE14bus.SynchronousCondenser GEN8(GEN(xpqPu = 0.31, Tpq0 = 8.4, DPu = 0.0, H = 2.748, Tppd0 = 0.096, xpdPu = 0.31, Tpd0 = 8.4, raPu = 0.004, Tppq0 = 0.1, xppdPu = 0.275, xdPu = 1.53, xlPu = 0.11, xppqPu = 0.346, xqPu = 0.99, PNom = 242e6, SNom = 250e6, UNom = 18e3, PStart = 0, QStart = -16.2253e6, UStart = 19.6461e3, UPhaseStart = -0.233851)) annotation (
+  PowerGrids.Examples.IEEE14bus.SynchronousCondenser GEN8(GEN(xpqPu = 0.31,
+     Tpq0 = 8.4, DPu = 0.0, H = 2.748, Tppd0 = 0.096, xpdPu = 0.31, Tpd0 = 8.4,
+     raPu = 0.004, Tppq0 = 0.1, xppdPu = 0.275, xdPu = 1.53, xlPu = 0.11,
+     xppqPu = 0.346, xqPu = 0.99, PNom = 242e6, SNom = 250e6, UNom = 18e3,
+     PStart = 0, QStart = -16.2253e6, UStart = 19.6461e3,
+     UPhaseStart = -0.233851)) annotation (
     Placement(visible = true, transformation(origin={166,-26},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
   connect(bus12.terminal, L6to12.terminalB) annotation (
