@@ -52,5 +52,10 @@ annotation (
               -59.8,8},{70.2,-12}},
           textString="To see load change in OpenModelica look at text view",
           lineColor={0,0,0})}),
-    Icon(coordinateSystem(extent={{-100,-100},{100,100}}, grid={2,2})));
+    Icon(coordinateSystem(extent={{-100,-100},{100,100}}, grid={2,2})),
+    Documentation(info="<html>
+<p><i><span style=\"font-family: Arial; font-size: 12pt;\">Library PowerGridsMC was forked from https://github.com/PowerGrids/PowerGrids on 22 November 2024.</span></i></p>
+<p><i><span style=\"font-size: 12pt;\">The following info is derived from the original version on that source, modified whenever changes introduced in this fork require this.</span></i></p>
+<p>************************** </p>
+</html>"));
 end LoadChangeByModifier;

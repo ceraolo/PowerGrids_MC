@@ -37,15 +37,15 @@ equation
   connect(NTHV.terminal, GRIDL.terminal) annotation (
     Line(points = {{60, -28}, {66, -28}, {66, -40}, {80, -40}, {80, -40}}));
   connect(RefLPu.y, TGOV.RefLPu) annotation (
-    Line(points = {{-71, 24}, {-59, 24}, {-59, 24}, {-57, 24}}, color = {0, 0, 127}));
+    Line(points={{-71,24},{-59,24},{-59,24},{-56,24}},          color = {0, 0, 127}));
   connect(AVR.VrefPu, VrefPu.y) annotation (
-    Line(points = {{-56, -18}, {-64, -18}, {-64, -32}, {-72, -32}, {-72, -32}}, color = {0, 0, 127}));
+    Line(points={{-56,-18},{-64,-18},{-64,-32},{-72.8,-32},{-72.8,-33}},        color = {0, 0, 127}));
   connect(AVR.VsPu, zero.y) annotation (
-    Line(points = {{-56, -10}, {-60, -10}, {-60, -52}, {-72, -52}, {-72, -52}}, color = {0, 0, 127}));
+    Line(points={{-56,-10},{-60,-10},{-60,-52},{-72.8,-52},{-72.8,-52}},        color = {0, 0, 127}));
   connect(AVR.VuelPu, zero.y) annotation (
-    Line(points = {{-56, -22}, {-60, -22}, {-60, -52}, {-72, -52}, {-72, -52}}, color = {0, 0, 127}));
+    Line(points={{-56,-22},{-60,-22},{-60,-52},{-72.8,-52},{-72.8,-52}},        color = {0, 0, 127}));
   connect(GEN.ufPuIn, AVR.efdPu) annotation (
-    Line(points = {{-20, -4}, {-28, -4}, {-28, -16}, {-34, -16}, {-34, -16}}, color = {0, 0, 127}));
+    Line(points={{-20,-4},{-28,-4},{-28,-16},{-35,-16},{-35,-16}},            color = {0, 0, 127}));
   connect(TGOV.PMechPu, GEN.PmPu) annotation (
     Line(points = {{-36, 28}, {-28, 28}, {-28, 4}, {-20, 4}, {-20, 4}}, color = {0, 0, 127}));
   connect(GEN.VPu, AVR.VcPu) annotation (
@@ -58,5 +58,10 @@ annotation (
     Diagram(coordinateSystem(extent = {{-120, -60}, {100, 60}}, grid = {0.5, 0.5})),
     experiment(StartTime = 0, StopTime = 10, Tolerance = 1e-6, Interval = 0.02),
     __OpenModelica_commandLineOptions = "--daeMode --tearingMethod=minimalTearing",
-    __OpenModelica_simulationFlags(nls="kinsol", lv="LOG_INIT_HOMOTOPY"));
+    __OpenModelica_simulationFlags(nls="kinsol", lv="LOG_INIT_HOMOTOPY"),
+    Documentation(info="<html>
+<p><i><span style=\"font-family: Arial; font-size: 12pt;\">Library PowerGridsMC was forked from https://github.com/PowerGrids/PowerGrids on 22 November 2024.</span></i></p>
+<p><i><span style=\"font-size: 12pt;\">The following info is derived from the original version on that source, modified whenever changes introduced in this fork require this.</span></i></p>
+<p>************************** </p>
+</html>"));
 end ControlledGridWithoutPSS;

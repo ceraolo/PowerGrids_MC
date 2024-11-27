@@ -45,5 +45,10 @@ equation
     Line(points={{48.1,-10.1},{56,-10.1},{56,8}},                    color = {0, 0, 127}));
   annotation (
     Icon(coordinateSystem(grid = {0.1, 0.1}, initialScale = 0.1), graphics={  Text(origin = {12, -74}, extent = {{-58, 10}, {34, -4}}, textString = "CONTROL"), Rectangle(origin = {0, -70}, extent = {{-50, 10}, {50, -10}})}),
-    Diagram(coordinateSystem(extent={{-80,-60},{80,60}})));
+    Diagram(coordinateSystem(extent={{-80,-60},{80,60}})),
+    Documentation(info="<html>
+<p><i><span style=\"font-family: Arial; font-size: 12pt;\">Library PowerGridsMC was forked from https://github.com/PowerGrids/PowerGrids on 22 November 2024.</span></i></p>
+<p><i><span style=\"font-size: 12pt;\">The following info is derived from the original version on that source, modified whenever changes introduced in this fork require this.</span></i></p>
+<p>************************** </p>
+</html>"));
 end ControlledGeneratorIEEE;

@@ -42,9 +42,9 @@ equation
   connect(NTHV.terminal, GRIDL.terminal) annotation (
     Line(points = {{60, -30}, {66, -30}, {66, -42}, {80, -42}, {80, -42}}));
   connect(AVR.VuelPu, zero.y) annotation (
-    Line(points = {{-46, -22}, {-50, -22}, {-50, -52}, {-61, -52}}, color = {0, 0, 127}));
+    Line(points={{-46,-22},{-50,-22},{-50,-52},{-60.8,-52}},        color = {0, 0, 127}));
   connect(GEN.ufPuIn, AVR.efdPu) annotation (
-    Line(points = {{-10, -4}, {-18, -4}, {-18, -16}, {-24, -16}, {-24, -16}}, color = {0, 0, 127}));
+    Line(points={{-10,-4},{-18,-4},{-18,-16},{-25,-16},{-25,-16}},            color = {0, 0, 127}));
   connect(TGOV.PMechPu, GEN.PmPu) annotation (
     Line(points = {{-26, 28}, {-18, 28}, {-18, 4}, {-10, 4}, {-10, 4}}, color = {0, 0, 127}));
   connect(GEN.VPu, AVR.VcPu) annotation (
@@ -52,21 +52,26 @@ equation
   connect(GEN.omegaPu, TGOV.omegaPu) annotation (
     Line(points = {{10, 2}, {16, 2}, {16, 44}, {-54, 44}, {-54, 32}, {-46, 32}, {-46, 32}}, color = {0, 0, 127}));
   connect(PSS.VstPu, AVR.VsPu) annotation (
-    Line(points = {{-61, 0}, {-55, 0}, {-55, -10}, {-47, -10}, {-47, -10}}, color = {0, 0, 127}));
+    Line(points={{-61,0},{-55,0},{-55,-10},{-46,-10},{-46,-10}},            color = {0, 0, 127}));
   connect(PSS.Vsi1Pu, GEN.omegaPu) annotation (
     Line(points = {{-82, 6}, {-94, 6}, {-94, 44}, {16, 44}, {16, 2}, {10, 2}}, color = {0, 0, 127}));
   connect(PSS.Vsi2Pu, GEN.PPu) annotation (
-    Line(points = {{-82.2, -6}, {-98.2, -6}, {-98.2, 48}, {19.8, 48}, {19.8, -2}, {9.8, -2}}, color = {0, 0, 127}));
+    Line(points={{-82.2,-6},{-98.2,-6},{-98.2,48},{19.8,48},{19.8,-2},{10,-2}},               color = {0, 0, 127}));
   connect(VrefPu.y, AVR.VrefPu) annotation (
-    Line(points = {{-61, -30}, {-55, -30}, {-55, -18}, {-47, -18}}, color = {0, 0, 127}));
+    Line(points={{-61,-30},{-55,-30},{-55,-18},{-46,-18}},          color = {0, 0, 127}));
   connect(RefLPu.y, TGOV.RefLPu) annotation (
-    Line(points = {{-61, 24}, {-49, 24}, {-49, 24}, {-47, 24}}, color = {0, 0, 127}));
+    Line(points={{-61,24},{-49,24},{-49,24},{-46,24}},          color = {0, 0, 127}));
   connect(deltaVrefPu.y, VrefPu.u) annotation (
-    Line(points = {{-90.8, -30}, {-81.8, -30}}, color = {0, 0, 127}));
+    Line(points={{-90.8,-30},{-83,-30}},        color = {0, 0, 127}));
   annotation (
     Icon(coordinateSystem(grid = {0.1, 0.1})),
     Diagram(coordinateSystem(extent = {{-120, -60}, {100, 60}}, grid = {0.5, 0.5})),
     experiment(StartTime = 0, StopTime = 30, Tolerance = 1e-6, Interval = 0.02),
     __OpenModelica_commandLineOptions = "--daeMode --tearingMethod=minimalTearing",
-    __OpenModelica_simulationFlags(nls = "kinsol", lv = "LOG_INIT_HOMOTOPY"));
+    __OpenModelica_simulationFlags(nls = "kinsol", lv = "LOG_INIT_HOMOTOPY"),
+    Documentation(info="<html>
+<p><i><span style=\"font-family: Arial; font-size: 12pt;\">Library PowerGridsMC was forked from https://github.com/PowerGrids/PowerGrids on 22 November 2024.</span></i></p>
+<p><i><span style=\"font-size: 12pt;\">The following info is derived from the original version on that source, modified whenever changes introduced in this fork require this.</span></i></p>
+<p>************************** </p>
+</html>"));
 end ControlledGridWithReferenceCalculation;

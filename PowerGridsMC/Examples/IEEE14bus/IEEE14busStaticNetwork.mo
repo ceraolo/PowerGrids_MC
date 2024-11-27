@@ -273,5 +273,10 @@ equation
     Line(points={{-145,46},{-163,46},{-163,78.2},{-155.8,78.2}},    color = {0, 0, 127}));
   annotation (
     Diagram(coordinateSystem(extent={{-180,120},{180,-120}})),
-    experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-6, Interval = 0.002));
+    experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-6, Interval = 0.002),
+    Documentation(info="<html>
+<p><i><span style=\"font-family: Arial; font-size: 12pt;\">Library PowerGridsMC was forked from https://github.com/PowerGrids/PowerGrids on 22 November 2024.</span></i></p>
+<p><i><span style=\"font-size: 12pt;\">The following info is derived from the original version on that source, modified whenever changes introduced in this fork require this.</span></i></p>
+<p>************************** </p>
+</html>"));
 end IEEE14busStaticNetwork;

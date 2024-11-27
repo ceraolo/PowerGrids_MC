@@ -26,15 +26,16 @@ model TestCase1 "Test Case 1, Section 5.1, focuses on the dynamic behavior of th
 
 equation
   connect(GEN.PPu, PSS.Vsi2Pu) annotation (
-    Line(points = {{-16, -2}, {-6, -2}, {-6, 52}, {-122, 52}, {-122, -6}, {-108, -6}}, color = {0, 0, 127}));
+    Line(points={{-16,-2},{-6,-2},{-6,52},{-122,52},{-122,-6},{-108.2,-6}},            color = {0, 0, 127}));
   connect(GEN.VPu, AVR.VcPu) annotation (
     Line(points = {{-16, -6}, {-2, -6}, {-2, 56}, {-126, 56}, {-126, -14}, {-72, -14}}, color = {0, 0, 127}));
   connect(RefLPu.y, TGOV.RefLPu) annotation (
     Line(points = {{-87, 24}, {-72, 24}}, color = {0, 0, 127}));
   connect(VrefPu.y, AVR.VrefPu) annotation (
-    Line(points = {{-88.8, -31}, {-89.3, -31}, {-89.3, -31}, {-85.8, -31}, {-85.8, -18}, {-79.8, -18}, {-79.8, -18}, {-71.8, -18}}, color = {0, 0, 127}));
+    Line(points={{-88.8,-31},{-89.3,-31},{-89.3,-31},{-85.8,-31},{-85.8,-18},{
+          -79.8,-18},{-79.8,-18},{-72,-18}},                                                                                        color = {0, 0, 127}));
   connect(zero.y, AVR.VuelPu) annotation (
-    Line(points = {{-88.8, -48}, {-79.8, -48}, {-79.8, -22}, {-71.8, -22}}, color = {0, 0, 127}));
+    Line(points={{-88.8,-48},{-79.8,-48},{-79.8,-22},{-72,-22}},            color = {0, 0, 127}));
   connect(GEN.omegaPu, PSS.Vsi1Pu) annotation (
     Line(points = {{-16, 2}, {-10, 2}, {-10, 48}, {-118, 48}, {-118, 6}, {-108, 6}}, color = {0, 0, 127}));
   connect(PSS.VstPu, AVR.VsPu) annotation (
@@ -51,5 +52,10 @@ equation
     Diagram(coordinateSystem(extent = {{-140, -60}, {40, 60}})),
     experiment(StartTime = 0, StopTime = 2, Tolerance = 1e-6, Interval = 0.004),
     __OpenModelica_commandLineOptions = "--daeMode --tearingMethod=minimalTearing",
-    __OpenModelica_simulationFlags(nls="kinsol", lv="LOG_INIT_HOMOTOPY", homotopyOnFirstTry="()"));
+    __OpenModelica_simulationFlags(nls="kinsol", lv="LOG_INIT_HOMOTOPY", homotopyOnFirstTry="()"),
+    Documentation(info="<html>
+<p><i><span style=\"font-family: Arial; font-size: 12pt;\">Library PowerGridsMC was forked from https://github.com/PowerGrids/PowerGrids on 22 November 2024.</span></i></p>
+<p><i><span style=\"font-size: 12pt;\">The following info is derived from the original version on that source, modified whenever changes introduced in this fork require this.</span></i></p>
+<p>************************** </p>
+</html>"));
 end TestCase1;

@@ -29,7 +29,7 @@ equation
   connect(PSS.VstPu, AVR.VsPu) annotation (
     Line(points = {{-21, 0}, {-14, 0}, {-14, -10}, {-6, -10}}, color = {0, 0, 127}));
   connect(PSS.Vsi2Pu, GEN.PPu) annotation (
-    Line(points = {{-42, -6}, {-58, -6}, {-58, 48}, {90, 48}, {90, -2}, {50, -2}}, color = {0, 0, 127}));
+    Line(points={{-42.2,-6},{-58,-6},{-58,48},{90,48},{90,-2},{50,-2}},            color = {0, 0, 127}));
   connect(GEN.terminal, terminal) annotation (
     Line(points = {{40, 0}, {40, -50}}));
   connect(RefLPu.y, TGOV.RefLPu) annotation (
@@ -39,11 +39,11 @@ equation
   connect(GEN.omegaPu, TGOV.omegaPu) annotation (
     Line(points = {{50, 2}, {86, 2}, {86, 44}, {-14, 44}, {-14, 32}, {-6, 32}}, color = {0, 0, 127}));
   connect(AVR.VuelPu, zero.y) annotation (
-    Line(points = {{-6, -22}, {-12, -22}, {-12, -52}, {-22, -52}, {-22, -52}}, color = {0, 0, 127}));
+    Line(points={{-6,-22},{-12,-22},{-12,-52},{-22.8,-52},{-22.8,-52}},        color = {0, 0, 127}));
   connect(GEN.omegaPu, PSS.Vsi1Pu) annotation (
     Line(points = {{50, 2}, {86, 2}, {86, 44}, {-52, 44}, {-52, 6}, {-42, 6}, {-42, 6}}, color = {0, 0, 127}));
   connect(GEN.omega, omega) annotation (
-    Line(points = {{50, 6}, {54, 6}, {54, 12}, {64, 12}, {64, 12}}, color = {0, 0, 127}));
+    Line(points={{50.1,5.9},{54,5.9},{54,12},{64,12},{64,12}},      color = {0, 0, 127}));
   annotation (
     Icon(coordinateSystem(grid = {0.1, 0.1}, initialScale = 0.1), graphics={  Text(origin = {12, -74}, extent = {{-58, 10}, {34, -4}}, textString = "CONTROL"), Rectangle(origin = {0, -70}, extent = {{-50, 10}, {50, -10}})}),
     Diagram(coordinateSystem(grid = {0.5, 0.5}, extent = {{-120, -100}, {120, 100}})));
