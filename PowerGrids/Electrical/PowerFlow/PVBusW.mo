@@ -1,5 +1,5 @@
 within PowerGrids.Electrical.PowerFlow;
-model PVBusS "PV bus - Save PF data on disk"
+model PVBusW "PV bus - Save PF data on disk"
 
   extends PVBus;
 
@@ -40,5 +40,5 @@ equation
           extent={{-90,-54},{-46,-88}},
           textColor={238,46,47},
           textStyle={TextStyle.Italic},
-          textString="S")}));
-end PVBusS;
+          textString="W")}));
+end PVBusW;

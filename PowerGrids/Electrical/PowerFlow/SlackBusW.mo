@@ -1,7 +1,7 @@
 within PowerGrids.Electrical.PowerFlow;
-model PQBusS "PQ bus - Save PF data on disk"
+model SlackBusW "Slack Bus - Save PF data"
 
-  extends PQBus;
+  extends SlackBus;
 
   // Modifications to allow data exchange with simulations:
   final parameter String name = getInstanceName();
@@ -37,8 +37,8 @@ equation
   end when;
 
   annotation (Icon(graphics={Text(
-          extent={{-66,16},{-22,-18}},
+          extent={{-98,48},{-54,14}},
           textColor={238,46,47},
           textStyle={TextStyle.Italic},
-          textString="S")}));
-end PQBusS;
+          textString="W")}));
+end SlackBusW;
