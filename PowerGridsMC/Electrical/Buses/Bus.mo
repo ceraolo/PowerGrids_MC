@@ -1,0 +1,15 @@
+within PowerGridsMC.Electrical.Buses;
+model Bus "Bus model"
+  extends PowerGridsMC.Electrical.BaseClasses.OnePortAC(
+    final PStart = 0,
+    final QStart = 0);
+  extends Icons.Bus;
+
+equation
+  port.i = Complex(0);
+
+  annotation (
+    Documentation(info = "<html>
+Bus model, can be used to connect other components to its port.
+</html>"));
+end Bus;
