@@ -31,5 +31,10 @@ model ControlledGeneratorR
           extent={{-102,-64},{-58,-98}},
           textColor={238,46,47},
           textStyle={TextStyle.Italic},
-          textString="S")}));
+          textString="S")}), Documentation(info="<html>
+<p><i><span style=\"font-size: 12pt;\">Library PowerGridsMC is forked from https://github.com/PowerGrids/PowerGrids.</span></i></p>
+<p>************************** </p>
+<p>This is a new component not existing in the original library. It has the peculiarity that reads from an automatically generated file the data from a previously executed PowerFlow. </p>
+<p>The data is stored and retrieved based on the instance name. Therefore, for an effective Powerflo-&gt;Transient chaining the instance name of the PowerFlow writing and Transient reading models must be the same.</p>
+</html>"));
 end ControlledGeneratorR;

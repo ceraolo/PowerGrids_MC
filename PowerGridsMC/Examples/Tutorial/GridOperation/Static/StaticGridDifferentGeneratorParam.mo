@@ -108,5 +108,10 @@ annotation (
 time constant"), Text(origin = {108.5, -58}, extent = {{-37, 4}, {5, -16}}, textString = "generator parameters:
 physical"), Text(origin = {118.5, -12}, extent = {{-49, 4}, {-3, -26}}, textString = "generator parameters:
 time constant - Kundur")}),
-    Icon(coordinateSystem(extent={{-100,-100},{100,100}}, grid={2,2})));
+    Icon(coordinateSystem(extent={{-100,-100},{100,100}}, grid={2,2})),
+    Documentation(info="<html>
+<p></span><i><span style=\"font-size: 12pt;\">Library PowerGridsMC is forked from https://github.com/PowerGrids/PowerGrids.</i></p>
+<p></span><i><span style=\"font-size: 12pt;\">The following info is derived from the original version on that source, modified whenever changes introduced in this fork require this.</i></p>
+**************************
+</html>"));
 end StaticGridDifferentGeneratorParam;

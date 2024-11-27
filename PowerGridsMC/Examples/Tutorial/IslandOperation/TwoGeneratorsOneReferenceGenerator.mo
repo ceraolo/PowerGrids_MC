@@ -43,10 +43,16 @@ equation
   connect(TGEN2.terminalA, GEN2.terminal) annotation (
     Line(points = {{70, 20}, {82, 20}, {82, 8}}));
   connect(GEN2.omega, systemPowerGrids.omegaRefIn) annotation (
-    Line(points = {{89, 8}, {100, 8}}, color = {0, 0, 127}));
+    Line(points={{89,8},{94,8},{94,8.2},{100.2,8.2}},
+                                       color = {0, 0, 127}));
 annotation (
     experiment(StartTime = 0, StopTime = 100, Tolerance = 1e-6, Interval = 0.01),
     __OpenModelica_commandLineOptions = "--tearingMethod=minimalTearing",
     __OpenModelica_simulationFlags(nls="kinsol", lv="LOG_INIT_HOMOTOPY"),
-    Diagram(coordinateSystem(extent = {{-100, 40}, {120, -20}})));
+    Diagram(coordinateSystem(extent = {{-100, 40}, {120, -20}})),
+    Documentation(info="<html>
+<p></span><i><span style=\"font-size: 12pt;\">Library PowerGridsMC is forked from https://github.com/PowerGrids/PowerGrids.</i></p>
+<p></span><i><span style=\"font-size: 12pt;\">The following info is derived from the original version on that source, modified whenever changes introduced in this fork require this.</i></p>
+**************************
+</html>"));
 end TwoGeneratorsOneReferenceGenerator;

@@ -14,5 +14,10 @@ equation
           textString="Load2 changed
 by modifiers",
           horizontalAlignment=TextAlignment.Left)}),
-    experiment(StartTime = 0, StopTime = 40, Tolerance = 1e-6, Interval = 0.04));
+    experiment(StartTime = 0, StopTime = 40, Tolerance = 1e-6, Interval = 0.04),
+    Documentation(info="<html>
+<p></span><i><span style=\"font-size: 12pt;\">Library PowerGridsMC is forked from https://github.com/PowerGrids/PowerGrids.</i></p>
+<p></span><i><span style=\"font-size: 12pt;\">The following info is derived from the original version on that source, modified whenever changes introduced in this fork require this.</i></p>
+**************************
+</html>"));
 end IEEE14busLoad2Variation;

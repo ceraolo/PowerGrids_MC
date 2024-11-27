@@ -7,7 +7,10 @@ package Tutorial
 
   annotation (
     preferredView = "info",
-    Documentation(info = "<html>
+    Documentation(info="<html>
+<p><i><span style=\"font-size: 12pt;\">Library PowerGridsMC is forked from https://github.com/PowerGrids/PowerGrids.</span></i></p>
+<p><i><span style=\"font-size: 12pt;\">The following info is derived from the original version on that source, modified whenever changes introduced in this fork require this.</span></i> </p>
+<p>**************************</p>
 <p>This tutorial is meant to introduce beginners to the design and rationale of the PowerGridsMC library and to guide them through a series of examples that illustrate the library features, the system modelling patterns, and ultimately the way one can write his own component models.</p>
 <p>The <a href=\"modelica://PowerGridsMC.UsersGuide.Tutorial.LibraryArchitecture\">Library Architecture</a> section introduces the basic principles and concepts behind the design of the library.</p>
 <p>The <a href=\"modelica://PowerGridsMC.UsersGuide.Tutorial.ModelicaToolSupport\">Modelica Tool Support</a> section discusses the support of the PowerGridsMC library by various Modelica tools and how they must be set up to work correctly and efficiently with this library. </p>

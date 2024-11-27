@@ -2,7 +2,13 @@ within PowerGridsMC.UsersGuide.Tutorial;
 package LibraryArchitecture
   extends Modelica.Icons.Information;
 annotation(preferredView = "info",
-    Documentation(info = "<html><head></head><body>
+    Documentation(info="<html>
+
+<p></span><i><span style=\"font-size: 12pt;\">Library PowerGridsMC is forked from https://github.com/PowerGrids/PowerGrids.</i></p>
+<p></span><i><span style=\"font-size: 12pt;\">The following info is derived from the original verison on that source, modified whenever changes introduced in this fork require this.</i></p>
+**************************
+
+<head></head><body>
 <h2>Scope of the Library</h2>
 <p>The PowerGridsMC library allows to build electro-mechanical models of balanced, three-phase AC power systems. DC links can be added, described by components of the <a href=\"modelica://Modelica.Electrical.Analog\"> Modelica.Electrical.Analog</a> library. Three-phase AC balanced systems are described by complex phasors. In the current version of the library, the reference frame of the phasors can be either a fixed-speed frame, rotating at the nominal system frequency, or the rotor frame of one selected reference synchronous generator. The library design can be extended to accommodate dynamically splitting an joining synchronous islands.</p>
 

@@ -19,18 +19,23 @@ equation
   connect(GEN.terminal, terminal) annotation (
     Line(points = {{-26, 0}, {-26, -50}}));
   connect(AVR.VcPu, GEN.VPu) annotation (
-    Line(points = {{-80, -4}, {-172, -4}, {-172, 70}, {40, 70}, {40, -6}, {-16, -6}}, color = {0, 0, 127}));
+    Line(points={{-79.8,-4},{-172,-4},{-172,70},{40,70},{40,-6},{-16,-6}},            color = {0, 0, 127}));
   connect(AVR.efdPu, GEN.ufPuIn) annotation (
-    Line(points = {{-60, -10}, {-50, -10}, {-50, -4}, {-36, -4}, {-36, -4}}, color = {0, 0, 127}));
+    Line(points={{-59.8,-10},{-50,-10},{-50,-4},{-36,-4},{-36,-4}},          color = {0, 0, 127}));
   connect(VrefPu.y, AVR.VrefPu) annotation (
-    Line(points = {{-88, -22}, {-86, -22}, {-86, -16}, {-80, -16}, {-80, -16}}, color = {0, 0, 127}));
+    Line(points={{-89,-22},{-86,-22},{-86,-16},{-79.8,-16},{-79.8,-16}},        color = {0, 0, 127}));
   connect(VrefPuDef.y, VrefPu.u) annotation (
-    Line(points = {{-122, -22}, {-110, -22}, {-110, -22}, {-110, -22}}, color = {0, 0, 127}));
+    Line(points={{-123,-22},{-110,-22},{-110,-22},{-111,-22}},          color = {0, 0, 127}));
   connect(GEN.omega, omega) annotation (
-    Line(points = {{-16, 6}, {-8, 6}, {-8, 16}, {10, 16}, {10, 16}}, color = {0, 0, 127}));
+    Line(points={{-15.9,5.9},{-8,5.9},{-8,16},{10,16},{10,16}},      color = {0, 0, 127}));
   connect(PmPu.y, GEN.PmPu) annotation (
-    Line(points = {{-58, 20}, {-50, 20}, {-50, 4}, {-36, 4}, {-36, 4}}, color = {0, 0, 127}));
+    Line(points={{-59,20},{-50,20},{-50,4},{-36,4},{-36,4}},            color = {0, 0, 127}));
   annotation (
     Icon(coordinateSystem(grid = {0.1, 0.1}, initialScale = 0.1), graphics={  Text(origin = {12, -74}, extent = {{-58, 10}, {34, -4}}, textString = "CONTROL"), Rectangle(origin = {0, -70}, extent = {{-50, 10}, {50, -10}}), Text(origin = {-106, 0}, extent = {{-36, 40}, {36, -40}}, textString = "SC")}),
-    Diagram(coordinateSystem(extent = {{-200, -100}, {200, 100}}, grid = {0.5, 0.5})));
+    Diagram(coordinateSystem(extent = {{-200, -100}, {200, 100}}, grid = {0.5, 0.5})),
+    Documentation(info="<html>
+<p></span><i><span style=\"font-size: 12pt;\">Library PowerGridsMC is forked from https://github.com/PowerGrids/PowerGrids.</i></p>
+<p></span><i><span style=\"font-size: 12pt;\">The following info is derived from the original version on that source, modified whenever changes introduced in this fork require this.</i></p>
+**************************
+</html>"));
 end SynchronousCondenser;

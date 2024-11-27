@@ -39,7 +39,8 @@ model SteadyState "Reproduces the basic static power flow, see fig. 3-1 of the r
     Placement(transformation(origin = {70, -30}, extent = {{-10, -10}, {10, 10}})));
 equation
   connect(VrefPu.y, AVR.VrefPu) annotation (
-    Line(points = {{-82.8, -31}, {-83.3, -31}, {-83.3, -31}, {-79.8, -31}, {-79.8, -18}, {-73.8, -18}, {-73.8, -18}, {-65.8, -18}}, color = {0, 0, 127}));
+    Line(points={{-82.8,-31},{-83.3,-31},{-83.3,-31},{-79.8,-31},{-79.8,-18},{
+          -73.8,-18},{-73.8,-18},{-66,-18}},                                                                                        color = {0, 0, 127}));
   connect(GRID.terminal, NTHV.terminal) annotation (
     Line(points = {{70, -30}, {40, -30}}));
   connect(TGEN.terminalB, NTHV.terminal) annotation (
@@ -47,13 +48,13 @@ equation
   connect(NTHV.terminal, GRIDL.terminal) annotation (
     Line(points = {{40, -30}, {54, -30}, {54, -46}}));
   connect(GEN.PPu, PSS.Vsi2Pu) annotation (
-    Line(points = {{-10, -2}, {0, -2}, {0, 46}, {-112, 46}, {-112, -6}, {-102, -6}}, color = {0, 0, 127}));
+    Line(points={{-10,-2},{0,-2},{0,46},{-112,46},{-112,-6},{-102.2,-6}},            color = {0, 0, 127}));
   connect(GEN.VPu, AVR.VcPu) annotation (
     Line(points = {{-10, -6}, {4, -6}, {4, 50}, {-116, 50}, {-116, -14}, {-66, -14}}, color = {0, 0, 127}));
   connect(RefLPu.y, TGOV.RefLPu) annotation (
     Line(points = {{-81, 24}, {-66, 24}}, color = {0, 0, 127}));
   connect(zero.y, AVR.VuelPu) annotation (
-    Line(points = {{-82.8, -48}, {-73.8, -48}, {-73.8, -22}, {-65.8, -22}}, color = {0, 0, 127}));
+    Line(points={{-82.8,-48},{-73.8,-48},{-73.8,-22},{-66,-22}},            color = {0, 0, 127}));
   connect(GEN.omegaPu, PSS.Vsi1Pu) annotation (
     Line(points = {{-10, 2}, {-4, 2}, {-4, 42}, {-108, 42}, {-108, 6}, {-102, 6}}, color = {0, 0, 127}));
   connect(PSS.VstPu, AVR.VsPu) annotation (
@@ -72,5 +73,10 @@ equation
     Diagram(coordinateSystem(extent = {{-120, 60}, {80, -60}})),
     experiment(StartTime = 0, StopTime = 2, Tolerance = 1e-6, Interval = 0.004),
     __OpenModelica_commandLineOptions = "--daeMode --tearingMethod=minimalTearing",
-    __OpenModelica_simulationFlags(nls = "kinsol", lv = "LOG_INIT_HOMOTOPY", homotopyOnFirstTry = "()"));
+    __OpenModelica_simulationFlags(nls = "kinsol", lv = "LOG_INIT_HOMOTOPY", homotopyOnFirstTry = "()"),
+    Documentation(info="<html>
+<p></span><i><span style=\"font-size: 12pt;\">Library PowerGridsMC is forked from https://github.com/PowerGrids/PowerGrids.</i></p>
+<p></span><i><span style=\"font-size: 12pt;\">The following info is derived from the original version on that source, modified whenever changes introduced in this fork require this.</i></p>
+**************************
+</html>"));
 end SteadyState;

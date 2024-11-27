@@ -4,16 +4,15 @@ package NamingConventions
 annotation (
     preferredView = "info",
     Documentation(info="<html>
+<p></span><i><span style=\"font-size: 12pt;\">Library PowerGridsMC is forked from https://github.com/PowerGrids/PowerGrids.</i></p>
+<p></span><i><span style=\"font-size: 12pt;\">The following info is derived from the original version on that source, modified whenever changes introduced in this fork require this.</i></p>
+**************************
+
 <p>This section contains the naming and style guidelines for the PowerGridsMC library development. If you want to contribute to the library, please make sure you follow them strictly, to ensure a consistent style throughout the whole library.</p>
-
 <p>When writing a Modelica model, please respect the general <a href=\"modelica://Modelica.UsersGuide.Conventions\" >Modelica conventions</a> and follow the recommendations below.</p>
-
 <p>Please always use the English language for the code and comments.</p>
-
 <h2>Electrical conventions</h2>
-
 <p>For currents and powers, the <strong>receptor convention</strong> is normally followed, i.e. the value is positive when entering the device. Variables following the opposite generator conventions are available on the component ports; they are marked explicitly with <code>Gen</code> in their name.</p>
-
 <h2>Naming conventions</h2>
 
 <h3>Generalities</h3>
