@@ -46,5 +46,7 @@ equation
 <p>This is a  component not existing in the original library. It has the peculiarity that writes on an automatically generated file the PowerFlow data, that can be automatically retrieved by a corrensponding subsequent transient model. </p>
 <p>The data is stored and retrieved based on the instance name. Therefore, for an effective Powerflow-&gt;Transient chaining, the instance name of the PowerFlow writing and Transient reading models must be the same.</p>
 <p>Examples on this usage are supplied in the &quot;Examples.PFT&quot; package</p>
+</html>", revisions="<html>
+<p>Created by Massimo Ceraolo based on original PowerGrid&apos;s PQBus on November 2024</p>
 </html>"));
 end PQBusW;
