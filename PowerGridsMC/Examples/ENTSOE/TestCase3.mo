@@ -9,7 +9,18 @@ model TestCase3 "Test Case 3, Section 5.3, focuses on the dynamic behavior of th
     Placement(transformation(origin = {-2, -22}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
   PowerGridsMC.Electrical.Buses.BusFault NTHV(R = 0.05, SNom = 5e+08, UNom = 380000, UStart = 1.050 * 380e3, X = 0, portVariablesPhases = true, portVariablesPu = true, startTime = 0.1, stopTime = 0.2)  annotation (
     Placement(transformation(origin = {38, -22}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
-  PowerGridsMC.Electrical.Branches.TransformerFixedRatio TGEN(PStartA = 4.75e+08, PStartB = -4.75e+08, QStartA = 1.56e+08, QStartB = -7.6e+07, R = 0.15e-2 * 419 ^ 2 / 500, SNom = 5e+08, UNomA = 21000, UNomB = 419000, UPhaseStartA = 0.161146, UPhaseStartB = 0, UStartA = 0.992 * 21e3, UStartB = 1.050 * 380e3, X = 16e-2 * 419 ^ 2 / 500, portVariablesPhases = true, portVariablesPu = true, rFixed = 419 / 21)  annotation (
+  PowerGridsMC.Electrical.Branches.TransformerFixedRatio TGEN(
+    PStartA=475000000,
+    PStartB=-475000000,
+    QStartA=156000000,
+    QStartB=-76000000,                                                                                                                         R = 0.15e-2 * 419 ^ 2 / 500,
+    SNom=500000000,
+    UNomA=21000,
+    UNomB=419000,
+    UPhaseStartA=0.161146,                                                                                                                                                                                                        UPhaseStartB = 0,
+    UStartA=0.992*21e3,
+    UStartB=1.050*380e3,                                                                                                                                                                                                        X = 16e-2 * 419 ^ 2 / 500, portVariablesPhases = true,
+    showPFdata=true,                                                                                                                                                                                                        portVariablesPu = true, rFixed = 419 / 21)  annotation (
     Placement(transformation(origin = {18, -22}, extent = {{-10, -10}, {10, 10}})));
   PowerGridsMC.Electrical.Controls.TurbineGovernors.IEEE_TGOV1 TGOV(R = 0.05, T1 = 0.5, T2 = 3, T3 = 10, VMax = 1)  annotation (
     Placement(visible = true, transformation(origin = {-62, 28}, extent = {{-10, 10}, {10, -10}}, rotation = 0)));

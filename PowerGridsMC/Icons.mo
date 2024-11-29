@@ -28,7 +28,8 @@ package Icons "Icons for the PowerGridsMC library"
   equation
 
   annotation (
-      Icon(graphics={  Line(origin = {0, -20}, points = {{0, 20}, {0, -20}, {0, -20}}), Polygon(origin = {0, -70}, fillPattern = FillPattern.Solid, points = {{-40, 30}, {40, 30}, {0, -30}, {-40, 30}}), Text(origin = {-1, -120}, lineColor = {0, 0, 255}, extent = {{-81, 10}, {81, -10}}, textString = "%name")}, coordinateSystem(initialScale = 0.1)));
+      Icon(graphics={  Line(origin = {0, -20}, points = {{0, 20}, {0, -20}, {0, -20}}), Polygon(origin = {0, -70}, fillPattern = FillPattern.Solid, points = {{-40, 30}, {40, 30}, {0, -30}, {-40, 30}}), Text(origin={0,-120},     lineColor = {0, 0, 255}, extent={{-98,10},
+                {98,-10}},                                                                                                                                                                                                        textString = "%name")}, coordinateSystem(initialScale = 0.1)));
   end Load;
 
   model Machine

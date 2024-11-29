@@ -21,7 +21,7 @@ equation
   port.P = PRef*U_URef^alpha;
   port.Q = QRef*U_URef^ beta;
   annotation (
-    Icon(coordinateSystem(grid = {0.1, 0.1})),
+    Icon(coordinateSystem(grid={2,2})),
     Diagram(coordinateSystem(extent = {{-200, -100}, {200, 100}})),
   Documentation(info = "<html><head></head><body><p>Model of a PQ load with voltage dependence.</p>
 <p><code>port.P = PRef*(port.U/URef)^alpha;</code> <br> <code>port.Q = QRef*(port.U/URef)^beta</code>.</p>
