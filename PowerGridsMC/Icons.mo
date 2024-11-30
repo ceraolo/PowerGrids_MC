@@ -6,8 +6,8 @@ package Icons "Icons for the PowerGridsMC library"
   equation
 
   annotation (
-      Icon(graphics={  Rectangle(origin = {0, 2}, fillPattern = FillPattern.Solid, extent = {{-100, 6}, {100, -10}}), Text(origin={50,30},   lineColor = {0, 0, 255}, extent={{-50,10},
-                {50,-10}},                                                                                                                                                                               textString = "%name")}, coordinateSystem(initialScale = 0.1)));
+      Icon(graphics={  Rectangle(origin = {0, 2}, fillPattern = FillPattern.Solid, extent = {{-100, 6}, {100, -10}}), Text(origin={61,30},   lineColor = {0, 0, 255}, extent={{-55,10},
+                {55,-10}},                                                                                                                                                                               textString = "%name")}, coordinateSystem(initialScale = 0.1)));
   end Bus;
 
   model Line
@@ -33,10 +33,34 @@ package Icons "Icons for the PowerGridsMC library"
   end Load;
 
   model Machine
-  equation
-
   annotation (
-      Icon(graphics={  Rectangle( fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid, extent = {{-100, 100}, {100, -100}}), Ellipse(origin = {0, -1}, extent = {{-60, 61}, {60, -59}}), Text(origin = {0, 80}, textColor = {0, 0, 255}, extent = {{-80, 10}, {80, -10}}, textString = "%name")}, coordinateSystem(initialScale = 0.1)));
+      Icon(graphics={  Text(origin = {0, -117}, textColor = {0, 0, 255}, extent = {{-100, 9}, {100, -9}}, textString = "%name"),
+        Rectangle(                  fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid, extent={{-100,80},
+                {100,-100}}),
+        Ellipse(origin={0,-51},    extent = {{-40, 41}, {40, -40}}),
+        Line(origin = {0.00014, -50.5485},points=
+          {{-20, 0},
+          {-15.375,13.3},
+          {-13.8,16.6},
+          {-12.35,18.65},
+          {-10.95,19.775},
+          {-9.8,19.95},
+          {-8.15,19.15},
+          {-6.725,17.425},
+          {-5.325,14.85},
+          {-3.725,11.025},
+          {-1.7075,5.3},
+          {1.7075,-5.3},
+          {3.725,-11.025},
+          {5.325,-14.85},
+          {6.725,-17.425},
+          {8.15,-19.15},
+          {9.8,-19.95},
+          {10.95,-19.775},
+          {12.35,-18.65},
+          {13.8,-16.6},
+          {15.375,-13.3},
+          {20,0}}, smooth = Smooth.Bezier)}, coordinateSystem(initialScale = 0.1)));
   end Machine;
 
   model CapacitorBank
