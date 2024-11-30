@@ -19,19 +19,31 @@ equation
   connect(GEN.terminal, terminal) annotation (
     Line(points = {{-26, 0}, {-26, -50}}));
   connect(AVR.VcPu, GEN.VPu) annotation (
-    Line(points={{-79.8,-4},{-172,-4},{-172,70},{40,70},{40,-6},{-16,-6}},            color = {0, 0, 127}));
+    Line(points={{-79.8,-4},{-172,-4},{-172,70},{40,70},{40,-6},{-15.8,-6}},          color = {0, 0, 127}));
   connect(AVR.efdPu, GEN.ufPuIn) annotation (
-    Line(points={{-59.8,-10},{-50,-10},{-50,-4},{-36,-4},{-36,-4}},          color = {0, 0, 127}));
+    Line(points={{-59.8,-10},{-50,-10},{-50,-4},{-36.4,-4},{-36.4,-4}},      color = {0, 0, 127}));
   connect(VrefPu.y, AVR.VrefPu) annotation (
     Line(points={{-89,-22},{-86,-22},{-86,-16},{-79.8,-16},{-79.8,-16}},        color = {0, 0, 127}));
   connect(VrefPuDef.y, VrefPu.u) annotation (
     Line(points={{-123,-22},{-110,-22},{-110,-22},{-111,-22}},          color = {0, 0, 127}));
   connect(GEN.omega, omega) annotation (
-    Line(points={{-15.9,5.9},{-8,5.9},{-8,16},{10,16},{10,16}},      color = {0, 0, 127}));
+    Line(points={{-15.7,5.9},{-8,5.9},{-8,16},{10,16},{10,16}},      color = {0, 0, 127}));
   connect(PmPu.y, GEN.PmPu) annotation (
-    Line(points={{-59,20},{-50,20},{-50,4},{-36,4},{-36,4}},            color = {0, 0, 127}));
+    Line(points={{-59,20},{-50,20},{-50,4},{-36.4,4},{-36.4,3.4}},      color = {0, 0, 127}));
   annotation (
-    Icon(coordinateSystem(grid = {0.1, 0.1}, initialScale = 0.1), graphics={  Text(origin = {12, -74}, extent = {{-58, 10}, {34, -4}}, textString = "CONTROL"), Rectangle(origin = {0, -70}, extent = {{-50, 10}, {50, -10}}), Text(origin = {-106, 0}, extent = {{-36, 40}, {36, -40}}, textString = "SC")}),
+    Icon(coordinateSystem(grid={2,2}),                            graphics={                                                                                                                                                   Text(origin = {-106, 0}, extent = {{-36, 40}, {36, -40}}, textString = "SC"),
+        Line(points={{-73.9,-30},{-35.1,-30.3}}, color={28,108,200}),
+        Polygon(
+          points={{-44.2,-26.2},{-44.2,-34.1},{-35.1,-30.6},{-44.2,-26.2}},
+          lineColor={28,108,200},
+          fillColor={28,108,200},
+          fillPattern=FillPattern.Solid),
+        Polygon(
+          points={{-46.2,-63.1},{-46.2,-71},{-36.8,-67.5},{-46.2,-63.1}},
+          lineColor={28,108,200},
+          fillColor={28,108,200},
+          fillPattern=FillPattern.Solid),
+        Line(points={{-73,-67.7},{-37.1,-67.7},{-36.8,-66.9}}, color={28,108,200})}),
     Diagram(coordinateSystem(extent = {{-200, -100}, {200, 100}}, grid = {0.5, 0.5})),
     Documentation(info="<html>
 <p><i><span style=\"font-family: Arial; font-size: 12pt;\">Library PowerGridsMC was forked from https://github.com/PowerGrids/PowerGrids on 22 November 2024.</span></i></p>

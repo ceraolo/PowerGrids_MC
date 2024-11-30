@@ -105,8 +105,8 @@ UPu, PPu,QPu"),   Text(
         xppqPu=0.3,
         xpqPu=0.5,
         xqPu=1.8) annotation (Placement(visible=true, transformation(
-            origin={-34,2},
-            extent={{-10,-10},{10,10}},
+            origin={-32,0},
+            extent={{-10,10},{10,-10}},
             rotation=0)));
       PowerGridsMC.Electrical.Buses.Bus NTLV(SNom = 5e+08, UNom = 21000, portVariablesPhases = true, portVariablesPu = true)  annotation (
         Placement(visible = true, transformation(origin={-6,-18},   extent = {{-10, -10}, {10, 10}}, rotation = 90)));
@@ -151,14 +151,15 @@ UPu, PPu,QPu"),   Text(
     //    y[1,6]=port.PPu;
     //    y[1,7]=port.QPu;
 
-      Modelica.Blocks.Sources.RealExpression PmPu(y=-GEN_.y[1, 6]) annotation (
+      Modelica.Blocks.Sources.RealExpression PmPu(y=-GEN_.PFout[1, 6])
+                                                                   annotation (
           Placement(visible=true, transformation(
-            origin={-64,6},
+            origin={-64,-10},
             extent={{-10,-10},{10,10}},
             rotation=0)));
       Modelica.Blocks.Sources.RealExpression ufPuIn(y=GEN_.ufPuInStart) annotation (
          Placement(visible=true, transformation(
-            origin={-64,-18},
+            origin={-66,4},
             extent={{-10,-10},{10,10}},
             rotation=0)));
       PowerGridsMC.Electrical.Loads.LoadPQVoltageDependenceInputs Grid2(
@@ -173,14 +174,14 @@ UPu, PPu,QPu"),   Text(
         annotation (Placement(transformation(extent={{10,-44},{18,-36}})));
     equation
       connect(PmPu.y, GEN_.PmPu)
-        annotation (Line(points={{-53,6},{-44,6}}, color={0,0,127}));
+        annotation (Line(points={{-53,-10},{-48,-10},{-48,-3.4},{-42.4,-3.4}},
+                                                   color={0,0,127}));
       connect(ufPuIn.y, GEN_.ufPuIn)
-        annotation (Line(points={{-53,-18},{-48,-18},{-48,-2},{-44,-2}},
-                                                                color={0,0,127}));
+        annotation (Line(points={{-55,4},{-42.4,4}},            color={0,0,127}));
       connect(GRIDL_.terminal, NTHV.terminal)
         annotation (Line(points={{66,-30},{66,-18},{30,-18}}));
       connect(GEN_.terminal, NTLV.terminal)
-        annotation (Line(points={{-34,2},{-34,-18},{-6,-18}}));
+        annotation (Line(points={{-32,0},{-32,-18},{-6,-18}}));
       connect(NTLV.terminal, TGEN.terminalA) annotation (
         Line(points={{-6,-18},{2,-18}}));
       connect(TGEN.terminalB, NTHV.terminal) annotation (

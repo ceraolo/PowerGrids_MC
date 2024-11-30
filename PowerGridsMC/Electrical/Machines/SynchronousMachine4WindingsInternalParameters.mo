@@ -43,15 +43,15 @@ model SynchronousMachine4WindingsInternalParameters "Synchronous machine with 4 
   final parameter Types.PerUnit ifPuStart(fixed = false) "Start value of ifPu";
   // Input variables
   Modelica.Blocks.Interfaces.RealInput PmPu(unit = "1") "Input mechanical power in p.u. (base PNom)" annotation (
-    Placement(visible = true, transformation(origin = {-106, 46}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-100, 40}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {-106, 46}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin={-104,34},    extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   Modelica.Blocks.Interfaces.RealInput ufPuIn(unit = "1", start = ufPuInStart) "Input voltage of exciter winding in p.u. (user-selected base voltage)" annotation (
-    Placement(visible = true, transformation(origin = {-104, -50}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-100, -40}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {-104, -50}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin={-104,-40},    extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   // Output variables
   Modelica.Blocks.Interfaces.RealOutput omega(unit = "rad/s") "Angular frequency in rad/s for system object" annotation (
-    Placement(visible = true, transformation(origin = {106, -40}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {101, 59}, extent = {{-11, -11}, {11, 11}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {106, -40}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin={103,59},    extent = {{-11, -11}, {11, 11}}, rotation = 0)));
   // Other per-unit variables
   Modelica.Blocks.Interfaces.RealOutput omegaPu(start = 1) "Angular frequency in p.u." annotation (
-    Placement(visible = true, transformation(origin = {106, -20}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {100, 20}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {106, -20}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin={102,20},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Types.PerUnit iDPu(start = 0) "Current of direct axis damper in p.u";
   Types.PerUnit ifPu(start = ifPuStart) "Current of excitation winding in p.u.";
   Types.PerUnit iQ1Pu(start = 0) "Current of quadrature axis 1st damper in p.u.";
@@ -72,9 +72,9 @@ model SynchronousMachine4WindingsInternalParameters "Synchronous machine with 4 
 // SI-unit variables
   Types.Frequency f = systemPowerGrids.fNom*omegaPu "Frequency of rotation of d-q axes";
   Modelica.Blocks.Interfaces.RealOutput VPu "Port voltage magnitude [pu]" annotation (
-    Placement(visible = true, transformation(origin = {106, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {100, -60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {106, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin={102,-60},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Interfaces.RealOutput PPu "Active Power Production [pu base PNom]" annotation (
-    Placement(visible = true, transformation(origin = {106, 20}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {100, -20}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {106, 20}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin={102,-20},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 initial equation
 // Scaling factor for excitation p.u. voltage
   if excitationPuType == Types.Choices.ExcitationPuType.Kundur then

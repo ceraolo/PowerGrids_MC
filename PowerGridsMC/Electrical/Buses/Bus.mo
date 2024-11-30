@@ -16,12 +16,12 @@ Bus model, can be used to connect other components to its port.
   Icon(graphics={
     Text(
       visible=showPFdata,
-      extent={{-212,46},{-74,12}},
+      extent={{-170,46},{-32,12}},
       lineColor={28,108,200},
       textString=DynamicSelect("V", String(port.U/port.UNom, significantDigits=3))),
     Text(
       visible=showPFdata,
-      extent={{-206,-12},{-70,-46}},
+      extent={{-164,-12},{-28,-46}},
       lineColor={28,108,200},
       textString=DynamicSelect("Uph", String(port.UPhase*180/3.14159265359, format = "4.1f")+"°"))}));
 end Bus;

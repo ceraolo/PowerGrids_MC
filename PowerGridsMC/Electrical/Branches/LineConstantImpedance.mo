@@ -11,7 +11,7 @@ model LineConstantImpedance "Transmission line with constant impedance"
   parameter Types.Conductance G = 0  "Shunt conductance";
   parameter Types.Susceptance B = 0 "Shunt susceptance";
 
-  parameter Boolean showPFdata=false "=true, if PowerFlow data are to be shown";
+  parameter Boolean showPFdata=true "=true, if PowerFlow data are to be shown";
 
 equation
   k = Complex(1);
@@ -26,32 +26,32 @@ annotation (
 Icon(graphics={
        Text(
           visible=showPFdata,
-          extent={{-160,92},{-50,52}},
+          extent={{-160,88},{-50,52}},
           lineColor={238,46,47},
           textString=DynamicSelect("P", String(-portA.PGenPu, significantDigits=3))),
        Text(
           visible=showPFdata,
-          extent={{-166,50},{-44,12}},
+          extent={{-166,48},{-44,12}},
           lineColor={217,67,180},
           textString=DynamicSelect("Q", String(-portA.QGenPu, significantDigits=3))),
        Text(
           visible=showPFdata,
-          extent={{-170,-20},{-38,-56}},
+          extent={{-170,-20},{-38,-54}},
           lineColor={28,108,200},
           textString=DynamicSelect("V", String(portA.U/portA.UNom, significantDigits=3))),
        Text(
           visible=showPFdata,
-          extent={{48,92},{156,52}},
+          extent={{48,88},{156,52}},
           lineColor={238,46,47},
           textString=DynamicSelect("P", String(-portB.PGenPu, significantDigits=3))),
        Text(
           visible=showPFdata,
-          extent={{42,50},{168,12}},
+          extent={{42,48},{168,12}},
           lineColor={217,67,180},
           textString=DynamicSelect("Q", String(-portB.QGenPu, significantDigits=3))),
        Text(
           visible=showPFdata,
-          extent={{40,-20},{168,-56}},
+          extent={{40,-20},{168,-54}},
           lineColor={28,108,200},
           textString=DynamicSelect("V", String(portB.U/portB.UNom, significantDigits=3)))}));
 end LineConstantImpedance;

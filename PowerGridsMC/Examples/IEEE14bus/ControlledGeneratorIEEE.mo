@@ -24,13 +24,13 @@ equation
   connect(GEN.terminal, terminal) annotation (
     Line(points={{38,-16},{38,-46}}));
   connect(GOV.omegaPu, GEN.omegaPu) annotation (
-    Line(points={{-6,10},{-68,10},{-68,48},{66,48},{66,-14},{48,-14}},              color = {0, 0, 127}));
+    Line(points={{-6,10},{-68,10},{-68,48},{66,48},{66,-14},{48.2,-14}},            color = {0, 0, 127}));
   connect(AVR.VcPu, GEN.VPu) annotation (
-    Line(points={{-11.8,-20},{-76,-20},{-76,52},{74,52},{74,-22},{48,-22}},           color = {0, 0, 127}));
+    Line(points={{-11.8,-20},{-76,-20},{-76,52},{74,52},{74,-22},{48.2,-22}},         color = {0, 0, 127}));
   connect(AVR.efdPu, GEN.ufPuIn) annotation (
-    Line(points={{8.2,-26},{14,-26},{14,-20},{28,-20}},                      color = {0, 0, 127}));
+    Line(points={{8.2,-26},{14,-26},{14,-20},{27.6,-20}},                    color = {0, 0, 127}));
   connect(GOV.PMechPu, GEN.PmPu) annotation (
-    Line(points={{15,14},{22,14},{22,-12},{28,-12}},                    color = {0, 0, 127}));
+    Line(points={{15,14},{22,14},{22,-12.6},{27.6,-12.6}},              color = {0, 0, 127}));
   connect(PmRefPu.y, GOV.PmRefPu) annotation (
     Line(points={{-17,26},{-12,26},{-12,18},{-6,18}},                      color = {0, 0, 127}));
   connect(VrefPu.y, AVR.VrefPu) annotation (
@@ -38,13 +38,25 @@ equation
   connect(VrefPuDef.y, VrefPu.u) annotation (
     Line(points={{-51,-38},{-43,-38}},                                  color = {0, 0, 127}));
   connect(GEN.PPu, GOV.PPu) annotation (
-    Line(points={{48,-18},{70,-18},{70,50},{-72,50},{-72,0},{10,0},{10,4}},                      color = {0, 0, 127}));
+    Line(points={{48.2,-18},{70,-18},{70,50},{-72,50},{-72,0},{10,0},{10,4}},                    color = {0, 0, 127}));
   connect(PmRefPuDef.y, PmRefPu.u) annotation (
     Line(points={{-43,26},{-39,26}},        color = {0, 0, 127}));
   connect(GEN.omega, omega) annotation (
-    Line(points={{48.1,-10.1},{56,-10.1},{56,8}},                    color = {0, 0, 127}));
+    Line(points={{48.3,-10.1},{56,-10.1},{56,8}},                    color = {0, 0, 127}));
   annotation (
-    Icon(coordinateSystem(grid = {0.1, 0.1}, initialScale = 0.1), graphics={  Text(origin = {12, -74}, extent = {{-58, 10}, {34, -4}}, textString = "CONTROL"), Rectangle(origin = {0, -70}, extent = {{-50, 10}, {50, -10}})}),
+    Icon(coordinateSystem(grid={2,2}), graphics={
+        Line(points={{-73.9,-30},{-35.1,-30.3}}, color={28,108,200}),
+        Line(points={{-73,-67.7},{-37.1,-67.7},{-36.8,-66.9}}, color={28,108,200}),
+        Polygon(
+          points={{-44.2,-26.2},{-44.2,-34.1},{-35.1,-30.6},{-44.2,-26.2}},
+          lineColor={28,108,200},
+          fillColor={28,108,200},
+          fillPattern=FillPattern.Solid),
+        Polygon(
+          points={{-46.2,-63.1},{-46.2,-71},{-36.8,-67.5},{-46.2,-63.1}},
+          lineColor={28,108,200},
+          fillColor={28,108,200},
+          fillPattern=FillPattern.Solid)}),
     Diagram(coordinateSystem(extent={{-80,-60},{80,60}})),
     Documentation(info="<html>
 <p><i><span style=\"font-family: Arial; font-size: 12pt;\">Library PowerGridsMC was forked from https://github.com/PowerGrids/PowerGrids on 22 November 2024.</span></i></p>

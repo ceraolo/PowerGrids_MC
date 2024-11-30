@@ -29,7 +29,7 @@ Icon(graphics={
     textString=DynamicSelect("P", String(-portA.PGenPu, significantDigits=3))),
   Text(
     visible=showPFdata,
-    extent={{-174,46},{-36,12}},
+    extent={{-174,46},{-36,14}},
     lineColor={217,67,180},
     textString=DynamicSelect("Q", String(-portA.QGenPu, significantDigits=3))),
   Text(
@@ -39,7 +39,7 @@ Icon(graphics={
     textString=DynamicSelect("P", String(-portB.PGenPu, significantDigits=3))),
   Text(
     visible=showPFdata,
-    extent={{36,46},{174,12}},
+    extent={{36,46},{174,14}},
     lineColor={217,67,180},
     textString=DynamicSelect("Q", String(-portB.QGenPu, significantDigits=3)))}));
 end TransformerFixedRatio;

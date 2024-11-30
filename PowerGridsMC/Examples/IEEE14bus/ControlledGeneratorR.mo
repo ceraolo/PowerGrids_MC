@@ -28,10 +28,10 @@ model ControlledGeneratorR
 
 
   annotation (Icon(graphics={Text(
-          extent={{-102,-64},{-58,-98}},
-          textColor={238,46,47},
+          extent={{48,-56},{92,-90}},
+          textColor={162,29,33},
           textStyle={TextStyle.Italic},
-          textString="S")}), Documentation(info="<html>
+          textString="R")}), Documentation(info="<html>
 <p><i><span style=\"font-family: Arial; font-size: 12pt;\">Library PowerGridsMC was forked from https://github.com/PowerGrids/PowerGrids on 22 November 2024.</span></i></p>
 <p>************************** </p>
 <p>This is a new component not existing in the original library. It has the peculiarity that reads from an automatically generated file the data from a previously executed PowerFlow. </p>

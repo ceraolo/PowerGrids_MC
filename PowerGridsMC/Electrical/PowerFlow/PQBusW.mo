@@ -9,6 +9,8 @@ model PQBusW "PQ bus - Save PF data on disk"
   Integer index;
   Real out[1,7];
 
+  parameter Boolean showPFdata=false "=false, if PowerFlow data are to be shown";
+
 algorithm
   // remove path before instance name.
   when initial() then
@@ -37,8 +39,8 @@ equation
   end when;
 
   annotation (Icon(graphics={Text(
-          extent={{-66,16},{-22,-18}},
-          textColor={238,46,47},
+          extent={{-94,-54},{-50,-88}},
+          textColor={162,29,33},
           textStyle={TextStyle.Italic},
           textString="W")}), Documentation(info="<html>
 <p><i><span style=\"font-size: 12pt;\">Library PowerGridsMC is forked from https://github.com/PowerGrids/PowerGrids.</span></i></p>

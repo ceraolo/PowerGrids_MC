@@ -8,8 +8,19 @@ equation
   port.P = P;
   port.Q = Q;
 annotation (
-    Icon(coordinateSystem(grid = {0.1, 0.1}, initialScale = 0.1), graphics={  Text(origin = {60, -60}, extent = {{-20, 20}, {48, -40}}, textString = "PQ")}),
+    Icon(coordinateSystem(grid={2,2}),                            graphics={  Text(origin = {60, -60}, extent = {{-20, 20}, {48, -40}}, textString = "PQ"),
+       Text(
+          visible=showPFdata,
+          extent={{-119.1,68.3},{-9.1,32.3}},
+          lineColor={238,46,47},
+          textString=DynamicSelect("P", String(port.PGenPu, significantDigits=3))),
+       Text(
+          visible=showPFdata,
+          extent={{-5.1,68.3},{116.9,32.3}},
+          lineColor={217,67,180},
+          textString=DynamicSelect("Q", String(port.QGenPu, significantDigits=3)))}),
     Documentation(info = "<html>
 <p>PQBus: prescribes the active power <code>P</code> and the reactive power <code>Q</code> entering the bus.</p>
-</html>"));
+</html>"),
+    Diagram(coordinateSystem(grid={2,2})));
 end PQBus;
