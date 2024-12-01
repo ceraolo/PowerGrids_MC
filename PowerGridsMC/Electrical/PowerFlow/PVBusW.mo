@@ -9,7 +9,7 @@ model PVBusW "PV bus - Save PF data on disk"
   Integer index;
   Real out[1,7];
 
-  parameter Boolean showPFdata=true "=true, if PowerFlow data are to be shown";
+  parameter Boolean showPortData=true "if Port Data are shown in diagram (P&Q or U)";
 
 algorithm
   // remove path before instance name.
@@ -46,12 +46,12 @@ equation
           textStyle={TextStyle.Italic},
           textString="W"),
        Text(
-          visible=showPFdata,
+          visible=showPortData,
           extent={{-120,58},{-10,22}},
           lineColor={238,46,47},
           textString=DynamicSelect("P", String(-port.PGenPu, significantDigits=3))),
        Text(
-          visible=showPFdata,
+          visible=showPortData,
           extent={{2,58},{124,22}},
           lineColor={217,67,180},
           textString=DynamicSelect("Q", String(-port.QGenPu, significantDigits=3)))}),

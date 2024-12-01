@@ -10,7 +10,7 @@ model TransformerFixedRatio "Transformer with fixed voltage ratio"
   parameter Types.Conductance G = 0 "Shunt conductance on B side";
   parameter Types.Susceptance B = 0 "Shunt susceptance on B side";
 
-   parameter Boolean showPFdata=true "=true, if PowerFlow data are to be shown";
+   parameter Boolean showPortData=true "=true, if PowerFlow data are to be shown";
 
 equation
   k = CM.fromPolar(rFixed, thetaFixed);
@@ -23,22 +23,22 @@ annotation (
 </body></html>"),
 Icon(graphics={
   Text(
-    visible=showPFdata,
+    visible=showPortData,
     extent={{-162,82},{-52,46}},
     lineColor={238,46,47},
     textString=DynamicSelect("P", String(-portA.PGenPu, significantDigits=3))),
   Text(
-    visible=showPFdata,
+    visible=showPortData,
     extent={{-174,46},{-36,14}},
     lineColor={217,67,180},
     textString=DynamicSelect("Q", String(-portA.QGenPu, significantDigits=3))),
   Text(
-    visible=showPFdata,
+    visible=showPortData,
     extent={{52,84},{162,48}},
     lineColor={238,46,47},
     textString=DynamicSelect("P", String(-portB.PGenPu, significantDigits=3))),
   Text(
-    visible=showPFdata,
+    visible=showPortData,
     extent={{36,46},{174,14}},
     lineColor={217,67,180},
     textString=DynamicSelect("Q", String(-portB.QGenPu, significantDigits=3)))}));

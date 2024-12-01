@@ -1,7 +1,7 @@
 within PowerGridsMC.Electrical.Buses;
 model EquivalentGridR
 
- //    PFout[1,1]=port.U;
+//    PFout[1,1]=port.U;
 //    PFout[1,2]=port.UPhase;
 //    PFout[1,3]=port.P;
 //    PFout[1,4]=port.Q;
@@ -26,11 +26,11 @@ URef=PFout[1,1], UPhaseStart=PFout[1,2]);
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid,
           pattern=LinePattern.None),
-                             Text(
+       Text(
           extent={{-58,-22},{-14,-56}},
           textColor={162,29,33},
           textStyle={TextStyle.Italic},
-          textString="R")}),               Documentation(info="<html>
+          textString="R")}),         Documentation(info="<html>
 <p><i><span style=\"font-size: 12pt;\">Library PowerGridsMC is forked from https://github.com/PowerGrids/PowerGrids.</span></i></p>
 <p>************************** </p>
 <p>This is a new component not existing in the original library. It has the peculiarity that reads the PowerFlow data from a file automatically generated in a previous PowerFlow study. </p>

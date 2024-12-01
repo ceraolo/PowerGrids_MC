@@ -9,6 +9,8 @@ model SlackBusW "Slack Bus - Save PF data"
   Integer index;
   Real out[1,7];
 
+  parameter Boolean showPortData=true "if Port Data are shown in diagram (P&Q or U)";
+
 algorithm
   // remove path before instance name.
   when initial() then
@@ -39,12 +41,12 @@ equation
   annotation (
   Icon(graphics={
     Text(
-      visible=showPFdata,
+      visible=showPortData,
       extent={{-170,46},{-32,12}},
       lineColor={28,108,200},
       textString=DynamicSelect("V", String(port.U/port.UNom, significantDigits=3))),
     Text(
-      visible=showPFdata,
+      visible=showPortData,
       extent={{-164,-12},{-28,-46}},
       lineColor={28,108,200},
       textString=DynamicSelect("Uph", String(port.UPhase*180/3.14159265359, format = "4.1f")+"°")),

@@ -4,18 +4,22 @@ model PQBus "PQ bus"
   extends Icons.Load;
   parameter Types.ActivePower P = SNom "Active power entering the bus";
   parameter Types.ReactivePower Q = 0 "Reactive power entering the bus";
+
+  parameter Boolean showPortData=true "if Port Data are shown in diagram (P&Q or U)";
+
 equation
   port.P = P;
   port.Q = Q;
+
 annotation (
-    Icon(coordinateSystem(grid={2,2}),                            graphics={  Text(origin = {60, -60}, extent = {{-20, 20}, {48, -40}}, textString = "PQ"),
+    Icon(coordinateSystem(grid={2,2}),  graphics={  Text(origin = {60, -60}, extent = {{-20, 20}, {48, -40}}, textString = "PQ"),
        Text(
-          visible=showPFdata,
+          visible=showPortData,
           extent={{-119.1,68.3},{-9.1,32.3}},
           lineColor={238,46,47},
           textString=DynamicSelect("P", String(port.PGenPu, significantDigits=3))),
        Text(
-          visible=showPFdata,
+          visible=showPortData,
           extent={{-5.1,68.3},{116.9,32.3}},
           lineColor={217,67,180},
           textString=DynamicSelect("Q", String(port.QGenPu, significantDigits=3)))}),

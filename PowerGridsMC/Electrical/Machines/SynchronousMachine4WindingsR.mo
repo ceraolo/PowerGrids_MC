@@ -12,7 +12,8 @@ model SynchronousMachine4WindingsR
 
   extends SynchronousMachine4Windings(PStart=PFout[1,3],QStart=PFout[1,4],
 UStart=PFout[1,1],UPhaseStart=PFout[1,2]);
-  parameter Boolean showPFdata=false "=false, if PowerFlow data are to be shown";
+
+  parameter Boolean showPortData=false "=false, if PowerFlow data are to be shown";
 
   //Code to read output from previous PowerFlow run:
   final parameter String name = getInstanceName();
@@ -26,12 +27,12 @@ UStart=PFout[1,1],UPhaseStart=PFout[1,2]);
           textStyle={TextStyle.Italic},
           textString="R"),
        Text(
-          visible=showPFdata,
+          visible=showPortData,
           extent={{-104,76},{6,40}},
           lineColor={238,46,47},
           textString=DynamicSelect("P", String(-port.PGenPu, significantDigits=3))),
        Text(
-          visible=showPFdata,
+          visible=showPortData,
           extent={{-12,76},{110,40}},
           lineColor={217,67,180},
           textString=DynamicSelect("Q", String(-port.QGenPu, significantDigits=3)))}),

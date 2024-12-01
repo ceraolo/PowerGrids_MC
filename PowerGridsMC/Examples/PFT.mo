@@ -233,16 +233,6 @@ con URef genera PStart, QStart")}),
     PStart=GEN_.y[1, 3],
     QStart=GEN_.y[1, 4],
 */
-    /*
-  extends StaticGrid3(
-    GRIDL_(
-      PRef = GRIDL_.PRefConst*(if time < 1 then 1 else 2) "Active power consumption at reference voltage",
-      QRef = GRIDL_.QRefConst*(if time < 1 then 1 else 2) "Reactive power consumption at reference voltage"),
-    break PmPu,
-    break ufPuIn,
-    break GEN_);
-
-*/
 
       PowerGridsMC.Examples.IEEE14bus.ControlledGeneratorR GEN(GEN(
           H=4,

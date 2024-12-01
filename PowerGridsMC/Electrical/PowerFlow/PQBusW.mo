@@ -9,8 +9,6 @@ model PQBusW "PQ bus - Save PF data on disk"
   Integer index;
   Real out[1,7];
 
-  parameter Boolean showPFdata=false "=false, if PowerFlow data are to be shown";
-
 algorithm
   // remove path before instance name.
   when initial() then
