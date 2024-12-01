@@ -21,31 +21,33 @@ package PFT
         Placement(visible = true, transformation(origin={30,-10},  extent = {{-10, -10}, {10, 10}}, rotation = 90)));
       inner PowerGridsMC.Electrical.System systemPowerGrids annotation (
         Placement(visible = true, transformation(origin={40,28},     extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-      PowerGridsMC.Electrical.PowerFlow.PQBusW GRIDL_(
-        P=475e6,
-        Q=76e6,
-        SNom=500e6,
-        UNom=380e3,
+      PowerGridsMC.Electrical.PowerFlow.PQBusW GRIDL(
+        P=475000000,
+        Q=76000000,
+        SNom=500000000,
+        UNom=380000,
         portVariablesPhases=true,
-        portVariablesPu=true) annotation (Placement(visible=true, transformation(
+        portVariablesPu=true) annotation (Placement(visible=true,
+            transformation(
             origin={60,-24},
             extent={{-10,-10},{10,10}},
             rotation=90)));
-      PowerGridsMC.Electrical.PowerFlow.SlackBusW GRID_(
+      PowerGridsMC.Electrical.PowerFlow.SlackBusW GRID(
         SNom=500000000,
         U=398000,
         UNom=380000,
         portVariablesPhases=true,
-        portVariablesPu=true) annotation (Placement(visible=true, transformation(
+        portVariablesPu=true) annotation (Placement(visible=true,
+            transformation(
             origin={54,2},
             extent={{-10,-10},{10,10}},
             rotation=-90)));
-      PowerGridsMC.Electrical.PowerFlow.PVBusW GEN_(
-        UNom=21e3,
-        SNom=500e6,
-        P=-475e6,
+      PowerGridsMC.Electrical.PowerFlow.PVBusW GEN(
+        UNom=21000,
+        SNom=500000000,
+        P=-475000000,
         U=20825.8) annotation (Placement(transformation(
-            extent={{-10,-10},{10,10}},
+            extent={{-10,10},{10,-10}},
             rotation=0,
             origin={-46,18})));
     equation
@@ -53,12 +55,12 @@ package PFT
         Line(points={{-30,-10},{-10,-10}}));
       connect(TGEN.terminalB, NTHV.terminal) annotation (
         Line(points={{10,-10},{30,-10}}));
-      connect(NTHV.terminal, GRID_.terminal)
+      connect(NTHV.terminal, GRID.terminal)
         annotation (Line(points={{30,-10},{38,-10},{38,2},{54,2}}));
-      connect(GRIDL_.terminal, NTHV.terminal)
+      connect(GRIDL.terminal, NTHV.terminal)
         annotation (Line(points={{60,-24},{38,-24},{38,-10},{30,-10}}));
-      connect(GEN_.terminal, NTLV.terminal)
-        annotation (Line(points={{-46,18},{-46,-10},{-30,-10}}, color={0,0,0}));
+      connect(GEN.terminal, NTLV.terminal) annotation (Line(points={{-46,18},{-46,
+              -10},{-30,-10}}, color={0,0,0}));
       annotation (
         Icon(coordinateSystem( extent={{-100,-100},{100,100}})),
         Diagram(coordinateSystem(extent={{-60,-40},{80,40}}),
@@ -88,7 +90,7 @@ UPu, PPu,QPu"),   Text(
       extends Modelica.Icons.Example;
       inner PowerGridsMC.Electrical.System systemPowerGrids annotation (
         Placement(visible = true, transformation(origin={30,30},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-      PowerGridsMC.Electrical.Machines.SynchronousMachine4WindingsR GEN_(
+      PowerGridsMC.Electrical.Machines.SynchronousMachine4WindingsR GEN(
         H=4,
         SNom=500000000,
         Tpd0=5.143,
@@ -118,19 +120,20 @@ UPu, PPu,QPu"),   Text(
         UNomB=419000,                                                                                                                      X = 16e-2 * 419 ^ 2 / 500, portVariablesPhases = true,
         showPFdata=true,                                                                                                                                                                          portVariablesPu = true, rFixed = 419 / 21)  annotation (
         Placement(visible = true, transformation(origin={12,-18},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-      PowerGridsMC.Electrical.Buses.EquivalentGridR GRID_(
+      PowerGridsMC.Electrical.Buses.EquivalentGridR GRID(
         R_X=1/10,
         SNom=500000000,
         SSC=2500000000,
         UNom=380000,
         c=1.1,
         portVariablesPhases=true,
-        portVariablesPu=true) annotation (Placement(visible=true, transformation(
+        portVariablesPu=true) annotation (Placement(visible=true,
+            transformation(
             origin={56,-8},
             extent={{-10,-10},{10,10}},
             rotation=0)));
 
-      PowerGridsMC.Electrical.Loads.LoadPQVoltageDependenceR GRIDL_(
+      PowerGridsMC.Electrical.Loads.LoadPQVoltageDependenceR GRIDL(
         alpha=2,
         beta=2,
         SNom=500000000,
@@ -151,14 +154,13 @@ UPu, PPu,QPu"),   Text(
     //    y[1,6]=port.PPu;
     //    y[1,7]=port.QPu;
 
-      Modelica.Blocks.Sources.RealExpression PmPu(y=-GEN_.PFout[1, 6])
-                                                                   annotation (
-          Placement(visible=true, transformation(
+      Modelica.Blocks.Sources.RealExpression PmPu(y=-GEN.PFout[1, 6])
+        annotation (Placement(visible=true, transformation(
             origin={-64,-10},
             extent={{-10,-10},{10,10}},
             rotation=0)));
-      Modelica.Blocks.Sources.RealExpression ufPuIn(y=GEN_.ufPuInStart) annotation (
-         Placement(visible=true, transformation(
+      Modelica.Blocks.Sources.RealExpression ufPuIn(y=GEN.ufPuInStart)
+        annotation (Placement(visible=true, transformation(
             origin={-66,4},
             extent={{-10,-10},{10,10}},
             rotation=0)));
@@ -173,20 +175,19 @@ UPu, PPu,QPu"),   Text(
       Modelica.Blocks.Sources.Step stepP(height=500e6, startTime=1)
         annotation (Placement(transformation(extent={{10,-44},{18,-36}})));
     equation
-      connect(PmPu.y, GEN_.PmPu)
-        annotation (Line(points={{-53,-10},{-48,-10},{-48,-3.4},{-42.4,-3.4}},
-                                                   color={0,0,127}));
-      connect(ufPuIn.y, GEN_.ufPuIn)
-        annotation (Line(points={{-55,4},{-42.4,4}},            color={0,0,127}));
-      connect(GRIDL_.terminal, NTHV.terminal)
+      connect(PmPu.y, GEN.PmPu) annotation (Line(points={{-53,-10},{-48,-10},{-48,
+              -3.4},{-42.4,-3.4}}, color={0,0,127}));
+      connect(ufPuIn.y, GEN.ufPuIn)
+        annotation (Line(points={{-55,4},{-42.4,4}}, color={0,0,127}));
+      connect(GRIDL.terminal, NTHV.terminal)
         annotation (Line(points={{66,-30},{66,-18},{30,-18}}));
-      connect(GEN_.terminal, NTLV.terminal)
+      connect(GEN.terminal, NTLV.terminal)
         annotation (Line(points={{-32,0},{-32,-18},{-6,-18}}));
       connect(NTLV.terminal, TGEN.terminalA) annotation (
         Line(points={{-6,-18},{2,-18}}));
       connect(TGEN.terminalB, NTHV.terminal) annotation (
         Line(points={{22,-18},{30,-18}}));
-      connect(NTHV.terminal, GRID_.terminal)
+      connect(NTHV.terminal, GRID.terminal)
         annotation (Line(points={{30,-18},{56,-18},{56,-8}}));
       connect(Grid2.terminal, NTHV.terminal)
         annotation (Line(points={{44,-36},{44,-18},{30,-18}}, color={0,0,0}));
@@ -243,23 +244,23 @@ con URef genera PStart, QStart")}),
 
 */
 
-      PowerGridsMC.Examples.IEEE14bus.ControlledGeneratorR GEN_(GEN(
-        H=4,
-        SNom=500000000,
-        Tpd0=5.143,
-        Tppd0=0.042,
-        Tppq0=0.083,
-        Tpq0=2.16,
-        UNom=21000,
-        portVariablesPhases=true,
-        raPu=0,
-        xdPu=2,
-        xlPu=0.15,
-        xpdPu=0.35,
-        xppdPu=0.25,
-        xppqPu=0.3,
-        xpqPu=0.5,
-        xqPu=1.8))
+      PowerGridsMC.Examples.IEEE14bus.ControlledGeneratorR GEN(GEN(
+          H=4,
+          SNom=500000000,
+          Tpd0=5.143,
+          Tppd0=0.042,
+          Tppq0=0.083,
+          Tpq0=2.16,
+          UNom=21000,
+          portVariablesPhases=true,
+          raPu=0,
+          xdPu=2,
+          xlPu=0.15,
+          xpdPu=0.35,
+          xppdPu=0.25,
+          xppqPu=0.3,
+          xpqPu=0.5,
+          xqPu=1.8))
         annotation (Placement(transformation(extent={{-48,0},{-28,20}})));
       PowerGridsMC.Electrical.Buses.Bus NTLV(
         SNom=5e+08,
@@ -285,18 +286,19 @@ con URef genera PStart, QStart")}),
         portVariablesPu=true,
         rFixed=419/21)   annotation (
         Placement(visible = true, transformation(origin={0,10},      extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-      PowerGridsMC.Electrical.Buses.EquivalentGridR GRID_(
+      PowerGridsMC.Electrical.Buses.EquivalentGridR GRID(
         R_X=1/10,
         SNom=500000000,
         SSC=2500000000,
         UNom=380000,
         c=1.1,
         portVariablesPhases=true,
-        portVariablesPu=true) annotation (Placement(visible=true, transformation(
+        portVariablesPu=true) annotation (Placement(visible=true,
+            transformation(
             origin={38,20},
             extent={{-10,-10},{10,10}},
             rotation=0)));
-      PowerGridsMC.Electrical.Loads.LoadPQVoltageDependenceR GRIDL_(
+      PowerGridsMC.Electrical.Loads.LoadPQVoltageDependenceR GRIDL(
         alpha=2,
         beta=2,
         SNom=500000000,
@@ -317,15 +319,15 @@ con URef genera PStart, QStart")}),
       Modelica.Blocks.Sources.Step stepP(height=500e6, startTime=1)
         annotation (Placement(transformation(extent={{-4,-20},{4,-12}})));
     equation
-      connect(GRIDL_.terminal,NTHV. terminal)
+      connect(GRIDL.terminal, NTHV.terminal)
         annotation (Line(points={{50,-6},{50,10},{20,10}}));
-      connect(GEN_.terminal,NTLV. terminal)
+      connect(GEN.terminal, NTLV.terminal)
         annotation (Line(points={{-38,10},{-18,10}}));
       connect(NTLV.terminal,TGEN. terminalA) annotation (
         Line(points={{-18,10},{-10,10}}));
       connect(TGEN.terminalB,NTHV. terminal) annotation (
         Line(points={{10,10},{20,10}}));
-      connect(NTHV.terminal,GRID_. terminal)
+      connect(NTHV.terminal, GRID.terminal)
         annotation (Line(points={{20,10},{38,10},{38,20}}));
       connect(Grid2.QRefIn,stepQ. y) annotation (Line(points={{20,-22},{16,-22},
               {16,-24},{-7.6,-24}},color={0,0,127}));

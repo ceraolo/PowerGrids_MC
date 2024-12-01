@@ -1,4 +1,4 @@
-within PowerGridsMC.Electrical.PowerFlow;
+﻿within PowerGridsMC.Electrical.PowerFlow;
 model SlackBusW "Slack Bus - Save PF data"
 
   extends SlackBus;
@@ -36,11 +36,24 @@ equation
       "*** PVBus model short path: '" + nameShort+".mat" + "'");
   end when;
 
-  annotation (Icon(graphics={Text(
-          extent={{-98,48},{-54,14}},
-          textColor={238,46,47},
-          textStyle={TextStyle.Italic},
-          textString="W")}), Documentation(info="<html>
+  annotation (
+  Icon(graphics={
+    Text(
+      visible=showPFdata,
+      extent={{-170,46},{-32,12}},
+      lineColor={28,108,200},
+      textString=DynamicSelect("V", String(port.U/port.UNom, significantDigits=3))),
+    Text(
+      visible=showPFdata,
+      extent={{-164,-12},{-28,-46}},
+      lineColor={28,108,200},
+      textString=DynamicSelect("Uph", String(port.UPhase*180/3.14159265359, format = "4.1f")+"°")),
+    Text(
+      extent={{36,-12},{80,-46}},
+      textColor={162,29,33},
+      textStyle={TextStyle.Italic},
+          textString="W")}),
+   Documentation(info="<html>
 <p><i><span style=\"font-size: 12pt;\">Library PowerGridsMC is forked from https://github.com/PowerGrids/PowerGrids.</span></i></p>
 <p>************************** </p>
 <p>This is a new component not existing in the original library. It has the peculiarity that writes on an automatically generated file the PowerFlow data, that can be automatically retrieved by a corresponding subsequent transient model. </p>

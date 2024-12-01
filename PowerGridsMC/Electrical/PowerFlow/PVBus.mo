@@ -9,8 +9,8 @@ equation
   port.U = U;
 annotation (
     Icon(graphics={
-          Text(origin={-79.2668,-43.3999},
-                                  extent={{-16.7332,17.3999},{33.4668,-34.8001}},
+          Text(origin={-77.2667,-42.0664},
+                                  extent={{-18.7333,14.0664},{37.4667,-28.1336}},
                                                                    textString = "PV")}),
     Documentation(info = "<html><head></head><body><p>PVBus: prescribes the line-to-line voltage magnitude <code>U</code> of the bus and the active power <code>P</code> entering the  bus.</p>
 </body></html>"));

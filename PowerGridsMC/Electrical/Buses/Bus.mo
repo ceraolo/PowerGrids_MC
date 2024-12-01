@@ -5,6 +5,8 @@ model Bus "Bus model"
     final QStart = 0);
   extends Icons.Bus;
 
+   parameter Boolean showPFdata=true "=true, if PowerFlow data are to be shown";
+
 equation
   port.i = Complex(0);
 
