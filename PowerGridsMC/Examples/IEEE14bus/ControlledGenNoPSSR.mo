@@ -1,5 +1,5 @@
 within PowerGridsMC.Examples.IEEE14bus;
-model ControlledGeneratorR
+model ControlledGenNoPSSR
 //    y[1,1]=port.U;
 //    y[1,2]=port.UPhase;
 //    y[1,3]=port.P;
@@ -13,8 +13,7 @@ model ControlledGeneratorR
 //    UStart=y[1, 1],
 //    UPhaseStart=y[1, 2],
 
-
-  extends ControlledGeneratorIEEE(GEN( PStart=y[1,3],QStart =y[1,4],
+  extends ControlledGenNoPSS(     GEN( PStart=y[1,3],QStart =y[1,4],
   UStart=y[1,1],UPhaseStart=y[1,2]),
     PmRefPuDef(y=-y[1, 6]),
     VrefPuDef(y=1),
@@ -26,7 +25,6 @@ model ControlledGeneratorR
   parameter Real y[:,:] = Modelica.Utilities.Streams.readRealMatrix(
           nameShort+".mat","y",1,7);
 
-
   annotation (Icon(graphics={Text(
           extent={{48,-56},{92,-90}},
           textColor={162,29,33},
@@ -37,4 +35,4 @@ model ControlledGeneratorR
 <p>This is a new component not existing in the original library. It has the peculiarity that reads from an automatically generated file the data from a previously executed PowerFlow. </p>
 <p>The data is stored and retrieved based on the instance name. Therefore, for an effective Powerflo-&gt;Transient chaining the instance name of the PowerFlow writing and Transient reading models must be the same.</p>
 </html>"));
-end ControlledGeneratorR;
+end ControlledGenNoPSSR;

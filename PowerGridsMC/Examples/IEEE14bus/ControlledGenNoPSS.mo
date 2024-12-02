@@ -1,11 +1,13 @@
 within PowerGridsMC.Examples.IEEE14bus;
-model ControlledGeneratorIEEE "Model of controlled generator for the IEEE 14-bus benchmark - synchronous machine with proportional regulations"
+model ControlledGenNoPSS
+  "Model of controlled generator for the IEEE 14-bus benchmark - synchronous machine with proportional regulations"
   extends Icons.Machine;
   PowerGridsMC.Electrical.Machines.SynchronousMachine4Windings GEN(portVariablesPhases = true)  annotation (
     Placement(visible = true, transformation(                   extent={{28,-26},
             {48,-6}},                                                                            rotation = 0)));
   PowerGridsMC.Interfaces.TerminalAC terminal annotation (
-    Placement(visible = true, transformation(origin={38,-46},     extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {0, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin={38,26},      extent={{-6,-6},
+            {6,6}},                                                                                rotation = 0), iconTransformation(origin = {0, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Electrical.Controls.ExcitationSystems.VRProportional AVR(Ka = 20, VcPuStart = GEN.UStart / GEN.UNom, VrMax = 5, VrMin = -5)  annotation (
     Placement(visible = true, transformation(origin={-2,-26},     extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Electrical.Controls.TurbineGovernors.GoverProportional GOV(KGover = 5, PMaxPu = 1, PMinPu = 0, PPuStart = -GEN.PStart / GEN.PNom)  annotation (
@@ -22,7 +24,7 @@ model ControlledGeneratorIEEE "Model of controlled generator for the IEEE 14-bus
     Placement(visible = true, transformation(origin={56,8},     extent = {{-10, -10}, {10, 10}}, rotation=90),  iconTransformation(origin = {70, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
   connect(GEN.terminal, terminal) annotation (
-    Line(points={{38,-16},{38,-46}}));
+    Line(points={{38,-16},{38,26}}));
   connect(GOV.omegaPu, GEN.omegaPu) annotation (
     Line(points={{-6,10},{-68,10},{-68,48},{66,48},{66,-14},{48.2,-14}},            color = {0, 0, 127}));
   connect(AVR.VcPu, GEN.VPu) annotation (
@@ -43,6 +45,8 @@ equation
     Line(points={{-43,26},{-39,26}},        color = {0, 0, 127}));
   connect(GEN.omega, omega) annotation (
     Line(points={{48.3,-10.1},{56,-10.1},{56,8}},                    color = {0, 0, 127}));
+  connect(terminal, terminal)
+    annotation (Line(points={{38,26},{38,26}}, color={0,0,0}));
   annotation (
     Icon(coordinateSystem(grid={2,2}), graphics={
         Line(points={{-73.9,-30},{-35.1,-30.3}}, color={28,108,200}),
@@ -63,4 +67,4 @@ equation
 <p><i><span style=\"font-size: 12pt;\">The following info is derived from the original version on that source, modified whenever changes introduced in this fork require this.</span></i></p>
 <p>************************** </p>
 </html>"));
-end ControlledGeneratorIEEE;
+end ControlledGenNoPSS;

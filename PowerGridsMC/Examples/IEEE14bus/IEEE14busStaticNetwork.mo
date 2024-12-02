@@ -109,20 +109,56 @@ model IEEE14busStaticNetwork "Dynamic model of the IEEE 14-bus system, operating
   PowerGridsMC.Electrical.Branches.TransformerFixedRatio Tgen8(portVariablesPhases = true, R = 0, X = 0.076176, B = 0, G = 0, rFixed = 0.766667, SNom = 250e6, UNomA = 18e3, UNomB = 13.8e3) annotation (
     Placement(visible = true, transformation(origin={166,0},    extent = {{-10, -10}, {10, 10}}, rotation = 90)));
   // Generators
-  PowerGridsMC.Examples.IEEE14bus.ControlledGeneratorIEEE GEN1(GEN(DPu = 0.0,
-      H = 5.4, Tppd0 = 0.08, xpdPu = 0.384, Tpd0 = 8.094, raPu = 0.002796,
-      xpqPu = 0.393, Tppq0 = 0.084, Tpq0 = 1.572, xppdPu = 0.264, xdPu = 2.22,
-      xlPu = 0.202, xppqPu = 0.262, xqPu = 2.22, PNom = 1090e6, SNom = 1211e6,
-      UNom = 24e3, PStart = -232.37e6, QStart = 15.7473e6, UStart = 25.4068e3,
-      UPhaseStart = 0.0171006)) annotation (
-    Placement(transformation(origin={-138,46},    extent = {{-10, -10}, {10, 10}}, rotation = 180)));
-  PowerGridsMC.Examples.IEEE14bus.ControlledGeneratorIEEE GEN2(GEN(DPu = 0.0,
-     H = 5.4, Tppd0 = 0.058, xpdPu = 0.407, Tpd0 = 9.651, raPu = 0.00357,
-     xpqPu = 0.454, Tppq0 = 0.06, Tpq0 = 1.009, xppdPu = 0.3, xdPu = 2.57,
-     xlPu = 0.219, xppqPu = 0.301, xqPu = 2.57, PNom = 1008e6, SNom = 1120e6,
-     UNom = 24e3, PStart = -40e6, QStart = -42.7306e6, UStart = 25.1608e3,
-     UPhaseStart = -0.0837392)) annotation (
-    Placement(transformation(origin={-158,-90},    extent = {{-10, -10}, {10, 10}}, rotation = -90)));
+  PowerGridsMC.Examples.IEEE14bus.ControlledGenNoPSS GEN1(GEN(
+      DPu=0.0,
+      H=5.4,
+      Tppd0=0.08,
+      xpdPu=0.384,
+      Tpd0=8.094,
+      raPu=0.002796,
+      xpqPu=0.393,
+      Tppq0=0.084,
+      Tpq0=1.572,
+      xppdPu=0.264,
+      xdPu=2.22,
+      xlPu=0.202,
+      xppqPu=0.262,
+      xqPu=2.22,
+      PNom=1090e6,
+      SNom=1211e6,
+      UNom=24e3,
+      PStart=-232.37e6,
+      QStart=15.7473e6,
+      UStart=25.4068e3,
+      UPhaseStart=0.0171006)) annotation (Placement(transformation(
+        origin={-138,46},
+        extent={{-10,-10},{10,10}},
+        rotation=180)));
+  PowerGridsMC.Examples.IEEE14bus.ControlledGenNoPSS GEN2(GEN(
+      DPu=0.0,
+      H=5.4,
+      Tppd0=0.058,
+      xpdPu=0.407,
+      Tpd0=9.651,
+      raPu=0.00357,
+      xpqPu=0.454,
+      Tppq0=0.06,
+      Tpq0=1.009,
+      xppdPu=0.3,
+      xdPu=2.57,
+      xlPu=0.219,
+      xppqPu=0.301,
+      xqPu=2.57,
+      PNom=1008e6,
+      SNom=1120e6,
+      UNom=24e3,
+      PStart=-40e6,
+      QStart=-42.7306e6,
+      UStart=25.1608e3,
+      UPhaseStart=-0.0837392)) annotation (Placement(transformation(
+        origin={-158,-90},
+        extent={{-10,-10},{10,10}},
+        rotation=-90)));
   PowerGridsMC.Examples.IEEE14bus.SynchronousCondenser GEN3(GEN(DPu = 0.0,
      H = 5.625, Tppd0 = 0.065, xpdPu = 0.509, Tpd0 = 10.041, raPu = 0.00316,
      xpqPu = 0.601, Tppq0 = 0.094, Tpq0 = 1.22, xppdPu = 0.354, xdPu = 2.81,

@@ -234,7 +234,7 @@ con URef genera PStart, QStart")}),
     QStart=GEN_.y[1, 4],
 */
 
-      PowerGridsMC.Examples.IEEE14bus.ControlledGeneratorR GEN(GEN(
+      PowerGridsMC.Examples.IEEE14bus.ControlledGenNoPSSR GEN(GEN(
           H=4,
           SNom=500000000,
           Tpd0=5.143,

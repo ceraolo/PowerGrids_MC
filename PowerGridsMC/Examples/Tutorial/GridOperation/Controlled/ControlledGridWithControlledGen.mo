@@ -13,8 +13,11 @@ model ControlledGridWithControlledGen "System under automatic control with high-
     Placement(visible = true, transformation(origin = {50, -12}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
   PowerGridsMC.Electrical.Buses.BusFault NTHV(R = 0.05,SNom = 5e+08, UNom = 380000, UPhaseStart = 0, UStart = 1.050 * 380e3,portVariablesPhases = true, portVariablesPu = true, startTime = 2, stopTime = 2.1)  annotation (
     Placement(visible = true, transformation(origin = {30, 0}, extent = {{-10, 10}, {10, -10}}, rotation = 90)));
-  PowerGridsMC.Examples.Tutorial.GridOperation.Controlled.ControlledGenerator ctrlGEN(AVR(Ka = 150)) annotation (
-    Placement(visible = true, transformation(origin = {-64, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  PowerGridsMC.Examples.Tutorial.GridOperation.Controlled.ControlledGenPSS
+    ctrlGEN(AVR(Ka=150)) annotation (Placement(visible=true, transformation(
+        origin={-64,0},
+        extent={{-10,-10},{10,10}},
+        rotation=0)));
 equation
   connect(NTLV.terminal, TGEN.terminalA) annotation (
     Line(points = {{-30, 0}, {-10, 0}}));

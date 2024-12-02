@@ -1,5 +1,6 @@
 within PowerGridsMC.Examples.Tutorial.GridOperation.Controlled;
-model ControlledGenerator "Model of a synchronous generator with governor, AVR, and PSS"
+model ControlledGenPSS
+  "Model of a synchronous generator with governor, AVR, and PSS"
   extends Icons.Machine;
   PowerGridsMC.Electrical.Machines.SynchronousMachine4Windings GEN(H = 4, PStart = -4.75e+08, QStart = -1.56e+08,SNom = 5e+08, Tpd0 = 5.143, Tppd0 = 0.042, Tppq0 = 0.083, Tpq0 = 2.16, UNom = 21000, UPhaseStart = 0.161156, UStart = 21e3 * 0.9917, portVariablesPhases = true, raPu = 0, xdPu = 2, xlPu = 0.15, xpdPu = 0.35, xppdPu = 0.25, xppqPu = 0.3, xpqPu = 0.5, xqPu = 1.8)  annotation (
     Placement(visible = true, transformation(origin={34,0},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -59,4 +60,4 @@ equation
           fillColor={28,108,200},
           fillPattern=FillPattern.Solid)}),
     Diagram(coordinateSystem(grid={2,2},        extent={{-80,-80},{80,80}})));
-end ControlledGenerator;
+end ControlledGenPSS;

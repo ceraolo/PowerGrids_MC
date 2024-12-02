@@ -6,8 +6,8 @@ package Icons "Icons for the PowerGridsMC library"
   equation
 
   annotation (
-      Icon(graphics={  Rectangle(origin = {0, 2}, fillPattern = FillPattern.Solid, extent = {{-100, 6}, {100, -10}}), Text(origin={61,30},   lineColor = {0, 0, 255}, extent={{-55,10},
-                {55,-10}},                                                                                                                                                                               textString = "%name")}, coordinateSystem(initialScale = 0.1)));
+      Icon(graphics={  Rectangle(origin = {0, 2}, fillPattern = FillPattern.Solid, extent = {{-100, 6}, {100, -10}}), Text(origin={56,30},   lineColor = {0, 0, 255}, extent={{-60,10},
+                {60,-10}},                                                                                                                                                                               textString = "%name")}, coordinateSystem(initialScale = 0.1)));
   end Bus;
 
   model Line
@@ -34,7 +34,7 @@ package Icons "Icons for the PowerGridsMC library"
 
   model Machine
   annotation (
-      Icon(graphics={  Text(origin = {0, -117}, textColor = {0, 0, 255}, extent = {{-100, 9}, {100, -9}}, textString = "%name"),
+      Icon(graphics={  Text(origin={0,-121},    textColor = {0, 0, 255}, extent = {{-100, 9}, {100, -9}}, textString = "%name"),
         Rectangle(                  fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid, extent={{-100,80},
                 {100,-100}}),
         Ellipse(origin={0,-51},    extent = {{-40, 41}, {40, -40}}),
