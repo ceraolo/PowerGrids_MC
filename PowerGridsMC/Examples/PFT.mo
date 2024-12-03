@@ -14,7 +14,7 @@ package PFT
         UNomB=419e3,
         X = 16e-2 * 419 ^ 2 / 500,
         portVariablesPhases = true,
-        showPFdata=true,  portVariablesPu = true, rFixed = 419 / 21)  annotation (
+        showPortData=true,  portVariablesPu = true, rFixed = 419 / 21)  annotation (
         Placement(visible = true, transformation(origin={0,-10},  extent = {{-10, -10}, {10, 10}}, rotation = 0)));
       PowerGridsMC.Electrical.Buses.Bus NTHV(SNom = 5e+8, UNom = 380e3,
          portVariablesPhases = true, portVariablesPu = true)  annotation (
