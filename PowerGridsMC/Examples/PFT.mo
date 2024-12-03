@@ -496,7 +496,7 @@ con URef genera PStart, QStart")}),
             rotation=0)));
       PowerGridsMC.Electrical.Branches.TransformerFixedRatio Teq2_21(R = 435 / 125e3 * 126.9 ^ 2 / 100, SNom(displayUnit = "MW") = 125000000, UNomA(displayUnit = "kV") = 230000, UNomB(displayUnit = "kV") = 132700, X = 0.0875 * 126.9 ^ 2 / 100, rFixed = 132.7 / 230) annotation (
         Placement(visible = true, transformation(origin={36,32},    extent = {{-10, -10}, {10, 10}}, rotation = 90)));
-      PFTdemo.Line line annotation (Placement(visible=true, transformation(
+      PowerGridsMC.Examples.PFT.Line line annotation (Placement(visible=true, transformation(
             origin={-60,-68.6957},
             extent={{-9.99999,-11.3043},{9.99999,8.69565}},
             rotation=0)));
@@ -835,14 +835,14 @@ con URef genera PStart, QStart")}),
             Rectangle(extent={{-30,-36},{30,-82}}, lineColor={256,0,00})}),
           Documentation(info="<html>
 <p>This example show that PowerGridsMC can be used also when the system is already seccribed as PU in a unuque basel so that in the ingle-line direct sequenxe diagram all ideal transformers are omitted.</p>
-<p>this is very useful for teahching. </p>
-<p>Aa important advantage is that the on-line numerical values are much easily compared to each other, since all voltages represent their PUI value witreference to the corresponding nominal value and all active and reactive powers are in PU of the unique MVA system base.</p>
+<p>This is very useful for teaching. </p>
+<p>Aa important advantage is that the on-line numerical values are much easily compared to each other, since all voltages represent their PU value with reference to the corresponding nominal value and all active and reactive powers are in PU of the unique MVA system base.</p>
 <p>The parameters included here are derived from those in model PowerFlowSI using the following base for PU: </p>
 <p><u>Unique power</u>: 100 MVA</p>
 <p><u>Voltages</u>: </p>
-<p>220 kV (nodes 1, 2, 3, 4)     12.65 kV (node 11)      13.50 kV (node 33</p>
-<p>129.1 kV (node 31)             6.026 kV (node 32)      10.04 kV (node 22)</p>
-<p>10.04 kV (node 23)            126.9 kV (node 21)</p>
+<p>220 kV (nodes 1, 2, 3, 4) 12.65 kV (node 11) 13.50 kV (node 33</p>
+<p>129.1 kV (node 31) 6.026 kV (node 32) 10.04 kV (node 22)</p>
+<p>10.04 kV (node 23) 126.9 kV (node 21)</p>
 </html>"));
     end PowerFlowPU;
 
@@ -850,7 +850,7 @@ con URef genera PStart, QStart")}),
       parameter Real alpha = 2;
       parameter Real beta = 2;
       extends Modelica.Icons.Example;
-      PFTdemo.Line line annotation (Placement(visible=true, transformation(
+      PowerGridsMC.Examples.PFT.Line line annotation (Placement(visible=true, transformation(
             origin={-109.75,-108.413},
             extent={{-10.25,-11.5871},{10.25,8.91309}},
             rotation=0)));
@@ -1203,6 +1203,8 @@ con URef genera PStart, QStart")}),
 <p>The same network is used for Power Flow and transient; the transients start as initial condition from the PowerFlow results.</p>
 <p>The network has generators, transformers, loads and a synchronous compensator.</p>
 <p>The considered network contained three-winding transformers. Since PowergridsMC library does not contain models for these transformers, they are approximated, as common by three two-winding transfomers in star (power flow ) or delta (transient) configurations.</p>
+<p>Bus names with two digits are somehow &quot;subbuses&quot; of the main AT buses, which are bus1, bus2, bus3, bus4. For instance bus31 and , bus33 are sub-buses of bus3, and would have been called bus3.1, , bus3.3, if the latter were valid Modelica instance names (bus32 is missing because of simplifications made on the original model).</p>
+<p>******************</p>
 <p>See info of individual models for details.</p>
 </html>"));
   end FourATbus;
