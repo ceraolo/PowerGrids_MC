@@ -28,12 +28,12 @@ Icon(graphics={
           visible=showPFdata,
           extent={{-160,88},{-50,52}},
           lineColor={238,46,47},
-          textString=DynamicSelect("P", String(-portA.PGenPu, significantDigits=3))),
+          textString=DynamicSelect("P", String(-portA.PGenPu, format = "6.3f"))),
        Text(
           visible=showPFdata,
           extent={{-166,48},{-44,12}},
           lineColor={217,67,180},
-          textString=DynamicSelect("Q", String(-portA.QGenPu, significantDigits=3))),
+          textString=DynamicSelect("Q", String(-portA.QGenPu, format = "6.3f"))),
        Text(
           visible=showPFdata,
           extent={{-170,-20},{-38,-54}},

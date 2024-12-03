@@ -12,7 +12,8 @@ model SynchronousMachine4WindingsR
 
   extends SynchronousMachine4Windings(PStart=PFout[1,3],QStart=PFout[1,4],
 UStart=PFout[1,1],UPhaseStart=PFout[1,2]);
-  parameter Boolean showPFdata=false "=false, if PowerFlow data are to be shown";
+
+  parameter Boolean showPortData=false "=false, if PowerFlow data are to be shown";
 
   //Code to read output from previous PowerFlow run:
   final parameter String name = getInstanceName();

@@ -24,14 +24,14 @@ annotation (
 Icon(graphics={
   Text(
     visible=showPortData,
-    extent={{-162,82},{-52,46}},
+    extent={{-162,80},{-52,46}},
     lineColor={238,46,47},
-    textString=DynamicSelect("P", String(-portA.PGenPu, significantDigits=3))),
+    textString=DynamicSelect("P", String(-portA.PGenPu, format = "6.3f"))),
   Text(
     visible=showPortData,
     extent={{-174,46},{-36,14}},
     lineColor={217,67,180},
-    textString=DynamicSelect("Q", String(-portA.QGenPu, significantDigits=3))),
+    textString=DynamicSelect("Q", String(-portA.QGenPu, format = "6.3f"))),
   Text(
     visible=showPortData,
     extent={{52,84},{162,48}},

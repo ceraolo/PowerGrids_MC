@@ -1,4 +1,4 @@
-﻿within PowerGridsMC.Controls.Test;
+within PowerGridsMC.Controls.Test;
 model TestRampTrackingFilter
   extends Modelica.Icons.Example;
   Modelica.Blocks.Sources.Step step(height = 1, offset = 1, startTime = 1)  annotation (

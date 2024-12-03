@@ -1,4 +1,4 @@
-﻿within PowerGridsMC.Controls.Test;
+within PowerGridsMC.Controls.Test;
 model TestLeadMOrderLag
   extends Modelica.Icons.Example;
   PowerGridsMC.Controls.LeadMOrderLag leadLag( M = 1,T1 = 4, T2 = 2, initType = Modelica.Blocks.Types.Init.SteadyState, k = 10, yStart = 2)  annotation (

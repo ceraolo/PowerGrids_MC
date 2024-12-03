@@ -1,4 +1,4 @@
-﻿within PowerGridsMC.Electrical.Buses;
+within PowerGridsMC.Electrical.Buses;
 model Bus "Bus model"
   extends PowerGridsMC.Electrical.BaseClasses.OnePortAC(
     final PStart = 0,

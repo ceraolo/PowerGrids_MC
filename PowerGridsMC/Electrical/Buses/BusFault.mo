@@ -1,4 +1,4 @@
-﻿within PowerGridsMC.Electrical.Buses;
+within PowerGridsMC.Electrical.Buses;
 model BusFault
   extends Icons.Bus;
   extends Electrical.BaseClasses.OnePortAC;

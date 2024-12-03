@@ -1,4 +1,4 @@
-﻿within PowerGridsMC.Electrical.PowerFlow;
+within PowerGridsMC.Electrical.PowerFlow;
 model SlackBusW "Slack Bus - Save PF data"
 
   extends SlackBus;

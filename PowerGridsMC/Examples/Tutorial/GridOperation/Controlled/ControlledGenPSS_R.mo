@@ -57,13 +57,13 @@ equation
           textString="R"),
        Text(
           visible=showPortData,
-          extent={{-118,66},{-8,30}},
+          extent={{-114,66},{-4,30}},
           lineColor={238,46,47},
-          textString=DynamicSelect("P", String(-port.PGenPu, significantDigits=3))),
+          textString=DynamicSelect("P", String(-GEN.port.PGenPu, significantDigits=3))),
        Text(
           visible=showPortData,
-          extent={{4,66},{126,30}},
+          extent={{0,66},{122,30}},
           lineColor={217,67,180},
-          textString=DynamicSelect("Q", String(-port.QGenPu, significantDigits=3)))}),
+          textString=DynamicSelect("Q", String(-GEN.port.QGenPu, significantDigits=3)))}),
     Diagram(coordinateSystem(    extent={{-80,-60},{80,60}})));
 end ControlledGenPSS_R;
