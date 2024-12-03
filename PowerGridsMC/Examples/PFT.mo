@@ -234,7 +234,7 @@ con URef genera PStart, QStart")}),
     QStart=GEN_.y[1, 4],
 */
 
-      PowerGridsMC.Examples.IEEE14bus.ControlledGenNoPSSR GEN(GEN(
+      PowerGridsMC.Examples.IEEE14bus.ControlledGenNoPSS_R GEN(GEN(
           H=4,
           SNom=500000000,
           Tpd0=5.143,
@@ -272,7 +272,7 @@ con URef genera PStart, QStart")}),
         UNomB=419000,
         X=16e-2*419^2/500,
         portVariablesPhases=true,
-        showPFdata=true,
+        showPortData=true,
         portVariablesPu=true,
         rFixed=419/21)   annotation (
         Placement(visible = true, transformation(origin={0,10},      extent = {{-10, -10}, {10, 10}}, rotation = 0)));

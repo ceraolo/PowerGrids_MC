@@ -11,8 +11,8 @@ model TwoGeneratorsOneReferenceGenerator
     Placement(transformation(origin = {-40, 20}, extent = {{-10, -10}, {10, 10}})));
   PowerGridsMC.Electrical.Branches.TransformerFixedRatio TGEN2( R = 0.15e-2 * 419 ^ 2 / 500, SNom = 5e+08, UNomA = 21000, UNomB = 419000, X = 16e-2 * 419 ^ 2 / 500, portVariablesPhases = true, portVariablesPu = true, rFixed = 419 / 21) annotation (
     Placement(transformation(origin = {60, 20}, extent = {{10, -10}, {-10, 10}})));
-  PowerGridsMC.Examples.Tutorial.GridOperation.Controlled.ControlledGenPSS GEN1
-    (GEN(
+  PowerGridsMC.Examples.Tutorial.GridOperation.Controlled.ControlledGenPSS GEN1(
+     GEN(
       UNom=21e3,
       SNom=500e6,
       UStart=20.825e3,
@@ -22,8 +22,8 @@ model TwoGeneratorsOneReferenceGenerator
           origin={-86,6}, extent={{-10,-10},{10,10}})));
   PowerGridsMC.Electrical.Branches.LineConstantImpedance LINE( R = 10, SNom = 5e+8, UNom = 380000, UPhaseStartA = 0, X = 100, portVariablesPhases = true, portVariablesPu = true) annotation (
     Placement(visible = true, transformation(origin = {10, 20}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  PowerGridsMC.Examples.Tutorial.GridOperation.Controlled.ControlledGenPSS GEN2
-    (GEN(
+  PowerGridsMC.Examples.Tutorial.GridOperation.Controlled.ControlledGenPSS GEN2(
+     GEN(
       UNom=21e3,
       SNom=500e6,
       UStart=20.825e3,

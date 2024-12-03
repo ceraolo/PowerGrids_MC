@@ -13,13 +13,15 @@ model ControlledGenPSS
   PowerGridsMC.Electrical.Controls.PowerSystemStabilizers.IEEE_PSS2A PSS(Ks1 = 10, Ks2 = 0.1564, M = 0, N = 0, T1 = 0.25, T2 = 0.03, T3 = 0.15, T4 = 0.015, T7 = 2, T8 = 0.5, T9 = 0.1, Tw1 = 2, Tw2 = 2, Tw3 = 2, Tw4 = 0, VstMax = 0.1, VstMin = -0.1)  annotation (
     Placement(visible = true, transformation(origin={-38,0},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   PowerGridsMC.Interfaces.TerminalAC terminal annotation (
-    Placement(visible = true, transformation(origin={34,30},     extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {0, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin={34,26},     extent={{-6,-6},
+            {6,6}},                                                                               rotation = 0), iconTransformation(origin = {0, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   PowerGridsMC.Controls.FreeOffset RefLPu annotation (
     Placement(visible = true, transformation(origin={-38,24},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   PowerGridsMC.Controls.FreeOffset VrefPu annotation (
     Placement(visible = true, transformation(origin={-40,-30},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Interfaces.RealOutput omega "Angular frequency / (rad/s)" annotation (
-    Placement(visible = true, transformation(origin={58,12},    extent = {{-6, -6}, {6, 6}}, rotation = 0), iconTransformation(origin = {70, 1.77636e-15}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin={58,12},    extent = {{-6, -6}, {6, 6}}, rotation = 0), iconTransformation(origin={110,
+            1.77636e-15},                                                                                                                                  extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
   connect(GEN.ufPuIn, AVR.efdPu) annotation (
     Line(points={{23.6,-4},{16,-4},{16,-16},{9,-16}},         color = {0, 0, 127}));
@@ -32,7 +34,7 @@ equation
   connect(PSS.Vsi2Pu, GEN.PPu) annotation (
     Line(points={{-48.2,-6},{-64,-6},{-64,48},{70,48},{70,-2},{44.2,-2}},          color = {0, 0, 127}));
   connect(GEN.terminal, terminal) annotation (
-    Line(points={{34,0},{34,30}}));
+    Line(points={{34,0},{34,26}}));
   connect(RefLPu.y, TGOV.RefLPu) annotation (
     Line(points={{-27,24},{-12,24}},     color = {0, 0, 127}));
   connect(VrefPu.y, AVR.VrefPu) annotation (
@@ -47,17 +49,23 @@ equation
     Line(points={{44.3,5.9},{48,5.9},{48,12},{58,12}},              color = {0, 0, 127}));
   annotation (
     Icon(coordinateSystem(grid={2,2}), graphics={
-        Line(points={{-73.9,-28},{-35.1,-28.3}}, color={28,108,200}),
+        Line(points={{-71.9,-28},{-33.1,-28.3}}, color={28,108,200}),
         Polygon(
-          points={{-44.2,-24.2},{-44.2,-32.1},{-35.1,-28.6},{-44.2,-24.2}},
+          points={{-42.2,-24.2},{-42.2,-32.1},{-33.1,-28.6},{-42.2,-24.2}},
           lineColor={28,108,200},
           fillColor={28,108,200},
           fillPattern=FillPattern.Solid),
-        Line(points={{-73,-65.7},{-37.1,-65.7},{-36.8,-64.9}}, color={28,108,200}),
+        Line(points={{-73,-67.7},{-37.1,-67.7},{-36.8,-66.9}}, color={28,108,200}),
         Polygon(
-          points={{-46.2,-61.1},{-46.2,-69},{-36.8,-65.5},{-46.2,-61.1}},
+          points={{-46.2,-63.1},{-46.2,-71},{-36.8,-67.5},{-46.2,-63.1}},
+          lineColor={28,108,200},
+          fillColor={28,108,200},
+          fillPattern=FillPattern.Solid),
+        Line(points={{-66,-48},{-39.1,-48.3}},   color={28,108,200}),
+        Polygon(
+          points={{-48.2,-44.2},{-48.2,-52.1},{-39.1,-48.6},{-48.2,-44.2}},
           lineColor={28,108,200},
           fillColor={28,108,200},
           fillPattern=FillPattern.Solid)}),
-    Diagram(coordinateSystem(grid={2,2},        extent={{-80,-80},{80,80}})));
+    Diagram(coordinateSystem(                   extent={{-80,-60},{80,60}})));
 end ControlledGenPSS;

@@ -11,7 +11,7 @@ model LineConstantImpedance "Transmission line with constant impedance"
   parameter Types.Conductance G = 0  "Shunt conductance";
   parameter Types.Susceptance B = 0 "Shunt susceptance";
 
-  parameter Boolean showPFdata=true "=true, if PowerFlow data are to be shown";
+  parameter Boolean showPortData=true "=true, if PowerFlow data are to be shown";
 
 equation
   k = Complex(1);

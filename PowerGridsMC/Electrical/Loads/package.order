@@ -2,4 +2,5 @@ LoadPQVoltageDependence
 LoadPQVoltageDependenceR
 LoadPQVoltageDependenceInputs
 LoadImpedancePQ
+LoadImpedancePQ_R
 LoadImpedancePQInputs
