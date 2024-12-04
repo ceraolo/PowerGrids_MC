@@ -877,7 +877,7 @@ con URef genera PStart, QStart")}),
             origin={-120,58},
             extent={{-16,-8},{16,8}},
             rotation=0)));
-      Modelica.Blocks.Sources.RealExpression pm42(y=-gen42x2_.PStart/gen42x2_.SNom)
+      Modelica.Blocks.Sources.RealExpression pm42(y=-gen42x2.PStart/gen42x2.SNom)
         annotation (Placement(visible=true, transformation(
             origin={-1,-117},
             extent={{-7,-9},{7,9}},
@@ -902,7 +902,7 @@ con URef genera PStart, QStart")}),
         xppqPu=0.3,
         xpqPu=0.5,
         xqPu=1.8) annotation (Placement(visible=true, transformation(
-            origin={-78,56},
+            origin={-80,56},
             extent={{-10,-10},{10,10}},
             rotation=-90)));
       PowerGridsMC.Electrical.Machines.SynchronousMachine4WindingsR gen33x2(
@@ -929,7 +929,7 @@ con URef genera PStart, QStart")}),
             origin={-110,22},
             extent={{-10,10},{10,-10}},
             rotation=0)));
-      PowerGridsMC.Electrical.Machines.SynchronousMachine4WindingsR gen42x2_(
+      PowerGridsMC.Electrical.Machines.SynchronousMachine4WindingsR gen42x2(
         H=4,
         SNom=206*2e6,
         Tpd0=5.143,
@@ -976,7 +976,7 @@ con URef genera PStart, QStart")}),
             origin={-126,72},
             extent={{-22,-8},{22,8}},
             rotation=0)));
-      Modelica.Blocks.Sources.RealExpression uf42(y=gen42x2_.ufPuInStart)
+      Modelica.Blocks.Sources.RealExpression uf42(y=gen42x2.ufPuInStart)
         annotation (Placement(visible=true, transformation(
             origin={0,-132},
             extent={{-8,-10},{8,10}},
@@ -1030,7 +1030,8 @@ con URef genera PStart, QStart")}),
             origin={60,33},
             extent={{8,-9},{-8,9}},
             rotation=0)));
-      PowerGridsMC.Electrical.Buses.BusFault bus1(R = 1, SNom(displayUnit = "V.A") = 500000000, UNom(displayUnit = "V") = 234000, X = 0, portVariablesPhases = true, portVariablesPu = true,
+      PowerGridsMC.Electrical.Buses.BusFault bus1(R = 1, SNom(displayUnit = "V.A") = 500000000,
+        UNom(displayUnit="V") = 220000,                                                                                           X = 0, portVariablesPhases = true, portVariablesPu = true,
         startTime=0.5,
         stopTime=0.6)                                                                                                                                                                                                       annotation (
         Placement(visible = true, transformation(origin={-52,12},   extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -1040,22 +1041,13 @@ con URef genera PStart, QStart")}),
         UNomB(displayUnit="V") = 15.75,
         X=0.017488*14.7^2/100/2,
         rFixed=15.75/236.1,
-        showPortData=false)   annotation (Placement(visible=true, transformation(
+        showPortData=true)    annotation (Placement(visible=true, transformation(
             origin={-4,-84},
             extent={{10,-10},{-10,10}},
             rotation=180)));
       PowerGridsMC.Electrical.Branches.TransformerFixedRatio T4_iX2(SNom(displayUnit = "MW") = 190e6 * 2, UNomA(displayUnit = "kV") = 236100, UNomB(displayUnit = "kV") = 236100, X = 0.04828 * 220 ^ 2 / 100 / 2,
         showPortData=false)                                                                                                                                                                                          annotation (
         Placement(visible = true, transformation(origin={-28,-70},    extent = {{-10, -10}, {10, 10}}, rotation = 90)));
-      PowerGridsMC.Electrical.Buses.ReferenceBusR gen42x2(
-        SNom(displayUnit="V.A") = 5e+08,
-        UNom(displayUnit="V") = 15700,
-        portVariablesPhases=true,
-        portVariablesPu=true) annotation (Placement(visible=true,
-            transformation(
-            origin={16,-84},
-            extent={{-10,10},{10,-10}},
-            rotation=90)));
       PowerGridsMC.Electrical.Branches.TransformerFixedRatio T41_iX2(SNom(displayUnit = "MW") = 190e6 * 2, UNomA(displayUnit = "kV") = 236100, UNomB(displayUnit = "kV") = 127900, X = 0.02476 * 119 ^ 2 / 100 / 2, rFixed = 127.9 / 236.1,
         showPortData=false)                                                                                                                                                                                                         annotation (
         Placement(visible = true, transformation(origin = {-28, -94}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
@@ -1097,6 +1089,24 @@ con URef genera PStart, QStart")}),
             origin={-139.5,-59.5},
             extent={{-10,-10},{10,10}},
             rotation=0)));
+      Electrical.Buses.Bus bus11(
+        SNom(displayUnit="V.A") = 100e6,
+        UNom(displayUnit="V") = 13.8e3,
+        portVariablesPhases=true,
+        portVariablesPu=true) annotation (Placement(visible=true,
+            transformation(
+            origin={-51.5,52.5},
+            extent={{-10,-10},{10,10}},
+            rotation=0)));
+      Electrical.Buses.Bus bus42(
+        SNom(displayUnit="V.A") = 100e6,
+        UNom(displayUnit="V") = 15.7e3,
+        portVariablesPhases=true,
+        portVariablesPu=true) annotation (Placement(visible=true,
+            transformation(
+            origin={34.5,-89.5},
+            extent={{-10,-10},{10,10}},
+            rotation=0)));
     equation
       connect(T1_11_2.terminalA, T1_11_1.terminalA) annotation (
         Line(points={{-45,42.5},{-45,44},{-61.5,44},{-61.5,41.5}}));
@@ -1108,17 +1118,17 @@ con URef genera PStart, QStart")}),
         Line(points={{-52.5,-16.5},{-52.5,-37},{-52,-37}}));
       connect(L4_2.terminalB, L3_4.terminalB) annotation (
         Line(points={{-52,-57},{-51.75,-57},{-51.75,-67},{-61.5,-67}}));
-      connect(gen42x2_.PmPu, pm42.y) annotation (Line(points={{23.6,-102.6},{16,
+      connect(gen42x2.PmPu, pm42.y) annotation (Line(points={{23.6,-102.6},{16,
               -102.6},{16,-117},{6.7,-117}}, color={0,0,127}));
-      connect(gen42x2_.ufPuIn, uf42.y) annotation (Line(points={{23.6,-110},{22,
+      connect(gen42x2.ufPuIn, uf42.y) annotation (Line(points={{23.6,-110},{22,
               -110},{22,-132},{8.8,-132}}, color={0,0,127}));
-      connect(gen42x2_.omega, systemPowerGrids.omegaRefIn) annotation (Line(
+      connect(gen42x2.omega, systemPowerGrids.omegaRefIn) annotation (Line(
             points={{44.3,-100.1},{50.1,-100.1},{50.1,-99.8},{52.2,-99.8}},
             color={0,0,127}));
-      connect(pm11.y, gen11x2.PmPu) annotation (Line(points={{-101.8,72},{-74.6,
-              72},{-74.6,66.4}}, color={0,0,127}));
+      connect(pm11.y, gen11x2.PmPu) annotation (Line(points={{-101.8,72},{-76.6,
+              72},{-76.6,66.4}}, color={0,0,127}));
       connect(uf11.y, gen11x2.ufPuIn) annotation (Line(points={{-102.4,58},{-96,
-              58},{-96,70},{-82,70},{-82,66.4}}, color={0,0,127}));
+              58},{-96,70},{-84,70},{-84,66.4}}, color={0,0,127}));
       connect(T31_33_2.terminalB, Teq31_3.terminalA) annotation (
         Line(points={{-130,-38},{-130,-50},{-126,-50}}));
       connect(T31_33_1.terminalB, Teq31_3.terminalA) annotation (
@@ -1145,16 +1155,12 @@ con URef genera PStart, QStart")}),
         Line(points={{-61.5,21.5},{-52,21.5},{-52,12}}));
       connect(L2_1.terminalA, bus1.terminal) annotation (
         Line(points={{-52.5,3.5},{-52.5,8},{-52,8},{-52,12}}));
-      connect(T42_iX2.terminalB, gen42x2.terminal)
-        annotation (Line(points={{6,-84},{16,-84}}));
       connect(T42_iX2.terminalA, T41_iX2.terminalA)
         annotation (Line(points={{-14,-84},{-28,-84}}));
       connect(T41_iX2.terminalA, T4_iX2.terminalA) annotation (
         Line(points={{-28,-84},{-28,-80}}));
       connect(T4_iX2.terminalB, L4_2.terminalB) annotation (
         Line(points={{-28,-60},{-52,-60},{-52,-57}}));
-      connect(gen42x2.terminal, gen42x2_.terminal)
-        annotation (Line(points={{16,-84},{34,-84},{34,-106}}));
       connect(Teq31_3.terminalB, bus3.terminal) annotation (
         Line(points={{-106,-50},{-102,-50},{-102,-49.5},{-95.5,-49.5}}));
       connect(L3_2.terminalA, bus3.terminal) annotation (
@@ -1165,8 +1171,6 @@ con URef genera PStart, QStart")}),
         annotation (Line(points={{-6,32},{-6,20},{-2,20}}));
       connect(T41_iX2.terminalB, pq41.terminal)
         annotation (Line(points={{-28,-104},{-28,-112},{-44,-112}}));
-      connect(gen11x2.terminal, T1_11_1.terminalA) annotation (Line(points={{-78,
-              56},{-52,56},{-52,44},{-61.5,44},{-61.5,41.5}}));
       connect(Teq2_21.terminalA, L2_1.terminalB) annotation (Line(points={{-26,-18},
               {-26,-26},{-52.5,-26},{-52.5,-16.5}},      color={0,0,0}));
       connect(gen33x2.terminal, bus3_3.terminal) annotation (Line(points={{-110,
@@ -1182,9 +1186,17 @@ con URef genera PStart, QStart")}),
       connect(bus3_3.terminal, T31_33_2.terminalA) annotation (Line(points={{-109.5,
               4.5},{-109.5,-6},{-138,-6},{-138,-12},{-130,-12},{-130,-18}}, color={0,
               0,0}));
+      connect(gen11x2.terminal, bus11.terminal) annotation (Line(points={{-80,
+              56},{-68,56},{-68,64},{-51.5,64},{-51.5,52.5}}, color={0,0,0}));
+      connect(bus11.terminal, T1_11_1.terminalA) annotation (Line(points={{
+              -51.5,52.5},{-52,44},{-61.5,44},{-61.5,41.5}}, color={0,0,0}));
+      connect(T42_iX2.terminalB, bus42.terminal) annotation (Line(points={{6,
+              -84},{14,-84},{14,-78},{34.5,-78},{34.5,-89.5}}, color={0,0,0}));
+      connect(bus42.terminal, gen42x2.terminal) annotation (Line(points={{34.5,
+              -89.5},{34,-89.5},{34,-106}}, color={0,0,0}));
       annotation (
         Icon(coordinateSystem(extent = {{-100, -100}, {100, 100}})),
-        Diagram(coordinateSystem(extent = {{-160, 80}, {80, -140}}), graphics={  Text(origin = {-7, 64}, extent = {{-19, 6}, {19, -6}},
+        Diagram(coordinateSystem(extent = {{-160, 80}, {80, -140}}), graphics={  Text(origin={41,64},    extent = {{-19, 6}, {19, -6}},
               textString="OK! V. info",
               textColor={0,0,0})}),
         experiment(StopTime = 6, Interval = 0.00400267, Tolerance = 1e-06, StartTime = 0),
