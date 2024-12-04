@@ -11,8 +11,7 @@ package BaseClasses
   equation
     v = e + Z*i;
     annotation (
-      Icon(coordinateSystem(grid = {0.1, 0.1})),
-      Diagram(coordinateSystem(extent = {{-200, -100}, {200, 100}})),
+      Icon(coordinateSystem(grid={2,2})),
       Documentation(info = "<html><head></head><body><p>This is the base class for bus components that can be represented as the series connection of an ideal voltage generator and an internal impedance Z. In general the generator voltage and the internal impedance are time-varying variables.</p>
 <p>This model can be specialized to describe an infinite bus with fixed or variable reference voltage.</p>
 </body></html>"));

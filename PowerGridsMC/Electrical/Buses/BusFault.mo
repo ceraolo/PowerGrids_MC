@@ -37,7 +37,12 @@ algorithm
 equation
    i = Y*v;
 annotation (
-    Icon(coordinateSystem(grid={2,2}),        graphics={  Line(origin={59.02,-38},     points = {{-3.01972, 29.9973}, {18.9803, 9.99729}, {-19.0197, -12.0027}, {2.98028, -30.0027}}, thickness = 1, arrow = {Arrow.None, Arrow.Filled}, arrowSize = 6),
+    Icon(coordinateSystem(grid={2,2}),        graphics={  Line(
+          origin={59.02,-38},
+          points={{-3.01972,29.9973},{18.98,16},{-17.02,0},{18.98,-16}},
+          thickness=2,
+          arrow={Arrow.None,Arrow.Filled},
+          arrowSize=16),
     Text(
       visible=showPFdata,
       extent={{-164,48},{-26,14}},

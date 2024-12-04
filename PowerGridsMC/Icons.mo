@@ -6,8 +6,8 @@ package Icons "Icons for the PowerGridsMC library"
   equation
 
   annotation (
-      Icon(graphics={  Rectangle(origin = {0, 2}, fillPattern = FillPattern.Solid, extent = {{-100, 6}, {100, -10}}), Text(origin={56,30},   lineColor = {0, 0, 255}, extent={{-60,10},
-                {60,-10}},                                                                                                                                                                               textString = "%name")}, coordinateSystem(initialScale = 0.1)));
+      Icon(graphics={  Rectangle(origin = {0, 2}, fillPattern = FillPattern.Solid, extent = {{-100, 6}, {100, -10}}), Text(origin={67,34},   lineColor = {0, 0, 255}, extent={{-65,10},
+                {65,-10}},                                                                                                                                                                               textString = "%name")}, coordinateSystem(initialScale = 0.1)));
   end Bus;
 
   model Line
