@@ -10,6 +10,11 @@ model PVBusW "PV bus - Save PF data on disk"
   Real out[1,7];
 
   parameter Boolean showPFdata=true "=true, if PowerFlow data are to be shown";
+  outer Electrical.System systemPowerGrids "Reference to system object";
+  parameter Boolean showDataOnDiagramsPu = systemPowerGrids.showDataOnDiagramsPu
+   "=true, P,Q,V and phase are shown on the diagrams in per-unit of local machine base"
+   annotation(Dialog(tab = "Visualization"));
+
 
 algorithm
   // remove path before instance name.
@@ -40,21 +45,30 @@ equation
       "*** PVBus model short path: '" + nameShort+".mat" + "'");
   end when;
 
-  annotation (Icon(graphics={Text(
+  annotation (Icon(graphics={
+      Text(
           extent={{46,-54},{90,-88}},
           textColor={162,29,33},
           textStyle={TextStyle.Italic},
           textString="W"),
        Text(
-          visible=showPFdata,
-          extent={{-120,58},{-10,22}},
+          visible=showPortData,
+          extent={{-106,66},{-4,30}},
           lineColor={238,46,47},
-          textString=DynamicSelect("P", String(-port.PGenPu, significantDigits=3))),
+          textString=DynamicSelect("P",
+             if showDataOnDiagramsPu then
+               String(-port.PGenPu, format = "6.3f")
+             else
+               String(-port.PGen/1e6, format = "9.2f"))),
        Text(
-          visible=showPFdata,
-          extent={{2,58},{124,22}},
+          visible=showPortData,
+          extent={{2,66},{102,32}},
           lineColor={217,67,180},
-          textString=DynamicSelect("Q", String(-port.QGenPu, significantDigits=3)))}),
+          textString=DynamicSelect("Q",
+            if showDataOnDiagramsPu then
+              String(-port.QGenPu, format = "6.3f")
+            else
+              String(-port.QGen/1e6, format = "9.2f")))}),
                              Documentation(info="<html>
 <p><i><span style=\"font-size: 12pt;\">Library PowerGridsMC is forked from https://github.com/PowerGrids/PowerGrids.</span></i></p>
 <p>************************** </p>

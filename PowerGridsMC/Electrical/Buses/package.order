@@ -1,5 +1,6 @@
 Bus
 ReferenceBus
+ReferenceBusR
 InfiniteBus
 InfiniteBusVariableVoltage
 BusFault
@@ -7,4 +8,3 @@ EquivalentGrid
 EquivalentGridR
 Ground
 BaseClasses
-ReferenceBusR

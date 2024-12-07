@@ -34,8 +34,8 @@ equation
   connect(PmPu.y, GEN.PmPu) annotation (
     Line(points={{-9,24},{0,24},{0,8},{13.6,8},{13.6,7.4}},             color = {0, 0, 127}));
   annotation (
-    Icon(coordinateSystem(grid={2,2}),                            graphics={                                                                                                                                                   Text(origin={-59,32},    extent={{-37,24},
-              {37,-24}},                                                                                                                                                                                                        textString = "SC"),
+    Icon(coordinateSystem(grid={2,2}),                            graphics={                                                                                                                                                   Text(origin={-68,-50},   extent={{-30,16},
+              {30,-16}},                                                                                                                                                                                                        textString = "SC"),
         Line(points={{-73.9,-30},{-35.1,-30.3}}, color={28,108,200}),
         Polygon(
           points={{-44.2,-26.2},{-44.2,-34.1},{-35.1,-30.6},{-44.2,-26.2}},
@@ -47,7 +47,17 @@ equation
           lineColor={28,108,200},
           fillColor={28,108,200},
           fillPattern=FillPattern.Solid),
-        Line(points={{-73,-67.7},{-37.1,-67.7},{-36.8,-66.9}}, color={28,108,200})}),
+        Line(points={{-73,-67.7},{-37.1,-67.7},{-36.8,-66.9}}, color={28,108,200}),
+       Text(
+          visible=showPortData,
+          extent={{-114,66},{-4,30}},
+          lineColor={238,46,47},
+          textString=DynamicSelect("P", String(-GEN.port.PGenPu, significantDigits=3))),
+       Text(
+          visible=showPortData,
+          extent={{0,66},{122,30}},
+          lineColor={217,67,180},
+          textString=DynamicSelect("Q", String(-GEN.port.QGenPu, significantDigits=3)))}),
     Diagram(coordinateSystem(extent={{-100,-40},{80,40}})),
     Documentation(info="<html>
 <p><i><span style=\"font-family: Arial; font-size: 12pt;\">Library PowerGridsMC was forked from https://github.com/PowerGrids/PowerGrids on 22 November 2024.</span></i></p>

@@ -44,19 +44,19 @@ equation
   connect(AVR.VuelPu, zero.y) annotation (
     Line(points={{-46,-22},{-50,-22},{-50,-52},{-60.8,-52}},        color = {0, 0, 127}));
   connect(GEN.ufPuIn, AVR.efdPu) annotation (
-    Line(points={{-10,-4},{-18,-4},{-18,-16},{-25,-16},{-25,-16}},            color = {0, 0, 127}));
+    Line(points={{-10.4,-4},{-18,-4},{-18,-16},{-25,-16},{-25,-16}},          color = {0, 0, 127}));
   connect(TGOV.PMechPu, GEN.PmPu) annotation (
-    Line(points = {{-26, 28}, {-18, 28}, {-18, 4}, {-10, 4}, {-10, 4}}, color = {0, 0, 127}));
+    Line(points={{-26,28},{-18,28},{-18,4},{-10.4,4},{-10.4,3.4}},      color = {0, 0, 127}));
   connect(GEN.VPu, AVR.VcPu) annotation (
-    Line(points = {{10, -6}, {26, -6}, {26, 54}, {-104, 54}, {-104, -14}, {-46, -14}}, color = {0, 0, 127}));
+    Line(points={{10.2,-6},{26,-6},{26,54},{-104,54},{-104,-14},{-46,-14}},            color = {0, 0, 127}));
   connect(GEN.omegaPu, TGOV.omegaPu) annotation (
-    Line(points = {{10, 2}, {16, 2}, {16, 44}, {-54, 44}, {-54, 32}, {-46, 32}, {-46, 32}}, color = {0, 0, 127}));
+    Line(points={{10.2,2},{16,2},{16,44},{-54,44},{-54,32},{-46,32},{-46,32}},              color = {0, 0, 127}));
   connect(PSS.VstPu, AVR.VsPu) annotation (
     Line(points={{-61,0},{-55,0},{-55,-10},{-46,-10},{-46,-10}},            color = {0, 0, 127}));
   connect(PSS.Vsi1Pu, GEN.omegaPu) annotation (
-    Line(points = {{-82, 6}, {-94, 6}, {-94, 44}, {16, 44}, {16, 2}, {10, 2}}, color = {0, 0, 127}));
+    Line(points={{-82,6},{-94,6},{-94,44},{16,44},{16,2},{10.2,2}},            color = {0, 0, 127}));
   connect(PSS.Vsi2Pu, GEN.PPu) annotation (
-    Line(points={{-82.2,-6},{-98.2,-6},{-98.2,48},{19.8,48},{19.8,-2},{10,-2}},               color = {0, 0, 127}));
+    Line(points={{-82.2,-6},{-98.2,-6},{-98.2,48},{19.8,48},{19.8,-2},{10.2,-2}},             color = {0, 0, 127}));
   connect(VrefPu.y, AVR.VrefPu) annotation (
     Line(points={{-61,-30},{-55,-30},{-55,-18},{-46,-18}},          color = {0, 0, 127}));
   connect(RefLPu.y, TGOV.RefLPu) annotation (
@@ -64,7 +64,6 @@ equation
   connect(deltaVrefPu.y, VrefPu.u) annotation (
     Line(points={{-90.8,-30},{-83,-30}},        color = {0, 0, 127}));
   annotation (
-    Icon(coordinateSystem(grid = {0.1, 0.1})),
     Diagram(coordinateSystem(extent = {{-120, -60}, {100, 60}}, grid = {0.5, 0.5})),
     experiment(StartTime = 0, StopTime = 30, Tolerance = 1e-6, Interval = 0.02),
     __OpenModelica_commandLineOptions = "--daeMode --tearingMethod=minimalTearing",

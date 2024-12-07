@@ -30,7 +30,6 @@ equation
   connect(ctrlGEN.terminal, NTLV.terminal) annotation (
     Line(points = {{-64, 0}, {-30, 0}}));
   annotation (
-    Icon(coordinateSystem(grid = {0.1, 0.1})),
     Diagram(coordinateSystem(extent = {{-80, 60}, {80, -20}}, grid = {0.5, 0.5})),
     experiment(StartTime = 0, StopTime = 10, Tolerance = 1e-6, Interval = 0.02),
     __OpenModelica_commandLineOptions = "--daeMode --tearingMethod=minimalTearing",

@@ -12,6 +12,10 @@ model LineConstantImpedance "Transmission line with constant impedance"
   parameter Types.Susceptance B = 0 "Shunt susceptance";
 
   parameter Boolean showPortData=true "=true, if PowerFlow data are to be shown";
+  outer Electrical.System systemPowerGrids "Reference to system object";
+  parameter Boolean showDataOnDiagramsPu = systemPowerGrids.showDataOnDiagramsPu
+   "=true, P,Q,V and phase are shown on the diagrams in per-unit of local machine base"
+   annotation(Dialog(tab = "Visualization"));
 
 equation
   k = Complex(1);
@@ -24,34 +28,40 @@ annotation (
 <p>Implemented as a child class of <a href=\"modelica://PowerGridsMC.Electrical.Branches.BaseClasses.PiNetwork\">PiNetwork</a>, where Ya=Yb=(G+jB)/2 and k = 1, see the corresponding documentation.</p>
 </html>"),
 Icon(graphics={
-       Text(
-          visible=showPFdata,
-          extent={{-160,88},{-50,52}},
-          lineColor={238,46,47},
-          textString=DynamicSelect("P", String(-portA.PGenPu, format = "6.3f"))),
-       Text(
-          visible=showPFdata,
-          extent={{-166,48},{-44,12}},
-          lineColor={217,67,180},
-          textString=DynamicSelect("Q", String(-portA.QGenPu, format = "6.3f"))),
-       Text(
-          visible=showPFdata,
-          extent={{-170,-20},{-38,-54}},
-          lineColor={28,108,200},
-          textString=DynamicSelect("V", String(portA.U/portA.UNom, significantDigits=3))),
-       Text(
-          visible=showPFdata,
-          extent={{48,88},{156,52}},
-          lineColor={238,46,47},
-          textString=DynamicSelect("P", String(-portB.PGenPu, significantDigits=3))),
-       Text(
-          visible=showPFdata,
-          extent={{42,48},{168,12}},
-          lineColor={217,67,180},
-          textString=DynamicSelect("Q", String(-portB.QGenPu, significantDigits=3))),
-       Text(
-          visible=showPFdata,
-          extent={{40,-20},{168,-54}},
-          lineColor={28,108,200},
-          textString=DynamicSelect("V", String(portB.U/portB.UNom, significantDigits=3)))}));
+   Text(
+     visible=showPortData,
+     extent={{-160,88},{-50,52}},
+     lineColor={238,46,47},
+     textString=DynamicSelect("P",
+        if showDataOnDiagramsPu then
+           String(-portA.PGenPu, format = "6.3f")
+        else
+           String(-portA.PGen/1e6, format = "9.3f"))),
+    Text(
+      visible=showPortData,
+      extent={{-166,46},{-44,12}},
+      lineColor={217,67,180},
+      textString=DynamicSelect("Q",
+        if showDataOnDiagramsPu then
+           String(-portA.QGenPu, format = "6.3f")
+        else
+           String(-portA.QGen/1e6, format = "9.3f"))),
+    Text(
+      visible=showPortData,
+      extent={{48,88},{156,52}},
+      lineColor={238,46,47},
+     textString=DynamicSelect("P",
+        if showDataOnDiagramsPu then
+           String(-portB.PGenPu, format = "6.3f")
+        else
+           String(-portB.PGen/1e6, format = "9.3f"))),
+    Text(
+      visible=showPortData,
+      extent={{42,46},{168,12}},
+      lineColor={217,67,180},
+      textString=DynamicSelect("Q",
+        if showDataOnDiagramsPu then
+           String(-portB.QGenPu, format = "6.3f")
+        else
+           String(-portB.QGen/1e6, format = "9.3f")))}));
 end LineConstantImpedance;

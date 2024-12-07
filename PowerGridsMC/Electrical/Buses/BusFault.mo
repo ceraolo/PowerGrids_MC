@@ -13,7 +13,12 @@ model BusFault
   discrete Types.ComplexAdmittance Y(re(start = 0, fixed = true), im(start = 0, fixed = true)) "Shunt admittance";
   Boolean fault(start = false, fixed = true) "The fault is active";
 
-  parameter Boolean showPFdata=true "=true, if PowerFlow data are to be shown";
+   outer Electrical.System systemPowerGrids "Reference to system object";
+  parameter Boolean showDataOnDiagramsPu = systemPowerGrids.showDataOnDiagramsPu
+   "=true, P,Q,V and phase are shown on the diagrams in per-unit of local machine base"
+   annotation(Dialog(tab = "Visualization"));
+
+  parameter Boolean showPortData=true "=true, if PowerFlow data are to be shown";
 
 // State machine to compute the fault variable
 algorithm
@@ -37,21 +42,17 @@ algorithm
 equation
    i = Y*v;
 annotation (
-    Icon(coordinateSystem(grid={2,2}),        graphics={  Line(
+    Icon(coordinateSystem(grid={2,2}),    graphics={  Line(
           origin={59.02,-38},
           points={{-3.01972,29.9973},{18.98,16},{-17.02,0},{18.98,-16}},
           thickness=2,
           arrow={Arrow.None,Arrow.Filled},
-          arrowSize=16),
-    Text(
-      visible=showPFdata,
-      extent={{-164,48},{-26,14}},
-      lineColor={28,108,200},
-      textString=DynamicSelect("V", String(port.U/port.UNom, significantDigits=3))),
-    Text(
-      visible=showPFdata,
-      extent={{-158,-10},{-22,-44}},
-      lineColor={28,108,200},
-      textString=DynamicSelect("Uph", String(port.UPhase*180/3.14159265359, format = "4.1f")+"°"))}),
-      Diagram(coordinateSystem(grid={2,2})));
+          arrowSize=16)}
+
+
+
+
+
+//      textString=DynamicSelect("V", String(port.U/port.UNom, significantDigits=3))),
+),    Diagram(coordinateSystem(grid={2,2})));
 end BusFault;

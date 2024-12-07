@@ -10,7 +10,13 @@ model TransformerFixedRatio "Transformer with fixed voltage ratio"
   parameter Types.Conductance G = 0 "Shunt conductance on B side";
   parameter Types.Susceptance B = 0 "Shunt susceptance on B side";
 
-   parameter Boolean showPortData=true "=true, if PowerFlow data are to be shown";
+  parameter Boolean showPortData=true "=true, if PowerFlow data are to be shown";
+
+  outer Electrical.System systemPowerGrids "Reference to system object";
+  parameter Boolean showDataOnDiagramsPu = systemPowerGrids.showDataOnDiagramsPu
+   "=true, P,Q,V and phase are shown on the diagrams in per-unit of local machine base"
+   annotation(Dialog(tab = "Visualization"));
+
 
 equation
   k = CM.fromPolar(rFixed, thetaFixed);
@@ -26,20 +32,36 @@ Icon(graphics={
     visible=showPortData,
     extent={{-162,80},{-52,46}},
     lineColor={238,46,47},
-    textString=DynamicSelect("P", String(-portA.PGenPu, format = "6.3f"))),
+    textString=DynamicSelect("P",
+      if showDataOnDiagramsPu then
+         String(-portA.PGenPu, format = "6.3f")
+      else
+         String(-portA.PGen/1e6, format = "9.2f"))),
   Text(
     visible=showPortData,
     extent={{-174,46},{-36,14}},
     lineColor={217,67,180},
-    textString=DynamicSelect("Q", String(-portA.QGenPu, format = "6.3f"))),
+    textString=DynamicSelect("Q",
+      if showDataOnDiagramsPu then
+         String(-portA.QGenPu, format = "6.3f")
+      else
+         String(-portA.QGen/1e6, format = "9.2f"))),
   Text(
     visible=showPortData,
     extent={{52,84},{162,48}},
     lineColor={238,46,47},
-    textString=DynamicSelect("P", String(-portB.PGenPu, significantDigits=3))),
+    textString=DynamicSelect("P",
+      if showDataOnDiagramsPu then
+         String(-portB.PGenPu, format = "6.3f")
+      else
+         String(-portB.PGen/1e6, format = "9.2f"))),
   Text(
     visible=showPortData,
     extent={{36,46},{174,14}},
     lineColor={217,67,180},
-    textString=DynamicSelect("Q", String(-portB.QGenPu, significantDigits=3)))}));
+    textString=DynamicSelect("Q",
+      if showDataOnDiagramsPu then
+         String(-portB.QGenPu, format = "6.3f")
+      else
+         String(-portB.QGen/1e6, format = "9.2f")))}));
 end TransformerFixedRatio;

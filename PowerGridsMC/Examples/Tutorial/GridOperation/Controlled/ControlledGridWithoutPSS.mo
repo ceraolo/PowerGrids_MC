@@ -45,16 +45,15 @@ equation
   connect(AVR.VuelPu, zero.y) annotation (
     Line(points={{-56,-22},{-60,-22},{-60,-52},{-72.8,-52},{-72.8,-52}},        color = {0, 0, 127}));
   connect(GEN.ufPuIn, AVR.efdPu) annotation (
-    Line(points={{-20,-4},{-28,-4},{-28,-16},{-35,-16},{-35,-16}},            color = {0, 0, 127}));
+    Line(points={{-20.4,-4},{-28,-4},{-28,-16},{-35,-16},{-35,-16}},          color = {0, 0, 127}));
   connect(TGOV.PMechPu, GEN.PmPu) annotation (
-    Line(points = {{-36, 28}, {-28, 28}, {-28, 4}, {-20, 4}, {-20, 4}}, color = {0, 0, 127}));
+    Line(points={{-36,28},{-28,28},{-28,4},{-20.4,4},{-20.4,3.4}},      color = {0, 0, 127}));
   connect(GEN.VPu, AVR.VcPu) annotation (
-    Line(points = {{0, -6}, {16, -6}, {16, 54}, {-110, 54}, {-110, -14}, {-56, -14}}, color = {0, 0, 127}));
+    Line(points={{0.2,-6},{16,-6},{16,54},{-110,54},{-110,-14},{-56,-14}},            color = {0, 0, 127}));
   connect(GEN.omegaPu, TGOV.omegaPu) annotation (
-    Line(points = {{0, 2}, {6, 2}, {6, 44}, {-64, 44}, {-64, 32}, {-56, 32}, {-56, 32}}, color = {0, 0, 127}));
+    Line(points={{0.2,2},{6,2},{6,44},{-64,44},{-64,32},{-56,32},{-56,32}},              color = {0, 0, 127}));
 
 annotation (
-    Icon(coordinateSystem(grid = {0.1, 0.1})),
     Diagram(coordinateSystem(extent = {{-120, -60}, {100, 60}}, grid = {0.5, 0.5})),
     experiment(StartTime = 0, StopTime = 10, Tolerance = 1e-6, Interval = 0.02),
     __OpenModelica_commandLineOptions = "--daeMode --tearingMethod=minimalTearing",

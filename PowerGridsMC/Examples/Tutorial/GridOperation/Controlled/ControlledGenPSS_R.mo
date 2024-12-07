@@ -22,6 +22,11 @@ model ControlledGenPSS_R
           nameShort+".mat","y",1,7);
 
   parameter Boolean showPortData=true "if Port Data are shown in diagram (P&Q or U)";
+  outer Electrical.System systemPowerGrids "Reference to system object";
+  parameter Boolean showDataOnDiagramsPu = systemPowerGrids.showDataOnDiagramsPu
+   "=true, P,Q,V and phase are shown on the diagrams in per-unit of local machine base"
+   annotation(Dialog(tab = "Visualization"));
+
 
 equation
   connect(GEN.ufPuIn, AVR.efdPu) annotation (
@@ -59,11 +64,20 @@ equation
           visible=showPortData,
           extent={{-114,66},{-4,30}},
           lineColor={238,46,47},
-          textString=DynamicSelect("P", String(-GEN.port.PGenPu, significantDigits=3))),
+          textString=DynamicSelect("P",
+             if showDataOnDiagramsPu then
+               String(-GEN.port.PGenPu, format = "6.3f")
+             else
+               String(-GEN.port.PGen/1e6, format = "9.3f"))),
        Text(
           visible=showPortData,
-          extent={{0,66},{122,30}},
+          extent={{2,66},{122,32}},
           lineColor={217,67,180},
-          textString=DynamicSelect("Q", String(-GEN.port.QGenPu, significantDigits=3)))}),
-    Diagram(coordinateSystem(    extent={{-80,-60},{80,60}})));
+          textString=DynamicSelect("Q",
+            if showDataOnDiagramsPu then
+              String(-GEN.port.QGenPu, format = "6.3f")
+            else
+              String(-GEN.port.QGen/1e6, format = "9.3f")))}
+
+),  Diagram(coordinateSystem(    extent={{-80,-60},{80,60}})));
 end ControlledGenPSS_R;

@@ -49,15 +49,15 @@ equation
     annotation (Line(points={{38,26},{38,26}}, color={0,0,0}));
   annotation (
     Icon(coordinateSystem(grid={2,2}), graphics={
-        Line(points={{-73.9,-30},{-35.1,-30.3}}, color={28,108,200}),
-        Line(points={{-73,-67.7},{-37.1,-67.7},{-36.8,-66.9}}, color={28,108,200}),
+        Line(points={{-71.9,-28},{-33.1,-28.3}}, color={28,108,200}),
+        Line(points={{-71,-71.7},{-35.1,-71.7},{-34.8,-70.9}}, color={28,108,200}),
         Polygon(
-          points={{-44.2,-26.2},{-44.2,-34.1},{-35.1,-30.6},{-44.2,-26.2}},
+          points={{-42.2,-24.2},{-42.2,-32.1},{-33.1,-28.6},{-42.2,-24.2}},
           lineColor={28,108,200},
           fillColor={28,108,200},
           fillPattern=FillPattern.Solid),
         Polygon(
-          points={{-46.2,-63.1},{-46.2,-71},{-36.8,-67.5},{-46.2,-63.1}},
+          points={{-44.2,-67.1},{-44.2,-75},{-34.8,-71.5},{-44.2,-67.1}},
           lineColor={28,108,200},
           fillColor={28,108,200},
           fillPattern=FillPattern.Solid)}),

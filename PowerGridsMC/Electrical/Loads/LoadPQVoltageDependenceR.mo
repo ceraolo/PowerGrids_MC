@@ -19,24 +19,11 @@ model LoadPQVoltageDependenceR
   final parameter String nameShort = PowerGridsMC.Functions.giveShortName(name);
   final parameter Real PFout[:, :] = Modelica.Utilities.Streams.readRealMatrix(nameShort + ".mat", "y", 1, 7);
 
-  parameter Boolean showPortData=true "=true, if PowerFlow data are to be shown";
-
   annotation (Icon(graphics={Text(
-          extent={{-62,16},{-18,-18}},
-          textColor={238,46,47},
-          textString="R",
-          textStyle={TextStyle.Italic}),
-       Text(
-          visible=showPortData,
-          extent={{-128,74},{-18,38}},
-          lineColor={238,46,47},
-          textString=DynamicSelect("P", String(port.PGenPu, significantDigits=3))),
-       Text(
-          visible=showPortData,
-          extent={{-6,74},{116,38}},
-          lineColor={217,67,180},
-          textString=DynamicSelect("Q", String(port.QGenPu, significantDigits=3)))}),
-                                           Documentation(info="<html>
+          extent={{-70,-4},{-26,-38}},
+          textColor={162,29,33},
+          textStyle={TextStyle.Italic},
+          textString="R")}),               Documentation(info="<html>
 <p><i><span style=\"font-size: 12pt;\">Library PowerGridsMC is forked from https://github.com/PowerGrids/PowerGrids.</span></i></p>
 <p>************************** </p>
 <p>This is a  component not existing in the original library. It has the peculiarity that reads the PowerFlow data from a file automatically generated in a previous PowerFlow study. </p>
