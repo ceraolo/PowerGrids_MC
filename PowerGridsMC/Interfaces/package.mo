@@ -31,7 +31,6 @@ The information about the rotating frame cannot be carried by the connector beca
 </body></html>"));
 end TerminalB;
 
-
   connector TerminalAC "Terminal for phasor-based AC connections"
     Types.ComplexVoltage v "Phase-to-ground voltage phasor";
     flow Types.ComplexCurrent i "Line current phasor";
@@ -45,7 +44,6 @@ The information about the rotating frame cannot be carried by the connector beca
 </p>
 </body></html>"));
   end TerminalAC;
-
 
 
 end Interfaces;

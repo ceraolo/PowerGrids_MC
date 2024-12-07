@@ -2,6 +2,17 @@ within PowerGridsMC.Examples;
 package PFT
   extends Modelica.Icons.ExamplesPackage;
 
+  record Line
+    parameter Real Rd = 0.05732 / 1000 "Direct-circuit Resistance per unit length";
+    parameter Real Xd = 0.4005 / 1000 "DIrect-circuit Reactance per unit length";
+    parameter Real R0 = 0.2054 / 1000 "0-Circuit Resistance per unit length";
+    parameter Real X0 = 1.405 / 1000 "0-Circuit Reactance per unit length";
+    parameter Real Yd = 2.8257e-6 / 1000 "Direct-Circuit Admittance per unit length";
+    parameter Real Y0 = 1.6306e-6 / 1000 "0-Circuit Admittance per unit length";
+    annotation (
+      Icon(coordinateSystem(extent = {{-100, -130}, {100, 100}})));
+  end Line;
+
   package BasicGrid
     model PowerFlow "Usa ModifiedPG PVBus"
       extends Modelica.Icons.Example;
@@ -351,17 +362,6 @@ con URef genera PStart, QStart")}),
 </ul>
 </html>"));
   end BasicGrid;
-
-  record Line
-    parameter Real Rd = 0.05732 / 1000 "Direct-circuit Resistance per unit length";
-    parameter Real Xd = 0.4005 / 1000 "DIrect-circuit Reactance per unit length";
-    parameter Real R0 = 0.2054 / 1000 "0-Circuit Resistance per unit length";
-    parameter Real X0 = 1.405 / 1000 "0-Circuit Reactance per unit length";
-    parameter Real Yd = 2.8257e-6 / 1000 "Direct-Circuit Admittance per unit length";
-    parameter Real Y0 = 1.6306e-6 / 1000 "0-Circuit Admittance per unit length";
-    annotation (
-      Icon(coordinateSystem(extent = {{-100, -130}, {100, 100}})));
-  end Line;
 
   package FourATbus "Network with four AT buses"
     model PowerFlowSI
@@ -834,9 +834,8 @@ con URef genera PStart, QStart")}),
             Rectangle(extent={{34,52},{86,-10}}, lineColor={256,0,00}),
             Rectangle(extent={{-30,-36},{30,-82}}, lineColor={256,0,00})}),
           Documentation(info="<html>
-<p>This example show that PowerGridsMC can be used also when the system is already seccribed as PU in a unuque basel so that in the ingle-line direct sequenxe diagram all ideal transformers are omitted.</p>
-<p>This is very useful for teaching. </p>
-<p>Aa important advantage is that the on-line numerical values are much easily compared to each other, since all voltages represent their PU value with reference to the corresponding nominal value and all active and reactive powers are in PU of the unique MVA system base.</p>
+<p>This example show that PowerGridsMC can be used also when the system is already described as PU in a unuque basel so that in the single-line direct sequence diagram all ideal transformers are omitted. This is very useful for teaching. </p>
+<p>An important advantage is that the on-line numerical values are much easily compared to each other, since all voltages represent their PU value with reference to the corresponding nominal value and all active and reactive powers are in PU of the unique MVA system base.</p>
 <p>The parameters included here are derived from those in model PowerFlowSI using the following base for PU: </p>
 <p><u>Unique power</u>: 100 MVA</p>
 <p><u>Voltages</u>: </p>
@@ -846,7 +845,7 @@ con URef genera PStart, QStart")}),
 </html>"));
     end PowerFlowPU;
 
-    model Bus1FaultSI
+    model Bus1FaultSIunregulated
       parameter Real alpha = 2;
       parameter Real beta = 2;
       extends Modelica.Icons.Example;
@@ -968,7 +967,7 @@ con URef genera PStart, QStart")}),
         xqPu=1.8,
         showPortData=false)
                   annotation (Placement(visible=true, transformation(
-            origin={32,18},
+            origin={38,18},
             extent={{10,10},{-10,-10}},
             rotation=0)));
       Modelica.Blocks.Sources.RealExpression pm11(y=-gen11x2.PStart/gen11x2.SNom)
@@ -1024,10 +1023,10 @@ con URef genera PStart, QStart")}),
         showPortData=false)                                                                                                                                                                                                         annotation (
         Placement(visible = true, transformation(origin={-2,10},    extent = {{-10, -10}, {10, 10}}, rotation = 90)));
       Modelica.Blocks.Sources.RealExpression pmSc(y = 0) annotation (
-        Placement(visible = true, transformation(origin={62,9},     extent = {{8, -9}, {-8, 9}}, rotation = 0)));
+        Placement(visible = true, transformation(origin={68,9},     extent = {{8, -9}, {-8, 9}}, rotation = 0)));
       Modelica.Blocks.Sources.RealExpression ufSC(y=sc22.ufPuInStart) annotation (
          Placement(visible=true, transformation(
-            origin={60,33},
+            origin={66,33},
             extent={{8,-9},{-8,9}},
             rotation=0)));
       PowerGridsMC.Electrical.Buses.BusFault bus1(R = 1, SNom(displayUnit = "V.A") = 500000000,
@@ -1060,7 +1059,7 @@ con URef genera PStart, QStart")}),
         UStart(displayUnit="V"),
         alpha=alpha,
         beta=beta) annotation (Placement(visible=true, transformation(
-            origin={-6,32},
+            origin={-22,32},
             extent={{-10,10},{10,-10}},
             rotation=0)));
       PowerGridsMC.Electrical.Loads.LoadPQVoltageDependenceR pq41(
@@ -1146,11 +1145,11 @@ con URef genera PStart, QStart")}),
       connect(T21_i.terminalB, Teq2_21.terminalB) annotation (
         Line(points={{-2,20},{-26,20},{-26,2}}));
       connect(sc22.terminal, T22_i.terminalB)
-        annotation (Line(points={{32,18},{32,-12},{26,-12}}));
-      connect(sc22.PmPu, pmSc.y) annotation (Line(points={{42.4,14.6},{50,14.6},{
-              50,9},{53.2,9}}, color={0,0,127}));
-      connect(ufSC.y, sc22.ufPuIn) annotation (Line(points={{51.2,33},{51.2,22},{
-              42.4,22}}, color={0,0,127}));
+        annotation (Line(points={{38,18},{38,-12},{26,-12}}));
+      connect(sc22.PmPu, pmSc.y) annotation (Line(points={{48.4,14.6},{56,14.6},
+              {56,9},{59.2,9}},color={0,0,127}));
+      connect(ufSC.y, sc22.ufPuIn) annotation (Line(points={{57.2,33},{57.2,22},
+              {48.4,22}},color={0,0,127}));
       connect(T1_11_1.terminalB, bus1.terminal) annotation (
         Line(points={{-61.5,21.5},{-52,21.5},{-52,12}}));
       connect(L2_1.terminalA, bus1.terminal) annotation (
@@ -1168,7 +1167,7 @@ con URef genera PStart, QStart")}),
       connect(L3_4.terminalA, bus3.terminal) annotation (
         Line(points={{-81.5,-67},{-88,-67},{-88,-49.5},{-95.5,-49.5}}));
       connect(pq21.terminal, T21_i.terminalB)
-        annotation (Line(points={{-6,32},{-6,20},{-2,20}}));
+        annotation (Line(points={{-22,32},{-22,20},{-2,20}}));
       connect(T41_iX2.terminalB, pq41.terminal)
         annotation (Line(points={{-28,-104},{-28,-112},{-44,-112}}));
       connect(Teq2_21.terminalA, L2_1.terminalB) annotation (Line(points={{-26,-18},
@@ -1196,9 +1195,10 @@ con URef genera PStart, QStart")}),
               -89.5},{34,-89.5},{34,-106}}, color={0,0,0}));
       annotation (
         Icon(coordinateSystem(extent = {{-100, -100}, {100, 100}})),
-        Diagram(coordinateSystem(extent = {{-160, 80}, {80, -140}}), graphics={  Text(origin={41,64},    extent = {{-19, 6}, {19, -6}},
-              textString="OK! V. info",
-              textColor={0,0,0})}),
+        Diagram(coordinateSystem(extent = {{-160, 80}, {80, -140}}), graphics={
+            Rectangle(extent={{-12,24},{24,-42}},lineColor={256,0,00}),
+            Rectangle(extent={{-38,-56},{10,-104}},
+                                                 lineColor={256,0,00})}),
         experiment(StopTime = 6, Interval = 0.00400267, Tolerance = 1e-06, StartTime = 0),
         __OpenModelica_simulationFlags(lv = "LOG_STATS", outputFormat = "mat", s = "dassl"),
         Documentation(info="<html>
@@ -1206,9 +1206,334 @@ con URef genera PStart, QStart")}),
 <p>All initial voltages have the same values as in PowerFlowSI</p>
 <p>Here we see the effects of a (three-phase) fault at bus 1 between t= 0.5 and 0.6s.</p>
 <p>In this example the machines have no regulators, and therefore the transient is poorly damped and the final voltages and frequency are different (rather far) from the original values.</p>
-<p>See for instance the AC node (1, 2, 3, 4) voltages, and the values of omegaPU variables of gen11x2, gen22x2, gen42x2, sc.</p>
+<p>See for instance the AC node (1, 2, 3, 4) voltages, and the values of omegaPU variables of gen11x2, gen22x2, gen42x2, sc22.</p>
 </html>"));
-    end Bus1FaultSI;
+    end Bus1FaultSIunregulated;
+
+    model Bus1FaultSIregulated
+      parameter Real alpha = 2;
+      parameter Real beta = 2;
+      extends Modelica.Icons.Example;
+      Line line annotation (Placement(visible=true, transformation(
+            origin={-100,67.304},
+            extent={{-10.0001,-11.3047},{10.0001,8.69585}},
+            rotation=0)));
+      PowerGridsMC.Electrical.Branches.LineConstantImpedance L2_1(B = 200e3 * line.Yd, R = 200e3 * line.Rd, SNom(displayUnit = "MW") = 100000000, UNom(displayUnit = "kV") = 220000, UNomA(displayUnit = "kV") = 220000, UNomB(displayUnit = "kV") = 220000, X = 200e3 * line.Xd,
+        showPortData=false)                                                                                                                                                                                                         annotation (
+        Placement(visible = true, transformation(origin={-52.5,9.5},      extent = {{-10, -10}, {10, 10}}, rotation = -90)));
+      PowerGridsMC.Electrical.Branches.TransformerFixedRatio T1_11_2(R = 377 / 110e3 * 240 ^ 2 / 110, SNom(displayUnit = "MW") = 110000000, UNomA(displayUnit = "kV") = 13800, UNomB(displayUnit = "kV") = 240000, X = 0.0999 * 240 ^ 2 / 110, rFixed = 240 / 13.8) annotation (
+        Placement(visible = true, transformation(origin={-45,48.5},    extent = {{-10, -10}, {10, 10}}, rotation = -90)));
+      PowerGridsMC.Electrical.Branches.TransformerFixedRatio T1_11_1(R = 377 / 110e3 * 240 ^ 2 / 110, SNom(displayUnit = "MW") = 110000000, UNomA(displayUnit = "kV") = 13800, UNomB(displayUnit = "kV") = 240000, X = 0.0999 * 240 ^ 2 / 110, rFixed = 240 / 13.8, showPortData = false) annotation (
+        Placement(visible = true, transformation(origin={-61.5,47.5},    extent = {{-10, -10}, {10, 10}}, rotation = -90)));
+      PowerGridsMC.Electrical.Branches.LineConstantImpedance L3_2(B = 75e3 * line.Yd, R = 75e3 * line.Rd, SNom(displayUnit = "MW") = 100000000, UNom(displayUnit = "kV") = 220000, UNomA(displayUnit = "kV") = 220000, UNomB(displayUnit = "kV") = 220000, X = 75e3 * line.Xd,
+        showPortData=true)                                                                                                                                                                                                         annotation (
+        Placement(visible = true, transformation(origin={-71,-11},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+      PowerGridsMC.Electrical.Branches.LineConstantImpedance L4_2(B = 90e3 * line.Yd, R = 90e3 * line.Rd, SNom(displayUnit = "MW") = 100000000, UNom(displayUnit = "V") = 1, UNomA(displayUnit = "kV") = 220000, UNomB(displayUnit = "kV") = 220000, X = 90e3 * line.Xd,
+        showPortData=false)                                                                                                                                                                                                        annotation (
+        Placement(visible = true, transformation(origin={-52,-31},    extent = {{-10, -10}, {10, 10}}, rotation = -90)));
+      PowerGridsMC.Electrical.Branches.LineConstantImpedance L3_4(B = 50e3 * line.Yd, R = 50e3 * line.Rd, SNom(displayUnit = "MW") = 100000000, UNom(displayUnit = "kV") = 220000, UNomA(displayUnit = "kV") = 220000, UNomB(displayUnit = "kV") = 220000, X = 50e3 * line.Xd,
+        showPortData=true)                                                                                                                                                                                                         annotation (
+        Placement(visible = true, transformation(origin={-71.5,-51},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+      inner PowerGridsMC.Electrical.System systemPowerGrids(initOpt = PowerGridsMC.Types.Choices.InitializationOption.globalSteadyStateFixedPowerFlow, referenceFrequency = PowerGridsMC.Types.Choices.ReferenceFrequency.fixedReferenceGenerator,
+        showDataOnDiagramsPu=false)                                                                                                                                                                                                         annotation (
+        Placement(visible = true, transformation(origin={64,-82},     extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+      PowerGridsMC.Electrical.Loads.LoadPQVoltageDependenceR pq31(
+        SNom(displayUnit="V.A") = 100000000,
+        UNom(displayUnit="V") = 129e3,
+        UPhaseStart(displayUnit="rad"),
+        UStart(displayUnit="V"),
+        alpha=alpha,
+        beta=beta,
+        portVariablesPhases=true) annotation (Placement(visible=true,
+            transformation(
+            origin={-142.5,-57},
+            extent={{-10,-10},{10,10}},
+            rotation=0)));
+      PowerGridsMC.Electrical.Branches.TransformerFixedRatio Teq31_3(R = 0.0948 * 230 ^ 2 / 160 / 30, SNom(displayUnit = "MW") = 160000000, UNomA(displayUnit = "kV") = 135000, UNomB(displayUnit = "kV") = 230000, X = 0.0948 * 230 ^ 2 / 160, rFixed = 230 / 135,
+        showPortData=true)                                                                                                                                                                                                         annotation (
+        Placement(visible = true, transformation(origin={-116,-34},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+      PowerGridsMC.Electrical.Branches.TransformerFixedRatio T31_33_1(R = 273 / 75e3 * 132 ^ 2 / 75, SNom(displayUnit = "MW") = 75000000, UNomA(displayUnit = "kV") = 13800, UNomB(displayUnit = "kV") = 132000, X = 0.0965 * 132 ^ 2 / 75, rFixed = 132 / 13.8, showPortData = false) annotation (
+        Placement(visible = true, transformation(origin={-148,-12},    extent = {{-10, -10}, {10, 10}}, rotation = -90)));
+      PowerGridsMC.Electrical.Branches.TransformerFixedRatio T31_33_2(R = 273 / 75e3 * 132 ^ 2 / 75, SNom(displayUnit = "MW") = 75000000, UNomA(displayUnit = "kV") = 13800, UNomB(displayUnit = "kV") = 132000, X = 0.0965 * 132 ^ 2 / 75, rFixed = 132 / 13.8,
+        showPortData=false)                                                                                                                                                                                                         annotation (
+        Placement(visible = true, transformation(origin={-130,-12},    extent = {{-10, -10}, {10, 10}}, rotation = -90)));
+      PowerGridsMC.Electrical.Branches.TransformerFixedRatio T2_i(SNom(displayUnit = "MW") = 125000000, UNomA(displayUnit = "kV") = 230000, UNomB(displayUnit = "kV") = 230000, X = 71.884e-3 * 220 ^ 2 / 100,
+        showPortData=false)                                                                                                                                                                                      annotation (
+        Placement(visible = true, transformation(origin={4,-6},      extent = {{10, -10}, {-10, 10}}, rotation = 90)));
+      PowerGridsMC.Electrical.Branches.TransformerFixedRatio Teq2_21(R = 435 / 125e3 * 126.9 ^ 2 / 100, SNom(displayUnit = "MW") = 125000000, UNomA(displayUnit = "kV") = 230000, UNomB(displayUnit = "kV") = 132700, X = 0.0875 * 126.9 ^ 2 / 100, rFixed = 132.7 / 230,
+        showPortData=false)                                                                                                                                                                                                         annotation (
+        Placement(visible = true, transformation(origin={-20,8},      extent = {{-10, -10}, {10, 10}}, rotation = 90)));
+      PowerGridsMC.Electrical.Branches.TransformerFixedRatio T22_i(SNom(displayUnit = "MW") = 39000000, UNomA(displayUnit = "kV") = 230000, UNomB(displayUnit = "kV") = 10500, X = 0.1635 * 10.04 ^ 2 / 100, rFixed = 10.5 / 230,
+        showPortData=true)                                                                                                                                                                                                        annotation (
+        Placement(visible = true, transformation(origin={22,4},      extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+      PowerGridsMC.Electrical.Branches.TransformerFixedRatio T21_i(SNom(displayUnit = "MW") = 125000000, UNomA(displayUnit = "kV") = 230000, UNomB(displayUnit = "kV") = 132700, X = 4.624e-3 * 126.9 ^ 2 / 100, rFixed = 132.7 / 230,
+        showPortData=false)                                                                                                                                                                                                         annotation (
+        Placement(visible = true, transformation(origin={4,26},     extent = {{-10, -10}, {10, 10}}, rotation = 90)));
+      PowerGridsMC.Electrical.Buses.BusFault bus1(R = 1, SNom(displayUnit = "V.A") = 500000000, UNom(displayUnit = "V") = 234000, X = 0, portVariablesPhases = true, portVariablesPu = true,
+        startTime=0.5,
+        stopTime=0.6)                                                                                                                                                                                                       annotation (
+        Placement(visible = true, transformation(origin={-52,28},   extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+      PowerGridsMC.Electrical.Branches.TransformerFixedRatio T42_iX2(
+        SNom(displayUnit="MW") = 190e6*2,
+        UNomA(displayUnit="V") = 236.1,
+        UNomB(displayUnit="V") = 15.75,
+        X=0.017488*14.7^2/100/2,
+        rFixed=15.75/236.1,
+        showPortData=false)   annotation (Placement(visible=true, transformation(
+            origin={-4,-68},
+            extent={{10,-10},{-10,10}},
+            rotation=180)));
+      PowerGridsMC.Electrical.Branches.TransformerFixedRatio T4_iX2(SNom(displayUnit = "MW") = 190e6 * 2, UNomA(displayUnit = "kV") = 236100, UNomB(displayUnit = "kV") = 236100, X = 0.04828 * 220 ^ 2 / 100 / 2,
+        showPortData=false)                                                                                                                                                                                          annotation (
+        Placement(visible = true, transformation(origin={-24,-54},    extent = {{-10, -10}, {10, 10}}, rotation = 90)));
+      PowerGridsMC.Electrical.Buses.Bus bus42(
+        SNom(displayUnit="V.A") = 5e+08,
+        UNom(displayUnit="V") = 15700,
+        portVariablesPhases=true,
+        portVariablesPu=true) annotation (Placement(visible=true, transformation(
+            origin={14,-68},
+            extent={{-10,10},{10,-10}},
+            rotation=90)));
+      PowerGridsMC.Electrical.Branches.TransformerFixedRatio T41_iX2(SNom(displayUnit = "MW") = 190e6 * 2, UNomA(displayUnit = "kV") = 236100, UNomB(displayUnit = "kV") = 127900, X = 0.02476 * 119 ^ 2 / 100 / 2, rFixed = 127.9 / 236.1,
+        showPortData=false)                                                                                                                                                                                                         annotation (
+        Placement(visible = true, transformation(origin={-24,-82},    extent = {{-10, -10}, {10, 10}}, rotation = -90)));
+      PowerGridsMC.Electrical.Buses.Bus bus3(SNom(displayUnit = "V.A") = 100e6, UNom(displayUnit = "V") = 220e3, portVariablesPhases = true, portVariablesPu = true) annotation (
+        Placement(visible = true, transformation(origin={-95.5,-33.5},    extent = {{-10, -10}, {10, 10}}, rotation = 90)));
+      PowerGridsMC.Electrical.Loads.LoadPQVoltageDependenceR pq21(
+        SNom(displayUnit="V.A") = 100000000,
+        UNom(displayUnit="V") = 127000,
+        UPhaseStart(displayUnit="rad"),
+        UStart(displayUnit="V"),
+        alpha=alpha,
+        beta=beta) annotation (Placement(visible=true, transformation(
+            origin={0,48},
+            extent={{-10,10},{10,-10}},
+            rotation=0)));
+      PowerGridsMC.Electrical.Loads.LoadPQVoltageDependenceR pq41(
+        SNom(displayUnit="V.A") = 100000000,
+        UNom(displayUnit="V") = 119000,
+        UPhaseStart(displayUnit="rad"),
+        UStart(displayUnit="V"),
+        alpha=alpha,
+        beta=beta) annotation (Placement(visible=true, transformation(
+            origin={-41,-95},
+            extent={{-7,7},{7,-7}},
+            rotation=90)));
+      PowerGridsMC.Electrical.Buses.Bus bus33(
+        SNom(displayUnit="V.A") = 100e6,
+        UNom(displayUnit="V") = 13.8e3,
+        portVariablesPhases=true,
+        portVariablesPu=true) annotation (Placement(visible=true,
+            transformation(
+            origin={-139.5,20.5},
+            extent={{-10,-10},{10,10}},
+            rotation=0)));
+      PowerGridsMC.Electrical.Buses.Bus bus31(
+        SNom(displayUnit="V.A") = 100e6,
+        UNom(displayUnit="V") = 135e3,
+        portVariablesPhases=true,
+        portVariablesPu=true) annotation (Placement(visible=true, transformation(
+            origin={-141.5,-43.5},
+            extent={{-10,-10},{10,10}},
+            rotation=0)));
+      PowerGridsMC.Examples.Tutorial.GridOperation.Controlled.ControlledGenPSS_R
+        gen11x2(
+        GEN(
+          H=4,
+          SNom=200000000,
+          Tpd0=5.143,
+          Tppd0=0.042,
+          Tppq0=0.083,
+          Tpq0=2.16,
+          UNom=13800,
+          portVariablesPhases=true,
+          raPu=0,
+          xdPu=2,
+          xlPu=0.15,
+          xpdPu=0.35,
+          xppdPu=0.25,
+          xppqPu=0.3,
+          xpqPu=0.5,
+          xqPu=1.8
+
+
+))       annotation (Placement(transformation(extent={{-62,94},{-42,74}})));
+      PowerGridsMC.Electrical.Buses.Bus bus2(
+        SNom(displayUnit="V.A") = 100e6,
+        UNom(displayUnit="V") = 220e3,
+        portVariablesPhases=true,
+        portVariablesPu=true)    annotation (
+        Placement(visible = true, transformation(origin={-31.5,-11.5},    extent = {{-10, -10}, {10, 10}}, rotation=90)));
+      PowerGridsMC.Examples.Tutorial.GridOperation.Controlled.ControlledGenPSS_R
+        gen33x2(GEN(
+          H=4,
+          SNom=120000000,
+          Tpd0=5.143,
+          Tppd0=0.042,
+          Tppq0=0.083,
+          Tpq0=2.16,
+          UNom=13800,
+          portVariablesPhases=true,
+          raPu=0,
+          xdPu=2,
+          xlPu=0.15,
+          xpdPu=0.35,
+          xppdPu=0.25,
+          xppqPu=0.3,
+          xpqPu=0.5,
+          xqPu=1.8))
+         annotation (Placement(transformation(extent={{-150,54},{-130,34}})));
+      PowerGridsMC.Examples.IEEE14bus.SynchronousCondenserR sc22(GEN(
+          DPu=0.0,
+          H=5.625,
+          Tppd0=0.065,
+          xpdPu=0.509,
+          Tpd0=10.041,
+          raPu=0.00316,
+          xpqPu=0.601,
+          Tppq0=0.094,
+          Tpq0=1.22,
+          xppdPu=0.354,
+          xdPu=2.81,
+          xlPu=0.256,
+          xppqPu=0.377,
+          xqPu=2.62,
+          PNom=40e6,
+          SNom=60e6,
+          UNom=13.8e3))
+        annotation (
+        Placement(visible = true, transformation(origin={64,4},       extent = {{-10, -10}, {10, 10}}, rotation=0)));
+      PowerGridsMC.Electrical.Buses.Bus bus11(
+        SNom(displayUnit="V.A") = 100e6,
+        UNom(displayUnit="V") = 13.8e3,
+        portVariablesPhases=true,
+        portVariablesPu=true) annotation (Placement(visible=true,
+            transformation(
+            origin={-51.5,68.5},
+            extent={{-10,-10},{10,10}},
+            rotation=0)));
+      PowerGridsMC.Electrical.Buses.Bus bus22(
+        SNom(displayUnit="V.A") = 100e6,
+        UNom(displayUnit="V") = 13.8e3,
+        portVariablesPhases=true,
+        portVariablesPu=true) annotation (Placement(visible=true,
+            transformation(
+            origin={42.5,4.5},
+            extent={{-10,-10},{10,10}},
+            rotation=-90)));
+      PowerGridsMC.Examples.IEEE14bus.ControlledGenNoPSS_R gen42x2(GEN(
+          H=4,
+          SNom=1000000*(206*2),
+          Tpd0=5.143,
+          Tppd0=0.042,
+          Tppq0=0.083,
+          Tpq0=2.16,
+          UNom=13800,
+          portVariablesPhases=true,
+          raPu=0,
+          xdPu=2,
+          xlPu=0.15,
+          xpdPu=0.35,
+          xppdPu=0.25,
+          xppqPu=0.3,
+          xpqPu=0.5,
+          xqPu=1.8))
+        annotation (Placement(transformation(extent={{24,-92},{44,-72}})));
+      PowerGridsMC.Electrical.Buses.Bus bus4(
+        SNom(displayUnit="V.A") = 100e6,
+        UNom(displayUnit="V") = 220e3,
+        portVariablesPhases=true,
+        portVariablesPu=true)                                                                                                                                        annotation (
+        Placement(visible = true, transformation(origin={-41.5,-47.5},    extent = {{-10, -10}, {10, 10}}, rotation = 90)));
+    equation
+      connect(T1_11_2.terminalA, T1_11_1.terminalA) annotation (
+        Line(points={{-45,58.5},{-45,60},{-61.5,60},{-61.5,57.5}}));
+      connect(T1_11_2.terminalB, T1_11_1.terminalB) annotation (
+        Line(points={{-45,38.5},{-45,37.5},{-61.5,37.5}}));
+      connect(L3_2.terminalB, L2_1.terminalB) annotation (
+        Line(points={{-61,-11},{-52.5,-11},{-52.5,-0.5}},         color = {0, 0, 0}));
+      connect(L2_1.terminalB, L4_2.terminalA) annotation (
+        Line(points={{-52.5,-0.5},{-52.5,-21},{-52,-21}}));
+      connect(T31_33_2.terminalB, Teq31_3.terminalA) annotation (
+        Line(points={{-130,-22},{-130,-34},{-126,-34}}));
+      connect(T31_33_1.terminalB, Teq31_3.terminalA) annotation (
+        Line(points={{-148,-22},{-148,-34},{-126,-34}}));
+      connect(T22_i.terminalA, T2_i.terminalA) annotation (
+        Line(points={{12,4},{4,4}}));
+      connect(Teq2_21.terminalA, T2_i.terminalB) annotation (
+        Line(points={{-20,-2},{-20,-22},{4,-22},{4,-16}}));
+      connect(T21_i.terminalA, T2_i.terminalA) annotation (
+        Line(points={{4,16},{4,4}}));
+      connect(T21_i.terminalB, Teq2_21.terminalB) annotation (
+        Line(points={{4,36},{-20,36},{-20,18}}));
+      connect(T1_11_1.terminalB, bus1.terminal) annotation (
+        Line(points={{-61.5,37.5},{-52,37.5},{-52,28}}));
+      connect(L2_1.terminalA, bus1.terminal) annotation (
+        Line(points={{-52.5,19.5},{-52.5,24},{-52,24},{-52,28}}));
+      connect(T42_iX2.terminalB, bus42.terminal)
+        annotation (Line(points={{6,-68},{14,-68}}));
+      connect(T42_iX2.terminalA, T41_iX2.terminalA)
+        annotation (Line(points={{-14,-68},{-24,-68},{-24,-72}}));
+      connect(T41_iX2.terminalA, T4_iX2.terminalA) annotation (
+        Line(points={{-24,-72},{-24,-64}}));
+      connect(Teq31_3.terminalB, bus3.terminal) annotation (
+        Line(points={{-106,-34},{-102,-34},{-102,-33.5},{-95.5,-33.5}}));
+      connect(L3_2.terminalA, bus3.terminal) annotation (
+        Line(points={{-81,-11},{-88,-11},{-88,-33.5},{-95.5,-33.5}}));
+      connect(L3_4.terminalA, bus3.terminal) annotation (
+        Line(points={{-81.5,-51},{-88,-51},{-88,-33.5},{-95.5,-33.5}}));
+      connect(pq21.terminal, T21_i.terminalB)
+        annotation (Line(points={{0,48},{0,36},{4,36}}));
+      connect(T41_iX2.terminalB, pq41.terminal)
+        annotation (Line(points={{-24,-92},{-24,-95},{-41,-95}}));
+      connect(pq31.terminal, bus31.terminal) annotation (Line(points={{-142.5,
+              -57},{-141.5,-57},{-141.5,-43.5}},
+                                           color={0,0,0}));
+      connect(bus31.terminal, Teq31_3.terminalA) annotation (Line(points={{-141.5,
+              -43.5},{-141.5,-34},{-126,-34}},
+                                        color={0,0,0}));
+      connect(T31_33_1.terminalA, T31_33_2.terminalA) annotation (Line(points={{-148,-2},
+              {-148,4},{-130,4},{-130,-2}},           color={0,0,0}));
+      connect(bus33.terminal, T31_33_2.terminalA) annotation (Line(points={{-139.5,
+              20.5},{-139.5,10},{-138,10},{-138,4},{-130,4},{-130,-2}},
+                     color={0,0,0}));
+      connect(bus2.terminal, T2_i.terminalB) annotation (Line(points={{-31.5,
+              -11.5},{-20,-11.5},{-20,-22},{4,-22},{4,-16}}, color={0,0,0}));
+      connect(bus2.terminal, L2_1.terminalB) annotation (Line(points={{-31.5,
+              -11.5},{-52.5,-11.5},{-52.5,-0.5}},  color={0,0,0}));
+      connect(gen33x2.terminal, bus33.terminal) annotation (Line(points={{-140,44},
+              {-140,20.5},{-139.5,20.5}},        color={0,0,0}));
+      connect(gen11x2.terminal, bus11.terminal) annotation (Line(points={{-52,84},
+              {-51.5,84},{-51.5,68.5}},     color={0,0,0}));
+      connect(bus11.terminal, T1_11_1.terminalA) annotation (Line(points={{-51.5,
+              68.5},{-51.5,60},{-61.5,60},{-61.5,57.5}},       color={0,0,0}));
+      connect(T22_i.terminalB, bus22.terminal) annotation (Line(points={{32,4},{
+              32,4.5},{42.5,4.5}},           color={0,0,0}));
+      connect(bus22.terminal, sc22.terminal) annotation (Line(points={{42.5,
+              4.5},{44,4.5},{44,4},{64,4}},         color={0,0,0}));
+      connect(bus42.terminal, gen42x2.terminal) annotation (Line(points={{14,
+              -68},{34,-68},{34,-82}}, color={0,0,0}));
+      connect(gen42x2.omega, systemPowerGrids.omegaRefIn) annotation (Line(
+            points={{45,-82},{45,-81.8},{54.2,-81.8}}, color={0,0,127}));
+      connect(L3_4.terminalB, L4_2.terminalB) annotation (Line(points={{-61.5,
+              -51},{-52,-51},{-52,-41}}, color={0,0,0}));
+      connect(bus4.terminal, L4_2.terminalB) annotation (Line(points={{-41.5,
+              -47.5},{-52,-47.5},{-52,-41}}, color={0,0,0}));
+      connect(T4_iX2.terminalB, bus4.terminal) annotation (Line(points={{-24,
+              -44},{-34,-44},{-34,-47.5},{-41.5,-47.5}}, color={0,0,0}));
+      annotation (
+        Icon(coordinateSystem(extent = {{-100, -100}, {100, 100}})),
+        Diagram(coordinateSystem(extent={{-160,-100},{80,100}})),
+        experiment(StopTime = 6, Interval = 0.00400267, Tolerance = 1e-06, StartTime = 0),
+        __OpenModelica_simulationFlags(lv = "LOG_STATS", outputFormat = "mat", s = "dassl"),
+        Documentation(info="<html>
+<p>Model with data linked with PowerFlow.</p>
+<p>All initial voltages have the same values as in PowerFlowSI</p>
+<p>Here we see the effects of a (three-phase) fault at bus 1 between t= 0.5 and 0.6s.</p>
+<p>In this example the machines have regulators, and therefore the transient much better damped than Bus1Faultunregulated and the final voltages and frequency are much nearerto the original values.</p>
+<p>See for instance the AC node (1, 2, 3, 4) voltages, and the values of omegaPU variables of gen11x2, gen22x2, gen42x2, sc22.</p>
+</html>"));
+    end Bus1FaultSIregulated;
     annotation (Documentation(info="<html>
 <p>This is a much larger example than BasicGrid.</p>
 <p>It is derived from realistic data originally collected by prof. Luigi Paris of the Unviersity of Pisa, and adapted to Modelica by prof. Massimo Ceraolo, also from the University ot Pisa.</p>
@@ -1226,15 +1551,12 @@ con URef genera PStart, QStart")}),
 <p><i><span style=\"font-size: 12pt;\">Folder PFT was not present in the original PowerGrids library</span></i></p>
 <p>************************** </p>
 <p>PFT folder contains examples of the PowerFlow-&gt;Transient simulation chain. </p>
-<p>This allows to transfer automatically output from PowerFlow into transient simulations. This is done through saving of the relevant information a disk files.  The data is stored and retrieved based on the instance name. Therefore, for an effective PowerFlow-&gt;Transient chaining, the instance name of the PowerFlow writing and Transient reading models must be the same.</p>
-<p><br>This mechanism can be pursued in two ways:</p>
-<p>1. <u>Separate models</u>. In this case the user first runs a PowerFlow study, then a transient. This technique has the shortcoming that two different models form the same sysem must be built. However, if the user builds first the PowerFlow model, they can later bvery easily infer as transient model duplicating it annd making only the folloing changesd:</p>
+<p>This allows to transfer automatically output from PowerFlow into transient simulations. This is done through saving of the relevant information a disk files. The data is stored and retrieved based on the instance name. Therefore, for an effective PowerFlow-&gt;Transient chaining, the instance name of the PowerFlow writing and Transient reading models must be the same.</p>
+<p>The user first runs a PowerFlow study, then a transient The PowerFlow stores its results on disk, the subsequent transient takes those values from disk. Therefore, since this saving/retrieving mechanism is base don components&apos; instance names, it is mandatory that PowerFlow and transiens share the same instance names, as in the examples proposed in this folder.</p>
+<p>this folder containes two examples:</p>
 <ul>
-<li>PowerFlow PQBusW into LoadPQ***R  (e.g. LoadPQVoltageDependenceR)</li>
-<li>PowerFlow PVBusW into generators or generators and the corresponding controllers (see the examples provided)</li>
-<li>PowerFlow SlackBusW into EquivalentGridR</li>
+<li>a very simple example containing a grid (&quot;BasicGrid&quot;)</li>
+<li>a bit larger netowk, containing four ST nodes, three synchronous machines and a synchronoous compoensator, plus several transformers (FourATbus)</li>
 </ul>
-<p>The other components (lines, transformers), remain unchanged.</p>
-<p>2. <u>Unified models</u>. These will be models that combine PowerFlow and transient studues. they must ber run first in PowerFlow mode, to generate PowerFlow output on disk, then in transient mode (trhansient will use PF data previously stored on disk). This way allows faster implementation,  and helps keeping the number of models small, since there is no need to have two bersions (Power Flow and Transient) of the same system model. <b>This way has still to be implemented.</b></p>
 </html>"));
 end PFT;

@@ -26,16 +26,6 @@ model SynchronousCondenserR
           textColor={162,29,33},
           textStyle={TextStyle.Italic},
           textString="R"),
-       Text(
-          visible=showPortData,
-          extent={{-104,76},{6,40}},
-          lineColor={238,46,47},
-          textString=DynamicSelect("P", String(-GEN.port.PGenPu, significantDigits=3))),
-       Text(
-          visible=showPortData,
-          extent={{10,76},{132,40}},
-          lineColor={217,67,180},
-          textString=DynamicSelect("Q", String(-GEN.port.QGenPu, significantDigits=3))),
         Rectangle(
           extent={{-78,-20},{-54,-38}},
           lineColor={255,255,255},
