@@ -25,8 +25,7 @@ model SynchronousCondenserR
           extent={{48,-56},{92,-90}},
           textColor={162,29,33},
           textStyle={TextStyle.Italic},
-          textString="R"),                                                                                                                                                                                                     Text(origin={-70,-50},   extent={{-32,20},
-              {32,-20}},                                                                                                                                                                                                        textString = "SC"),
+          textString="R"),
        Text(
           visible=showPortData,
           extent={{-104,76},{6,40}},
@@ -36,7 +35,16 @@ model SynchronousCondenserR
           visible=showPortData,
           extent={{10,76},{132,40}},
           lineColor={217,67,180},
-          textString=DynamicSelect("Q", String(-GEN.port.QGenPu, significantDigits=3)))}),
+          textString=DynamicSelect("Q", String(-GEN.port.QGenPu, significantDigits=3))),
+        Rectangle(
+          extent={{-78,-20},{-54,-38}},
+          lineColor={255,255,255},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid),
+        Text(
+          extent={{-90,-20},{-54,-36}},
+          textColor={0,0,0},
+          textString="0")}),
              Documentation(info="<html>
 <p><i><span style=\"font-family: Arial; font-size: 12pt;\">Library PowerGridsMC was forked from https://github.com/PowerGrids/PowerGrids on 22 November 2024.</span></i></p>
 <p>************************** </p>

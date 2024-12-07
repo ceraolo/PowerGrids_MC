@@ -22,6 +22,13 @@ model ControlledGenNoPSS
     Placement(visible = true, transformation(origin={-54,26},     extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Interfaces.RealOutput omega annotation (
     Placement(visible = true, transformation(origin={56,8},     extent = {{-10, -10}, {10, 10}}, rotation=90),  iconTransformation(origin={110,0},   extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+
+  parameter Boolean showPortData=true "=false, if PowerFlow data are to be shown";
+  outer Electrical.System systemPowerGrids "Reference to system object";
+  parameter Boolean showDataOnDiagramsPu = systemPowerGrids.showDataOnDiagramsPu
+   "=true, P,Q,V and phase are shown on the diagrams in per-unit of local machine base"
+   annotation(Dialog(tab = "Visualization"));
+
 equation
   connect(GEN.terminal, terminal) annotation (
     Line(points={{38,-16},{38,26}}));
@@ -60,8 +67,29 @@ equation
           points={{-44.2,-67.1},{-44.2,-75},{-34.8,-71.5},{-44.2,-67.1}},
           lineColor={28,108,200},
           fillColor={28,108,200},
-          fillPattern=FillPattern.Solid)}),
-    Diagram(coordinateSystem(extent={{-80,-60},{80,60}})),
+          fillPattern=FillPattern.Solid),
+       Text(
+          visible=showPortData,
+          extent={{-116,64},{-6,28}},
+          lineColor={238,46,47},
+          textString=DynamicSelect("P",
+             if showDataOnDiagramsPu then
+               String(-GEN.port.PGenPu, format = "6.3f")
+             else
+               String(-GEN.port.PGen/1e6, format = "9.2f"))),
+       Text(
+          visible=showPortData,
+          extent={{6,64},{128,28}},
+          lineColor={217,67,180},
+          textString=DynamicSelect("Q",
+             if showDataOnDiagramsPu then
+               String(-GEN.port.QGenPu, format = "6.3f")
+             else
+               String(-GEN.port.QGen/1e6, format = "9.2f")))}
+
+
+
+),  Diagram(coordinateSystem(extent={{-80,-60},{80,60}})),
     Documentation(info="<html>
 <p><i><span style=\"font-family: Arial; font-size: 12pt;\">Library PowerGridsMC was forked from https://github.com/PowerGrids/PowerGrids on 22 November 2024.</span></i></p>
 <p><i><span style=\"font-size: 12pt;\">The following info is derived from the original version on that source, modified whenever changes introduced in this fork require this.</span></i></p>

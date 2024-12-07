@@ -34,9 +34,11 @@ equation
   connect(PmPu.y, GEN.PmPu) annotation (
     Line(points={{-9,24},{0,24},{0,8},{13.6,8},{13.6,7.4}},             color = {0, 0, 127}));
   annotation (
-    Icon(coordinateSystem(grid={2,2}),                            graphics={                                                                                                                                                   Text(origin={-68,-50},   extent={{-30,16},
-              {30,-16}},                                                                                                                                                                                                        textString = "SC"),
-        Line(points={{-73.9,-30},{-35.1,-30.3}}, color={28,108,200}),
+    Icon(coordinateSystem(grid={2,2}),                            graphics={                                                                                                                                                   Text(origin={-72,-30},   extent={{-30,16},
+              {30,-16}},
+          textString="0",
+          textColor={0,0,0}),
+        Line(points={{-56,-30},{-37.1,-30.3}},   color={28,108,200}),
         Polygon(
           points={{-44.2,-26.2},{-44.2,-34.1},{-35.1,-30.6},{-44.2,-26.2}},
           lineColor={28,108,200},
