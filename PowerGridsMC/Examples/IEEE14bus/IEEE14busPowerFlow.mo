@@ -1,7 +1,8 @@
 within PowerGridsMC.Examples.IEEE14bus;
 model IEEE14busPowerFlow "Power flow model of the IEEE 14-bus benchmark"
   extends Modelica.Icons.Example;
-  inner PowerGridsMC.Electrical.System systemPowerGrids annotation (
+  inner PowerGridsMC.Electrical.System systemPowerGrids(showDataOnDiagramsPu=
+        false)                                          annotation (
     Placement(transformation(origin={-130,82},    extent = {{-10, -10}, {10, 10}})));
 
 // Buses
@@ -106,7 +107,7 @@ model IEEE14busPowerFlow "Power flow model of the IEEE 14-bus benchmark"
     B = 0.000919975,
     SNom=100000000,
     UNom=69000,
-    showPFdata=true)
+    showPortData=true)
     annotation (
     Placement(visible = true, transformation(origin = {0, -90}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   PowerGridsMC.Electrical.Branches.LineConstantImpedance L2to4(
@@ -237,7 +238,7 @@ model IEEE14busPowerFlow "Power flow model of the IEEE 14-bus benchmark"
     B = 0,
     SNom=100000000,
     UNom=13800,
-    showPFdata=true)
+    showPortData=true)
     annotation (
     Placement(visible = true, transformation(origin = {-60, 72}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   PowerGridsMC.Electrical.Branches.LineConstantImpedance L13to14(
@@ -584,7 +585,7 @@ equation
   connect(Load9.terminal, bus9.terminal) annotation (
     Line(points={{114,54},{114,46},{102,46},{102,40},{94,40}}));
   connect(Load6.terminal, bus6.terminal) annotation (
-    Line(points = {{-10, -10}, {-10, -10}, {-10, -6}, {-24, -6}, {-24, 0}, {-30, 0}, {-30, 0}}));
+    Line(points={{-10,-10},{-10,-6},{-24,-6},{-24,0},{-30,0}}));
   connect(Load5.terminal, bus5.terminal) annotation (
     Line(points = {{-50, -34}, {-50, -36}, {-36, -36}, {-36, -40}, {-30, -40}}));
   connect(Load3.terminal, bus3.terminal) annotation (
