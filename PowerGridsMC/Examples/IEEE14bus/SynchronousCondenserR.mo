@@ -12,8 +12,9 @@ model SynchronousCondenserR
   extends ControlledGenNoPSS(   GEN( PStart=y[1,3],QStart =y[1,4],
   UStart=y[1,1],UPhaseStart=y[1,2]),
     PmRefPuDef(y=-y[1, 6]),
-    VrefPuDef(y=1),
-    VrefPu(fixedOffset=false));
+    VrefPuDef(y=y[1, 5]),
+    VrefPu(fixedOffset=false),
+    PmRefPu(use_u=true));
 
   //Code to read output from previous PowerFlow run:
   final parameter String name = getInstanceName();

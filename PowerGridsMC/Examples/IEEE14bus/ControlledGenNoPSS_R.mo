@@ -11,7 +11,7 @@ model ControlledGenNoPSS_R
   extends ControlledGenNoPSS(     GEN( PStart=y[1,3],QStart =y[1,4],
   UStart=y[1,1],UPhaseStart=y[1,2]),
     PmRefPuDef(y=-y[1, 6]),
-    VrefPuDef(y=1),
+    VrefPuDef(y=y[1, 5]),
     VrefPu(fixedOffset=false));
 
   //Code to read output from previous PowerFlow run:
@@ -28,6 +28,7 @@ model ControlledGenNoPSS_R
 <p><i><span style=\"font-family: Arial; font-size: 12pt;\">Library PowerGridsMC was forked from https://github.com/PowerGrids/PowerGrids on 22 November 2024.</span></i></p>
 <p>************************** </p>
 <p>This is a new component not existing in the original library. It has the peculiarity that reads from an automatically generated file the data from a previously executed PowerFlow. </p>
-<p>The data is stored and retrieved based on the instance name. Therefore, for an effective Powerflo-&gt;Transient chaining the instance name of the PowerFlow writing and Transient reading models must be the same.</p>
+<p>The data is stored and retrieved based on the instance name. Therefore, for an effective Powerflow-&gt;Transient chaining the instance name of the PowerFlow writing and Transient reading models must be the same.</p>
+<p>The machine has voltage and power reference values equal to the corresponding values computed in the PowerFlow.</p>
 </html>"));
 end ControlledGenNoPSS_R;

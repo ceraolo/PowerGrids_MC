@@ -1398,9 +1398,9 @@ con URef genera PStart, QStart")}),
           xlPu=0.256,
           xppqPu=0.377,
           xqPu=2.62,
-          PNom=40e6,
-          SNom=60e6,
-          UNom=13.8e3))
+          PNom=1000000,
+          SNom=60000000,
+          UNom=13800))
         annotation (
         Placement(visible = true, transformation(origin={64,4},       extent = {{-10, -10}, {10, 10}}, rotation=0)));
       PowerGridsMC.Electrical.Buses.Bus bus11(
@@ -1532,6 +1532,7 @@ con URef genera PStart, QStart")}),
 <p>Here we see the effects of a (three-phase) fault at bus 1 between t= 0.5 and 0.6s.</p>
 <p>In this example the machines have regulators, and therefore the transient much better damped than Bus1Faultunregulated and the final voltages and frequency are much nearerto the original values.</p>
 <p>See for instance the AC node (1, 2, 3, 4) voltages, and the values of omegaPU variables of gen11x2, gen22x2, gen42x2, sc22.</p>
+<p>NOTE. For convergenze reasons the Synchronous Compensator model contains a ficticious governor which commands some input power to generator. This does not affect the results, since the actual mechanical power is very negligible, as can be seen looking at PmPu inside sc22.GEN, which is at most 0.04 p.u., i.e., 40 kW, very near to zero for a 60 MVA machine</p>
 </html>"));
     end Bus1FaultSIregulated;
     annotation (Documentation(info="<html>

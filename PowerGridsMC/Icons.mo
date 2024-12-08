@@ -25,7 +25,7 @@ package Icons "Icons for the PowerGridsMC library"
           else
              String(port.U/1e3, format = "9.3f"))),
       Text(
-        visible=showPortDdata,
+        visible=showPortData,
         extent={{-162,-8},{-26,-42}},
         lineColor={28,108,200},
         textString=DynamicSelect("Uph", String(port.UPhase*180/3.14159265359, format = "4.1f")+"°"))},                                                                                                                          coordinateSystem(initialScale = 0.1)));
@@ -55,7 +55,8 @@ package Icons "Icons for the PowerGridsMC library"
 
   model Machine
   annotation (
-      Icon(graphics={  Text(origin={0,-121},    textColor = {0, 0, 255}, extent = {{-100, 9}, {100, -9}}, textString = "%name"),
+      Icon(graphics={  Text(origin={0,-121},    textColor = {0, 0, 255}, extent={{-100,13},
+                {100,-13}},                                                                               textString = "%name"),
         Rectangle(                  fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid, extent={{-100,80},
                 {100,-100}}),
         Ellipse(origin={0,-51},    extent = {{-40, 41}, {40, -40}}),
