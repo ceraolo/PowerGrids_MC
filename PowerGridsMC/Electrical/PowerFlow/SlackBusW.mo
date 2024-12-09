@@ -41,16 +41,6 @@ equation
   annotation (
   Icon(graphics={
     Text(
-      visible=showPortData,
-      extent={{-170,46},{-32,12}},
-      lineColor={28,108,200},
-      textString=DynamicSelect("V", String(port.U/port.UNom, significantDigits=3))),
-    Text(
-      visible=showPortData,
-      extent={{-164,-12},{-28,-46}},
-      lineColor={28,108,200},
-      textString=DynamicSelect("Uph", String(port.UPhase*180/3.14159265359, format = "4.1f")+"°")),
-    Text(
       extent={{36,-12},{80,-46}},
       textColor={162,29,33},
       textStyle={TextStyle.Italic},

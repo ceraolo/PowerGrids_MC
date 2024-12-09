@@ -9,15 +9,15 @@ model System "System object"
     InitializationOption.globalSteadyStateFixedSetPoints "Initialization option";
   final parameter SI.AngularVelocity omegaNom = fNom*2*Modelica.Constants.pi "Nominal system angular frequency";
 
-   parameter Boolean showDataOnDiagramsPu = true
+   parameter Boolean showDataOnDiagramsPu = false
     "=true, if P,Q,V and phase are shown on the diagrams in per-unit of local machine base";
 
   Modelica.Blocks.Interfaces.RealInput omegaRefIn(unit = "rad/s")
     if referenceFrequency == ReferenceFrequency.fixedReferenceGenerator "Reference frequency input"
     annotation (
-      Placement(visible = true, transformation(origin = {-98, 2},
+      Placement(visible = true, transformation(origin={-108,2},
       extent = {{-20, -20}, {20, 20}}, rotation = 0),
-      iconTransformation(origin = {-98, 2}, extent = {{-20, -20}, {20, 20}},
+      iconTransformation(origin={-108,2},   extent = {{-20, -20}, {20, 20}},
       rotation = 0)));
 
   Types.AngularVelocity omegaRef = omegaRefInternal "Reference frequency";

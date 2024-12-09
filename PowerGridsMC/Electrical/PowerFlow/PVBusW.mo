@@ -9,7 +9,7 @@ model PVBusW "PV bus - Save PF data on disk"
   Integer index;
   Real out[1,7];
 
-  parameter Boolean showPFdata=true "=true, if PowerFlow data are to be shown";
+  parameter Boolean showPortData=true "=true, if PowerFlow data are to be shown";
   outer Electrical.System systemPowerGrids "Reference to system object";
   parameter Boolean showDataOnDiagramsPu = systemPowerGrids.showDataOnDiagramsPu
    "=true, P,Q,V and phase are shown on the diagrams in per-unit of local machine base"

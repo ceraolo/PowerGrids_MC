@@ -12,7 +12,7 @@ model CapacitorBankFixed "Capacitor bank with fixed capacitance"
 
   annotation (Icon(graphics={
        Text(
-          visible=showPortDdata,
+          visible=showPortData,
           extent={{-16,58},{100,22}},
           lineColor={217,67,180},
           textString=DynamicSelect("Q",
