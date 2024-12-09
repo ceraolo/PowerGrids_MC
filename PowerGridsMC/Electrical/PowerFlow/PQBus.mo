@@ -19,7 +19,7 @@ annotation (
     Icon(coordinateSystem(grid={2,2}),
      graphics={  Text(origin = {60, -60}, extent = {{-20, 20}, {48, -40}}, textString = "PQ"),
        Text(
-          visible=showPortDdata,
+          visible=showPortData,
           extent={{-102,62},{-2,26}},
           lineColor={238,46,47},
           textString=DynamicSelect("P",
@@ -28,8 +28,8 @@ annotation (
              else
                String(-port.PGen/1e6, format = "9.2f"))),
        Text(
-          visible=showPortDdata,
-          extent={{0,62},{116,26}},
+          visible=showPortData,
+          extent={{0,62},{112,26}},
           lineColor={217,67,180},
           textString=DynamicSelect("Q",
             if showDataOnDiagramsPu then

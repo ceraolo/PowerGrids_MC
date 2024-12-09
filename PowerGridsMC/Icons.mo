@@ -32,10 +32,59 @@ package Icons "Icons for the PowerGridsMC library"
   end Bus;
 
   model Line
+
+    parameter Boolean showPortData=true "=true, if PowerFlow data are to be shown";
+    outer Electrical.System systemPowerGrids "Reference to system object";
+    parameter Boolean showDataOnDiagramsPu = systemPowerGrids.showDataOnDiagramsPu
+     "=true, P,Q,V and phase are shown on the diagrams in per-unit of local machine base"
+     annotation(Dialog(tab = "Visualization"));
+
   equation
 
   annotation (
-      Icon(graphics={  Rectangle(origin = {-1, -1}, fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid, extent = {{-59, 11}, {61, -11}}), Line(origin = {-80, 0}, points = {{-20, 0}, {20, 0}}), Line(origin = {80, 0}, points = {{-20, 0}, {20, 0}}), Text(origin = {0, 30}, lineColor = {0, 0, 255}, extent = {{-80, 10}, {80, -10}}, textString = "%name")}, coordinateSystem(initialScale = 0.1)));
+      Icon(graphics={  Rectangle(origin = {-1, -1}, fillColor = {255, 255, 255},
+      fillPattern = FillPattern.Solid, extent = {{-59, 11}, {61, -11}}),
+      Line(origin = {-80, 0}, points = {{-20, 0}, {20, 0}}),
+      Line(origin = {80, 0}, points = {{-20, 0}, {20, 0}}),
+      Text(origin = {0, 30}, lineColor = {0, 0, 255},
+      extent = {{-80, 10}, {80, -10}}, textString = "%name"),
+         Text(
+       visible=showPortData,
+       extent={{-160,88},{-50,52}},
+       lineColor={238,46,47},
+       textString=DynamicSelect("P",
+          if showDataOnDiagramsPu then
+             String(-portA.PGenPu, format = "6.3f")
+          else
+             String(-portA.PGen/1e6, format = "9.3f"))),
+      Text(
+        visible=showPortData,
+        extent={{-166,46},{-44,12}},
+        lineColor={217,67,180},
+        textString=DynamicSelect("Q",
+          if showDataOnDiagramsPu then
+             String(-portA.QGenPu, format = "6.3f")
+          else
+             String(-portA.QGen/1e6, format = "9.3f"))),
+      Text(
+        visible=showPortData,
+        extent={{48,88},{156,52}},
+        lineColor={238,46,47},
+       textString=DynamicSelect("P",
+          if showDataOnDiagramsPu then
+             String(-portB.PGenPu, format = "6.3f")
+          else
+             String(-portB.PGen/1e6, format = "9.3f"))),
+      Text(
+        visible=showPortData,
+        extent={{42,46},{168,12}},
+        lineColor={217,67,180},
+        textString=DynamicSelect("Q",
+          if showDataOnDiagramsPu then
+             String(-portB.QGenPu, format = "6.3f")
+          else
+             String(-portB.QGen/1e6, format = "9.3f")))},
+    coordinateSystem(initialScale = 0.1)));
   end Line;
 
   model Transformer
