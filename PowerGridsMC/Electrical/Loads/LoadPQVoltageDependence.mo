@@ -6,8 +6,8 @@ model LoadPQVoltageDependence "Load model with voltage dependent P and Q"
     QStart = QRefConst);
   extends Icons.Load;
 
-  parameter Types.PerUnit alpha = 0 "Exponential of voltage ratio for actual P calculation";
-  parameter Types.PerUnit beta = 0 "Exponential of voltage ratio for actual Q calculation";
+  parameter Types.PerUnit alpha = 0 "Exponent of voltage ratio for actual P calculation";
+  parameter Types.PerUnit beta = 0  "Exponent of voltage ratio for actual Q calculation";
 
   parameter Types.ActivePower PRefConst = 0 "Constant active power entering the load at reference voltage";
   parameter Types.ReactivePower QRefConst = 0 "Constant reactive power entering the load at reference voltage";
@@ -35,7 +35,7 @@ equation
           textStyle={TextStyle.Italic}),
        Text(
           visible=showPortData,
-          extent={{-118,58},{-8,22}},
+          extent={{-118,56},{-8,22}},
           lineColor={238,46,47},
           textString=DynamicSelect("P",
               if showDataOnDiagramsPu then
@@ -44,7 +44,7 @@ equation
                String(-port.PGen/1e6, format = "9.2f"))),
        Text(
           visible=showPortData,
-          extent={{4,58},{126,22}},
+          extent={{4,56},{126,22}},
           lineColor={217,67,180},
           textString=DynamicSelect("Q",
             if showDataOnDiagramsPu then

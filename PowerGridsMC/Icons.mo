@@ -17,16 +17,16 @@ package Icons "Icons for the PowerGridsMC library"
                 {65,-10}},                                                                                                                                                                               textString = "%name"),
       Text(
         visible=showPortData,
-        extent={{-168,50},{-30,16}},
+        extent={{-168,50},{-30,18}},
         lineColor={28,108,200},
         textString=DynamicSelect("V",
           if showDataOnDiagramsPu then
              String(port.U/port.UNom, format = "6.3f")
           else
-             String(port.U/1e3, format = "9.3f"))),
+             String(port.U/1e3, format = "9.2f"))),
       Text(
         visible=showPortData,
-        extent={{-162,-8},{-26,-42}},
+        extent={{-162,-8},{-26,-40}},
         lineColor={28,108,200},
         textString=DynamicSelect("Uph", String(port.UPhase*180/3.14159265359, format = "4.1f")+"°"))},                                                                                                                          coordinateSystem(initialScale = 0.1)));
   end Bus;
@@ -50,7 +50,7 @@ package Icons "Icons for the PowerGridsMC library"
       extent = {{-80, 10}, {80, -10}}, textString = "%name"),
          Text(
        visible=showPortData,
-       extent={{-160,88},{-50,52}},
+       extent={{-160,88},{-50,56}},
        lineColor={238,46,47},
        textString=DynamicSelect("P",
           if showDataOnDiagramsPu then
@@ -59,7 +59,7 @@ package Icons "Icons for the PowerGridsMC library"
              String(-portA.PGen/1e6, format = "9.3f"))),
       Text(
         visible=showPortData,
-        extent={{-166,46},{-44,12}},
+        extent={{-166,46},{-44,14}},
         lineColor={217,67,180},
         textString=DynamicSelect("Q",
           if showDataOnDiagramsPu then
@@ -68,7 +68,7 @@ package Icons "Icons for the PowerGridsMC library"
              String(-portA.QGen/1e6, format = "9.3f"))),
       Text(
         visible=showPortData,
-        extent={{48,88},{156,52}},
+        extent={{48,88},{156,56}},
         lineColor={238,46,47},
        textString=DynamicSelect("P",
           if showDataOnDiagramsPu then
@@ -77,7 +77,7 @@ package Icons "Icons for the PowerGridsMC library"
              String(-portB.PGen/1e6, format = "9.3f"))),
       Text(
         visible=showPortData,
-        extent={{42,46},{168,12}},
+        extent={{42,46},{168,14}},
         lineColor={217,67,180},
         textString=DynamicSelect("Q",
           if showDataOnDiagramsPu then

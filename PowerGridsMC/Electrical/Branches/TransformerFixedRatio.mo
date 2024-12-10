@@ -30,7 +30,7 @@ annotation (
 Icon(graphics={
   Text(
     visible=showPortData,
-    extent={{-162,80},{-52,46}},
+    extent={{-162,80},{-52,48}},
     lineColor={238,46,47},
     textString=DynamicSelect("P",
       if showDataOnDiagramsPu then
@@ -48,7 +48,7 @@ Icon(graphics={
          String(-portA.QGen/1e6, format = "9.2f"))),
   Text(
     visible=showPortData,
-    extent={{52,84},{162,48}},
+    extent={{52,80},{162,48}},
     lineColor={238,46,47},
     textString=DynamicSelect("P",
       if showDataOnDiagramsPu then

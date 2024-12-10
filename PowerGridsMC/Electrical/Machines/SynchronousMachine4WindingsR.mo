@@ -34,22 +34,22 @@ UStart=PFout[1,1],UPhaseStart=PFout[1,2]);
           textString="R"),
        Text(
           visible=showPFdata,
-          extent={{-104,76},{6,40}},
+          extent={{-104,76},{6,44}},
           lineColor={238,46,47},
           textString=DynamicSelect("P",
              if showDataOnDiagramsPu then
                String(-port.PGenPu, format = "6.3f")
              else
-               String(-port.PGen/1e6, format = "9.3f"))),
+               String(-port.PGen/1e6, format = "9.2f"))),
        Text(
           visible=showPFdata,
-          extent={{-12,76},{110,40}},
+          extent={{-12,76},{110,44}},
           lineColor={217,67,180},
           textString=DynamicSelect("Q",
             if showDataOnDiagramsPu then
               String(-port.QGenPu, format = "6.3f")
             else
-              String(-port.QGen/1e6, format = "9.3f")))}),
+              String(-port.QGen/1e6, format = "9.2f")))}),
       Documentation(info="<html>
 <p><i><span style=\"font-size: 12pt;\">Library PowerGridsMC is forked from https://github.com/PowerGrids/PowerGrids.</span></i></p>
 <p>************************** </p>

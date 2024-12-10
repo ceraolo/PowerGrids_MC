@@ -20,7 +20,7 @@ annotation (
      graphics={  Text(origin = {60, -60}, extent = {{-20, 20}, {48, -40}}, textString = "PQ"),
        Text(
           visible=showPortData,
-          extent={{-102,62},{-2,26}},
+          extent={{-102,62},{-2,30}},
           lineColor={238,46,47},
           textString=DynamicSelect("P",
              if showDataOnDiagramsPu then
@@ -29,7 +29,7 @@ annotation (
                String(-port.PGen/1e6, format = "9.2f"))),
        Text(
           visible=showPortData,
-          extent={{0,62},{112,26}},
+          extent={{0,62},{112,30}},
           lineColor={217,67,180},
           textString=DynamicSelect("Q",
             if showDataOnDiagramsPu then
