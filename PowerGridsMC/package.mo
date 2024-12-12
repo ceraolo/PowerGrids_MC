@@ -6,7 +6,8 @@ package PowerGridsMC
 
   annotation (
     version="1.0.0",
-    uses(Modelica(version="4.0.0"), Complex(version="4.0.0")),
+    uses(Modelica(version="4.0.0"), Complex(version="4.0.0"),
+      PFTdemo(version="2")),
   Documentation(info="<html>
 <p><i>Library PowerGridsMC was forked from https://github.com/PowerGrids/PowerGrids on 22 November 2024.</i></p>
 <p><i>Herebelow you find the original  text from the above library.</i></p>

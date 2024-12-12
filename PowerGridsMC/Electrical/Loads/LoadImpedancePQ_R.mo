@@ -2,10 +2,6 @@ within PowerGridsMC.Electrical.Loads;
 model LoadImpedancePQ_R
   "Load model with impedance specified by PRef and QRef"
 
-
-
-
-
 //    PFout[1,1]=port.U;
 //    PFout[1,2]=port.UPhase;
 //    PFout[1,3]=port.P;
@@ -13,7 +9,6 @@ model LoadImpedancePQ_R
 //    PFout[1,5]=port.VPu;
 //    PFout[1,6]=port.PPu;
 //    PFout[1,7]=port.QPu;
-
 
   extends LoadImpedancePQ(PStart=PFout[1,3], PRefConst=PFout[1,3],
      QStart=PFout[1,4], QRefConst=PFout[1,4], URef=PFout[1,1],
@@ -27,18 +22,18 @@ model LoadImpedancePQ_R
   parameter Boolean showPFdata=true "=true, if PowerFlow data are to be shown";
 
   annotation (Icon(graphics={Text(
-          extent={{-62,16},{-18,-18}},
-          textColor={238,46,47},
-          textString="R",
-          textStyle={TextStyle.Italic}),
+          extent={{-70,-4},{-26,-38}},
+          textColor={162,29,33},
+          textStyle={TextStyle.Italic},
+          textString="R"),
        Text(
           visible=showPFdata,
-          extent={{-128,74},{-18,38}},
+          extent={{-110,56},{0,24}},
           lineColor={238,46,47},
           textString=DynamicSelect("P", String(PGenPu, significantDigits=3))),
        Text(
           visible=showPFdata,
-          extent={{-6,74},{116,38}},
+          extent={{-2,56},{112,24}},
           lineColor={217,67,180},
           textString=DynamicSelect("Q", String(QGenPu, significantDigits=3)))}),
                                            Documentation(info="<html>
