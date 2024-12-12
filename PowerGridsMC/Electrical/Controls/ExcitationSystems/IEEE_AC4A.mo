@@ -15,30 +15,31 @@ block IEEE_AC4A "Static excitation system - IEEE type AC4A"
   final parameter Real delta = (inputLimiter.uMax-inputLimiter.uMin)*oversaturationPu "Actuator saturation margin";
 
   Modelica.Blocks.Interfaces.RealInput VsPu "PSS output p.u" annotation (
-    Placement(visible = true, transformation(origin = {-140, 30}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-100, 60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin={-128,30},    extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-100, 60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Interfaces.RealInput VcPu "Machine terminal voltage p.u." annotation (
-    Placement(visible = true, transformation(origin = {-140, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-100, 20}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin={-128,0},    extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-100, 20}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Interfaces.RealInput VrefPu "Voltage reference p.u." annotation (
-    Placement(visible = true, transformation(origin = {-140, -30}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-100, -20}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin={-128,-30},    extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-100, -20}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Interfaces.RealInput VuelPu "Underexcitation limit p.u." annotation (
-    Placement(visible = true, transformation(origin = {-8, -40}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-100, -60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin={4,-40},     extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-100, -60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Interfaces.RealOutput efdPu "Exciter output voltage p.u." annotation (
-    Placement(visible = true, transformation(origin = {110, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {110, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin={110,0},    extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin={110,0},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Math.Add3 addIng(k1 = +1, k2 = -1, k3 = +1)  annotation (
-    Placement(visible = true, transformation(origin = {-80, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin={-68,0},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Nonlinear.Limiter inputLimiter(uMax=ViMax, uMin=ViMin)
     annotation (Placement(visible=true, transformation(
-        origin={-40,0},
+        origin={-28,0},
         extent={{-10,-10},{10,10}},
         rotation=0)));
   PowerGridsMC.Controls.LeadLag leadLag(T1 = Tc, T2 = Tb, initType = Modelica.Blocks.Types.Init.SteadyState, k = 1, yStart = 1 / Ka)  annotation (
-    Placement(visible = true, transformation(origin = {0, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(                 extent={{2,-10},{22,
+            10}},                                                                              rotation = 0)));
   PowerGridsMC.Controls.FirstOrderWithNonWindupLimiter firstOrderLim(T = Ta, initType = Modelica.Blocks.Types.Init.SteadyState, k = Ka, yMax = VrMax, yMin = VrMin, yStart = 1)  annotation (
-    Placement(visible = true, transformation(origin = {80, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin={92,0},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Nonlinear.VariableLimiter variableLimiter annotation (
-    Placement(visible = true, transformation(origin = {42, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin={54,0},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Sources.Constant largeReal(k = 1e9)  annotation (
-    Placement(visible = true, transformation(origin = {0, 40}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin={12,40},   extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 initial equation
   /* The following equation could be written as
  
@@ -65,29 +66,31 @@ initial equation
   end if;
 equation
   connect(firstOrderLim.y, efdPu) annotation (
-    Line(points = {{92, 0}, {106, 0}, {106, 0}, {110, 0}}, color = {0, 0, 127}));
+    Line(points={{103,0},{110,0}},                         color = {0, 0, 127}));
   connect(inputLimiter.y, leadLag.u) annotation (
-    Line(points = {{-28, 0}, {-12, 0}, {-12, 0}, {-12, 0}}, color = {0, 0, 127}));
+    Line(points={{-17,0},{0,0}},                            color = {0, 0, 127}));
   connect(addIng.y, inputLimiter.u) annotation (
-    Line(points = {{-68, 0}, {-52, 0}, {-52, 0}, {-52, 0}}, color = {0, 0, 127}));
+    Line(points={{-57,0},{-40,0}},                          color = {0, 0, 127}));
   connect(VrefPu, addIng.u3) annotation (
-    Line(points = {{-140, -30}, {-108, -30}, {-108, -8}, {-92, -8}, {-92, -8}}, color = {0, 0, 127}));
+    Line(points={{-128,-30},{-96,-30},{-96,-8},{-80,-8}},                       color = {0, 0, 127}));
   connect(VsPu, addIng.u1) annotation (
-    Line(points = {{-140, 30}, {-108, 30}, {-108, 8}, {-92, 8}, {-92, 8}}, color = {0, 0, 127}));
+    Line(points={{-128,30},{-96,30},{-96,8},{-80,8}},                      color = {0, 0, 127}));
   connect(VcPu, addIng.u2) annotation (
-    Line(points = {{-140, 0}, {-94, 0}, {-94, 0}, {-92, 0}}, color = {0, 0, 127}));
+    Line(points={{-128,0},{-80,0}},                          color = {0, 0, 127}));
   connect(variableLimiter.y, firstOrderLim.u) annotation (
-    Line(points = {{53, 0}, {68, 0}}, color = {0, 0, 127}));
+    Line(points={{65,0},{80,0}},      color = {0, 0, 127}));
   connect(leadLag.y, variableLimiter.u) annotation (
-    Line(points = {{12, 0}, {30, 0}}, color = {0, 0, 127}));
+    Line(points={{23,0},{42,0}},      color = {0, 0, 127}));
   connect(largeReal.y, variableLimiter.limit1) annotation (
-    Line(points = {{11, 40}, {20, 40}, {20, 8}, {30, 8}}, color = {0, 0, 127}));
+    Line(points={{23,40},{32,40},{32,8},{42,8}},          color = {0, 0, 127}));
   connect(VuelPu, variableLimiter.limit2) annotation (
-    Line(points = {{-8, -40}, {22, -40}, {22, -8}, {30, -8}}, color = {0, 0, 127}));
+    Line(points={{4,-40},{34,-40},{34,-8},{42,-8}},           color = {0, 0, 127}));
   annotation (
-    Icon(coordinateSystem(grid = {0.1, 0.1}, initialScale = 0.1), graphics={  Rectangle(origin = {0, 1}, extent = {{-100, 99}, {100, -101}}), Text(origin = {24, 4}, extent = {{-94, 70}, {56, -72}}, textString = "IEEE
+    Icon( graphics={  Rectangle(origin={0.5,0.7},extent = {{-100, 99}, {100, -101}},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid),                                             Text(origin = {24, 4}, extent = {{-94, 70}, {56, -72}}, textString = "IEEE
 AC4A"), Text(origin = {0, 120}, lineColor = {0, 0, 255}, extent = {{-80, 14}, {80, -14}}, textString = "%name")}),
-    Diagram(coordinateSystem(extent = {{-200, -100}, {200, 100}})),
+    Diagram(coordinateSystem(extent={{-120,-80},{120,80}})),
   Documentation(info = "<html>
 <p>The class implements a model of a static exictation system according to the IEEE Std 421.5TM-2005.</p>
 <p>The type implemented is the AC4A, described in the chapter 6.4 of the same IEEE Std 421.5TM-2005.</p>

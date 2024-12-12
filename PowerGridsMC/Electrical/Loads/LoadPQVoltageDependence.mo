@@ -41,7 +41,7 @@ equation
               if showDataOnDiagramsPu then
                String(-port.PGenPu, format = "6.3f")
              else
-               String(-port.PGen/1e6, format = "9.2f"))),
+               String(port.S.re/1e6, format = "9.2f"))),
        Text(
           visible=showPortData,
           extent={{0,56},{110,24}},
@@ -50,7 +50,7 @@ equation
             if showDataOnDiagramsPu then
                String(-port.QGenPu, format = "6.3f")
              else
-               String(-port.QGen/1e6, format = "9.2f")))}
+               String(port.S.im/1e6, format = "9.2f")))}
 
 ), Documentation(info = "<html><head></head><body><p>Model of a PQ load with voltage dependence.</p>
 <p><code>port.P = PRef*(port.U/URef)^alpha;</code> <br> <code>port.Q = QRef*(port.U/URef)^beta</code>.</p>

@@ -18,7 +18,7 @@ block IEEE_TGOV1 "Simple Steam Turbine Governor - IEEE type TGOV1"
   Modelica.Blocks.Interfaces.RealInput omegaPu "Frequency [pu]" annotation (
     Placement(visible = true, transformation(origin = {-140, -30}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-100, -40}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   Modelica.Blocks.Interfaces.RealOutput PMechPu "Mechanical turbine power [pu]" annotation (
-    Placement(visible = true, transformation(origin = {130,50}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {100, 3.55271e-15}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
+    Placement(visible = true, transformation(origin={122,50},   extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {100, 3.55271e-15}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   Modelica.Blocks.Math.Feedback errPu annotation (
     Placement(visible = true, transformation(origin = {-70, 50}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Math.Feedback deltaOmegaPu annotation (
@@ -61,30 +61,32 @@ initial equation
   end if;
 equation
   connect(omegaRefPu.y, deltaOmegaPu.u2) annotation (
-    Line(points = {{-90, -58}, {-90, -58}, {-90, -38}, {-90, -38}}, color = {0, 0, 127}));
+    Line(points={{-90,-59},{-90,-59},{-90,-38},{-90,-38}},          color = {0, 0, 127}));
   connect(gainDt.y, sumPMechPu.u2) annotation (
-    Line(points = {{22, -30}, {90, -30}, {90, 42}, {90, 42}}, color = {0, 0, 127}));
+    Line(points={{21,-30},{90,-30},{90,42},{90,42}},          color = {0, 0, 127}));
   connect(deltaOmegaPu.y, gainDt.u) annotation (
-    Line(points = {{-80, -30}, {-2, -30}, {-2, -30}, {-2, -30}}, color = {0, 0, 127}));
+    Line(points={{-81,-30},{-2,-30},{-2,-30},{-2,-30}},          color = {0, 0, 127}));
   connect(deltaOmegaPu.y, errPu.u2) annotation (
-    Line(points = {{-80, -30}, {-70, -30}, {-70, 42}, {-70, 42}}, color = {0, 0, 127}));
+    Line(points={{-81,-30},{-70,-30},{-70,42},{-70,42}},          color = {0, 0, 127}));
   connect(sumPMechPu.y, PMechPu) annotation (
-    Line(points = {{99, 50}, {121, 50}, {121, 50}, {129, 50}}, color = {0, 0, 127}));
+    Line(points={{99,50},{122,50}},                            color = {0, 0, 127}));
   connect(leadLag.y, sumPMechPu.u1) annotation (
-    Line(points = {{61, 50}, {79, 50}, {79, 50}, {81, 50}}, color = {0, 0, 127}));
+    Line(points={{61,50},{79,50},{79,50},{82,50}},          color = {0, 0, 127}));
   connect(firstOrderLim.y, leadLag.u) annotation (
-    Line(points = {{21, 50}, {37, 50}, {37, 50}, {37, 50}}, color = {0, 0, 127}));
+    Line(points={{21,50},{37,50},{37,50},{38,50}},          color = {0, 0, 127}));
   connect(gainDivR.y, firstOrderLim.u) annotation (
-    Line(points = {{-19, 50}, {-3, 50}, {-3, 50}, {-3, 50}}, color = {0, 0, 127}));
+    Line(points={{-19,50},{-3,50},{-3,50},{-2,50}},          color = {0, 0, 127}));
   connect(errPu.y, gainDivR.u) annotation (
-    Line(points = {{-61, 50}, {-43, 50}, {-43, 50}, {-43, 50}}, color = {0, 0, 127}));
+    Line(points={{-61,50},{-43,50},{-43,50},{-42,50}},          color = {0, 0, 127}));
   connect(RefLPu, errPu.u1) annotation (
     Line(points = {{-140, 50}, {-78, 50}}, color = {0, 0, 127}));
   connect(omegaPu, deltaOmegaPu.u1) annotation (
     Line(points = {{-140, -30}, {-100, -30}, {-100, -30}, {-98, -30}}, color = {0, 0, 127}));
   annotation (
-    Icon(coordinateSystem(grid = {0.1, 0.1}, initialScale = 0.1), graphics={  Rectangle(origin = {-1, -1}, extent = {{-99, 101}, {101, -99}}), Text(origin = {49, -25}, extent = {{-127, 27}, {33, -49}}, textString = "TGOV1"), Text(origin = {0, 120}, lineColor = {0, 0, 255}, extent = {{-80, 12}, {80, -12}}, textString = "%name"), Text(origin = {-6, 46}, extent = {{-60, 26}, {70, -40}}, textString = "IEEE")}),
-    Diagram(coordinateSystem(extent = {{-200, -100}, {200, 100}})),
+    Icon(graphics={  Rectangle(origin = {-1, -1}, extent = {{-99, 101}, {101, -99}},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid),                                             Text(origin = {49, -25}, extent = {{-127, 27}, {33, -49}}, textString = "TGOV1"), Text(origin = {0, 120}, lineColor = {0, 0, 255}, extent = {{-80, 12}, {80, -12}}, textString = "%name"), Text(origin = {-6, 46}, extent = {{-60, 26}, {70, -40}}, textString = "IEEE")}),
+    Diagram(coordinateSystem(extent={{-140,-80},{120,80}})),
   Documentation(info = "<html>
 <p>The class implements a model of a simple steam turbine governor according to the IEEE technical report PES-TR1 Jan 2013.</p>
 <p>The type implemented is the TGOV1, described in the chapter 2.2 of the same IEEE technical report PES-TR1 Jan 2013.</p>

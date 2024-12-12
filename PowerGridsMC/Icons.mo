@@ -83,7 +83,7 @@ package Icons "Icons for the PowerGridsMC library"
           if showDataOnDiagramsPu then
              String(-portB.QGenPu, format = "6.3f")
           else
-             String(portB.A.im/1e6, format = "9.3f")))},
+             String(portB.S.im/1e6, format = "9.3f")))},
     coordinateSystem(initialScale = 0.1)));
   end Line;
 

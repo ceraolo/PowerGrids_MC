@@ -4,7 +4,7 @@ model TestCase2 "Test Case 2, Section 5.2, focuses on the dynamic behavior of th
   inner PowerGridsMC.Electrical.System systemPowerGrids annotation (
     Placement(transformation(origin = {10, 36}, extent = {{-10, -10}, {10, 10}})));
   PowerGridsMC.Electrical.Machines.SynchronousMachine4Windings GEN(H = 4, PStart = -3.8e+08, QStart = 0, SNom = 4.75e+08, Tpd0 = 5.143, Tppd0 = 0.042, Tppq0 = 0.083, Tpq0 = 2.16, UNom = 21000, UPhaseStart = 0, UStart = 21000, portVariablesPhases = true, raPu = 0, referenceGenerator = true, xdPu = 2, xlPu = 0.15, xpdPu = 0.35, xppdPu = 0.25, xppqPu = 0.3, xpqPu = 0.5, xqPu = 1.8) annotation (
-    Placement(transformation(origin = {-26, 6}, extent = {{-10, -10}, {10, 10}})));
+    Placement(transformation(origin = {-26, 6}, extent={{-10,10},{10,-10}})));
   PowerGridsMC.Electrical.Buses.ReferenceBus NGEN(SNom = 5e+08, UNom = 21000, portVariablesPhases = true, portVariablesPu = true) annotation (
     Placement(transformation(origin = {14, -14}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
   PowerGridsMC.Electrical.Controls.TurbineGovernors.IEEE_TGOV1 TGOV(R = 0.05, T1 = 0.5, T2 = 3, T3 = 10, VMax = 1) annotation (
@@ -31,7 +31,7 @@ model TestCase2 "Test Case 2, Section 5.2, focuses on the dynamic behavior of th
 
 equation
   connect(GEN.VPu, AVR.VcPu) annotation (
-    Line(points={{-15.8,0},{-8,0},{-8,52},{-114,52},{-114,-8},{-72,-8}},            color = {0, 0, 127}));
+    Line(points={{-15.8,12},{-8,12},{-8,52},{-114,52},{-114,-8},{-72,-8}},          color = {0, 0, 127}));
   connect(zero2.y, LOAD.QRefIn) annotation (
     Line(points={{-4.8,-52},{-0.6,-52},{-0.6,-42},{12,-42}},            color = {0, 0, 127}));
   connect(zero.y, AVR.VuelPu) annotation (
@@ -47,12 +47,11 @@ equation
   connect(RefLPu.y, TGOV.RefLPu) annotation (
     Line(points = {{-87, 30}, {-72, 30}}, color = {0, 0, 127}));
   connect(AVR.efdPu, GEN.ufPuIn) annotation (
-    Line(points={{-51,-10},{-48.5,-10},{-48.5,-10},{-44,-10},{-44,2},{-41,2},{
-          -41,2},{-36.4,2}},                                                                                    color = {0, 0, 127}));
+    Line(points={{-49.8,-10},{-44,-10},{-44,10},{-36.4,10}},                                                    color = {0, 0, 127}));
   connect(GEN.omegaPu, TGOV.omegaPu) annotation (
-    Line(points={{-15.8,8},{-12,8},{-12,48},{-78,48},{-78,38},{-72,38}},            color = {0, 0, 127}));
+    Line(points={{-15.8,4},{-12,4},{-12,48},{-78,48},{-78,38},{-72,38}},            color = {0, 0, 127}));
   connect(TGOV.PMechPu, GEN.PmPu) annotation (
-    Line(points={{-52,34},{-44,34},{-44,10},{-40,10},{-40,9.4},{-36.4,9.4}},          color = {0, 0, 127}));
+    Line(points={{-52,34},{-48,34},{-48,4},{-40,4},{-40,2.6},{-36.4,2.6}},            color = {0, 0, 127}));
   connect(GEN.terminal, NGEN.terminal) annotation (
     Line(points = {{-26, 6}, {-26, -14}, {14, -14}}));
   annotation (
