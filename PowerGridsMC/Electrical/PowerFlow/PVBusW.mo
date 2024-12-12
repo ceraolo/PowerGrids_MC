@@ -53,22 +53,22 @@ equation
           textString="W"),
        Text(
           visible=showPortData,
-          extent={{-106,66},{-4,30}},
+          extent={{-106,66},{-4,34}},
           lineColor={238,46,47},
           textString=DynamicSelect("P",
              if showDataOnDiagramsPu then
                String(-port.PGenPu, format = "6.3f")
              else
-               String(-port.PGen/1e6, format = "9.2f"))),
+               String(port.S.re/1e6, format = "9.2f"))),
        Text(
           visible=showPortData,
-          extent={{2,66},{102,32}},
+          extent={{2,66},{102,34}},
           lineColor={217,67,180},
           textString=DynamicSelect("Q",
             if showDataOnDiagramsPu then
               String(-port.QGenPu, format = "6.3f")
             else
-              String(-port.QGen/1e6, format = "9.2f")))}),
+              String(port.S.im/1e6, format = "9.2f")))}),
                              Documentation(info="<html>
 <p><i><span style=\"font-size: 12pt;\">Library PowerGridsMC is forked from https://github.com/PowerGrids/PowerGrids.</span></i></p>
 <p>************************** </p>

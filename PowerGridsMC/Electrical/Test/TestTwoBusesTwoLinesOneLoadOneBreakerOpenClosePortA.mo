@@ -6,7 +6,7 @@ model TestTwoBusesTwoLinesOneLoadOneBreakerOpenClosePortA
     Placement(visible = true, transformation(origin = {22, 22}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
 equation
   connect(BreakerStatus.y, transmissionLine2.breakerStatusA) annotation (
-    Line(points = {{22, 10}, {22, 10}, {22, 2}, {24, 2}}, color = {255, 0, 255}));
+    Line(points={{22,11},{22,11},{22,1},{23,1}},          color = {255, 0, 255}));
   annotation (
     Icon(coordinateSystem(grid = {0.1, 0.1})),
     Diagram(coordinateSystem(extent = {{-100, -100}, {100, 100}})),

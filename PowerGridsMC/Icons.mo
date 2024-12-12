@@ -56,7 +56,7 @@ package Icons "Icons for the PowerGridsMC library"
           if showDataOnDiagramsPu then
              String(-portA.PGenPu, format = "6.3f")
           else
-             String(-portA.PGen/1e6, format = "9.3f"))),
+             String(portA.S.re/1e6, format = "9.3f"))),
       Text(
         visible=showPortData,
         extent={{-166,46},{-44,14}},
@@ -65,7 +65,7 @@ package Icons "Icons for the PowerGridsMC library"
           if showDataOnDiagramsPu then
              String(-portA.QGenPu, format = "6.3f")
           else
-             String(-portA.QGen/1e6, format = "9.3f"))),
+             String(portA.S.im/1e6, format = "9.3f"))),
       Text(
         visible=showPortData,
         extent={{48,88},{156,56}},
@@ -74,7 +74,7 @@ package Icons "Icons for the PowerGridsMC library"
           if showDataOnDiagramsPu then
              String(-portB.PGenPu, format = "6.3f")
           else
-             String(-portB.PGen/1e6, format = "9.3f"))),
+             String(portB.S.re/1e6, format = "9.3f"))),
       Text(
         visible=showPortData,
         extent={{42,46},{168,14}},
@@ -83,7 +83,7 @@ package Icons "Icons for the PowerGridsMC library"
           if showDataOnDiagramsPu then
              String(-portB.QGenPu, format = "6.3f")
           else
-             String(-portB.QGen/1e6, format = "9.3f")))},
+             String(portB.A.im/1e6, format = "9.3f")))},
     coordinateSystem(initialScale = 0.1)));
   end Line;
 

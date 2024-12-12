@@ -68,8 +68,8 @@ model PortAC "AC port computing auxiliary quantities"
 
   Types.ComplexCurrent iGen(re(nominal = IBase, start = -iStart.re),
                             im(nominal = IBase, start = -iStart.im)) = -i "Port current, generator convention";
-  Types.ActivePower PGen(nominal = SBase, start = -PStart) = -S.re "Active power flowing out of the port";
-  Types.ReactivePower QGen(nominal = SBase, start = -QStart) = -S.im "Reactive power flowing out of the port";
+//  Types.ActivePower PGen(nominal = SBase, start = -PStart) = -S.re "Active power flowing out of the port";
+//  Types.ReactivePower QGen(nominal = SBase, start = -QStart) = -S.im "Reactive power flowing out of the port";
   Types.PerUnit PGenPu(start = -PStart/SBase) = -PPu "Active power flowing out of the port in p.u. (base SBase)";
   Types.PerUnit QGenPu(start = -QStart/SBase) = -QPu "Reactive power flowing out of the port in p.u. (base SBase)";
   Types.ComplexPerUnit iGenPu(re(start = -iStart.re/IBase),im(start = -iStart.im/IBase)) = -iPu "Complex current flowing out of the port in p.u. (base IBase)";

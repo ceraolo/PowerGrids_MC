@@ -129,7 +129,7 @@ UPu, PPu,QPu"),   Text(
         SNom=500000000,
         UNomA=21000,
         UNomB=419000,                                                                                                                      X = 16e-2 * 419 ^ 2 / 500, portVariablesPhases = true,
-        showPFdata=true,                                                                                                                                                                          portVariablesPu = true, rFixed = 419 / 21)  annotation (
+        showPortData=true,                                                                                                                                                                          portVariablesPu = true, rFixed = 419 / 21)  annotation (
         Placement(visible = true, transformation(origin={12,-18},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
       PowerGridsMC.Electrical.Buses.EquivalentGridR GRID(
         R_X=1/10,

@@ -20,7 +20,7 @@ model TestCase3 "Test Case 3, Section 5.3, focuses on the dynamic behavior of th
     UPhaseStartA=0.161146,                                                                                                                                                                                                        UPhaseStartB = 0,
     UStartA=0.992*21e3,
     UStartB=1.050*380e3,                                                                                                                                                                                                        X = 16e-2 * 419 ^ 2 / 500, portVariablesPhases = true,
-    showPFdata=true,                                                                                                                                                                                                        portVariablesPu = true, rFixed = 419 / 21)  annotation (
+    showPortData=true,                                                                                                                                                                                                        portVariablesPu = true, rFixed = 419 / 21)  annotation (
     Placement(transformation(origin = {18, -22}, extent = {{-10, -10}, {10, 10}})));
   PowerGridsMC.Electrical.Controls.TurbineGovernors.IEEE_TGOV1 TGOV(R = 0.05, T1 = 0.5, T2 = 3, T3 = 10, VMax = 1)  annotation (
     Placement(visible = true, transformation(origin = {-62, 28}, extent = {{-10, 10}, {10, -10}}, rotation = 0)));
@@ -59,23 +59,24 @@ equation
   connect(NTHV.terminal, GRIDL.terminal) annotation (
     Line(points = {{38, -22}, {50, -22}, {50, -38}}));
   connect(GEN.PPu, PSS.Vsi2Pu) annotation (
-    Line(points={{-16,-2},{-4,-2},{-4,50},{-120,50},{-120,-6},{-108.2,-6}},            color = {0, 0, 127}));
+    Line(points={{-15.8,-2},{-4,-2},{-4,50},{-120,50},{-120,-6},{-108.2,-6}},          color = {0, 0, 127}));
   connect(GEN.VPu, AVR.VcPu) annotation (
-    Line(points = {{-16, -6}, {0, -6}, {0, 54}, {-124, 54}, {-124, -14}, {-72, -14}}, color = {0, 0, 127}));
+    Line(points={{-15.8,-6},{0,-6},{0,54},{-124,54},{-124,-14},{-72,-14}},            color = {0, 0, 127}));
   connect(RefLPu.y, TGOV.RefLPu) annotation (
     Line(points = {{-87, 24}, {-72, 24}}, color = {0, 0, 127}));
   connect(zero.y, AVR.VuelPu) annotation (
     Line(points={{-88.8,-48},{-79.8,-48},{-79.8,-22},{-72,-22}},            color = {0, 0, 127}));
   connect(GEN.omegaPu, PSS.Vsi1Pu) annotation (
-    Line(points = {{-16, 2}, {-8, 2}, {-8, 44}, {-116, 44}, {-116, 6}, {-108, 6}}, color = {0, 0, 127}));
+    Line(points={{-15.8,2},{-8,2},{-8,44},{-116,44},{-116,6},{-108,6}},            color = {0, 0, 127}));
   connect(PSS.VstPu, AVR.VsPu) annotation (
     Line(points = {{-87, 0}, {-76.5, 0}, {-76.5, -10}, {-72, -10}}, color = {0, 0, 127}));
   connect(AVR.efdPu, GEN.ufPuIn) annotation (
-    Line(points = {{-51, -16}, {-48.5, -16}, {-48.5, -16}, {-44, -16}, {-44, -4}, {-41, -4}, {-41, -4}, {-36, -4}}, color = {0, 0, 127}));
+    Line(points={{-51,-16},{-48.5,-16},{-48.5,-16},{-44,-16},{-44,-4},{-41,-4},{
+          -41,-4},{-36.4,-4}},                                                                                      color = {0, 0, 127}));
   connect(GEN.omegaPu, TGOV.omegaPu) annotation (
-    Line(points = {{-16, 2}, {-8, 2}, {-8, 44}, {-80, 44}, {-80, 32}, {-72, 32}}, color = {0, 0, 127}));
+    Line(points={{-15.8,2},{-8,2},{-8,44},{-80,44},{-80,32},{-72,32}},            color = {0, 0, 127}));
   connect(TGOV.PMechPu, GEN.PmPu) annotation (
-    Line(points = {{-52, 28}, {-44, 28}, {-44, 4}, {-40, 4}, {-40, 4}, {-36, 4}}, color = {0, 0, 127}));
+    Line(points={{-52,28},{-44,28},{-44,4},{-40,4},{-40,3.4},{-36.4,3.4}},        color = {0, 0, 127}));
   connect(NTLV.terminal, TGEN.terminalA) annotation (
     Line(points = {{-2, -22}, {8, -22}}));
   connect(GEN.terminal, NTLV.terminal) annotation (

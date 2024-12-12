@@ -13,7 +13,7 @@ model PowerFlow "Power flow for the basic grid used in the tutorial"
     X=16e-2*419^2/500,
     portVariablesPhases=true,
     portVariablesPu=true,
-    rFixed=419/21, showPFdata = true) annotation (Placement(visible=true, transformation(
+    rFixed=419/21, showPortData = true) annotation (Placement(visible=true, transformation(
         origin={0,0},
         extent={{-10,-10},{10,10}},
         rotation=0)));

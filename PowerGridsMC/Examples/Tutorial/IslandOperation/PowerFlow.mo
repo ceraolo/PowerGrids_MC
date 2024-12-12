@@ -11,15 +11,15 @@ model PowerFlow
     Placement(transformation(origin = {30, -22}, extent = {{-10, -10}, {10, 10}})));
   PowerGridsMC.Electrical.Buses.Bus NTLV1(SNom = 5e+08, UNom = 21000, portVariablesPhases = true, portVariablesPu = true) annotation (
     Placement(transformation(origin = {-68, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
-  PowerGridsMC.Electrical.Branches.TransformerFixedRatio TGEN1(R = 0.15e-2 * 419 ^ 2 / 500, SNom = 5e+08, UNomA = 21000, UNomB = 419000, X = 16e-2 * 419 ^ 2 / 500, portVariablesPhases = true, portVariablesPu = true, rFixed = 419 / 21, showPFdata = true) annotation (
+  PowerGridsMC.Electrical.Branches.TransformerFixedRatio TGEN1(R = 0.15e-2 * 419 ^ 2 / 500, SNom = 5e+08, UNomA = 21000, UNomB = 419000, X = 16e-2 * 419 ^ 2 / 500, portVariablesPhases = true, portVariablesPu = true, rFixed = 419 / 21, showPortData = true) annotation (
     Placement(transformation(origin = {-44, 0}, extent = {{-10, -10}, {10, 10}})));
   PowerGridsMC.Electrical.PowerFlow.SlackBus NTHV1(SNom = 5e+08, UNom = 380000, portVariablesPhases = true, portVariablesPu = true) annotation (
     Placement(visible = true, transformation(origin = {-20, 0}, extent = {{-10, 10}, {10, -10}}, rotation = 90)));
-  PowerGridsMC.Electrical.Branches.LineConstantImpedance LINE(R = 10, SNom = 5e+8, UNom = 380000, X = 100, portVariablesPhases = true, portVariablesPu = true, showPFdata = true) annotation (
+  PowerGridsMC.Electrical.Branches.LineConstantImpedance LINE(R = 10, SNom = 5e+8, UNom = 380000, X = 100, portVariablesPhases = true, portVariablesPu = true, showPortData = true) annotation (
     Placement(visible = true, transformation(origin = {10, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   PowerGridsMC.Electrical.Buses.Bus NTHV2(SNom = 5e+08, UNom = 380000, portVariablesPhases = true, portVariablesPu = true) annotation (
     Placement(transformation(origin = {40, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
-  PowerGridsMC.Electrical.Branches.TransformerFixedRatio TGEN2(R = 0.15e-2 * 419 ^ 2 / 500, SNom = 5e+08, UNomA = 21000, UNomB = 419000, X = 16e-2 * 419 ^ 2 / 500, portVariablesPhases = true, portVariablesPu = true, rFixed = 419 / 21, showPFdata = true) annotation (
+  PowerGridsMC.Electrical.Branches.TransformerFixedRatio TGEN2(R = 0.15e-2 * 419 ^ 2 / 500, SNom = 5e+08, UNomA = 21000, UNomB = 419000, X = 16e-2 * 419 ^ 2 / 500, portVariablesPhases = true, portVariablesPu = true, rFixed = 419 / 21, showPortData = true) annotation (
     Placement(transformation(origin = {58, 0}, extent = {{10, -10}, {-10, 10}})));
   inner Electrical.System systemPowerGrids annotation (
     Placement(transformation(origin = {52, 30}, extent = {{-10, -10}, {10, 10}})));

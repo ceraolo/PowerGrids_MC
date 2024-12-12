@@ -26,9 +26,9 @@ model TestCase1 "Test Case 1, Section 5.1, focuses on the dynamic behavior of th
 
 equation
   connect(GEN.PPu, PSS.Vsi2Pu) annotation (
-    Line(points={{-16,-2},{-6,-2},{-6,52},{-122,52},{-122,-6},{-108.2,-6}},            color = {0, 0, 127}));
+    Line(points={{-15.8,-2},{-6,-2},{-6,52},{-122,52},{-122,-6},{-108.2,-6}},          color = {0, 0, 127}));
   connect(GEN.VPu, AVR.VcPu) annotation (
-    Line(points = {{-16, -6}, {-2, -6}, {-2, 56}, {-126, 56}, {-126, -14}, {-72, -14}}, color = {0, 0, 127}));
+    Line(points={{-15.8,-6},{-2,-6},{-2,56},{-126,56},{-126,-14},{-72,-14}},            color = {0, 0, 127}));
   connect(RefLPu.y, TGOV.RefLPu) annotation (
     Line(points = {{-87, 24}, {-72, 24}}, color = {0, 0, 127}));
   connect(VrefPu.y, AVR.VrefPu) annotation (
@@ -37,15 +37,16 @@ equation
   connect(zero.y, AVR.VuelPu) annotation (
     Line(points={{-88.8,-48},{-79.8,-48},{-79.8,-22},{-72,-22}},            color = {0, 0, 127}));
   connect(GEN.omegaPu, PSS.Vsi1Pu) annotation (
-    Line(points = {{-16, 2}, {-10, 2}, {-10, 48}, {-118, 48}, {-118, 6}, {-108, 6}}, color = {0, 0, 127}));
+    Line(points={{-15.8,2},{-10,2},{-10,48},{-118,48},{-118,6},{-108,6}},            color = {0, 0, 127}));
   connect(PSS.VstPu, AVR.VsPu) annotation (
     Line(points = {{-87, 0}, {-76.5, 0}, {-76.5, -10}, {-72, -10}}, color = {0, 0, 127}));
   connect(AVR.efdPu, GEN.ufPuIn) annotation (
-    Line(points = {{-51, -16}, {-48.5, -16}, {-48.5, -16}, {-44, -16}, {-44, -4}, {-41, -4}, {-41, -4}, {-36, -4}}, color = {0, 0, 127}));
+    Line(points={{-51,-16},{-48.5,-16},{-48.5,-16},{-44,-16},{-44,-4},{-41,-4},
+          {-41,-4},{-36.4,-4}},                                                                                     color = {0, 0, 127}));
   connect(GEN.omegaPu, TGOV.omegaPu) annotation (
-    Line(points = {{-16, 2}, {-10, 2}, {-10, 48}, {-84, 48}, {-84, 32}, {-72, 32}}, color = {0, 0, 127}));
+    Line(points={{-15.8,2},{-10,2},{-10,48},{-84,48},{-84,32},{-72,32}},            color = {0, 0, 127}));
   connect(TGOV.PMechPu, GEN.PmPu) annotation (
-    Line(points = {{-52, 28}, {-44, 28}, {-44, 4}, {-40, 4}, {-40, 4}, {-36, 4}}, color = {0, 0, 127}));
+    Line(points={{-52,28},{-44,28},{-44,4},{-40,4},{-40,3.4},{-36.4,3.4}},        color = {0, 0, 127}));
   connect(GEN.terminal, NTLV.terminal) annotation (
     Line(points = {{-26, 0}, {-26, -10}, {-26, -10}, {-26, -20}, {-2, -20}, {-2, -20}, {24, -20}}));
   annotation (

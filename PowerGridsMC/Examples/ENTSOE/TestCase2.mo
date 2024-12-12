@@ -31,7 +31,7 @@ model TestCase2 "Test Case 2, Section 5.2, focuses on the dynamic behavior of th
 
 equation
   connect(GEN.VPu, AVR.VcPu) annotation (
-    Line(points = {{-16, 0}, {-8, 0}, {-8, 52}, {-114, 52}, {-114, -8}, {-72, -8}}, color = {0, 0, 127}));
+    Line(points={{-15.8,0},{-8,0},{-8,52},{-114,52},{-114,-8},{-72,-8}},            color = {0, 0, 127}));
   connect(zero2.y, LOAD.QRefIn) annotation (
     Line(points={{-4.8,-52},{-0.6,-52},{-0.6,-42},{12,-42}},            color = {0, 0, 127}));
   connect(zero.y, AVR.VuelPu) annotation (
@@ -47,11 +47,12 @@ equation
   connect(RefLPu.y, TGOV.RefLPu) annotation (
     Line(points = {{-87, 30}, {-72, 30}}, color = {0, 0, 127}));
   connect(AVR.efdPu, GEN.ufPuIn) annotation (
-    Line(points = {{-51, -10}, {-48.5, -10}, {-48.5, -10}, {-44, -10}, {-44, 2}, {-41, 2}, {-41, 2}, {-36, 2}}, color = {0, 0, 127}));
+    Line(points={{-51,-10},{-48.5,-10},{-48.5,-10},{-44,-10},{-44,2},{-41,2},{
+          -41,2},{-36.4,2}},                                                                                    color = {0, 0, 127}));
   connect(GEN.omegaPu, TGOV.omegaPu) annotation (
-    Line(points = {{-16, 8}, {-12, 8}, {-12, 48}, {-78, 48}, {-78, 38}, {-72, 38}}, color = {0, 0, 127}));
+    Line(points={{-15.8,8},{-12,8},{-12,48},{-78,48},{-78,38},{-72,38}},            color = {0, 0, 127}));
   connect(TGOV.PMechPu, GEN.PmPu) annotation (
-    Line(points = {{-52, 34}, {-44, 34}, {-44, 10}, {-40, 10}, {-40, 10}, {-36, 10}}, color = {0, 0, 127}));
+    Line(points={{-52,34},{-44,34},{-44,10},{-40,10},{-40,9.4},{-36.4,9.4}},          color = {0, 0, 127}));
   connect(GEN.terminal, NGEN.terminal) annotation (
     Line(points = {{-26, 6}, {-26, -14}, {14, -14}}));
   annotation (

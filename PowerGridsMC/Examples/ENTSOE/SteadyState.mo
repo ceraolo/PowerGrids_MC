@@ -29,8 +29,8 @@ model SteadyState "Reproduces the basic static power flow, see fig. 3-1 of the r
   Types.PerUnit AA_02_NGRID_U = GRID.port.VPu;
   Types.Angle AA_03_NGRID_delta = GRID.port.UPhase;
   Types.Angle AA_04_NGEN_delta = GEN.port.UPhase;
-  Types.ActivePower AA_05_PG = GEN.port.PGen;
-  Types.ReactivePower AA_06_QG = GEN.port.QGen;
+  Types.ActivePower AA_05_PG = -GEN.port.S.re;
+  Types.ReactivePower AA_06_QG = -GEN.port.S.im;
   Types.ActivePower AA_07_PGRID = -GRID.port.P;
   Types.ReactivePower AA_08_QGRID = -GRID.port.Q;
   Types.ActivePower AA_09_PGRIDL = GRIDL.port.P;
@@ -48,23 +48,24 @@ equation
   connect(NTHV.terminal, GRIDL.terminal) annotation (
     Line(points = {{40, -30}, {54, -30}, {54, -46}}));
   connect(GEN.PPu, PSS.Vsi2Pu) annotation (
-    Line(points={{-10,-2},{0,-2},{0,46},{-112,46},{-112,-6},{-102.2,-6}},            color = {0, 0, 127}));
+    Line(points={{-9.8,-2},{0,-2},{0,46},{-112,46},{-112,-6},{-102.2,-6}},           color = {0, 0, 127}));
   connect(GEN.VPu, AVR.VcPu) annotation (
-    Line(points = {{-10, -6}, {4, -6}, {4, 50}, {-116, 50}, {-116, -14}, {-66, -14}}, color = {0, 0, 127}));
+    Line(points={{-9.8,-6},{4,-6},{4,50},{-116,50},{-116,-14},{-66,-14}},             color = {0, 0, 127}));
   connect(RefLPu.y, TGOV.RefLPu) annotation (
     Line(points = {{-81, 24}, {-66, 24}}, color = {0, 0, 127}));
   connect(zero.y, AVR.VuelPu) annotation (
     Line(points={{-82.8,-48},{-73.8,-48},{-73.8,-22},{-66,-22}},            color = {0, 0, 127}));
   connect(GEN.omegaPu, PSS.Vsi1Pu) annotation (
-    Line(points = {{-10, 2}, {-4, 2}, {-4, 42}, {-108, 42}, {-108, 6}, {-102, 6}}, color = {0, 0, 127}));
+    Line(points={{-9.8,2},{-4,2},{-4,42},{-108,42},{-108,6},{-102,6}},             color = {0, 0, 127}));
   connect(PSS.VstPu, AVR.VsPu) annotation (
     Line(points = {{-81, 0}, {-70.5, 0}, {-70.5, -10}, {-66, -10}}, color = {0, 0, 127}));
   connect(AVR.efdPu, GEN.ufPuIn) annotation (
-    Line(points = {{-45, -16}, {-42.5, -16}, {-42.5, -16}, {-38, -16}, {-38, -4}, {-35, -4}, {-35, -4}, {-30, -4}}, color = {0, 0, 127}));
+    Line(points={{-45,-16},{-42.5,-16},{-42.5,-16},{-38,-16},{-38,-4},{-35,-4},{
+          -35,-4},{-30.4,-4}},                                                                                      color = {0, 0, 127}));
   connect(GEN.omegaPu, TGOV.omegaPu) annotation (
-    Line(points = {{-10, 2}, {-4, 2}, {-4, 42}, {-78, 42}, {-78, 32}, {-66, 32}}, color = {0, 0, 127}));
+    Line(points={{-9.8,2},{-4,2},{-4,42},{-78,42},{-78,32},{-66,32}},             color = {0, 0, 127}));
   connect(TGOV.PMechPu, GEN.PmPu) annotation (
-    Line(points = {{-46, 28}, {-38, 28}, {-38, 4}, {-34, 4}, {-34, 4}, {-30, 4}}, color = {0, 0, 127}));
+    Line(points={{-46,28},{-38,28},{-38,4},{-34,4},{-34,3.4},{-30.4,3.4}},        color = {0, 0, 127}));
   connect(NTLV.terminal, TGEN.terminalA) annotation (
     Line(points = {{-4, -30}, {8, -30}}));
   connect(GEN.terminal, NTLV.terminal) annotation (

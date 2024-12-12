@@ -19,5 +19,5 @@ model CapacitorBankFixed "Capacitor bank with fixed capacitance"
             if showDataOnDiagramsPu then
                String(-port.QGenPu, format = "6.3f")
              else
-               String(-port.QGen/1e6, format = "9.2f")))}));
+               String(port.S.im/1e6, format = "9.2f")))}));
 end CapacitorBankFixed;

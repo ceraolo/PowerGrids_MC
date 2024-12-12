@@ -26,7 +26,7 @@ annotation (
              if showDataOnDiagramsPu then
                String(-port.PGenPu, format = "6.3f")
              else
-               String(-port.PGen/1e6, format = "9.2f"))),
+               String(port.S.re/1e6, format = "9.2f"))),
        Text(
           visible=showPortData,
           extent={{0,62},{112,30}},
@@ -35,7 +35,7 @@ annotation (
             if showDataOnDiagramsPu then
                String(-port.QGenPu, format = "6.3f")
              else
-               String(-port.QGen/1e6, format = "9.2f")))}
+               String(port.S.im/1e6, format = "9.2f")))}
 
 ),  Documentation(info = "<html>
 <p>PQBus: prescribes the active power <code>P</code> and the reactive power <code>Q</code> entering the bus.</p>

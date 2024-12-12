@@ -9,7 +9,7 @@ model StaticGrid "System operating in steady-state with given inputs"
     Placement(transformation(origin = {-2, -18}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
   PowerGridsMC.Electrical.Buses.Bus NTHV(SNom = 5e+08, UNom = 380000, portVariablesPhases = true, portVariablesPu = true)  annotation (
     Placement(visible = true, transformation(origin={38,-18},    extent = {{-10, 10}, {10, -10}}, rotation = 90)));
-  PowerGridsMC.Electrical.Branches.TransformerFixedRatio TGEN( R = 0.15e-2 * 419 ^ 2 / 500, SNom = 5e+08, UNomA = 21000, UNomB = 419000, X = 16e-2 * 419 ^ 2 / 500, portVariablesPhases = true, portVariablesPu = true, rFixed = 419 / 21, showPFdata = true)  annotation (
+  PowerGridsMC.Electrical.Branches.TransformerFixedRatio TGEN( R = 0.15e-2 * 419 ^ 2 / 500, SNom = 5e+08, UNomA = 21000, UNomB = 419000, X = 16e-2 * 419 ^ 2 / 500, portVariablesPhases = true, portVariablesPu = true, rFixed = 419 / 21, showPortData = true)  annotation (
     Placement(visible = true, transformation(origin={18,-18},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   PowerGridsMC.Electrical.Buses.EquivalentGrid GRID(R_X = 1 / 10, SNom = 5e+08, SSC = 2.5e+09, UNom = 380000, URef = 1.05 * 380e3, c = 1.1, portVariablesPhases = true, portVariablesPu = true)  annotation (
     Placement(visible = true, transformation(origin={64,-8},     extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -21,9 +21,10 @@ model StaticGrid "System operating in steady-state with given inputs"
     Placement(visible = true, transformation(origin={-64,-18},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
   connect(PmPu.y, GEN.PmPu) annotation (
-    Line(points={{-53,6},{-44,6}},      color = {0, 0, 127}));
+    Line(points={{-53,6},{-48,6},{-48,5.4},{-44.4,5.4}},
+                                        color = {0, 0, 127}));
   connect(ufPuIn.y, GEN.ufPuIn) annotation (
-    Line(points={{-53,-18},{-44,-18},{-44,-2}},        color = {0, 0, 127}));
+    Line(points={{-53,-18},{-44.4,-18},{-44.4,-2}},    color = {0, 0, 127}));
   connect(GRIDL.terminal, NTHV.terminal) annotation (
     Line(points={{58,-30},{58,-18},{38,-18}}));
   connect(GEN.terminal, NTLV.terminal) annotation (

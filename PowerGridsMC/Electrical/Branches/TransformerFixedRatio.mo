@@ -36,7 +36,7 @@ Icon(graphics={
       if showDataOnDiagramsPu then
          String(-portA.PGenPu, format = "6.3f")
       else
-         String(-portA.PGen/1e6, format = "9.2f"))),
+         String(portA.S.re/1e6, format = "9.2f"))),
   Text(
     visible=showPortData,
     extent={{-174,46},{-36,14}},
@@ -45,7 +45,7 @@ Icon(graphics={
       if showDataOnDiagramsPu then
          String(-portA.QGenPu, format = "6.3f")
       else
-         String(-portA.QGen/1e6, format = "9.2f"))),
+         String(portA.S.im/1e6, format = "9.2f"))),
   Text(
     visible=showPortData,
     extent={{52,80},{162,48}},
@@ -54,7 +54,7 @@ Icon(graphics={
       if showDataOnDiagramsPu then
          String(-portB.PGenPu, format = "6.3f")
       else
-         String(-portB.PGen/1e6, format = "9.2f"))),
+         String(portB.S.re/1e6, format = "9.2f"))),
   Text(
     visible=showPortData,
     extent={{36,46},{174,14}},
@@ -63,5 +63,5 @@ Icon(graphics={
       if showDataOnDiagramsPu then
          String(-portB.QGenPu, format = "6.3f")
       else
-         String(-portB.QGen/1e6, format = "9.2f")))}));
+         String(portB.S.im/1e6, format = "9.2f")))}));
 end TransformerFixedRatio;
