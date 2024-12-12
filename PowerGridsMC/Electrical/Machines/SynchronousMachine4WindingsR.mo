@@ -33,7 +33,7 @@ UStart=PFout[1,1],UPhaseStart=PFout[1,2]);
           textStyle={TextStyle.Italic},
           textString="R"),
        Text(
-          visible=showPFdata,
+          visible=showPortData,
           extent={{-104,76},{6,44}},
           lineColor={238,46,47},
           textString=DynamicSelect("P",
@@ -42,7 +42,7 @@ UStart=PFout[1,1],UPhaseStart=PFout[1,2]);
              else
                String(-port.PGen/1e6, format = "9.2f"))),
        Text(
-          visible=showPFdata,
+          visible=showPortData,
           extent={{-12,76},{110,44}},
           lineColor={217,67,180},
           textString=DynamicSelect("Q",

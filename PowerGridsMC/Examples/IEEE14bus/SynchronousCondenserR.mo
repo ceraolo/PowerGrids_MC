@@ -9,12 +9,10 @@ model SynchronousCondenserR
 //    y[1,6]=port.PPu;
 //    y[1,7]=port.QPu;
 
-  extends ControlledGenNoPSS(   GEN( PStart=y[1,3],QStart =y[1,4],
+  extends SynchronousCondenser(   GEN( PStart=y[1,3],QStart =y[1,4],
   UStart=y[1,1],UPhaseStart=y[1,2]),
-    PmRefPuDef(y=-y[1, 6]),
-    VrefPuDef(y=y[1, 5]),
-    VrefPu(fixedOffset=false),
-    PmRefPu(use_u=true));
+     VrefPuDef(y=y[1, 5]),
+    VrefPu(fixedOffset=false));
 
   //Code to read output from previous PowerFlow run:
   final parameter String name = getInstanceName();
@@ -26,16 +24,7 @@ model SynchronousCondenserR
           extent={{48,-56},{92,-90}},
           textColor={162,29,33},
           textStyle={TextStyle.Italic},
-          textString="R"),
-        Rectangle(
-          extent={{-78,-20},{-54,-38}},
-          lineColor={255,255,255},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid),
-        Text(
-          extent={{-90,-20},{-54,-36}},
-          textColor={0,0,0},
-          textString="0")}),
+          textString="R")}),
              Documentation(info="<html>
 <p><i><span style=\"font-family: Arial; font-size: 12pt;\">Library PowerGridsMC was forked from https://github.com/PowerGrids/PowerGrids on 22 November 2024.</span></i></p>
 <p>************************** </p>

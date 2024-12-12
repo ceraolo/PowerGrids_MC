@@ -18,6 +18,13 @@ model SynchronousCondenser "Model of a synchronous condenser for the IEEE-14 bus
     Placement(visible = true, transformation(origin={-20,24},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Interfaces.RealOutput omega annotation (
     Placement(visible = true, transformation(origin={54,10},    extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin={110,0},   extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+
+  parameter Boolean showPortData=true "=false, if PowerFlow data are to be shown";
+  outer Electrical.System systemPowerGrids "Reference to system object";
+  parameter Boolean showDataOnDiagramsPu = systemPowerGrids.showDataOnDiagramsPu
+   "=true, P,Q,V and phase are shown on the diagrams in per-unit of local machine base"
+   annotation(Dialog(tab = "Visualization"));
+
 equation
   connect(GEN.terminal, terminal) annotation (
     Line(points={{24,4},{24,24}}));
@@ -34,7 +41,7 @@ equation
   connect(PmPu.y, GEN.PmPu) annotation (
     Line(points={{-9,24},{0,24},{0,8},{13.6,8},{13.6,7.4}},             color = {0, 0, 127}));
   annotation (
-    Icon(coordinateSystem(grid={2,2}),                            graphics={                                                                                                                                                   Text(origin={-72,-30},   extent={{-30,16},
+    Icon(coordinateSystem(grid={2,2}),   graphics={                                                                                                                                                   Text(origin={-72,-30},   extent={{-30,16},
               {30,-16}},
           textString="0",
           textColor={0,0,0}),
@@ -54,13 +61,22 @@ equation
           visible=showPortData,
           extent={{-114,66},{-4,30}},
           lineColor={238,46,47},
-          textString=DynamicSelect("P", String(-GEN.port.PGenPu, significantDigits=3))),
+          textString=DynamicSelect("P",
+             if showDataOnDiagramsPu then
+               String(-GEN.port.PGenPu, format = "6.3f")
+             else
+               String(-GEN.port.PGen/1e6, format = "9.2f"))),
        Text(
           visible=showPortData,
           extent={{0,66},{122,30}},
           lineColor={217,67,180},
-          textString=DynamicSelect("Q", String(-GEN.port.QGenPu, significantDigits=3)))}),
-    Diagram(coordinateSystem(extent={{-100,-40},{80,40}})),
+         textString=DynamicSelect("Q",
+             if showDataOnDiagramsPu then
+               String(-GEN.port.QGenPu, format = "6.3f")
+             else
+               String(-GEN.port.QGen/1e6, format = "9.2f")))}
+
+),  Diagram(coordinateSystem(extent={{-100,-40},{80,40}})),
     Documentation(info="<html>
 <p><i><span style=\"font-family: Arial; font-size: 12pt;\">Library PowerGridsMC was forked from https://github.com/PowerGrids/PowerGrids on 22 November 2024.</span></i></p>
 <p><i><span style=\"font-size: 12pt;\">The following info is derived from the original version on that source, modified whenever changes introduced in this fork require this.</span></i></p>
