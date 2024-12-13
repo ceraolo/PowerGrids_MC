@@ -11,6 +11,8 @@ model System "System object"
 
    parameter Boolean showDataOnDiagramsPu = false
     "=true, if P,Q,V and phase are shown on the diagrams in per-unit of local machine base";
+  parameter Boolean loadLowVoltageAsImpedance = true "= true, all loads work as fixed impedances below their VPuThr voltage threshold" annotation(
+    Evaluate = true);
 
   Modelica.Blocks.Interfaces.RealInput omegaRefIn(unit = "rad/s")
     if referenceFrequency == ReferenceFrequency.fixedReferenceGenerator "Reference frequency input"
