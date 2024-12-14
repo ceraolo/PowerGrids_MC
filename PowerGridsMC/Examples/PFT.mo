@@ -175,7 +175,7 @@ package PFT
       Modelica.Blocks.Sources.Step stepP(height=500e6, startTime=1)
         annotation (Placement(transformation(extent={{10,-26},{18,-18}})));
     equation
-      connect(PmPu.y, GEN.PmPu) annotation (Line(points={{-53,8},{-48,8},{-48,
+      connect(PmPu.y, GEN.pmPuIn) annotation (Line(points={{-53,8},{-48,8},{-48,
               14.6},{-42.4,14.6}}, color={0,0,127}));
       connect(ufPuIn.y, GEN.ufPuIn)
         annotation (Line(points={{-55,22},{-42.4,22}},
@@ -1106,14 +1106,14 @@ package PFT
         Line(points={{-52.5,-16.5},{-52.5,-37},{-52,-37}}));
       connect(L4_2.terminalB, L3_4.terminalB) annotation (
         Line(points={{-52,-57},{-51.75,-57},{-51.75,-67},{-61.5,-67}}));
-      connect(gen42x2.PmPu, pm42.y) annotation (Line(points={{23.6,-102.6},{16,
-              -102.6},{16,-117},{6.7,-117}}, color={0,0,127}));
+      connect(gen42x2.pmPuIn, pm42.y) annotation (Line(points={{23.6,-102.6},{
+              16,-102.6},{16,-117},{6.7,-117}}, color={0,0,127}));
       connect(gen42x2.ufPuIn, uf42.y) annotation (Line(points={{23.6,-110},{22,
               -110},{22,-132},{8.8,-132}}, color={0,0,127}));
       connect(gen42x2.omega, systemPowerGrids.omegaRefIn) annotation (Line(
             points={{44.3,-100.1},{50.1,-100.1},{50.1,-99.8},{51.2,-99.8}},
             color={0,0,127}));
-      connect(pm11.y, gen11x2.PmPu) annotation (Line(points={{-101.8,72},{-76.6,
+      connect(pm11.y, gen11x2.pmPuIn) annotation (Line(points={{-101.8,72},{-76.6,
               72},{-76.6,66.4}}, color={0,0,127}));
       connect(uf11.y, gen11x2.ufPuIn) annotation (Line(points={{-102.4,58},{-96,
               58},{-96,70},{-84,70},{-84,66.4}}, color={0,0,127}));
@@ -1121,8 +1121,8 @@ package PFT
         Line(points={{-130,-38},{-130,-50},{-126,-50}}));
       connect(T31_33_1.terminalB, Teq31_3.terminalA) annotation (
         Line(points={{-148,-38},{-148,-50},{-126,-50}}));
-      connect(pm33.y, gen33x2.PmPu) annotation (Line(points={{-128.8,14},{-126,14},
-              {-126,18},{-120.4,18},{-120.4,18.6}}, color={0,0,127}));
+      connect(pm33.y, gen33x2.pmPuIn) annotation (Line(points={{-128.8,14},{-126,
+              14},{-126,18},{-120.4,18},{-120.4,18.6}}, color={0,0,127}));
       connect(gen33x2.ufPuIn, uf33.y) annotation (Line(points={{-120.4,26},{-130,
               26},{-130,30},{-135.1,30}}, color={0,0,127}));
       connect(T22_i.terminalA, T2_i.terminalA) annotation (
@@ -1135,8 +1135,8 @@ package PFT
         Line(points={{-2,20},{-26,20},{-26,2}}));
       connect(sc22.terminal, T22_i.terminalB)
         annotation (Line(points={{38,18},{38,-12},{26,-12}}));
-      connect(sc22.PmPu, pmSc.y) annotation (Line(points={{48.4,14.6},{56,14.6},
-              {56,9},{59.2,9}},color={0,0,127}));
+      connect(sc22.pmPuIn, pmSc.y) annotation (Line(points={{48.4,14.6},{56,
+              14.6},{56,9},{59.2,9}}, color={0,0,127}));
       connect(ufSC.y, sc22.ufPuIn) annotation (Line(points={{57.2,33},{57.2,22},
               {48.4,22}},color={0,0,127}));
       connect(T1_11_1.terminalB, bus1.terminal) annotation (
@@ -2420,7 +2420,7 @@ package PFT
       Modelica.Blocks.Sources.RealExpression uf1(y=GEN1.ufPuInStart)
         annotation (Placement(visible=true, transformation(
             origin={-105,50},
-            extent={{9,-10},{-9,10}},
+            extent={{9,-8},{-9,8}},
             rotation=0)));
       Modelica.Blocks.Sources.RealExpression pm1(y=-GEN1.PStart/GEN1.SNom)
         annotation (Placement(visible=true, transformation(
@@ -2430,7 +2430,7 @@ package PFT
       Modelica.Blocks.Sources.RealExpression uf8(y=GEN8.ufPuInStart)
         annotation (Placement(visible=true, transformation(
             origin={135,-38},
-            extent={{-9,-10},{9,10}},
+            extent={{-9,-8},{9,8}},
             rotation=0)));
       Modelica.Blocks.Sources.RealExpression pm8(y=-GEN8.PStart/GEN8.SNom)
         annotation (Placement(visible=true, transformation(
@@ -2440,7 +2440,7 @@ package PFT
       Modelica.Blocks.Sources.RealExpression uf6(y=GEN6.ufPuInStart)
         annotation (Placement(visible=true, transformation(
             origin={-101,10},
-            extent={{-9,-10},{9,10}},
+            extent={{-9,-8},{9,8}},
             rotation=0)));
       Modelica.Blocks.Sources.RealExpression pm6(y=-GEN6.PStart/GEN6.SNom)
         annotation (Placement(visible=true, transformation(
@@ -2449,18 +2449,18 @@ package PFT
             rotation=0)));
       Modelica.Blocks.Sources.RealExpression uf2(y=GEN2.ufPuInStart)
         annotation (Placement(visible=true, transformation(
-            origin={-179,-72},
-            extent={{-9,-10},{9,10}},
+            origin={-173,-73},
+            extent={{-9,-7},{9,7}},
             rotation=0)));
       Modelica.Blocks.Sources.RealExpression pm2(y=-GEN2.PStart/GEN2.SNom)
         annotation (Placement(visible=true, transformation(
-            origin={-164,-62},
+            origin={-164,-60},
             extent={{-12,-8},{12,8}},
             rotation=0)));
       Modelica.Blocks.Sources.RealExpression uf3(y=GEN3.ufPuInStart)
         annotation (Placement(visible=true, transformation(
-            origin={141,-116},
-            extent={{-9,-10},{9,10}},
+            origin={145,-114},
+            extent={{-9,-8},{9,8}},
             rotation=0)));
       Modelica.Blocks.Sources.RealExpression pm3(y=-GEN3.PStart/GEN3.SNom)
         annotation (Placement(visible=true, transformation(
@@ -2599,27 +2599,26 @@ package PFT
                                                                         color = {0, 0, 127}));
       connect(GEN1.ufPuIn, uf1.y)
         annotation (Line(points={{-127.6,50},{-114.9,50}}, color={0,0,127}));
-      connect(GEN1.PmPu, pm1.y) annotation (Line(points={{-127.6,42.6},{-127.6,
+      connect(GEN1.pmPuIn, pm1.y) annotation (Line(points={{-127.6,42.6},{-127.6,
               42},{-122,42},{-122,36},{-117.2,36}}, color={0,0,127}));
-      connect(pm8.y, GEN8.PmPu) annotation (Line(points={{149.2,-26},{146,-26.6},
-              {155.6,-26.6}},
-                       color={0,0,127}));
+      connect(pm8.y, GEN8.pmPuIn) annotation (Line(points={{149.2,-26},{146,-26.6},
+              {155.6,-26.6}}, color={0,0,127}));
       connect(GEN8.ufPuIn,uf8. y) annotation (Line(points={{155.6,-34},{148,-34},
               {148,-38},{144.9,-38}},
                            color={0,0,127}));
-      connect(pm6.y, GEN6.PmPu) annotation (Line(points={{-77.2,20},{-80,20},{-80,0.4},
-              {-80.6,0.4}}, color={0,0,127}));
+      connect(pm6.y, GEN6.pmPuIn) annotation (Line(points={{-77.2,20},{-80,20},
+              {-80,0.4},{-80.6,0.4}}, color={0,0,127}));
       connect(uf6.y, GEN6.ufPuIn)
         annotation (Line(points={{-91.1,10},{-88,10},{-88,0.4}}, color={0,0,127}));
-      connect(GEN2.ufPuIn,uf2. y) annotation (Line(points={{-162,-79.6},{-162,-80},{
-              -169.1,-80},{-169.1,-72}}, color={0,0,127}));
-      connect(pm2.y, GEN2.PmPu) annotation (Line(points={{-150.8,-62},{-154,-62},
-              {-154,-79.6},{-154.6,-79.6}},
-                                      color={0,0,127}));
+      connect(GEN2.ufPuIn,uf2. y) annotation (Line(points={{-162,-79.6},{-162,
+              -73},{-163.1,-73}},        color={0,0,127}));
+      connect(pm2.y, GEN2.pmPuIn) annotation (Line(points={{-150.8,-60},{-148,
+              -60},{-148,-72},{-154,-72},{-154,-79.6},{-154.6,-79.6}}, color={0,
+              0,127}));
       connect(GEN3.ufPuIn,uf3. y) annotation (Line(points={{164,-100.4},{164,
-              -116},{150.9,-116}},       color={0,0,127}));
-      connect(GEN3.PmPu,pm3. y) annotation (Line(points={{156.6,-100.4},{156.6,-104},
-              {141.2,-104}}, color={0,0,127}));
+              -114},{154.9,-114}},       color={0,0,127}));
+      connect(GEN3.pmPuIn, pm3.y) annotation (Line(points={{156.6,-100.4},{
+              156.6,-104},{141.2,-104}}, color={0,0,127}));
       connect(GEN2.terminal, bus15.terminal)
         annotation (Line(points={{-158,-90},{-144,-90}}, color={0,0,0}));
       connect(bus15.terminal, Tgen2.terminalA)

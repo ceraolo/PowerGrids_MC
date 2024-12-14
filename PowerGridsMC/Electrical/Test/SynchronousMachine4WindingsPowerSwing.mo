@@ -28,8 +28,8 @@ equation
     Line(points = {{40, -8}, {58, -8}}));
   connect(Q.y, load.QRefIn) annotation (
     Line(points = {{-39, -52}, {-21, -52}, {-21, -27}, {-10, -27}}, color = {0, 0, 127}));
-  connect(PmPu.y, machine.PmPu) annotation (
-    Line(points = {{-39, 54}, {-23, 54}, {-23, 22}, {-10, 22}}, color = {0, 0, 127}));
+  connect(PmPu.y, machine.pmPuIn) annotation (Line(points={{-39,54},{-23,54},{-23,
+          22},{-10,22}}, color={0,0,127}));
   connect(load.terminal, machine.terminal) annotation (
     Line(points = {{-1.42109e-15, -22}, {-1.42109e-15, 18}}));
   connect(P.y, load.PRefIn) annotation (

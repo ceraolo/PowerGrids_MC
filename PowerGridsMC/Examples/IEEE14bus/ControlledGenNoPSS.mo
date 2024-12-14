@@ -38,8 +38,8 @@ equation
     Line(points={{-11.8,-20},{-76,-20},{-76,52},{74,52},{74,-22},{48.2,-22}},         color = {0, 0, 127}));
   connect(AVR.efdPu, GEN.ufPuIn) annotation (
     Line(points={{8.2,-26},{14,-26},{14,-20},{27.6,-20}},                    color = {0, 0, 127}));
-  connect(GOV.PMechPu, GEN.PmPu) annotation (
-    Line(points={{15,14},{22,14},{22,-12.6},{27.6,-12.6}},              color = {0, 0, 127}));
+  connect(GOV.PMechPu, GEN.pmPuIn) annotation (Line(points={{15,14},{22,14},{22,
+          -12.6},{27.6,-12.6}}, color={0,0,127}));
   connect(PmRefPu.y, GOV.PmRefPu) annotation (
     Line(points={{-17,26},{-12,26},{-12,18},{-6,18}},                      color = {0, 0, 127}));
   connect(VrefPu.y, AVR.VrefPu) annotation (

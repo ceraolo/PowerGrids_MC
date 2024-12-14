@@ -57,14 +57,14 @@ model StaticGridDifferentNominals "Systems operating in steady-state with differ
   Modelica.Blocks.Sources.RealExpression ufPuIn_3(y = GEN_3.ufPuInStart)  annotation (
     Placement(visible = true, transformation(origin = {-108, -54}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
-  connect(PmPu_1.y, GEN_1.PmPu) annotation (
-    Line(points = {{-97, 68}, {-86, 68}}, color = {0, 0, 127}));
+  connect(PmPu_1.y, GEN_1.pmPuIn)
+    annotation (Line(points={{-97,68},{-86,68}}, color={0,0,127}));
   connect(ufPuIn_1.y, GEN_1.ufPuIn) annotation (
     Line(points = {{-97, 48}, {-93, 48}, {-93, 60}, {-86, 60}}, color = {0, 0, 127}));
-  connect(PmPu_2.y, GEN_2.PmPu) annotation (
-    Line(points = {{-97, 22}, {-86, 22}}, color = {0, 0, 127}));
-  connect(PmPu_3.y, GEN_3.PmPu) annotation (
-    Line(points = {{-97, -34}, {-86, -34}}, color = {0, 0, 127}));
+  connect(PmPu_2.y, GEN_2.pmPuIn)
+    annotation (Line(points={{-97,22},{-86,22}}, color={0,0,127}));
+  connect(PmPu_3.y, GEN_3.pmPuIn)
+    annotation (Line(points={{-97,-34},{-86,-34}}, color={0,0,127}));
   connect(GEN_1.terminal, NTLV_1.terminal) annotation (
     Line(points = {{-76, 64}, {-76, 44}, {-48, 44}}));
   connect(NTLV_1.terminal, TGEN_1.terminalA) annotation (

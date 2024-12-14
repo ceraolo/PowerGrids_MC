@@ -38,8 +38,8 @@ equation
     Line(points={{-67,-18},{-61,-18}},                                  color = {0, 0, 127}));
   connect(GEN.omega, omega) annotation (
     Line(points={{34.3,9.9},{42,9.9},{42,10},{54,10}},               color = {0, 0, 127}));
-  connect(PmPu.y, GEN.PmPu) annotation (
-    Line(points={{-9,24},{0,24},{0,8},{13.6,8},{13.6,7.4}},             color = {0, 0, 127}));
+  connect(PmPu.y, GEN.pmPuIn) annotation (Line(points={{-9,24},{0,24},{0,8},{
+          13.6,8},{13.6,7.4}}, color={0,0,127}));
   annotation (
     Icon(coordinateSystem(grid={2,2}),   graphics={                                                                                                                                                   Text(origin={-72,-30},   extent={{-30,16},
               {30,-16}},

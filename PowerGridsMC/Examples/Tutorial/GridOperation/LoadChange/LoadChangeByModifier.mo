@@ -30,8 +30,8 @@ model LoadChangeByModifier "Load step response specified by modifiers on a copy 
     Placement(visible = true, transformation(origin={-60,10},     extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 
 equation
-  connect(PmPu.y, GEN.PmPu) annotation (
-    Line(points={{-49,-4},{-42,-4},{-42,0.6},{-36.4,0.6}},  color = {0, 0, 127}));
+  connect(PmPu.y, GEN.pmPuIn) annotation (Line(points={{-49,-4},{-42,-4},{-42,
+          0.6},{-36.4,0.6}}, color={0,0,127}));
   connect(ufPuIn.y, GEN.ufPuIn) annotation (
     Line(points={{-49,10},{-42,10},{-42,8},{-36.4,8}},                       color = {0, 0, 127}));
   connect(GRIDL.terminal, NTHV.terminal) annotation (

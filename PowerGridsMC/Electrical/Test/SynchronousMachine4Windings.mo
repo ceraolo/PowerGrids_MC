@@ -16,8 +16,8 @@ equation
     Line(points = {{0, 20}, {0, 0}}));
   connect(ufPu.y, machine.ufPuIn) annotation (
     Line(points = {{-38, -30}, {-24, -30}, {-24, -14}, {-10, -14}, {-10, -14}}, color = {0, 0, 127}));
-  connect(PmPu.y, machine.PmPu) annotation (
-    Line(points = {{-38, 10}, {-24, 10}, {-24, -6}, {-10, -6}, {-10, -6}}, color = {0, 0, 127}));
+  connect(PmPu.y, machine.pmPuIn) annotation (Line(points={{-38,10},{-24,10},{-24,
+          -6},{-10,-6},{-10,-6}}, color={0,0,127}));
   annotation (
     experiment(StartTime = 0, StopTime = 40, Tolerance = 1e-06, Interval = 0.02),
     Documentation(info = "<html><head></head><body><p>Test case for the conversion of external parameter to internal parameters taken from Kundur, Power System Stability and Control, example 4.1. Note that the system frequency for this example is 60 Hz.</p>

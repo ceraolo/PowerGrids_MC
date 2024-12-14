@@ -26,7 +26,8 @@ model TestCase2 "Test Case 2, Section 5.2, focuses on the dynamic behavior of th
 
   Types.PerUnit AA_01_GEN_UPu = GEN.port.VPu "Fig. 5-3, terminal voltage";
   Types.PerUnit AA_02_GEN_PPu = GEN.port.PGenPu "Fig. 5-4, active power of the synchronous machine";
-  Types.PerUnit AA_03_GEN_PmechPu = GEN.PmPu "Fig. 5-5, mechanical power of the synchronous machine";
+  Types.PerUnit AA_03_GEN_PmechPu=GEN.pmPuIn
+    "Fig. 5-5, mechanical power of the synchronous machine";
   Types.PerUnit AA_04_GEN_omegaPu = GEN.omegaPu "Fig. 5-6, speed";
 
 equation
@@ -50,8 +51,8 @@ equation
     Line(points={{-49.8,-10},{-44,-10},{-44,10},{-36.4,10}},                                                    color = {0, 0, 127}));
   connect(GEN.omegaPu, TGOV.omegaPu) annotation (
     Line(points={{-15.8,4},{-12,4},{-12,48},{-78,48},{-78,38},{-72,38}},            color = {0, 0, 127}));
-  connect(TGOV.PMechPu, GEN.PmPu) annotation (
-    Line(points={{-52,34},{-48,34},{-48,4},{-40,4},{-40,2.6},{-36.4,2.6}},            color = {0, 0, 127}));
+  connect(TGOV.PMechPu, GEN.pmPuIn) annotation (Line(points={{-52,34},{-48,34},
+          {-48,4},{-40,4},{-40,2.6},{-36.4,2.6}}, color={0,0,127}));
   connect(GEN.terminal, NGEN.terminal) annotation (
     Line(points = {{-26, 6}, {-26, -14}, {14, -14}}));
   annotation (

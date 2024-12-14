@@ -62,8 +62,8 @@ equation
           {-35,-4},{-30.4,-4}},                                                                                     color = {0, 0, 127}));
   connect(GEN.omegaPu, TGOV.omegaPu) annotation (
     Line(points={{-9.8,2},{-6,2},{-6,42},{-74,42},{-74,32},{-66,32}},             color = {0, 0, 127}));
-  connect(TGOV.PMechPu, GEN.PmPu) annotation (
-    Line(points={{-46,28},{-38,28},{-38,4},{-34,4},{-34,3.4},{-30.4,3.4}},        color = {0, 0, 127}));
+  connect(TGOV.PMechPu, GEN.pmPuIn) annotation (Line(points={{-46,28},{-38,28},
+          {-38,4},{-34,4},{-34,3.4},{-30.4,3.4}}, color={0,0,127}));
   connect(NTLV.terminal, TGEN.terminalA) annotation (
     Line(points={{8,22},{18,22}}));
   connect(GEN.terminal, NTLV.terminal) annotation (

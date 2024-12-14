@@ -42,8 +42,17 @@ model SynchronousMachine4WindingsInternalParameters "Synchronous machine with 4 
   final parameter Types.PerUnit ufPuInStart(fixed = false) "Start value of input exciter voltage in p.u. (user-selcted base";
   final parameter Types.PerUnit ifPuStart(fixed = false) "Start value of ifPu";
   // Input variables
-  Modelica.Blocks.Interfaces.RealInput PmPu(unit = "1") "Input mechanical power in p.u. (base PNom)" annotation (
-    Placement(visible = true, transformation(origin = {-106, 46}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin={-104,34},    extent = {{-20, -20}, {20, 20}}, rotation = 0)));
+  Modelica.Blocks.Interfaces.RealInput pmPuIn(unit="1")
+    "Input mechanical power in p.u. (base PNom)" annotation (Placement(
+      visible=true,
+      transformation(
+        origin={-106,46},
+        extent={{-20,-20},{20,20}},
+        rotation=0),
+      iconTransformation(
+        origin={-104,34},
+        extent={{-20,-20},{20,20}},
+        rotation=0)));
   Modelica.Blocks.Interfaces.RealInput ufPuIn(unit = "1", start = ufPuInStart) "Input voltage of exciter winding in p.u. (user-selected base voltage)" annotation (
     Placement(visible = true, transformation(origin = {-104, -50}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin={-104,-40},    extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   // Output variables
@@ -132,7 +141,7 @@ equation
   2*H*der(omegaPu) = (CmPu*PNom/SNom - CePu) - DPu*(omegaPu - omegaRefPu);
   CePu = lambdaqPu*idPu - lambdadPu*iqPu;
   PePu = CePu*omegaPu;
-  PmPu = CmPu*omegaPu;
+  pmPuIn = CmPu*omegaPu;
   omega = omegaPu*omegaBase;
 // Excitation voltage p.u. conversion
   ufPu = ufPuIn * kuf;

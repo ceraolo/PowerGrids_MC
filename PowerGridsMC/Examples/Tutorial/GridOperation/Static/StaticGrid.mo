@@ -20,9 +20,8 @@ model StaticGrid "System operating in steady-state with given inputs"
   Modelica.Blocks.Sources.RealExpression ufPuIn(y = 2.50826)  annotation (
     Placement(visible = true, transformation(origin={-64,-18},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
-  connect(PmPu.y, GEN.PmPu) annotation (
-    Line(points={{-53,6},{-48,6},{-48,5.4},{-44.4,5.4}},
-                                        color = {0, 0, 127}));
+  connect(PmPu.y, GEN.pmPuIn) annotation (Line(points={{-53,6},{-48,6},{-48,5.4},
+          {-44.4,5.4}}, color={0,0,127}));
   connect(ufPuIn.y, GEN.ufPuIn) annotation (
     Line(points={{-53,-18},{-44.4,-18},{-44.4,-2}},    color = {0, 0, 127}));
   connect(GRIDL.terminal, NTHV.terminal) annotation (

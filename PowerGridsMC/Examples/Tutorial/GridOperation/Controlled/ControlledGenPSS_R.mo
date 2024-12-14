@@ -31,8 +31,8 @@ model ControlledGenPSS_R
 equation
   connect(GEN.ufPuIn, AVR.efdPu) annotation (
     Line(points={{23.6,-4},{16,-4},{16,-16},{9,-16}},         color = {0, 0, 127}));
-  connect(TGOV.PMechPu, GEN.PmPu) annotation (
-    Line(points={{8,28},{16,28},{16,3.4},{23.6,3.4}},     color = {0, 0, 127}));
+  connect(TGOV.PMechPu, GEN.pmPuIn) annotation (Line(points={{8,28},{16,28},{16,
+          3.4},{23.6,3.4}}, color={0,0,127}));
   connect(GEN.VPu, AVR.VcPu) annotation (
     Line(points={{44.2,-6},{74,-6},{74,54},{-70,54},{-70,-14},{-12,-14}},           color = {0, 0, 127}));
   connect(PSS.VstPu, AVR.VsPu) annotation (

@@ -24,8 +24,8 @@ model LoadChangeByInputSignals "Load step response specified by input signals"
   Modelica.Blocks.Sources.Step QRef(height = 76e6 * 0.04, offset = 76e6, startTime = 2) annotation (
     Placement(visible = true, transformation(origin={-34,-44},   extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
-  connect(PmPu.y, GEN.PmPu) annotation (
-    Line(points={{-77,28},{-60,28}},                        color = {0, 0, 127}));
+  connect(PmPu.y, GEN.pmPuIn)
+    annotation (Line(points={{-77,28},{-60,28}}, color={0,0,127}));
   connect(ufPuIn.y, GEN.ufPuIn) annotation (
     Line(points={{-77,4},{-72,4},{-72,20},{-60,20}},                         color = {0, 0, 127}));
   connect(GEN.terminal, NTLV.terminal) annotation (
