@@ -52,8 +52,52 @@ partial model TwoPortAC "Base class for two-port AC components"
                "AC port - terminalB";
 
   Types.ComplexPower Sbal = portA.S + portB.S if computePowerBalance "Complex power balance";
-  outer Electrical.System systemPowerGrids "Reference to system object";
+
+    parameter Boolean showPortData=true "=true, if PowerFlow data are to be shown";
+    outer Electrical.System systemPowerGrids "Reference to system object";
+    parameter Boolean showDataOnDiagramsPu = systemPowerGrids.showDataOnDiagramsPu
+     "=true, P,Q,V and phase are shown on the diagrams in per-unit of local machine base"
+     annotation(Dialog(tab = "Visualization"));
+
   annotation (
     Documentation(info = "<html><head></head><body><p>This is the base class for all the components with two AC terminals. It contains two corresponding <code>PortAC</code> components to compute useful quantities for modelling and monitoring purposes.</p>
-</body></html>"));
+</body></html>"),
+  Icon(graphics = { 
+    Text(
+       visible=showPortData,
+       extent={{-160,88},{-50,56}},
+       lineColor={238,46,47},
+       textString=DynamicSelect("P",
+          if showDataOnDiagramsPu then
+             String(-portA.PGenPu, format = "6.3f")
+          else
+             String(portA.S.re/1e6, format = "9.3f"))),
+      Text(
+        visible=showPortData,
+        extent={{-166,46},{-44,14}},
+        lineColor={217,67,180},
+        textString=DynamicSelect("Q",
+          if showDataOnDiagramsPu then
+             String(-portA.QGenPu, format = "6.3f")
+          else
+             String(portA.S.im/1e6, format = "9.3f"))),
+      Text(
+        visible=showPortData,
+        extent={{48,88},{156,56}},
+        lineColor={238,46,47},
+       textString=DynamicSelect("P",
+          if showDataOnDiagramsPu then
+             String(-portB.PGenPu, format = "6.3f")
+          else
+             String(portB.S.re/1e6, format = "9.3f"))),
+      Text(
+        visible=showPortData,
+        extent={{42,46},{168,14}},
+        lineColor={217,67,180},
+        textString=DynamicSelect("Q",
+          if showDataOnDiagramsPu then
+             String(-portB.QGenPu, format = "6.3f")
+          else
+             String(portB.S.im/1e6, format = "9.3f")))
+  }));
 end TwoPortAC;

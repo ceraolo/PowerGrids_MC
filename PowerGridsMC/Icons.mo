@@ -7,37 +7,17 @@ package Icons "Icons for the PowerGridsMC library"
     outer Electrical.System systemPowerGrids "Reference to system object";
     parameter Boolean showDataOnDiagramsPu = systemPowerGrids.showDataOnDiagramsPu
      "=true, P,Q,V and phase are shown on the diagrams in per-unit of local machine base";
-
+  
   equation
-
+  
   annotation (
       Icon(graphics={  Rectangle(origin = {0, 2}, fillPattern = FillPattern.Solid,
            extent = {{-100, 6}, {100, -10}}), Text(origin={67,34},
            lineColor = {0, 0, 255}, extent={{-65,10},
-                {65,-10}},                                                                                                                                                                               textString = "%name"),
-      Text(
-        visible=showPortData,
-        extent={{-168,50},{-30,18}},
-        lineColor={28,108,200},
-        textString=DynamicSelect("V",
-          if showDataOnDiagramsPu then
-             String(port.U/port.UNom, format = "6.3f")
-          else
-             String(port.U/1e3, format = "9.2f"))),
-      Text(
-        visible=showPortData,
-        extent={{-162,-8},{-26,-40}},
-        lineColor={28,108,200},
-        textString=DynamicSelect("Uph", String(port.UPhase*180/3.14159265359, format = "4.1f")+"°"))},                                                                                                                          coordinateSystem(initialScale = 0.1)));
+                {65,-10}},                                                                                                                                                                               textString = "%name")}));
   end Bus;
 
   model Line
-
-    parameter Boolean showPortData=true "=true, if PowerFlow data are to be shown";
-    outer Electrical.System systemPowerGrids "Reference to system object";
-    parameter Boolean showDataOnDiagramsPu = systemPowerGrids.showDataOnDiagramsPu
-     "=true, P,Q,V and phase are shown on the diagrams in per-unit of local machine base"
-     annotation(Dialog(tab = "Visualization"));
 
   equation
 
@@ -47,43 +27,8 @@ package Icons "Icons for the PowerGridsMC library"
       Line(origin = {-80, 0}, points = {{-20, 0}, {20, 0}}),
       Line(origin = {80, 0}, points = {{-20, 0}, {20, 0}}),
       Text(origin = {0, 30}, lineColor = {0, 0, 255},
-      extent = {{-80, 10}, {80, -10}}, textString = "%name"),
-         Text(
-       visible=showPortData,
-       extent={{-160,88},{-50,56}},
-       lineColor={238,46,47},
-       textString=DynamicSelect("P",
-          if showDataOnDiagramsPu then
-             String(-portA.PGenPu, format = "6.3f")
-          else
-             String(portA.S.re/1e6, format = "9.3f"))),
-      Text(
-        visible=showPortData,
-        extent={{-166,46},{-44,14}},
-        lineColor={217,67,180},
-        textString=DynamicSelect("Q",
-          if showDataOnDiagramsPu then
-             String(-portA.QGenPu, format = "6.3f")
-          else
-             String(portA.S.im/1e6, format = "9.3f"))),
-      Text(
-        visible=showPortData,
-        extent={{48,88},{156,56}},
-        lineColor={238,46,47},
-       textString=DynamicSelect("P",
-          if showDataOnDiagramsPu then
-             String(-portB.PGenPu, format = "6.3f")
-          else
-             String(portB.S.re/1e6, format = "9.3f"))),
-      Text(
-        visible=showPortData,
-        extent={{42,46},{168,14}},
-        lineColor={217,67,180},
-        textString=DynamicSelect("Q",
-          if showDataOnDiagramsPu then
-             String(-portB.QGenPu, format = "6.3f")
-          else
-             String(portB.S.im/1e6, format = "9.3f")))},
+      extent = {{-80, 10}, {80, -10}}, textString = "%name")
+     },
     coordinateSystem(initialScale = 0.1)));
   end Line;
 

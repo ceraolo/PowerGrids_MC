@@ -53,7 +53,7 @@ equation
           textString="W"),
        Text(
           visible=showPortData,
-          extent={{-106,66},{-4,34}},
+          extent={{-108,66},{-6,34}},
           lineColor={238,46,47},
           textString=DynamicSelect("P",
              if showDataOnDiagramsPu then

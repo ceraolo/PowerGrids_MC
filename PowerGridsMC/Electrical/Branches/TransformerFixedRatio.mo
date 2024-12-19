@@ -26,42 +26,5 @@ equation
 annotation (
     Documentation(info = "<html><head></head><body><p>Transformer with fixed voltage ratio k = rFixed*exp(j*thetaFixed). The series impedance R+jX and shunt admittance G+jB are referred to the high-voltage side B.</p><p>Step-up transformers with fixed voltage ratio can be implemented by only setting <code>rFixed</code> and leaving  <code>thetaFixed</code> to zero default value. Phase shifters can be implemented by only setting  <code>thetaFixed</code> and leaving  <code>rFixed</code> to the default of 1.</p>
 <p>Implemented as a child class of <a href=\"modelica://PowerGridsMC.Electrical.Branches.BaseClasses.PiNetwork\">PiNetwork</a>, where Ya=0, Yb=G+jB and k = rFixed*exp(j*thetaFixed), see the corresponding documentation.</p>
-</body></html>"),
-Icon(graphics={
-  Text(
-    visible=showPortData,
-    extent={{-162,80},{-52,48}},
-    lineColor={238,46,47},
-    textString=DynamicSelect("P",
-      if showDataOnDiagramsPu then
-         String(-portA.PGenPu, format = "6.3f")
-      else
-         String(portA.S.re/1e6, format = "9.2f"))),
-  Text(
-    visible=showPortData,
-    extent={{-174,46},{-36,14}},
-    lineColor={217,67,180},
-    textString=DynamicSelect("Q",
-      if showDataOnDiagramsPu then
-         String(-portA.QGenPu, format = "6.3f")
-      else
-         String(portA.S.im/1e6, format = "9.2f"))),
-  Text(
-    visible=showPortData,
-    extent={{52,80},{162,48}},
-    lineColor={238,46,47},
-    textString=DynamicSelect("P",
-      if showDataOnDiagramsPu then
-         String(-portB.PGenPu, format = "6.3f")
-      else
-         String(portB.S.re/1e6, format = "9.2f"))),
-  Text(
-    visible=showPortData,
-    extent={{36,46},{174,14}},
-    lineColor={217,67,180},
-    textString=DynamicSelect("Q",
-      if showDataOnDiagramsPu then
-         String(-portB.QGenPu, format = "6.3f")
-      else
-         String(portB.S.im/1e6, format = "9.2f")))}));
+</body></html>"));
 end TransformerFixedRatio;

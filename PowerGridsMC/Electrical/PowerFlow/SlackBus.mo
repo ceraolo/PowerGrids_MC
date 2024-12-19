@@ -29,7 +29,7 @@ annotation (
             if showDataOnDiagramsPu then
               String(-port.PGenPu, format = "6.3f")
             else
-              String(-port.PGen/1e6, format = "9.2f"))),
+              String(port.P/1e6, format = "9.2f"))),
        Text(
           visible=showPortData,
           extent={{74,-16},{174,-50}},
@@ -38,7 +38,7 @@ annotation (
             if showDataOnDiagramsPu then
               String(-port.QGenPu, format = "6.3f")
             else
-              String(-port.QGen/1e6, format = "9.2f")))}),
+              String(port.Q/1e6, format = "9.2f")))}),
     Documentation(info = "<html>
 <p>Slack bus: prescribes voltage magnitude and phase (default zero).</p>
 <p>Exactly one slack bus is required in each interconnected AC system. If the system is isolated, the active and reactive power flows <code>port.P</code> and <code>port.Q</code> should be small, ideally zero; they are not if the system is not balanced in terms of active and reactive power production and consumption.</p>
