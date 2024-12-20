@@ -1,5 +1,4 @@
 within PowerGridsMC.Electrical.BaseClasses;
-
 partial model OnePortAC "Base class for AC components with one port"
   import PowerGridsMC.Types.Choices.LocalInitializationOption;
   parameter Types.Voltage UNom(start = 400e3) "Nominal/rated line-to-line voltage" annotation(
@@ -55,5 +54,19 @@ equation
     Documentation(info = "<html>
 <p>This is the base class for all the components with an AC terminal. It contains a corresponding <code>PortAC</code> component to compute useful quantities for modelling and monitoring purposes.</p>
 </html>"),
-    Icon(graphics = {Text(visible = showPortData, textColor = {28, 108, 200}, extent = {{-168, 50}, {-30, 18}}, textString = DynamicSelect("V", if showDataOnDiagramsPu then String((port.U/port.UNom), "6.3f") else String((port.U/1000), "9.2f"))), Text(visible = showPortData, textColor = {28, 108, 200}, extent = {{-162, -8}, {-26, -40}}, textString = DynamicSelect("Uph", (String(((port.UPhase*180)/3.14159), "4.1f") + "°")))}));
+    Icon(graphics = {
+      Text(
+        visible = showPortData,
+        textColor = {28, 108, 200},
+        extent = {{-168, 50}, {-30, 18}},
+        textString = DynamicSelect("V",
+          if showDataOnDiagramsPu then
+            String((port.U/port.UNom), format="6.3f")
+          else String((port.U/1000), format="9.2f"))),
+      Text(
+        visible = showPortData,
+        textColor = {28, 108, 200},
+        extent={{-162,-18},{-26,-50}},
+        textString = DynamicSelect("Uph",
+         String(((port.UPhase*180)/3.14159), format="4.1f") + "°"))}));
 end OnePortAC;

@@ -62,16 +62,16 @@ partial model TwoPortAC "Base class for two-port AC components"
   annotation (
     Documentation(info = "<html><head></head><body><p>This is the base class for all the components with two AC terminals. It contains two corresponding <code>PortAC</code> components to compute useful quantities for modelling and monitoring purposes.</p>
 </body></html>"),
-  Icon(graphics = { 
+  Icon(graphics = {
     Text(
        visible=showPortData,
-       extent={{-160,88},{-50,56}},
+       extent={{-160,78},{-50,46}},
        lineColor={238,46,47},
        textString=DynamicSelect("P",
           if showDataOnDiagramsPu then
              String(-portA.PGenPu, format = "6.3f")
           else
-             String(portA.S.re/1e6, format = "9.3f"))),
+             String(portA.S.re/1e6, format = "9.2f"))),
       Text(
         visible=showPortData,
         extent={{-166,46},{-44,14}},
@@ -80,16 +80,16 @@ partial model TwoPortAC "Base class for two-port AC components"
           if showDataOnDiagramsPu then
              String(-portA.QGenPu, format = "6.3f")
           else
-             String(portA.S.im/1e6, format = "9.3f"))),
+             String(portA.S.im/1e6, format = "9.2f"))),
       Text(
         visible=showPortData,
-        extent={{48,88},{156,56}},
+        extent={{48,78},{156,46}},
         lineColor={238,46,47},
        textString=DynamicSelect("P",
           if showDataOnDiagramsPu then
              String(-portB.PGenPu, format = "6.3f")
           else
-             String(portB.S.re/1e6, format = "9.3f"))),
+             String(portB.S.re/1e6, format = "9.2f"))),
       Text(
         visible=showPortData,
         extent={{42,46},{168,14}},
@@ -98,6 +98,5 @@ partial model TwoPortAC "Base class for two-port AC components"
           if showDataOnDiagramsPu then
              String(-portB.QGenPu, format = "6.3f")
           else
-             String(portB.S.im/1e6, format = "9.3f")))
-  }));
+             String(portB.S.im/1e6, format = "9.2f")))}));
 end TwoPortAC;
