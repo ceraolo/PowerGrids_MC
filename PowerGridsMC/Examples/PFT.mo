@@ -1561,7 +1561,7 @@ package PFT
         SNom = 100e6,
         UNom = 69e3)
         annotation (
-        Placement(visible = true, transformation(origin={-88,-80},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+        Placement(visible = true, transformation(origin={-88,-78},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
       PowerGridsMC.Electrical.Buses.Bus bus3(
         SNom = 100e6,
         UNom = 69e3)
@@ -1968,7 +1968,7 @@ package PFT
         UNomA = 24e3,
         UNomB = 69e3)
         annotation (
-        Placement(visible = true, transformation(origin={-112,-90},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+        Placement(visible = true, transformation(origin={-112,-92},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
       PowerGridsMC.Electrical.Branches.TransformerFixedRatio Tgen3(
         portVariablesPhases=true,
         R=0,
@@ -2012,7 +2012,7 @@ package PFT
         U=24000,
         P=-40000000)
         annotation (
-        Placement(visible = true, transformation(origin={-138,-90},    extent = {{-10, -10}, {10, 10}}, rotation = -90)));
+        Placement(visible = true, transformation(origin={-138,-92},    extent = {{-10, -10}, {10, 10}}, rotation = -90)));
       PowerGridsMC.Electrical.PowerFlow.PVBusW GEN3(
         portVariablesPhases = true,
         SNom=1650000000,
@@ -2092,7 +2092,7 @@ package PFT
       connect(L1to2.terminalA, bus1.terminal) annotation (
         Line(points={{-148,-20},{-148,-4},{-142,-4}}));
       connect(L1to2.terminalB, bus2.terminal) annotation (
-        Line(points={{-148,-40},{-148,-70},{-90,-70},{-90,-80},{-88,-80}}));
+        Line(points={{-148,-40},{-148,-70},{-90,-70},{-90,-78},{-88,-78}}));
       connect(L1to5.terminalA, bus1.terminal) annotation (
         Line(points={{-112,-46},{-134,-46},{-134,-4},{-142,-4}}));
       connect(L1to5.terminalB, bus5.terminal) annotation (
@@ -2102,9 +2102,9 @@ package PFT
       connect(L4to5.terminalB, bus5.terminal) annotation (
         Line(points={{14,-52},{-40,-52},{-40,-40},{-46,-40}}));
       connect(L2to5.terminalA, bus2.terminal) annotation (
-        Line(points={{-78,-60},{-88,-60},{-88,-80}}));
+        Line(points={{-78,-60},{-88,-60},{-88,-78}}));
       connect(L2to4.terminalA, bus2.terminal) annotation (
-        Line(points={{14,-70},{-80,-70},{-80,-80},{-88,-80}}));
+        Line(points={{14,-70},{-80,-70},{-80,-78},{-88,-78}}));
       connect(L3to4.terminalB, bus4.terminal) annotation (
         Line(points={{88,-50},{88,-40},{82,-40}}));
       connect(L3to4.terminalA, bus3.terminal) annotation (
@@ -2120,7 +2120,7 @@ package PFT
       connect(Tgen3.terminalB, bus3.terminal) annotation (
         Line(points={{108,-90},{96,-90},{96,-80},{88,-80}}));
       connect(Tgen2.terminalB, bus2.terminal) annotation (
-        Line(points={{-102,-90},{-92,-90},{-92,-80},{-88,-80}}));
+        Line(points={{-102,-92},{-92,-92},{-92,-78},{-88,-78}}));
       connect(Tgen1.terminalB, bus1.terminal) annotation (
         Line(points={{-142,10},{-142,-4}}));
       connect(Load12.terminal, bus12.terminal) annotation (
@@ -2144,13 +2144,13 @@ package PFT
       connect(Load3.terminal, bus3.terminal) annotation (
         Line(points={{88,-98},{88,-80}}));
       connect(Load2.terminal, bus2.terminal) annotation (
-        Line(points={{-88,-100},{-88,-80}}));
+        Line(points={{-88,-100},{-88,-78}}));
       connect(L2to3.terminalA, bus2.terminal) annotation (
-        Line(points={{-26,-90},{-80,-90},{-80,-80},{-88,-80}}));
+        Line(points={{-26,-90},{-80,-90},{-80,-78},{-88,-78}}));
       connect(Tgen1.terminalA, GEN1.terminal) annotation (
         Line(points={{-142,30},{-142,46}}));
       connect(GEN2.terminal, Tgen2.terminalA) annotation (
-        Line(points={{-138,-90},{-122,-90}}));
+        Line(points={{-138,-92},{-122,-92}}));
       connect(Tgen3.terminalA, GEN3.terminal) annotation (
         Line(points={{128,-90},{142,-90}}));
       connect(GEN8.terminal, Tgen8.terminalA) annotation (

@@ -19,13 +19,20 @@ partial model OnePortAC "Base class for AC components with one port"
     Dialog(tab = "Initialization"));
   parameter Types.ReactivePower QStart = 0 "Start value of reactive power flowing into the port" annotation(
     Dialog(tab = "Initialization"));
+  outer Electrical.System systemPowerGrids "Reference to system object";
+
   PowerGridsMC.Interfaces.TerminalAC terminal(v(re(start = port.vStart.re), im(start = port.vStart.im)), i(re(start = port.iStart.re), im(start = port.iStart.im))) annotation(
     Placement(visible = true, transformation(origin = {-1.42109e-14, 98}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-1.42109e-14, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  PortAC port(final UNom = UNom, final SNom = SNom, final portVariablesPu = portVariablesPu, final portVariablesPhases = portVariablesPhases, final generatorConvention = generatorConvention, final UStart = UStart, final UPhaseStart = UPhaseStart, final PStart = PStart, final QStart = QStart) "AC port of node";
-  parameter Boolean showPortData = true "=true, if PowerFlow data are to be shown";
-  outer Electrical.System systemPowerGrids "Reference to system object";
-  parameter Boolean showDataOnDiagramsPu = systemPowerGrids.showDataOnDiagramsPu "=true, P,Q,V and phase are shown on the diagrams in per-unit of local machine base" annotation(
-    Dialog(tab = "Visualization"));
+  PortAC port(
+    final UNom = UNom,
+    final SNom = SNom,
+    final portVariablesPu = portVariablesPu,
+    final portVariablesPhases = portVariablesPhases,
+    final generatorConvention = generatorConvention,
+    final UStart = UStart,
+    final UPhaseStart = UPhaseStart,
+    final PStart = PStart,
+    final QStart = QStart) "AC port of node";
 equation
   if initial() and localInit == LocalInitializationOption.PV then
 // During local initialization, P,V is enforced at the connector towards
@@ -53,20 +60,5 @@ equation
   annotation(
     Documentation(info = "<html>
 <p>This is the base class for all the components with an AC terminal. It contains a corresponding <code>PortAC</code> component to compute useful quantities for modelling and monitoring purposes.</p>
-</html>"),
-    Icon(graphics = {
-      Text(
-        visible = showPortData,
-        textColor = {28, 108, 200},
-        extent = {{-168, 50}, {-30, 18}},
-        textString = DynamicSelect("V",
-          if showDataOnDiagramsPu then
-            String((port.U/port.UNom), format="6.3f")
-          else String((port.U/1000), format="9.2f"))),
-      Text(
-        visible = showPortData,
-        textColor = {28, 108, 200},
-        extent={{-162,-18},{-26,-50}},
-        textString = DynamicSelect("Uph",
-         String(((port.UPhase*180)/3.14159), format="4.1f") + "°"))}));
+</html>"));
 end OnePortAC;

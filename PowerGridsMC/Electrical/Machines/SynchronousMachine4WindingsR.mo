@@ -39,7 +39,7 @@ UStart=PFout[1,1],UPhaseStart=PFout[1,2]);
              if showDataOnDiagramsPu then
                String(-port.PGenPu, format = "6.3f")
              else
-               String(-port.PGen/1e6, format = "9.2f"))),
+               String(-port.PGenPu*SNom/1e6, format = "9.2f"))),
        Text(
           visible=showPortData,
           extent={{-12,76},{110,44}},
@@ -48,7 +48,7 @@ UStart=PFout[1,1],UPhaseStart=PFout[1,2]);
             if showDataOnDiagramsPu then
               String(-port.QGenPu, format = "6.3f")
             else
-              String(-port.QGen/1e6, format = "9.2f")))}),
+              String(-port.QGenPu*SNom/1e6, format = "9.2f")))}),
       Documentation(info="<html>
 <p><i><span style=\"font-size: 12pt;\">Library PowerGridsMC is forked from https://github.com/PowerGrids/PowerGrids.</span></i></p>
 <p>************************** </p>
