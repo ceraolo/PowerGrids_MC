@@ -28,12 +28,12 @@ model LoadImpedancePQ_R
           textString="R"),
        Text(
           visible=showPFdata,
-          extent={{-110,56},{0,24}},
+          extent={{-110,56},{0,26}},
           lineColor={238,46,47},
           textString=DynamicSelect("P", String(PGenPu, significantDigits=3))),
        Text(
           visible=showPFdata,
-          extent={{-2,56},{112,24}},
+          extent={{-2,56},{112,26}},
           lineColor={217,67,180},
           textString=DynamicSelect("Q", String(QGenPu, significantDigits=3)))}),
                                            Documentation(info="<html>

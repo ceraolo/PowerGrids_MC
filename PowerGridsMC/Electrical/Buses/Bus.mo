@@ -21,7 +21,7 @@ Bus model, can be used to connect other components to its port.
       Text(
         visible = showPortData,
         textColor = {28, 108, 200},
-        extent = {{-168, 50}, {-30, 18}},
+        extent = {{-168, 50}, {-30, 20}},
         textString = DynamicSelect("V",
           if showDataOnDiagramsPu then
             String((port.U/port.UNom), format="6.3f")
@@ -29,8 +29,7 @@ Bus model, can be used to connect other components to its port.
       Text(
         visible = showPortData,
         textColor = {28, 108, 200},
-        extent={{-162,-18},{-26,-50}},
+        extent={{-162,-20},{-26,-50}},
         textString = DynamicSelect("Uph",
-         String(((port.UPhase*180)/3.14159), format="4.1f") + "°"))}
-));
+         String(((port.UPhase*180)/3.14159), format="4.1f") + "°"))}));
 end Bus;

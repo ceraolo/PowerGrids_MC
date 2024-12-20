@@ -43,7 +43,7 @@ equation
           textStyle={TextStyle.Italic}),
        Text(
           visible=showPortData,
-          extent={{-110,56},{0,24}},
+          extent={{-110,56},{0,26}},
           lineColor={238,46,47},
           textString=DynamicSelect("P",
               if showDataOnDiagramsPu then
@@ -52,7 +52,7 @@ equation
                String(port.S.re/1e6, format = "9.2f"))),
        Text(
           visible=showPortData,
-          extent={{0,56},{110,24}},
+          extent={{0,56},{110,26}},
           lineColor={217,67,180},
           textString=DynamicSelect("Q",
             if showDataOnDiagramsPu then
