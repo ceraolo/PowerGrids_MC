@@ -471,7 +471,7 @@ package PFT
         SNom(displayUnit="MVA") = 100000000,
         UNom(displayUnit="kV") = 119000) annotation (Placement(visible=true,
             transformation(
-            origin={0,-98},
+            origin={0,-104},
             extent={{-10,-10},{10,10}},
             rotation=0)));
       PowerGridsMC.Electrical.Branches.TransformerFixedRatio Teq2_21(R = 435 / 125e3 * 126.9 ^ 2 / 100, SNom(displayUnit = "MW") = 125000000, UNomA(displayUnit = "kV") = 230000, UNomB(displayUnit = "kV") = 132700, X = 0.0875 * 126.9 ^ 2 / 100, rFixed = 132.7 / 230) annotation (
@@ -515,7 +515,7 @@ package PFT
         UNom(displayUnit="V") = 220e3,
         portVariablesPhases=true,
         portVariablesPu=true)                                                                                                                                        annotation (
-        Placement(visible = true, transformation(origin={0.5,-35.5},      extent = {{-10, -10}, {10, 10}}, rotation=0)));
+        Placement(visible = true, transformation(origin={0.5,-33.5},      extent = {{-10, -10}, {10, 10}}, rotation=0)));
       PowerGridsMC.Electrical.Buses.Bus bus31(
         SNom(displayUnit="V.A") = 100e6,
         UNom(displayUnit="V") = 135e3,
@@ -575,7 +575,7 @@ package PFT
       connect(T41_iX2.terminalA, T4_iX2.terminalA) annotation (
         Line(points={{0,-70},{0,-64}}));
       connect(T41_iX2.terminalB, pq41.terminal)
-        annotation (Line(points={{0,-90},{0,-98}}));
+        annotation (Line(points={{0,-90},{0,-104}}));
       connect(T31_33_2.terminalA, T31_33_1.terminalA) annotation (Line(points={{-88,24},
               {-88,30},{-106,30},{-106,22}},     color={0,0,0}));
       connect(bus3.terminal, Teq31_3.terminalB) annotation (Line(points={{-47.5,
@@ -590,9 +590,9 @@ package PFT
       connect(T31_33_2.terminalA, bus33.terminal) annotation (Line(points={{-88,
               24},{-88,30},{-95.5,30},{-95.5,40.5}}, color={0,0,0}));
       connect(T4_iX2.terminalB, bus4.terminal)
-        annotation (Line(points={{0,-44},{0.5,-44},{0.5,-35.5}}, color={0,0,0}));
+        annotation (Line(points={{0,-44},{0.5,-44},{0.5,-33.5}}, color={0,0,0}));
       connect(L4_2.terminalB, bus4.terminal)
-        annotation (Line(points={{0,-18},{0,-35.5},{0.5,-35.5}}, color={0,0,0}));
+        annotation (Line(points={{0,-18},{0,-33.5},{0.5,-33.5}}, color={0,0,0}));
       connect(pq31.terminal, bus31.terminal) annotation (Line(points={{-100,-42},
               {-100,-27.5},{-99.5,-27.5}}, color={0,0,0}));
       connect(bus31.terminal, Teq31_3.terminalA) annotation (Line(points={{-99.5,
