@@ -8,6 +8,14 @@ model ReferenceBus "Reference bus for an isolated grid"
   final parameter Types.ComplexPerUnit nStart = CM.fromPolar(1, UPhaseStart) "Unit phasor with angle UPhaseStart";
   final parameter Types.ActivePower PSlack(fixed = false) "Constant slack active power leaving system through bus";
   final parameter Types.ReactivePower QSlack(fixed = false) "Constant slack reactive power leaving system through bus";
+
+  parameter Boolean showPortData=true "=true, if PowerFlow data are to be shown";
+  outer Electrical.System systemPowerGrids "Reference to system object";
+  parameter Boolean showDataOnDiagramsPu = systemPowerGrids.showDataOnDiagramsPu
+   "=true, P,Q,V and phase are shown on the diagrams in per-unit of local machine base"
+   annotation(Dialog(tab = "Visualization"));
+
+
 initial equation
   if not setPhaseOnly then
     port.u = CM.fromPolar(UStart, UPhaseStart) "Set initial bus voltage, phase-to-phase";
@@ -21,10 +29,37 @@ initial equation
   assert(abs(QSlack)/SNom < 0.01, "The reactive power flowing into or out of the reference bus is above 0.01 pu.\n"+
     "You probably need a better setup of excitation voltages, or you can set setPhaseOnly = true.\n" +
     "Please check the documentation of ReferenceBus for further reference", AssertionLevel.warning);
+
 equation
   port.P = PSlack;
   port.Q = QSlack;
   annotation (
+   Icon(coordinateSystem(grid={2,2}), graphics={
+        Rectangle(
+          extent={{-100,10},{100,-10}},
+          lineColor={28,108,200},
+          fillColor={0,140,72},
+          fillPattern=FillPattern.Solid),
+       Text(
+          visible=showPortData,
+          extent={{-154,60},{-52,24}},
+          lineColor={238,46,47},
+          textString=DynamicSelect("P",
+            if showDataOnDiagramsPu then
+              String(-port.PGenPu, format = "6.3f")
+            else
+              String(port.P/1e6, format = "9.2f"))),
+       Text(
+          visible=showPortData,
+          extent={{-150,-24},{-50,-58}},
+          lineColor={217,67,180},
+          textString=DynamicSelect("Q",
+            if showDataOnDiagramsPu then
+              String(-port.QGenPu, format = "6.3f")
+            else
+              String(port.Q/1e6, format = "9.2f")))}),
+
+
     Documentation(info = "<html><head></head><body><p>When an isolated synchronous grid is initialized in steady state, the reference angle remains undefined. In order to make the angles well defined, this ReferenceBus component should be used in the position where the power flow problem has the slack node.</p>
 <p>The purpose of this component when the grid is initialized in steady state is twofold:</p>
 <ul>

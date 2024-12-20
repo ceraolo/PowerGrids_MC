@@ -5,7 +5,7 @@ model SlackBus "Slack Bus"
   parameter Types.Voltage U = UNom "Voltage magnitude, phase-to-phase";
   parameter Types.Angle theta = 0 "Phase of voltage phasor";
 
-   parameter Boolean showPortData=true "=true, if PowerFlow data are to be shown";
+  parameter Boolean showPortData=true "=true, if PowerFlow data are to be shown";
   outer Electrical.System systemPowerGrids "Reference to system object";
   parameter Boolean showDataOnDiagramsPu = systemPowerGrids.showDataOnDiagramsPu
    "=true, P,Q,V and phase are shown on the diagrams in per-unit of local machine base"
