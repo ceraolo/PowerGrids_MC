@@ -13,7 +13,6 @@ model SynchronousMachine4WindingsR
   extends SynchronousMachine4Windings(PStart=PFout[1,3],QStart=PFout[1,4],
 UStart=PFout[1,1],UPhaseStart=PFout[1,2]);
 
-  parameter Boolean showPortData=false "=false, if PowerFlow data are to be shown";
   outer Electrical.System systemPowerGrids "Reference to system object";
   parameter Boolean showDataOnDiagramsPu = systemPowerGrids.showDataOnDiagramsPu
    "=true, P,Q,V and phase are shown on the diagrams in per-unit of local machine base"
