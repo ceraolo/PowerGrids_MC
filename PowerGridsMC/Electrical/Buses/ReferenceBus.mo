@@ -42,7 +42,7 @@ equation
           fillPattern=FillPattern.Solid),
        Text(
           visible=showPortData,
-          extent={{-154,60},{-52,24}},
+          extent={{-154,54},{-52,18}},
           lineColor={238,46,47},
           textString=DynamicSelect("P",
             if showDataOnDiagramsPu then
@@ -51,7 +51,7 @@ equation
               String(port.P/1e6, format = "9.2f"))),
        Text(
           visible=showPortData,
-          extent={{-150,-24},{-50,-58}},
+          extent={{-150,-18},{-50,-52}},
           lineColor={217,67,180},
           textString=DynamicSelect("Q",
             if showDataOnDiagramsPu then

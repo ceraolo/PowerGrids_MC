@@ -27,7 +27,7 @@ model ReferenceBusR "Reference bus for an isolated grid"
           fillPattern=FillPattern.Solid,
           pattern=LinePattern.None),
                              Text(
-          extent={{42,-24},{86,-58}},
+          extent={{48,-16},{92,-50}},
           textColor={162,29,33},
           textStyle={TextStyle.Italic},
           textString="R")}),               Documentation(info="<html>
