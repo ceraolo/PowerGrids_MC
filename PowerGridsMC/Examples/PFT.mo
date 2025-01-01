@@ -2806,7 +2806,7 @@ package PFT
         xpqPu=0.5,
         xqPu=1.8))
        annotation (Placement(transformation(
-            origin={-138,46},
+            origin={-138,52},
             extent={{10,10},{-10,-10}},
             rotation=0)));
       PowerGridsMC.Examples.IEEE14bus.ControlledGenNoPSS_R GEN2(GEN(
@@ -2888,6 +2888,16 @@ package PFT
         xqPu=1.8))
        annotation (
         Placement(visible = true, transformation(origin={162,-36},    extent = {{-10, -10}, {10, 10}}, rotation=0)));
+      Electrical.Buses.BusFault              busG1(
+        R=0.01,
+        startTime=1,
+        stopTime=2,
+        SNom=100000000,
+        UNom=24000)
+        annotation (Placement(visible=true, transformation(
+            origin={-158,36},
+            extent={{-10,-10},{10,10}},
+            rotation=-90)));
     equation
       connect(bus12.terminal, L6to12.terminalB) annotation (
         Line(points={{-104,80},{-106,80},{-106,60},{-84,60}}));
@@ -3016,10 +3026,12 @@ package PFT
       connect(GEN6.terminal, bus6.terminal)
         annotation (Line(points={{-80,0},{-44,0}}, color={0,0,0}));
       connect(GEN1.terminal, Tgen1.terminalA)
-        annotation (Line(points={{-138,46},{-138,30}}, color={0,0,0}));
-      connect(GEN1.omega, systemPowerGrids.omegaRefIn) annotation (Line(points={{-149,
-              46},{-156,46},{-156,44},{-170,44},{-170,80.2},{-156.8,80.2}}, color={0,
+        annotation (Line(points={{-138,52},{-138,30}}, color={0,0,0}));
+      connect(GEN1.omega, systemPowerGrids.omegaRefIn) annotation (Line(points={{-149,52},
+              {-170,52},{-170,80.2},{-156.8,80.2}},                         color={0,
               0,127}));
+      connect(busG1.terminal, Tgen1.terminalA) annotation (Line(points={{-158,
+              36},{-138,36},{-138,30}}, color={0,0,0}));
       annotation (
         Diagram(coordinateSystem(extent={{-180,120},{180,-120}})),
         experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-6, Interval = 0.002),
@@ -3073,11 +3085,11 @@ package PFT
             __Dymola_Algorithm="Dassl"));
       end Gen2Disconnection;
 
-      model BusFaultG2
+      model BusFaultG1G2
           extends StaticNetworkReg  (busG2(
             R=0.01,
-            startTime=1,
-            stopTime=2));
+            startTime=1e6,
+            stopTime=2e6), busG1(stopTime=1.2));
 
         annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
               coordinateSystem(preserveAspectRatio=false)),
@@ -3089,7 +3101,7 @@ package PFT
           Documentation(info="<html>
 <p>With the current version of the library, bus faults must have a non-zero impedance. This is not a strong limitation, because zero-impedence faults are an abstraction. Here a realistic, very small, value is used. </p>
 </html>"));
-      end BusFaultG2;
+      end BusFaultG1G2;
       annotation (Documentation(info="<html>
 <p>This folder contanins models which are obtained through &quot;extends&quot; of StaticNetworkReg.</p>
 </html>"));
