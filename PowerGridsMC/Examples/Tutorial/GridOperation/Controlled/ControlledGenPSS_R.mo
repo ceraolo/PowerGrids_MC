@@ -68,7 +68,7 @@ equation
              if showDataOnDiagramsPu then
                String(-GEN.port.PGenPu, format = "6.3f")
              else
-               String(-GEN.port.PGen/1e6, format = "9.2f"))),
+               String(GEN.port.P/1e6, format = "9.2f"))),
        Text(
           visible=showPortData,
           extent={{2,66},{122,32}},
@@ -77,7 +77,7 @@ equation
             if showDataOnDiagramsPu then
               String(-GEN.port.QGenPu, format = "6.3f")
             else
-              String(-GEN.port.QGen/1e6, format = "9.2f")))}
+              String(GEN.port.Q/1e6, format = "9.2f")))}
 
 ),  Diagram(coordinateSystem(    extent={{-80,-60},{80,60}})));
 end ControlledGenPSS_R;

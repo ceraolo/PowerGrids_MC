@@ -4,7 +4,8 @@ model StaticGrid "System operating in steady-state with given inputs"
   inner PowerGridsMC.Electrical.System systemPowerGrids annotation (
     Placement(visible = true, transformation(origin = {62, 26}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   PowerGridsMC.Electrical.Machines.SynchronousMachine4Windings GEN(H = 4, PStart = -4.75e+08, QStart = -1.56e+08,SNom = 5e+08, Tpd0 = 5.143, Tppd0 = 0.042, Tppq0 = 0.083, Tpq0 = 2.16, UNom = 21000, UPhaseStart = 0.161156, UStart = 21e3 * 0.9917, portVariablesPhases = true, raPu = 0, xdPu = 2, xlPu = 0.15, xpdPu = 0.35, xppdPu = 0.25, xppqPu = 0.3, xpqPu = 0.5, xqPu = 1.8)  annotation (
-    Placement(visible = true, transformation(origin={-34,2},     extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin={-34,2},     extent={{-10,10},
+            {10,-10}},                                                                            rotation = 0)));
   PowerGridsMC.Electrical.Buses.Bus NTLV(SNom = 5e+08, UNom = 21000, portVariablesPhases = true, portVariablesPu = true)  annotation (
     Placement(transformation(origin = {-2, -18}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
   PowerGridsMC.Electrical.Buses.Bus NTHV(SNom = 5e+08, UNom = 380000, portVariablesPhases = true, portVariablesPu = true)  annotation (
@@ -16,14 +17,15 @@ model StaticGrid "System operating in steady-state with given inputs"
   PowerGridsMC.Electrical.Loads.LoadImpedancePQ GRIDL(PRefConst = 4.75e+08, QRefConst = 7.6e+07, SNom = 5e+08, UNom = 380000, UPhaseStart = 0, URef = 1.05 * 380e3, UStart = 399000, portVariablesPhases = true, portVariablesPu = true)  annotation (
     Placement(visible = true, transformation(origin={58,-30},    extent = {{-10, -10}, {10, 10}}, rotation = 90)));
   Modelica.Blocks.Sources.RealExpression PmPu(y = 0.95)  annotation (
-    Placement(visible = true, transformation(origin={-64,6},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin={-66,-10},  extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression ufPuIn(y = 2.50826)  annotation (
-    Placement(visible = true, transformation(origin={-64,-18},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin={-66,18},     extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
-  connect(PmPu.y, GEN.pmPuIn) annotation (Line(points={{-53,6},{-48,6},{-48,5.4},
-          {-44.4,5.4}}, color={0,0,127}));
+  connect(PmPu.y, GEN.pmPuIn) annotation (Line(points={{-55,-10},{-52,-10},{-52,
+          -1.4},{-44.4,-1.4}},
+                        color={0,0,127}));
   connect(ufPuIn.y, GEN.ufPuIn) annotation (
-    Line(points={{-53,-18},{-44.4,-18},{-44.4,-2}},    color = {0, 0, 127}));
+    Line(points={{-55,18},{-52,18},{-52,6},{-44.4,6}}, color = {0, 0, 127}));
   connect(GRIDL.terminal, NTHV.terminal) annotation (
     Line(points={{58,-30},{58,-18},{38,-18}}));
   connect(GEN.terminal, NTLV.terminal) annotation (
