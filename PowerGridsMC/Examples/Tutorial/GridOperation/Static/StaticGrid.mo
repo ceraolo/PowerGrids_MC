@@ -14,8 +14,19 @@ model StaticGrid "System operating in steady-state with given inputs"
     Placement(visible = true, transformation(origin={18,-18},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   PowerGridsMC.Electrical.Buses.EquivalentGrid GRID(R_X = 1 / 10, SNom = 5e+08, SSC = 2.5e+09, UNom = 380000, URef = 1.05 * 380e3, c = 1.1, portVariablesPhases = true, portVariablesPu = true)  annotation (
     Placement(visible = true, transformation(origin={64,-8},     extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  PowerGridsMC.Electrical.Loads.LoadImpedancePQ GRIDL(PRefConst = 4.75e+08, QRefConst = 7.6e+07, SNom = 5e+08, UNom = 380000, UPhaseStart = 0, URef = 1.05 * 380e3, UStart = 399000, portVariablesPhases = true, portVariablesPu = true)  annotation (
-    Placement(visible = true, transformation(origin={58,-30},    extent = {{-10, -10}, {10, 10}}, rotation = 90)));
+  PowerGridsMC.Electrical.Loads.LoadZeta GRIDL(
+    PRefConst=4.75e+08,
+    QRefConst=7.6e+07,
+    SNom=5e+08,
+    UNom=380000,
+    UPhaseStart=0,
+    URef=1.05*380e3,
+    UStart=399000,
+    portVariablesPhases=true,
+    portVariablesPu=true) annotation (Placement(visible=true, transformation(
+        origin={58,-30},
+        extent={{-10,-10},{10,10}},
+        rotation=90)));
   Modelica.Blocks.Sources.RealExpression PmPu(y = 0.95)  annotation (
     Placement(visible = true, transformation(origin={-66,-10},  extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression ufPuIn(y = 2.50826)  annotation (

@@ -253,94 +253,105 @@ model IEEE14busPowerFlow "Power flow model of the IEEE 14-bus benchmark"
     Placement(visible = true, transformation(origin = {0, 72}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 
 // LOADS
-  PowerGridsMC.Electrical.PowerFlow.PQBus Load2(
-    portVariablesPhases = true,
-    P = 21.7e6,
-    Q = 12.7e6,
-    SNom = 100e6,
-    UNom = 69e3)
-    annotation (
-    Placement(visible = true, transformation(origin = {-90, -94}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  PowerGridsMC.Electrical.PowerFlow.PQBus Load3(
-    portVariablesPhases = true,
-    P = 94.2e6,
-    Q = 19.1e6,
-    SNom = 100e6,
-    UNom = 69e3)
-    annotation (
-    Placement(visible = true, transformation(origin={104,-94},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  PowerGridsMC.Electrical.PowerFlow.PQBus Load4(
-    portVariablesPhases = true,
-    P = 47.8e6,
-    Q = -3.9e6,
-    SNom = 100e6,
-    UNom = 69e3)
-    annotation (
-    Placement(visible = true, transformation(origin={120,-50},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  PowerGridsMC.Electrical.PowerFlow.PQBus Load5(
-    portVariablesPhases = true,
-    P = 7.6e6,
-    Q = 1.6e6,
-    SNom = 100e6,
-    UNom = 69e3)
-    annotation (
-    Placement(visible = true, transformation(origin = {-50, -34}, extent = {{-10, -10}, {10, 10}}, rotation = 180)));
-  PowerGridsMC.Electrical.PowerFlow.PQBus Load6(
-    portVariablesPhases = true,
-    P = 11.2e6,
-    Q = 7.5e6,
-    SNom = 100e6,
-    UNom = 13.8e3)
-    annotation (
-    Placement(visible = true, transformation(origin = {-10, -10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  PowerGridsMC.Electrical.PowerFlow.PQBus Load9(
-    portVariablesPhases = true,
-    P = 29.5e6,
-    Q = 16.6e6,
-    SNom = 100e6,
-    UNom = 13.8e3)
-    annotation (
-    Placement(visible = true, transformation(origin={114,54},    extent = {{-10, -10}, {10, 10}}, rotation = 180)));
-  PowerGridsMC.Electrical.PowerFlow.PQBus Load10(
-    portVariablesPhases = true,
-    P = 9e6,
-    Q = 5.8e6,
-    SNom = 100e6,
-    UNom = 13.8e3)
-    annotation (
-    Placement(visible = true, transformation(origin={40,46},    extent = {{-10, -10}, {10, 10}}, rotation = 180)));
-  PowerGridsMC.Electrical.PowerFlow.PQBus Load11(
-    portVariablesPhases = true,
-    P = 3.5e6,
-    Q = 1.8e6,
-    SNom = 100e6,
-    UNom = 13.8e3)
-    annotation (
-    Placement(visible = true, transformation(origin={-10,46},    extent = {{-10, -10}, {10, 10}}, rotation = 180)));
-  PowerGridsMC.Electrical.PowerFlow.PQBus Load12(
-    portVariablesPhases = true,
-    P = 6.1e6,
-    Q = 1.6e6,
-    SNom = 100e6,
-    UNom = 13.8e3)
-    annotation (
-    Placement(visible = true, transformation(origin={-90,90},    extent = {{-10, -10}, {10, 10}}, rotation = 180)));
-  PowerGridsMC.Electrical.PowerFlow.PQBus Load13(
-    portVariablesPhases = true,
-    P = 13.8e6,
-    Q = 5.8e6,
-    SNom = 100e6,
-    UNom = 13.8e3)
-    annotation (
-    Placement(visible = true, transformation(origin={-30,90},    extent = {{-10, -10}, {10, 10}}, rotation = 180)));
-  PowerGridsMC.Electrical.PowerFlow.PQBus Load14(
-    portVariablesPhases = true,
-    P = 14.9e6,
-    Q = 5e6,
-    SNom = 100e6,
-    UNom = 13.8e3)
-    annotation (
-    Placement(visible = true, transformation(origin={30,90},    extent = {{-10, -10}, {10, 10}}, rotation = 180)));
+  PowerGridsMC.Electrical.Loads.LoadPQ Load2(
+    portVariablesPhases=true,
+    P=21.7e6,
+    Q=12.7e6,
+    SNom=100e6,
+    UNom=69e3) annotation (Placement(visible=true, transformation(
+        origin={-90,-94},
+        extent={{-10,-10},{10,10}},
+        rotation=0)));
+  PowerGridsMC.Electrical.Loads.LoadPQ Load3(
+    portVariablesPhases=true,
+    P=94.2e6,
+    Q=19.1e6,
+    SNom=100e6,
+    UNom=69e3) annotation (Placement(visible=true, transformation(
+        origin={104,-94},
+        extent={{-10,-10},{10,10}},
+        rotation=0)));
+  PowerGridsMC.Electrical.Loads.LoadPQ Load4(
+    portVariablesPhases=true,
+    P=47.8e6,
+    Q=-3.9e6,
+    SNom=100e6,
+    UNom=69e3) annotation (Placement(visible=true, transformation(
+        origin={120,-50},
+        extent={{-10,-10},{10,10}},
+        rotation=0)));
+  PowerGridsMC.Electrical.Loads.LoadPQ Load5(
+    portVariablesPhases=true,
+    P=7.6e6,
+    Q=1.6e6,
+    SNom=100e6,
+    UNom=69e3) annotation (Placement(visible=true, transformation(
+        origin={-50,-34},
+        extent={{-10,-10},{10,10}},
+        rotation=180)));
+  PowerGridsMC.Electrical.Loads.LoadPQ Load6(
+    portVariablesPhases=true,
+    P=11.2e6,
+    Q=7.5e6,
+    SNom=100e6,
+    UNom=13.8e3) annotation (Placement(visible=true, transformation(
+        origin={-10,-10},
+        extent={{-10,-10},{10,10}},
+        rotation=0)));
+  PowerGridsMC.Electrical.Loads.LoadPQ Load9(
+    portVariablesPhases=true,
+    P=29.5e6,
+    Q=16.6e6,
+    SNom=100e6,
+    UNom=13.8e3) annotation (Placement(visible=true, transformation(
+        origin={114,54},
+        extent={{-10,-10},{10,10}},
+        rotation=180)));
+  PowerGridsMC.Electrical.Loads.LoadPQ Load10(
+    portVariablesPhases=true,
+    P=9e6,
+    Q=5.8e6,
+    SNom=100e6,
+    UNom=13.8e3) annotation (Placement(visible=true, transformation(
+        origin={40,46},
+        extent={{-10,-10},{10,10}},
+        rotation=180)));
+  PowerGridsMC.Electrical.Loads.LoadPQ Load11(
+    portVariablesPhases=true,
+    P=3.5e6,
+    Q=1.8e6,
+    SNom=100e6,
+    UNom=13.8e3) annotation (Placement(visible=true, transformation(
+        origin={-10,46},
+        extent={{-10,-10},{10,10}},
+        rotation=180)));
+  PowerGridsMC.Electrical.Loads.LoadPQ Load12(
+    portVariablesPhases=true,
+    P=6.1e6,
+    Q=1.6e6,
+    SNom=100e6,
+    UNom=13.8e3) annotation (Placement(visible=true, transformation(
+        origin={-90,90},
+        extent={{-10,-10},{10,10}},
+        rotation=180)));
+  PowerGridsMC.Electrical.Loads.LoadPQ Load13(
+    portVariablesPhases=true,
+    P=13.8e6,
+    Q=5.8e6,
+    SNom=100e6,
+    UNom=13.8e3) annotation (Placement(visible=true, transformation(
+        origin={-30,90},
+        extent={{-10,-10},{10,10}},
+        rotation=180)));
+  PowerGridsMC.Electrical.Loads.LoadPQ Load14(
+    portVariablesPhases=true,
+    P=14.9e6,
+    Q=5e6,
+    SNom=100e6,
+    UNom=13.8e3) annotation (Placement(visible=true, transformation(
+        origin={30,90},
+        extent={{-10,-10},{10,10}},
+        rotation=180)));
 
 // Capacitor bank
   PowerGridsMC.Electrical.Banks.CapacitorBankFixed Cbank9(

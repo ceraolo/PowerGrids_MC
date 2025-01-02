@@ -33,10 +33,21 @@ model TwoGeneratorsOneReferenceGenerator
           origin={82,8}, extent={{-10,-10},{10,10}})));
   PowerGridsMC.Electrical.Buses.Bus NTHV2(SNom = 5e+08, UNom = 380000, portVariablesPhases = true, portVariablesPu = true) annotation (
     Placement(visible = true, transformation(origin = {40, 20}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
-  PowerGridsMC.Electrical.Loads.LoadPQVoltageDependence GRIDL1(PRef = 450e6 + (if time < 1 then 0 else -100e6), PRefConst = 4.5e+08, QRefConst = 200e6, SNom = 500e6, UNom = 380000, portVariablesPhases = true) annotation (
-    Placement(transformation(origin = {-10, -2}, extent = {{-10, -10}, {10, 10}})));
-  PowerGridsMC.Electrical.Loads.LoadPQVoltageDependence GRIDL2(PRefConst = 4.5e+08, QRefConst = 200e6, SNom = 500e6, UNom = 380000, portVariablesPhases = true) annotation (
-    Placement(transformation(origin = {30, -2}, extent = {{-10, -10}, {10, 10}})));
+  PowerGridsMC.Electrical.Loads.LoadAlphaBeta GRIDL1(
+    PRef=450e6 + (if time < 1 then 0 else -100e6),
+    PRefConst=4.5e+08,
+    QRefConst=200e6,
+    SNom=500e6,
+    UNom=380000,
+    portVariablesPhases=true) annotation (Placement(transformation(origin={-10,
+            -2}, extent={{-10,-10},{10,10}})));
+  PowerGridsMC.Electrical.Loads.LoadAlphaBeta GRIDL2(
+    PRefConst=4.5e+08,
+    QRefConst=200e6,
+    SNom=500e6,
+    UNom=380000,
+    portVariablesPhases=true) annotation (Placement(transformation(origin={30,-2},
+          extent={{-10,-10},{10,10}})));
 equation
   connect(NTLV1.terminal, TGEN1.terminalA) annotation (
     Line(points = {{-62, 20}, {-50, 20}}));

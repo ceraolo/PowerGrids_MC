@@ -33,7 +33,7 @@ package PFT
       inner PowerGridsMC.Electrical.System systemPowerGrids annotation (
         Placement(visible = true, transformation(origin={20,20},     extent={{-6,-6},
                 {6,6}},                                                                               rotation = 0)));
-      PowerGridsMC.Electrical.PowerFlow.PQBusW GRIDL(
+      PowerGridsMC.Electrical.Loads.LoadPQW GRIDL(
         P=475000000,
         Q=76000000,
         SNom=500000000,
@@ -133,7 +133,7 @@ package PFT
             extent={{-10,-10},{10,10}},
             rotation=0)));
 
-      PowerGridsMC.Electrical.Loads.LoadPQVoltageDependenceR GRIDL(
+      PowerGridsMC.Electrical.Loads.LoadAlphaBetaR GRIDL(
         alpha=2,
         beta=2,
         SNom=500000000,
@@ -164,7 +164,7 @@ package PFT
             origin={-66,22},
             extent={{-10,-10},{10,10}},
             rotation=0)));
-      PowerGridsMC.Electrical.Loads.LoadPQVoltageDependenceInputs Grid2(
+      PowerGridsMC.Electrical.Loads.LoadAlphaBetaInputs Grid2(
         UNom=380000,
         SNom=500000000,
         alpha=2,
@@ -279,7 +279,7 @@ package PFT
             origin={38,20},
             extent={{-10,-10},{10,10}},
             rotation=0)));
-      PowerGridsMC.Electrical.Loads.LoadPQVoltageDependenceR GRIDL(
+      PowerGridsMC.Electrical.Loads.LoadAlphaBetaR GRIDL(
         alpha=2,
         beta=2,
         SNom=500000000,
@@ -289,7 +289,7 @@ package PFT
             origin={50,-6},
             extent={{-10,-10},{10,10}},
             rotation=0)));
-      PowerGridsMC.Electrical.Loads.LoadPQVoltageDependenceInputs Grid2(
+      PowerGridsMC.Electrical.Loads.LoadAlphaBetaInputs Grid2(
         UNom=380000,
         SNom=500000000,
         alpha=2,
@@ -365,7 +365,7 @@ package PFT
             origin={-96,58},
             extent={{-10,10},{10,-10}},
             rotation=0)));
-      PowerGridsMC.Electrical.PowerFlow.PQBusW pq31(
+      PowerGridsMC.Electrical.Loads.LoadPQW pq31(
         P(displayUnit="MW") = 200000000,
         Q(displayUnit="MVA") = 100000000,
         SNom(displayUnit="MVA") = 100000000,
@@ -465,7 +465,7 @@ package PFT
       PowerGridsMC.Electrical.Branches.TransformerFixedRatio Teq31_3(R = 0.0948 * 230 ^ 2 / 160 / 30, SNom(displayUnit = "MW") = 160000000, UNomA(displayUnit = "kV") = 135000, UNomB(displayUnit = "kV") = 230000, X = 0.0948 * 230 ^ 2 / 160, rFixed = 230 / 135,
         showPortData=true)                                                                                                                                                                                                         annotation (
         Placement(visible = true, transformation(origin={-70,-12},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-      PowerGridsMC.Electrical.PowerFlow.PQBusW pq41(
+      PowerGridsMC.Electrical.Loads.LoadPQW pq41(
         P(displayUnit="MW") = 100000000,
         Q(displayUnit="MVA") = 50000000,
         SNom(displayUnit="MVA") = 100000000,
@@ -482,7 +482,7 @@ package PFT
             rotation=0)));
       PowerGridsMC.Electrical.Branches.TransformerFixedRatio T21_i(SNom(displayUnit = "MW") = 125000000, UNomA(displayUnit = "kV") = 230000, UNomB(displayUnit = "kV") = 132700, X = 4.624e-3 * 126.9 ^ 2 / 100, rFixed = 132.7 / 230) annotation (
         Placement(visible = true, transformation(origin={56,50},    extent = {{-10, -10}, {10, 10}}, rotation = 90)));
-      PowerGridsMC.Electrical.PowerFlow.PQBusW pq21(
+      PowerGridsMC.Electrical.Loads.LoadPQW pq21(
         P(displayUnit="MW") = 200000000,
         Q(displayUnit="MVA") = 100000000,
         SNom(displayUnit="MVA") = 100000000,
@@ -637,9 +637,15 @@ package PFT
         U(displayUnit="V") = 1.04,                                                                                                      UNom(displayUnit = "V") = 1, portVariablesPhases = true) annotation (
         Placement(visible = true, transformation(origin={-106,56},    extent={{-10,10},
                 {10,-10}},                                                                             rotation = 0)));
-      PowerGridsMC.Electrical.PowerFlow.PQBusW pq31(P(displayUnit = "W") = 2, Q(displayUnit = "var") = 1, SNom(displayUnit = "V.A") = 1, UNom(displayUnit = "V") = 1,
-        showPortData=true)                                                                                                                                              annotation (
-        Placement(visible = true, transformation(origin={-106,-38},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+      PowerGridsMC.Electrical.Loads.LoadPQW pq31(
+        P(displayUnit="W") = 2,
+        Q(displayUnit="var") = 1,
+        SNom(displayUnit="V.A") = 1,
+        UNom(displayUnit="V") = 1,
+        showPortData=true) annotation (Placement(visible=true, transformation(
+            origin={-106,-38},
+            extent={{-10,-10},{10,10}},
+            rotation=0)));
       PowerGridsMC.Electrical.Branches.TransformerFixedRatio T4_42x2(
         SNom(displayUnit="W") = 1,
         UNomA(displayUnit="V") = 1,
@@ -691,8 +697,15 @@ package PFT
             rotation=-90)));
       PowerGridsMC.Electrical.Branches.TransformerFixedRatio T2_21d(SNom(displayUnit = "W") = 1, UNomA(displayUnit = "V") = 1, UNomB(displayUnit = "V") = 1, X = 0.07775) annotation (
         Placement(visible = true, transformation(origin={46,28},    extent = {{-10, -10}, {10, 10}}, rotation=90)));
-      PowerGridsMC.Electrical.PowerFlow.PQBusW pq21(P(displayUnit = "W") = 2, Q(displayUnit = "var") = 1, SNom(displayUnit = "V.A") = 1, UNom(displayUnit = "V") = 1) annotation (
-        Placement(visible = true, transformation(origin={26,54},    extent = {{-10, -10}, {10, 10}}, rotation=180)));
+      PowerGridsMC.Electrical.Loads.LoadPQW pq21(
+        P(displayUnit="W") = 2,
+        Q(displayUnit="var") = 1,
+        SNom(displayUnit="V.A") = 1,
+        UNom(displayUnit="V") = 1) annotation (Placement(visible=true,
+            transformation(
+            origin={26,54},
+            extent={{-10,-10},{10,10}},
+            rotation=180)));
       PowerGridsMC.Electrical.PowerFlow.PVBusW pv22(P(displayUnit = "W") = 0, SNom(displayUnit = "V.A") = 1,
         U(displayUnit="V") = 0.98,                                                                                                    UNom(displayUnit = "V") = 1) annotation (
         Placement(visible = true, transformation(origin={108,14},    extent = {{-10, -10}, {10, 10}}, rotation=90)));
@@ -715,8 +728,15 @@ package PFT
       PowerGridsMC.Electrical.Branches.TransformerFixedRatio Teq31_3(SNom(displayUnit = "W") = 1, UNomA(displayUnit = "V") = 1, UNomB(displayUnit = "V") = 1,
         X=0.064909)                                                                                                                                                      annotation (
         Placement(visible = true, transformation(origin={-82,-12},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-      PowerGridsMC.Electrical.PowerFlow.PQBusW pq41(P(displayUnit = "W") = 1, Q(displayUnit = "var") = 0.5, SNom(displayUnit = "V.A") = 1, UNom(displayUnit = "V") = 1) annotation (
-        Placement(visible = true, transformation(origin={-22,-86},   extent = {{-10, -10}, {10, 10}}, rotation=0)));
+      PowerGridsMC.Electrical.Loads.LoadPQW pq41(
+        P(displayUnit="W") = 1,
+        Q(displayUnit="var") = 0.5,
+        SNom(displayUnit="V.A") = 1,
+        UNom(displayUnit="V") = 1) annotation (Placement(visible=true,
+            transformation(
+            origin={-22,-86},
+            extent={{-10,-10},{10,10}},
+            rotation=0)));
       inner PowerGridsMC.Electrical.System systemPowerGrids annotation (
         Placement(visible = true, transformation(origin={-70,98},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
       PowerGridsMC.Electrical.Branches.TransformerFixedRatio Teq2_21u(SNom(displayUnit = "W") = 1, UNomA(displayUnit = "V") = 1, UNomB(displayUnit = "V") = 1,
@@ -980,7 +1000,7 @@ package PFT
             rotation=0)));
 
       //Loads
-      PowerGridsMC.Electrical.Loads.LoadPQVoltageDependenceR pq31(
+      PowerGridsMC.Electrical.Loads.LoadAlphaBetaR pq31(
         SNom(displayUnit="V.A") = 100000000,
         UNom(displayUnit="V") = 129e3,
         UPhaseStart(displayUnit="rad"),
@@ -992,7 +1012,7 @@ package PFT
             origin={-140.5,-73},
             extent={{-10,-10},{10,10}},
             rotation=0)));
-      PowerGridsMC.Electrical.Loads.LoadPQVoltageDependenceR pq21(
+      PowerGridsMC.Electrical.Loads.LoadAlphaBetaR pq21(
         SNom(displayUnit="V.A") = 100000000,
         UNom(displayUnit="V") = 127000,
         UPhaseStart(displayUnit="rad"),
@@ -1002,7 +1022,7 @@ package PFT
             origin={-22,32},
             extent={{-10,10},{10,-10}},
             rotation=0)));
-      PowerGridsMC.Electrical.Loads.LoadPQVoltageDependenceR pq41(
+      PowerGridsMC.Electrical.Loads.LoadAlphaBetaR pq41(
         SNom(displayUnit="V.A") = 100000000,
         UNom(displayUnit="V") = 119000,
         UPhaseStart(displayUnit="rad"),
@@ -1226,7 +1246,7 @@ package PFT
       inner PowerGridsMC.Electrical.System systemPowerGrids(initOpt = PowerGridsMC.Types.Choices.InitializationOption.globalSteadyStateFixedPowerFlow, referenceFrequency = PowerGridsMC.Types.Choices.ReferenceFrequency.fixedReferenceGenerator,
         showDataOnDiagramsPu=false)                                                                                                                                                                                                         annotation (
         Placement(visible = true, transformation(origin={64,-82},     extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-      PowerGridsMC.Electrical.Loads.LoadPQVoltageDependenceR pq31(
+      PowerGridsMC.Electrical.Loads.LoadAlphaBetaR pq31(
         SNom(displayUnit="V.A") = 100000000,
         UNom(displayUnit="V") = 129e3,
         UPhaseStart(displayUnit="rad"),
@@ -1288,7 +1308,7 @@ package PFT
         Placement(visible = true, transformation(origin={-24,-82},    extent = {{-10, -10}, {10, 10}}, rotation = -90)));
       PowerGridsMC.Electrical.Buses.Bus bus3(SNom(displayUnit = "V.A") = 100e6, UNom(displayUnit = "V") = 220e3, portVariablesPhases = true, portVariablesPu = true) annotation (
         Placement(visible = true, transformation(origin={-95.5,-33.5},    extent = {{-10, -10}, {10, 10}}, rotation = 90)));
-      PowerGridsMC.Electrical.Loads.LoadPQVoltageDependenceR pq21(
+      PowerGridsMC.Electrical.Loads.LoadAlphaBetaR pq21(
         SNom(displayUnit="V.A") = 100000000,
         UNom(displayUnit="V") = 127000,
         UPhaseStart(displayUnit="rad"),
@@ -1298,7 +1318,7 @@ package PFT
             origin={0,48},
             extent={{-10,10},{10,-10}},
             rotation=0)));
-      PowerGridsMC.Electrical.Loads.LoadPQVoltageDependenceR pq41(
+      PowerGridsMC.Electrical.Loads.LoadAlphaBetaR pq41(
         SNom(displayUnit="V.A") = 100000000,
         UNom(displayUnit="V") = 119000,
         UPhaseStart(displayUnit="rad"),
@@ -1800,99 +1820,109 @@ package PFT
         Placement(visible = true, transformation(origin={-16,72},  extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 
     // LOADS
-      PowerGridsMC.Electrical.PowerFlow.PQBusW Load2(
-        portVariablesPhases = true,
-        P = 21.7e6,
-        Q = 12.7e6,
-        SNom = 100e6,
-        UNom = 69e3)
-        annotation (
-        Placement(visible = true, transformation(origin={-88,-100},   extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-      PowerGridsMC.Electrical.PowerFlow.PQBusW Load3(
-        portVariablesPhases = true,
-        P = 94.2e6,
-        Q = 19.1e6,
-        SNom = 100e6,
-        UNom = 69e3)
-        annotation (
-        Placement(visible = true, transformation(origin={88,-98},     extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-      PowerGridsMC.Electrical.PowerFlow.PQBusW Load4(
-        portVariablesPhases = true,
-        P = 47.8e6,
-        Q = -3.9e6,
-        SNom = 100e6,
-        UNom = 69e3)
-        annotation (
-        Placement(visible = true, transformation(origin={112,-54},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-      PowerGridsMC.Electrical.PowerFlow.PQBusW Load5(
-        portVariablesPhases = true,
-        P = 7.6e6,
-        Q = 1.6e6,
-        SNom = 100e6,
-        UNom = 69e3)
-        annotation (
-        Placement(visible = true, transformation(origin={-74,-26},    extent = {{-10, -10}, {10, 10}}, rotation = 180)));
-      PowerGridsMC.Electrical.PowerFlow.PQBusW Load6(
-        portVariablesPhases = true,
-        P = 11.2e6,
-        Q = 7.5e6,
-        SNom = 100e6,
-        UNom = 13.8e3)
-        annotation (
-        Placement(visible = true, transformation(origin={-26,-14},    extent={{10,-10},
-                {-10,10}},                                                                             rotation = 0)));
-      PowerGridsMC.Electrical.PowerFlow.PQBusW Load9(
-        portVariablesPhases = true,
+      PowerGridsMC.Electrical.Loads.LoadPQW Load2(
+        portVariablesPhases=true,
+        P=21.7e6,
+        Q=12.7e6,
+        SNom=100e6,
+        UNom=69e3) annotation (Placement(visible=true, transformation(
+            origin={-88,-100},
+            extent={{-10,-10},{10,10}},
+            rotation=0)));
+      PowerGridsMC.Electrical.Loads.LoadPQW Load3(
+        portVariablesPhases=true,
+        P=94.2e6,
+        Q=19.1e6,
+        SNom=100e6,
+        UNom=69e3) annotation (Placement(visible=true, transformation(
+            origin={88,-98},
+            extent={{-10,-10},{10,10}},
+            rotation=0)));
+      PowerGridsMC.Electrical.Loads.LoadPQW Load4(
+        portVariablesPhases=true,
+        P=47.8e6,
+        Q=-3.9e6,
+        SNom=100e6,
+        UNom=69e3) annotation (Placement(visible=true, transformation(
+            origin={112,-54},
+            extent={{-10,-10},{10,10}},
+            rotation=0)));
+      PowerGridsMC.Electrical.Loads.LoadPQW Load5(
+        portVariablesPhases=true,
+        P=7.6e6,
+        Q=1.6e6,
+        SNom=100e6,
+        UNom=69e3) annotation (Placement(visible=true, transformation(
+            origin={-74,-26},
+            extent={{-10,-10},{10,10}},
+            rotation=180)));
+      PowerGridsMC.Electrical.Loads.LoadPQW Load6(
+        portVariablesPhases=true,
+        P=11.2e6,
+        Q=7.5e6,
+        SNom=100e6,
+        UNom=13.8e3) annotation (Placement(visible=true, transformation(
+            origin={-26,-14},
+            extent={{10,-10},{-10,10}},
+            rotation=0)));
+      PowerGridsMC.Electrical.Loads.LoadPQW Load9(
+        portVariablesPhases=true,
         showPortData=true,
-        P = 29.5e6,
-        Q = 16.6e6,
+        P=29.5e6,
+        Q=16.6e6,
         SNom=100000000,
-        UNom=13800)
-        annotation (
-        Placement(visible = true, transformation(origin={106,56},    extent = {{-10, -10}, {10, 10}}, rotation = 180)));
-      PowerGridsMC.Electrical.PowerFlow.PQBusW Load10(
-        portVariablesPhases = true,
-        P = 9e6,
-        Q = 5.8e6,
-        SNom = 100e6,
-        UNom = 13.8e3)
-        annotation (
-        Placement(visible = true, transformation(origin={24,52},    extent = {{-10, -10}, {10, 10}}, rotation = 180)));
-      PowerGridsMC.Electrical.PowerFlow.PQBusW Load11(
-        portVariablesPhases = true,
-        P = 3.5e6,
-        Q = 1.8e6,
-        SNom = 100e6,
-        UNom = 13.8e3)
-        annotation (
-        Placement(visible = true, transformation(origin={-24,52},    extent = {{-10, -10}, {10, 10}}, rotation = 180)));
-      PowerGridsMC.Electrical.PowerFlow.PQBusW Load12(
-        portVariablesPhases = true,
+        UNom=13800) annotation (Placement(visible=true, transformation(
+            origin={106,56},
+            extent={{-10,-10},{10,10}},
+            rotation=180)));
+      PowerGridsMC.Electrical.Loads.LoadPQW Load10(
+        portVariablesPhases=true,
+        P=9e6,
+        Q=5.8e6,
+        SNom=100e6,
+        UNom=13.8e3) annotation (Placement(visible=true, transformation(
+            origin={24,52},
+            extent={{-10,-10},{10,10}},
+            rotation=180)));
+      PowerGridsMC.Electrical.Loads.LoadPQW Load11(
+        portVariablesPhases=true,
+        P=3.5e6,
+        Q=1.8e6,
+        SNom=100e6,
+        UNom=13.8e3) annotation (Placement(visible=true, transformation(
+            origin={-24,52},
+            extent={{-10,-10},{10,10}},
+            rotation=180)));
+      PowerGridsMC.Electrical.Loads.LoadPQW Load12(
+        portVariablesPhases=true,
         P=6100000,
         Q=1600000,
         SNom=100000000,
         UNom=13800,
-        showPortData=true)
-        annotation (
-        Placement(visible = true, transformation(origin={-106,94},   extent = {{-10, -10}, {10, 10}}, rotation = 180)));
-      PowerGridsMC.Electrical.PowerFlow.PQBusW Load13(
-        portVariablesPhases = true,
+        showPortData=true) annotation (Placement(visible=true, transformation(
+            origin={-106,94},
+            extent={{-10,-10},{10,10}},
+            rotation=180)));
+      PowerGridsMC.Electrical.Loads.LoadPQW Load13(
+        portVariablesPhases=true,
         P=13800000,
         Q=5800000,
         SNom=100000000,
         UNom=13800,
-        showPortData=true)
-        annotation (
-        Placement(visible = true, transformation(origin={-46,94},    extent = {{-10, -10}, {10, 10}}, rotation = 180)));
-      PowerGridsMC.Electrical.PowerFlow.PQBusW Load14(
-        portVariablesPhases = true,
+        showPortData=true) annotation (Placement(visible=true, transformation(
+            origin={-46,94},
+            extent={{-10,-10},{10,10}},
+            rotation=180)));
+      PowerGridsMC.Electrical.Loads.LoadPQW Load14(
+        portVariablesPhases=true,
         P=14900000,
         Q=5000000,
         SNom=100000000,
         UNom=13800,
-        showPortData=true)
-        annotation (
-        Placement(visible = true, transformation(origin={14,94},    extent = {{-10, -10}, {10, 10}}, rotation = 180)));
+        showPortData=true) annotation (Placement(visible=true, transformation(
+            origin={14,94},
+            extent={{-10,-10},{10,10}},
+            rotation=180)));
 
     // Capacitor bank
       PowerGridsMC.Electrical.Banks.CapacitorBankFixed Cbank9(
@@ -2265,44 +2295,76 @@ package PFT
       PowerGridsMC.Electrical.Branches.LineConstantImpedance L13to14(portVariablesPhases = true, R = 0.325519, X = 0.662763, G = 0, B = 0, SNom = 100e6, UNom = 13.8e3) annotation (
         Placement(visible = true, transformation(origin={-14,72},  extent = {{-10, -10}, {10, 10}}, rotation = 0)));
       // Loads
-      PowerGridsMC.Electrical.Loads.LoadPQVoltageDependenceR Load2(
-        alpha = 1.5, beta = 2.5)   annotation (
-        Placement(visible = true, transformation(origin={-104,-98},   extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-      PowerGridsMC.Electrical.Loads.LoadPQVoltageDependenceR Load3(
-        alpha = 1.5, beta = 2.5,
-        SNom = 100e6, UNom = 69e3) annotation (
-        Placement(visible = true, transformation(origin={104,-94},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-      PowerGridsMC.Electrical.Loads.LoadPQVoltageDependenceR Load4(
-        alpha = 1.5, beta = 2.5,
-        SNom = 100e6, UNom = 69e3) annotation (
-        Placement(visible = true, transformation(origin={124,-54},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-      PowerGridsMC.Electrical.Loads.LoadPQVoltageDependenceR Load5(
-        alpha = 1.5, beta = 2.5)   annotation (
-        Placement(visible = true, transformation(origin={-64,-34},    extent = {{-10, -10}, {10, 10}}, rotation = 180)));
-      PowerGridsMC.Electrical.Loads.LoadPQVoltageDependenceR Load6(
-        alpha = 1.5, beta = 2.5)     annotation (
-        Placement(visible = true, transformation(origin={-22,-14},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-      PowerGridsMC.Electrical.Loads.LoadPQVoltageDependenceR Load9(
-        alpha = 1.5, beta = 2.5,
-        SNom = 100e6, UNom = 13.8e3) annotation (
-        Placement(visible = true, transformation(origin={118,54},    extent = {{-10, -10}, {10, 10}}, rotation = 180)));
-      PowerGridsMC.Electrical.Loads.LoadPQVoltageDependenceR Load10(
-        alpha = 1.5, beta = 2.5,
-        SNom = 100e6, UNom = 13.8e3) annotation (
-        Placement(visible = true, transformation(origin={26,54},    extent = {{-10, -10}, {10, 10}}, rotation = 180)));
-      PowerGridsMC.Electrical.Loads.LoadPQVoltageDependenceR Load11(
-        alpha = 1.5, beta = 2.5,
-        SNom = 100e6, UNom = 13.8e3) annotation (
-        Placement(visible = true, transformation(origin={-24,54},    extent = {{-10, -10}, {10, 10}}, rotation = 180)));
-      PowerGridsMC.Electrical.Loads.LoadPQVoltageDependenceR Load12(
-        alpha = 1.5, beta = 2.5)     annotation (
-        Placement(visible = true, transformation(origin={-104,94},   extent = {{-10, -10}, {10, 10}}, rotation = 180)));
-      PowerGridsMC.Electrical.Loads.LoadPQVoltageDependenceR Load13(
-        alpha = 1.5, beta = 2.5)     annotation (
-        Placement(visible = true, transformation(origin={-44,94},    extent = {{-10, -10}, {10, 10}}, rotation = 180)));
-      PowerGridsMC.Electrical.Loads.LoadPQVoltageDependenceR Load14(
-        alpha = 1.5, beta = 2.5)     annotation (
-        Placement(visible = true, transformation(origin={16,94},    extent = {{-10, -10}, {10, 10}}, rotation = 180)));
+      PowerGridsMC.Electrical.Loads.LoadAlphaBetaR Load2(alpha=1.5, beta=2.5)
+        annotation (Placement(visible=true, transformation(
+            origin={-104,-98},
+            extent={{-10,-10},{10,10}},
+            rotation=0)));
+      PowerGridsMC.Electrical.Loads.LoadAlphaBetaR Load3(
+        alpha=1.5,
+        beta=2.5,
+        SNom=100e6,
+        UNom=69e3) annotation (Placement(visible=true, transformation(
+            origin={104,-94},
+            extent={{-10,-10},{10,10}},
+            rotation=0)));
+      PowerGridsMC.Electrical.Loads.LoadAlphaBetaR Load4(
+        alpha=1.5,
+        beta=2.5,
+        SNom=100e6,
+        UNom=69e3) annotation (Placement(visible=true, transformation(
+            origin={124,-54},
+            extent={{-10,-10},{10,10}},
+            rotation=0)));
+      PowerGridsMC.Electrical.Loads.LoadAlphaBetaR Load5(alpha=1.5, beta=2.5)
+        annotation (Placement(visible=true, transformation(
+            origin={-64,-34},
+            extent={{-10,-10},{10,10}},
+            rotation=180)));
+      PowerGridsMC.Electrical.Loads.LoadAlphaBetaR Load6(alpha=1.5, beta=2.5)
+        annotation (Placement(visible=true, transformation(
+            origin={-22,-14},
+            extent={{-10,-10},{10,10}},
+            rotation=0)));
+      PowerGridsMC.Electrical.Loads.LoadAlphaBetaR Load9(
+        alpha=1.5,
+        beta=2.5,
+        SNom=100e6,
+        UNom=13.8e3) annotation (Placement(visible=true, transformation(
+            origin={118,54},
+            extent={{-10,-10},{10,10}},
+            rotation=180)));
+      PowerGridsMC.Electrical.Loads.LoadAlphaBetaR Load10(
+        alpha=1.5,
+        beta=2.5,
+        SNom=100e6,
+        UNom=13.8e3) annotation (Placement(visible=true, transformation(
+            origin={26,54},
+            extent={{-10,-10},{10,10}},
+            rotation=180)));
+      PowerGridsMC.Electrical.Loads.LoadAlphaBetaR Load11(
+        alpha=1.5,
+        beta=2.5,
+        SNom=100e6,
+        UNom=13.8e3) annotation (Placement(visible=true, transformation(
+            origin={-24,54},
+            extent={{-10,-10},{10,10}},
+            rotation=180)));
+      PowerGridsMC.Electrical.Loads.LoadAlphaBetaR Load12(alpha=1.5, beta=2.5)
+        annotation (Placement(visible=true, transformation(
+            origin={-104,94},
+            extent={{-10,-10},{10,10}},
+            rotation=180)));
+      PowerGridsMC.Electrical.Loads.LoadAlphaBetaR Load13(alpha=1.5, beta=2.5)
+        annotation (Placement(visible=true, transformation(
+            origin={-44,94},
+            extent={{-10,-10},{10,10}},
+            rotation=180)));
+      PowerGridsMC.Electrical.Loads.LoadAlphaBetaR Load14(alpha=1.5, beta=2.5)
+        annotation (Placement(visible=true, transformation(
+            origin={16,94},
+            extent={{-10,-10},{10,10}},
+            rotation=180)));
       // Capacitor Bank
       PowerGridsMC.Electrical.Banks.CapacitorBankFixed Cbank9(B = 0.099769, SNom = 100e6, UNom = 13.8e3) annotation (
         Placement(visible = true, transformation(origin={100,54},    extent = {{-10, -10}, {10, 10}}, rotation = 180)));
@@ -2726,50 +2788,94 @@ package PFT
       PowerGridsMC.Electrical.Branches.LineConstantImpedance L13to14(portVariablesPhases = true, R = 0.325519, X = 0.662763, G = 0, B = 0, SNom = 100e6, UNom = 13.8e3) annotation (
         Placement(visible = true, transformation(origin={-14,72},  extent = {{-10, -10}, {10, 10}}, rotation = 0)));
       // Loads
-      PowerGridsMC.Electrical.Loads.LoadPQVoltageDependenceR Load2(
-        alpha = 1.5, beta = 2.5,
-        SNom = 100e6, UNom = 69e3) annotation (
-        Placement(visible = true, transformation(origin={-104,-98},   extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-      PowerGridsMC.Electrical.Loads.LoadPQVoltageDependenceR Load3(
-        alpha = 1.5, beta = 2.5,
-        SNom = 100e6, UNom = 69e3) annotation (
-        Placement(visible = true, transformation(origin={102,-98},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-      PowerGridsMC.Electrical.Loads.LoadPQVoltageDependenceR Load4(
-        alpha = 1.5, beta = 2.5,
-        SNom = 100e6, UNom = 69e3) annotation (
-        Placement(visible = true, transformation(origin={122,-54},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-      PowerGridsMC.Electrical.Loads.LoadPQVoltageDependenceR Load5(
-        alpha = 1.5, beta = 2.5,
-        SNom = 100e6, UNom = 69e3) annotation (
-        Placement(visible = true, transformation(origin={-74,-30},    extent = {{-10, -10}, {10, 10}}, rotation = 180)));
-      PowerGridsMC.Electrical.Loads.LoadPQVoltageDependenceR Load6(
-        alpha = 1.5, beta = 2.5,
-        SNom = 100e6, UNom = 13.8e3) annotation (
-        Placement(visible = true, transformation(origin={-22,-14},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-      PowerGridsMC.Electrical.Loads.LoadPQVoltageDependenceR Load9(
-        alpha = 1.5, beta = 2.5,
-        SNom = 100e6, UNom = 13.8e3) annotation (
-        Placement(visible = true, transformation(origin={116,54},    extent = {{-10, -10}, {10, 10}}, rotation = 180)));
-      PowerGridsMC.Electrical.Loads.LoadPQVoltageDependenceR Load10(
-        alpha = 1.5, beta = 2.5,
-        SNom = 100e6, UNom = 13.8e3) annotation (
-        Placement(visible = true, transformation(origin={26,54},    extent = {{-10, -10}, {10, 10}}, rotation = 180)));
-      PowerGridsMC.Electrical.Loads.LoadPQVoltageDependenceR Load11(
-        alpha = 1.5, beta = 2.5,
-        SNom = 100e6, UNom = 13.8e3) annotation (
-        Placement(visible = true, transformation(origin={-24,54},    extent = {{-10, -10}, {10, 10}}, rotation = 180)));
-      PowerGridsMC.Electrical.Loads.LoadPQVoltageDependenceR Load12(
-        alpha = 1.5, beta = 2.5,
-        SNom = 100e6, UNom = 13.8e3) annotation (
-        Placement(visible = true, transformation(origin={-104,94},   extent = {{-10, -10}, {10, 10}}, rotation = 180)));
-      PowerGridsMC.Electrical.Loads.LoadPQVoltageDependenceR Load13(
-        alpha = 1.5, beta = 2.5,
-        SNom = 100e6, UNom = 13.8e3) annotation (
-        Placement(visible = true, transformation(origin={-44,94},    extent = {{-10, -10}, {10, 10}}, rotation = 180)));
-      PowerGridsMC.Electrical.Loads.LoadPQVoltageDependenceR Load14(
-        alpha = 1.5, beta = 2.5,
-        SNom = 100e6, UNom = 13.8e3) annotation (
-        Placement(visible = true, transformation(origin={16,94},    extent = {{-10, -10}, {10, 10}}, rotation = 180)));
+      PowerGridsMC.Electrical.Loads.LoadAlphaBetaR Load2(
+        alpha=1.5,
+        beta=2.5,
+        SNom=100e6,
+        UNom=69e3) annotation (Placement(visible=true, transformation(
+            origin={-104,-98},
+            extent={{-10,-10},{10,10}},
+            rotation=0)));
+      PowerGridsMC.Electrical.Loads.LoadAlphaBetaR Load3(
+        alpha=1.5,
+        beta=2.5,
+        SNom=100e6,
+        UNom=69e3) annotation (Placement(visible=true, transformation(
+            origin={102,-98},
+            extent={{-10,-10},{10,10}},
+            rotation=0)));
+      PowerGridsMC.Electrical.Loads.LoadAlphaBetaR Load4(
+        alpha=1.5,
+        beta=2.5,
+        SNom=100e6,
+        UNom=69e3) annotation (Placement(visible=true, transformation(
+            origin={122,-54},
+            extent={{-10,-10},{10,10}},
+            rotation=0)));
+      PowerGridsMC.Electrical.Loads.LoadAlphaBetaR Load5(
+        alpha=1.5,
+        beta=2.5,
+        SNom=100e6,
+        UNom=69e3) annotation (Placement(visible=true, transformation(
+            origin={-74,-30},
+            extent={{-10,-10},{10,10}},
+            rotation=180)));
+      PowerGridsMC.Electrical.Loads.LoadAlphaBetaR Load6(
+        alpha=1.5,
+        beta=2.5,
+        SNom=100e6,
+        UNom=13.8e3) annotation (Placement(visible=true, transformation(
+            origin={-22,-14},
+            extent={{-10,-10},{10,10}},
+            rotation=0)));
+      PowerGridsMC.Electrical.Loads.LoadAlphaBetaR Load9(
+        alpha=1.5,
+        beta=2.5,
+        SNom=100e6,
+        UNom=13.8e3) annotation (Placement(visible=true, transformation(
+            origin={116,54},
+            extent={{-10,-10},{10,10}},
+            rotation=180)));
+      PowerGridsMC.Electrical.Loads.LoadAlphaBetaR Load10(
+        alpha=1.5,
+        beta=2.5,
+        SNom=100e6,
+        UNom=13.8e3) annotation (Placement(visible=true, transformation(
+            origin={26,54},
+            extent={{-10,-10},{10,10}},
+            rotation=180)));
+      PowerGridsMC.Electrical.Loads.LoadAlphaBetaR Load11(
+        alpha=1.5,
+        beta=2.5,
+        SNom=100e6,
+        UNom=13.8e3) annotation (Placement(visible=true, transformation(
+            origin={-24,54},
+            extent={{-10,-10},{10,10}},
+            rotation=180)));
+      PowerGridsMC.Electrical.Loads.LoadAlphaBetaR Load12(
+        alpha=1.5,
+        beta=2.5,
+        SNom=100e6,
+        UNom=13.8e3) annotation (Placement(visible=true, transformation(
+            origin={-104,94},
+            extent={{-10,-10},{10,10}},
+            rotation=180)));
+      PowerGridsMC.Electrical.Loads.LoadAlphaBetaR Load13(
+        alpha=1.5,
+        beta=2.5,
+        SNom=100e6,
+        UNom=13.8e3) annotation (Placement(visible=true, transformation(
+            origin={-44,94},
+            extent={{-10,-10},{10,10}},
+            rotation=180)));
+      PowerGridsMC.Electrical.Loads.LoadAlphaBetaR Load14(
+        alpha=1.5,
+        beta=2.5,
+        SNom=100e6,
+        UNom=13.8e3) annotation (Placement(visible=true, transformation(
+            origin={16,94},
+            extent={{-10,-10},{10,10}},
+            rotation=180)));
       // Capacitor Bank
       PowerGridsMC.Electrical.Banks.CapacitorBankFixed Cbank9(B = 0.099769, SNom = 100e6, UNom = 13.8e3) annotation (
         Placement(visible = true, transformation(origin={98,54},     extent = {{-10, -10}, {10, 10}}, rotation = 180)));
@@ -3095,7 +3201,7 @@ package PFT
               coordinateSystem(preserveAspectRatio=false)),
           experiment(
             StopTime=20,
-            Interval=0.002,
+            Interval=0.02,
             Tolerance=1e-06,
             __Dymola_Algorithm="Dassl"),
           Documentation(info="<html>

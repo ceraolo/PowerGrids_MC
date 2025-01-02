@@ -17,8 +17,13 @@ model TestCase2 "Test Case 2, Section 5.2, focuses on the dynamic behavior of th
     Placement(transformation(origin = {-104, -19}, extent = {{-12, -11}, {12, 11}})));
   Modelica.Blocks.Sources.RealExpression RefLPu(y = 380 / 475 * 0.05) annotation (
     Placement(transformation(origin = {-98, 30}, extent = {{-10, -10}, {10, 10}})));
-  PowerGridsMC.Electrical.Loads.LoadImpedancePQInputs LOAD(PStart = 3.8e+08, SNom = 4.75e+08, UNom = 21000, portVariablesPhases = true, portVariablesPu = true) annotation (
-    Placement(transformation(origin = {22, -32}, extent = {{-10, -10}, {10, 10}})));
+  PowerGridsMC.Electrical.Loads.LoadZetaInputs LOAD(
+    PStart=3.8e+08,
+    SNom=4.75e+08,
+    UNom=21000,
+    portVariablesPhases=true,
+    portVariablesPu=true) annotation (Placement(transformation(origin={22,-32},
+          extent={{-10,-10},{10,10}})));
   Modelica.Blocks.Sources.Step PLoad(height = 23.75e6, offset = 380e6, startTime = 0.1)  annotation (
     Placement(transformation(origin = {-18, -28}, extent = {{-8, -8}, {8, 8}})));
   Modelica.Blocks.Sources.RealExpression zero2 annotation (

@@ -1,7 +1,7 @@
-within PowerGridsMC.Electrical.PowerFlow;
-model PQBusW "PQ bus - Save PF data on disk"
+within PowerGridsMC.Electrical.Loads;
+model LoadPQW "PQ bus - Save PF data on disk"
 
-  extends PQBus;
+  extends LoadPQ;
 
   // Modifications to allow data exchange with simulations:
   final parameter String name = getInstanceName();
@@ -46,4 +46,4 @@ algorithm
 </html>", revisions="<html>
 <p>Created by Massimo Ceraolo based on original PowerGrid&apos;s PQBus on November 2024</p>
 </html>"));
-end PQBusW;
+end LoadPQW;

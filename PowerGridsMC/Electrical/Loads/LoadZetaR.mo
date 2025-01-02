@@ -1,6 +1,5 @@
 within PowerGridsMC.Electrical.Loads;
-model LoadImpedancePQ_R
-  "Load model with impedance specified by PRef and QRef"
+model LoadZetaR "Load model with impedance specified by PRef and QRef"
 
 //    PFout[1,1]=port.U;
 //    PFout[1,2]=port.UPhase;
@@ -10,7 +9,7 @@ model LoadImpedancePQ_R
 //    PFout[1,6]=port.PPu;
 //    PFout[1,7]=port.QPu;
 
-  extends LoadImpedancePQ(PStart=PFout[1,3], PRefConst=PFout[1,3],
+  extends LoadZeta       (PStart=PFout[1,3], PRefConst=PFout[1,3],
      QStart=PFout[1,4], QRefConst=PFout[1,4], URef=PFout[1,1],
      UStart=PFout[1,1], UPhaseStart=PFout[1,2]);
 
@@ -48,4 +47,4 @@ model LoadImpedancePQ_R
 <p>Created by Massimo Ceraolo based on original PowerGrid&apos;s LoadPQVoltageDependence on November 2024</p>
 </html>"));
 
-end LoadImpedancePQ_R;
+end LoadZetaR;

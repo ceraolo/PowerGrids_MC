@@ -33,8 +33,15 @@ model TestCase3 "Test Case 3, Section 5.3, focuses on the dynamic behavior of th
     Placement(visible = true, transformation(origin={-92,-31},     extent = {{-12, -11}, {12, 11}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression RefLPu(y = 475 / 500 * 0.05)  annotation (
     Placement(visible = true, transformation(origin={-88,24},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  PowerGridsMC.Electrical.Loads.LoadImpedancePQ GRIDL(PRef = 4.75e+08, QRef = 7.6e+07, SNom = 5e+08, UNom = 380000, URef = 1.05 * 380e3, portVariablesPhases = true, portVariablesPu = true)  annotation (
-    Placement(transformation(origin={50,-38},    extent = {{-10, -10}, {10, 10}})));
+  PowerGridsMC.Electrical.Loads.LoadZeta GRIDL(
+    PRef=4.75e+08,
+    QRef=7.6e+07,
+    SNom=5e+08,
+    UNom=380000,
+    URef=1.05*380e3,
+    portVariablesPhases=true,
+    portVariablesPu=true) annotation (Placement(transformation(origin={50,-38},
+          extent={{-10,-10},{10,10}})));
   Electrical.Buses.EquivalentGrid GRID(R_X = 1 / 10, SNom = 5e+08, SSC = 2.5e+09, UNom = 380000, URef = 1.050 * 380e3, c = 1.1, portVariablesPhases = true, portVariablesPu = true)  annotation (
     Placement(transformation(origin={66,-24},    extent = {{-10, -10}, {10, 10}})));
 

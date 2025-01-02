@@ -1,5 +1,5 @@
 within PowerGridsMC.Electrical.Loads;
-model LoadPQVoltageDependenceR
+model LoadAlphaBetaR
 
 //    PFout[1,1]=port.U;
 //    PFout[1,2]=port.UPhase;
@@ -9,8 +9,7 @@ model LoadPQVoltageDependenceR
 //    PFout[1,6]=port.PPu;
 //    PFout[1,7]=port.QPu;
 
-
-  extends LoadPQVoltageDependence(PStart=PFout[1,3], PRefConst=PFout[1,3],
+  extends LoadAlphaBeta          (PStart=PFout[1,3], PRefConst=PFout[1,3],
      QStart=PFout[1,4], QRefConst=PFout[1,4], URef=PFout[1,1],
      UStart=PFout[1,1], UPhaseStart=PFout[1,2]);
 
@@ -32,4 +31,4 @@ model LoadPQVoltageDependenceR
 </html>", revisions="<html>
 <p>Created by Massimo Ceraolo based on original PowerGrid&apos;s LoadPQVoltageDependence on November 2024</p>
 </html>"));
-end LoadPQVoltageDependenceR;
+end LoadAlphaBetaR;

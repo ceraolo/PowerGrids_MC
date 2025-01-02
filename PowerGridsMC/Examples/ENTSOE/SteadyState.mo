@@ -21,8 +21,17 @@ model SteadyState "Reproduces the basic static power flow, see fig. 3-1 of the r
     Placement(transformation(origin={-96,-29},    extent = {{-12, -11}, {12, 11}})));
   Modelica.Blocks.Sources.RealExpression RefLPu(y = 475/500*0.05) annotation (
     Placement(transformation(origin={-90,24},    extent = {{-10, -10}, {10, 10}})));
-  PowerGridsMC.Electrical.Loads.LoadImpedancePQ GRIDL(PRefConst = 4.75e+08, PStart(displayUnit = "W"), QRefConst = 7.6e+07, SNom = 5e+08, UNom = 380000, URef(displayUnit = "V") = 1.05*380e3, UStart(displayUnit = "V"), portVariablesPhases = true, portVariablesPu = true) annotation (
-    Placement(transformation(origin={60,6},      extent = {{-10, -10}, {10, 10}})));
+  PowerGridsMC.Electrical.Loads.LoadZeta GRIDL(
+    PRefConst=4.75e+08,
+    PStart(displayUnit="W"),
+    QRefConst=7.6e+07,
+    SNom=5e+08,
+    UNom=380000,
+    URef(displayUnit="V") = 1.05*380e3,
+    UStart(displayUnit="V"),
+    portVariablesPhases=true,
+    portVariablesPu=true) annotation (Placement(transformation(origin={60,6},
+          extent={{-10,-10},{10,10}})));
   Types.PerUnit AA_01_NGEN_U = GEN.VPu;
   Types.PerUnit AA_02_NGRID_U = GRID.port.VPu;
   Types.Angle AA_03_NGRID_delta = GRID.port.UPhase;

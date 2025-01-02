@@ -1,5 +1,5 @@
 within PowerGridsMC.Electrical.Loads;
-model LoadPQVoltageDependence "Load model with voltage dependent P and Q"
+model LoadAlphaBeta "Load model with voltage dependent P and Q"
   extends PowerGridsMC.Electrical.BaseClasses.OnePortAC(
     final portVariablesPu=true,
     PStart = PRefConst,
@@ -60,13 +60,13 @@ equation
              else
                String(port.S.im/1e6, format = "9.2f")))}
 
-), Documentation(info = "<html><head></head><body><p>Model of a PQ load with voltage dependence.</p>
+), Documentation(info="<html><head></head><body><p>Model of a PQ load with voltage dependence.</p>
 <p><code>port.P = PRef*(port.U/URef)^alpha;</code> <br> <code>port.Q = QRef*(port.U/URef)^beta</code>.</p>
 <p>By default <br><br><code>PRef = PRefConst</code><br><code>QRef = QRefConst</code>,<br><br> so by just setting the <code>PRefConst</code> and <code>QRefConst</code>&nbsp;parameters one can obtain a PQ source with fixed reference P and Q values.</p>
 <p>It is possible to change the binding of <code>PRef</code> and  <code>QRef</code> when instantiating the model, to obtain time-varying PQ loads without the need of signal generator blocks, e.g.<br><br>
 <code>LoadPQVoltageDependence myLoad(PRef = 1e8 + (if time &lt; 10 then 0 else 1e7)); </code>
 </p>
-in which case, the constant reference value PRefConst is ignored. Alternatively, one can use the <a href=\"modelica://PowerGridsMC.Electrical.Loads.LoadPQVoltageDependenceInputs\">LoadPQVoltageDependenceInputs</a> model that has input connectors for <code>PRef</code> and <code>QRef</code>.<p></p>
+in which case, the constant reference value PRefConst is ignored. Alternatively, one can use the <a href=\"modelica://PowerGridsMC.Electrical.Loads.LoadAlphaBetaInputs\">LoadPQVoltageDependenceInputs</a> model that has input connectors for <code>PRef</code> and <code>QRef</code>.<p></p>
 <p>By default <code>alpha = beta = 0</code> so there is no voltage dependence.</p>
 </body></html>"));
-end LoadPQVoltageDependence;
+end LoadAlphaBeta;

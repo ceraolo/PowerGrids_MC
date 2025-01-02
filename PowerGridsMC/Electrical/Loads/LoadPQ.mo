@@ -1,6 +1,6 @@
-within PowerGridsMC.Electrical.PowerFlow;
-model PQBus "PQ bus"
-  extends BaseClasses.OnePortAC_PF(portVariablesPhases = true);
+within PowerGridsMC.Electrical.Loads;
+model LoadPQ "PQ bus"
+  extends PowerGridsMC.Electrical.BaseClasses.OnePortAC;
   extends Icons.Load;
   parameter Types.ActivePower P = SNom "Active power entering the bus";
   parameter Types.ReactivePower Q = 0 "Reactive power entering the bus";
@@ -17,7 +17,9 @@ equation
 
 annotation (
     Icon(coordinateSystem(grid={2,2}),
-     graphics={  Text(origin = {60, -60}, extent = {{-20, 20}, {48, -40}}, textString = "PQ"),
+     graphics={  Text(origin={53.4118,-66.6664},
+                                          extent={{-19.4118,8.66645},{46.5882,
+              -17.3336}},                                                  textString = "PQ"),
        Text(
           visible=showPortData,
           extent={{-102,62},{-2,30}},
@@ -41,4 +43,4 @@ annotation (
 <p>PQBus: prescribes the active power <code>P</code> and the reactive power <code>Q</code> entering the bus.</p>
 </html>"),
     Diagram(coordinateSystem(grid={2,2})));
-end PQBus;
+end LoadPQ;

@@ -1,5 +1,5 @@
 within PowerGridsMC.Electrical.Loads;
-model LoadImpedancePQ "Load model with impedance specified by PRef and QRef"
+model LoadZeta "Load model with impedance specified by PRef QRef and URef"
   extends PowerGridsMC.Electrical.Buses.BaseClasses.BusBase(
     e = Complex(0),
     Z = 1/ComplexMath.conj(Complex(PRef,QRef)/URef^2),
@@ -17,4 +17,4 @@ model LoadImpedancePQ "Load model with impedance specified by PRef and QRef"
     Documentation(info = "<html><head></head><body>
 <p>Model of a fixed impedance load, whose value is specified by the reference values <code>PRef</code>, <code>QRef</code>, and <code>URef</code>.</p>
 </body></html>"));
-end LoadImpedancePQ;
+end LoadZeta;

@@ -7,9 +7,9 @@ package Icons "Icons for the PowerGridsMC library"
     outer Electrical.System systemPowerGrids "Reference to system object";
     parameter Boolean showDataOnDiagramsPu = systemPowerGrids.showDataOnDiagramsPu
      "=true, P,Q,V and phase are shown on the diagrams in per-unit of local machine base";
-  
+
   equation
-  
+
   annotation (
       Icon(graphics={  Rectangle(origin = {0, 2}, fillPattern = FillPattern.Solid,
            extent = {{-100, 6}, {100, -10}}), Text(origin={67,34},
@@ -27,8 +27,7 @@ package Icons "Icons for the PowerGridsMC library"
       Line(origin = {-80, 0}, points = {{-20, 0}, {20, 0}}),
       Line(origin = {80, 0}, points = {{-20, 0}, {20, 0}}),
       Text(origin = {0, 30}, lineColor = {0, 0, 255},
-      extent = {{-80, 10}, {80, -10}}, textString = "%name")
-     },
+      extent = {{-80, 10}, {80, -10}}, textString = "%name")},
     coordinateSystem(initialScale = 0.1)));
   end Line;
 

@@ -3,8 +3,18 @@ model TestTwoBusesTwoTransmLinesWithBreakersOneLoad
   extends Modelica.Icons.Example;
   PowerGridsMC.Electrical.Buses.InfiniteBus infiniteBus1(SNom = 1e+07, UNom = 10000, portVariablesPu = true, theta = 0.523599) annotation (
     Placement(visible = true, transformation(origin = {-60, 0}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  PowerGridsMC.Electrical.Loads.LoadPQVoltageDependence loadPQ(PRefConst = 1e+07, QRefConst = 0, SNom = 1e+07, UNom = 10000, alpha = 0, beta = 0, portVariablesPhases = true) annotation (
-    Placement(visible = true, transformation(origin = {0, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  PowerGridsMC.Electrical.Loads.LoadAlphaBeta loadPQ(
+    PRefConst=1e+07,
+    QRefConst=0,
+    SNom=1e+07,
+    UNom=10000,
+    alpha=0,
+    beta=0,
+    portVariablesPhases=true) annotation (Placement(visible=true,
+        transformation(
+        origin={0,0},
+        extent={{-10,-10},{10,10}},
+        rotation=0)));
   inner PowerGridsMC.Electrical.System systemPowerGrids annotation (
     Placement(visible = true, transformation(origin = {70, 70}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   PowerGridsMC.Electrical.Branches.LineConstantImpedanceWithBreakers transmissionLine1(B = 0.02, G = 0.01,R = 0.3, SNom = 1e+07, UNom = 10000, X = 1.5, portVariablesPu = true) annotation (

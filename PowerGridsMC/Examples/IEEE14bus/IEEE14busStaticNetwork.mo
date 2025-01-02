@@ -68,28 +68,149 @@ model IEEE14busStaticNetwork "Dynamic model of the IEEE 14-bus system, operating
   PowerGridsMC.Electrical.Branches.LineConstantImpedance L13to14(portVariablesPhases = true, R = 0.325519, X = 0.662763, G = 0, B = 0, SNom = 100e6, UNom = 13.8e3) annotation (
     Placement(visible = true, transformation(origin={-14,72},  extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   // Loads
-  PowerGridsMC.Electrical.Loads.LoadPQVoltageDependence Load2(alpha = 1.5, beta = 2.5, PRefConst = 21.7e6, QRefConst = 12.7e6, SNom = 100e6, UNom = 69e3, URef = 72.105e3, UStart = 72.0866e3, UPhaseStart = -0.087) annotation (
-    Placement(visible = true, transformation(origin={-104,-94},   extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  PowerGridsMC.Electrical.Loads.LoadPQVoltageDependence Load3(alpha = 1.5, beta = 2.5, PRefConst = 94.2e6, QRefConst = 19.1e6, SNom = 100e6, UNom = 69e3, URef = 69.69e3, UStart = 69.685e3, UPhaseStart = -0.22231) annotation (
-    Placement(visible = true, transformation(origin={106,-94},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  PowerGridsMC.Electrical.Loads.LoadPQVoltageDependence Load4(alpha = 1.5, beta = 2.5, PRefConst = 47.8e6, QRefConst = -3.9e6, SNom = 100e6, UNom = 69e3, URef = 70.2756e3, UStart = 70.2049e3, UPhaseStart = -0.180223) annotation (
-    Placement(visible = true, transformation(origin={122,-50},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  PowerGridsMC.Electrical.Loads.LoadPQVoltageDependence Load5(alpha = 1.5, beta = 2.5, PRefConst = 7.6e6, QRefConst = 1.6e6, SNom = 100e6, UNom = 69e3, URef = 70.4552e3, UStart = 70.3898e3, UPhaseStart = -0.153511) annotation (
-    Placement(visible = true, transformation(origin={-64,-34},    extent = {{-10, -10}, {10, 10}}, rotation = 180)));
-  PowerGridsMC.Electrical.Loads.LoadPQVoltageDependence Load6(alpha = 1.5, beta = 2.5, PRefConst = 11.2e6, QRefConst = 7.5e6, SNom = 100e6, UNom = 13.8e3, URef = 14.766e3, UStart = 14.7347e3, UPhaseStart = -0.249364) annotation (
-    Placement(visible = true, transformation(origin={-24,-10},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  PowerGridsMC.Electrical.Loads.LoadPQVoltageDependence Load9(alpha = 1.5, beta = 2.5, PRefConst = 29.5e6, QRefConst = 16.6e6, SNom = 100e6, UNom = 13.8e3, URef = 14.5966e3, UStart = 14.5624e3, UPhaseStart = -0.261599) annotation (
-    Placement(visible = true, transformation(origin={116,54},    extent = {{-10, -10}, {10, 10}}, rotation = 180)));
-  PowerGridsMC.Electrical.Loads.LoadPQVoltageDependence Load10(alpha = 1.5, beta = 2.5, PRefConst = 9e6, QRefConst = 5.8e6, SNom = 100e6, UNom = 13.8e3, URef = 14.5241e3, UStart = 14.4903e3, UPhaseStart = -0.264445) annotation (
-    Placement(visible = true, transformation(origin={26,54},    extent = {{-10, -10}, {10, 10}}, rotation = 180)));
-  PowerGridsMC.Electrical.Loads.LoadPQVoltageDependence Load11(alpha = 1.5, beta = 2.5, PRefConst = 3.5e6, QRefConst = 1.8e6, SNom = 100e6, UNom = 13.8e3, URef = 14.5959e3, UStart = 14.5633e3, UPhaseStart = -0.259223) annotation (
-    Placement(visible = true, transformation(origin={-24,54},    extent = {{-10, -10}, {10, 10}}, rotation = 180)));
-  PowerGridsMC.Electrical.Loads.LoadPQVoltageDependence Load12(alpha = 1.5, beta = 2.5, PRefConst = 6.1e6, QRefConst = 1.6e6, SNom = 100e6, UNom = 13.8e3, URef = 14.499e3, UStart = 14.5308e3, UPhaseStart = -0.264428) annotation (
-    Placement(visible = true, transformation(origin={-104,94},   extent = {{-10, -10}, {10, 10}}, rotation = 180)));
-  PowerGridsMC.Electrical.Loads.LoadPQVoltageDependence Load13(alpha = 1.5, beta = 2.5, PRefConst = 13.8e6, QRefConst = 5.8e6, SNom = 100e6, UNom = 13.8e3, URef = 14.5634e3, UStart = 14.4648e3, UPhaseStart = -0.265952) annotation (
-    Placement(visible = true, transformation(origin={-44,94},    extent = {{-10, -10}, {10, 10}}, rotation = 180)));
-  PowerGridsMC.Electrical.Loads.LoadPQVoltageDependence Load14(alpha = 1.5, beta = 2.5, PRefConst = 14.9e6, QRefConst = 5e6, SNom = 100e6, UNom = 13.8e3, URef = 14.3062e3, UStart = 14.2714e3, UPhaseStart = -0.281002) annotation (
-    Placement(visible = true, transformation(origin={16,94},    extent = {{-10, -10}, {10, 10}}, rotation = 180)));
+  PowerGridsMC.Electrical.Loads.LoadAlphaBeta Load2(
+    alpha=1.5,
+    beta=2.5,
+    PRefConst=21.7e6,
+    QRefConst=12.7e6,
+    SNom=100e6,
+    UNom=69e3,
+    URef=72.105e3,
+    UStart=72.0866e3,
+    UPhaseStart=-0.087) annotation (Placement(visible=true, transformation(
+        origin={-104,-94},
+        extent={{-10,-10},{10,10}},
+        rotation=0)));
+  PowerGridsMC.Electrical.Loads.LoadAlphaBeta Load3(
+    alpha=1.5,
+    beta=2.5,
+    PRefConst=94.2e6,
+    QRefConst=19.1e6,
+    SNom=100e6,
+    UNom=69e3,
+    URef=69.69e3,
+    UStart=69.685e3,
+    UPhaseStart=-0.22231) annotation (Placement(visible=true, transformation(
+        origin={106,-94},
+        extent={{-10,-10},{10,10}},
+        rotation=0)));
+  PowerGridsMC.Electrical.Loads.LoadAlphaBeta Load4(
+    alpha=1.5,
+    beta=2.5,
+    PRefConst=47.8e6,
+    QRefConst=-3.9e6,
+    SNom=100e6,
+    UNom=69e3,
+    URef=70.2756e3,
+    UStart=70.2049e3,
+    UPhaseStart=-0.180223) annotation (Placement(visible=true, transformation(
+        origin={122,-50},
+        extent={{-10,-10},{10,10}},
+        rotation=0)));
+  PowerGridsMC.Electrical.Loads.LoadAlphaBeta Load5(
+    alpha=1.5,
+    beta=2.5,
+    PRefConst=7.6e6,
+    QRefConst=1.6e6,
+    SNom=100e6,
+    UNom=69e3,
+    URef=70.4552e3,
+    UStart=70.3898e3,
+    UPhaseStart=-0.153511) annotation (Placement(visible=true, transformation(
+        origin={-64,-34},
+        extent={{-10,-10},{10,10}},
+        rotation=180)));
+  PowerGridsMC.Electrical.Loads.LoadAlphaBeta Load6(
+    alpha=1.5,
+    beta=2.5,
+    PRefConst=11.2e6,
+    QRefConst=7.5e6,
+    SNom=100e6,
+    UNom=13.8e3,
+    URef=14.766e3,
+    UStart=14.7347e3,
+    UPhaseStart=-0.249364) annotation (Placement(visible=true, transformation(
+        origin={-24,-10},
+        extent={{-10,-10},{10,10}},
+        rotation=0)));
+  PowerGridsMC.Electrical.Loads.LoadAlphaBeta Load9(
+    alpha=1.5,
+    beta=2.5,
+    PRefConst=29.5e6,
+    QRefConst=16.6e6,
+    SNom=100e6,
+    UNom=13.8e3,
+    URef=14.5966e3,
+    UStart=14.5624e3,
+    UPhaseStart=-0.261599) annotation (Placement(visible=true, transformation(
+        origin={116,54},
+        extent={{-10,-10},{10,10}},
+        rotation=180)));
+  PowerGridsMC.Electrical.Loads.LoadAlphaBeta Load10(
+    alpha=1.5,
+    beta=2.5,
+    PRefConst=9e6,
+    QRefConst=5.8e6,
+    SNom=100e6,
+    UNom=13.8e3,
+    URef=14.5241e3,
+    UStart=14.4903e3,
+    UPhaseStart=-0.264445) annotation (Placement(visible=true, transformation(
+        origin={26,54},
+        extent={{-10,-10},{10,10}},
+        rotation=180)));
+  PowerGridsMC.Electrical.Loads.LoadAlphaBeta Load11(
+    alpha=1.5,
+    beta=2.5,
+    PRefConst=3.5e6,
+    QRefConst=1.8e6,
+    SNom=100e6,
+    UNom=13.8e3,
+    URef=14.5959e3,
+    UStart=14.5633e3,
+    UPhaseStart=-0.259223) annotation (Placement(visible=true, transformation(
+        origin={-24,54},
+        extent={{-10,-10},{10,10}},
+        rotation=180)));
+  PowerGridsMC.Electrical.Loads.LoadAlphaBeta Load12(
+    alpha=1.5,
+    beta=2.5,
+    PRefConst=6.1e6,
+    QRefConst=1.6e6,
+    SNom=100e6,
+    UNom=13.8e3,
+    URef=14.499e3,
+    UStart=14.5308e3,
+    UPhaseStart=-0.264428) annotation (Placement(visible=true, transformation(
+        origin={-104,94},
+        extent={{-10,-10},{10,10}},
+        rotation=180)));
+  PowerGridsMC.Electrical.Loads.LoadAlphaBeta Load13(
+    alpha=1.5,
+    beta=2.5,
+    PRefConst=13.8e6,
+    QRefConst=5.8e6,
+    SNom=100e6,
+    UNom=13.8e3,
+    URef=14.5634e3,
+    UStart=14.4648e3,
+    UPhaseStart=-0.265952) annotation (Placement(visible=true, transformation(
+        origin={-44,94},
+        extent={{-10,-10},{10,10}},
+        rotation=180)));
+  PowerGridsMC.Electrical.Loads.LoadAlphaBeta Load14(
+    alpha=1.5,
+    beta=2.5,
+    PRefConst=14.9e6,
+    QRefConst=5e6,
+    SNom=100e6,
+    UNom=13.8e3,
+    URef=14.3062e3,
+    UStart=14.2714e3,
+    UPhaseStart=-0.281002) annotation (Placement(visible=true, transformation(
+        origin={16,94},
+        extent={{-10,-10},{10,10}},
+        rotation=180)));
   // Capacitor Bank
   PowerGridsMC.Electrical.Banks.CapacitorBankFixed Cbank9(B = 0.099769, SNom = 100e6, UNom = 13.8e3) annotation (
     Placement(visible = true, transformation(origin={96,54},     extent = {{-10, -10}, {10, 10}}, rotation = 180)));

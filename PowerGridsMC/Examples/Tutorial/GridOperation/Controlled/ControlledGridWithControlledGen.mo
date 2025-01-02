@@ -9,8 +9,17 @@ model ControlledGridWithControlledGen "System under automatic control with high-
     Placement(visible = true, transformation(origin = {0, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   PowerGridsMC.Electrical.Buses.EquivalentGrid GRID(R_X = 1 / 10, SNom = 5e+08, SSC = 2.5e+09, UNom = 380000, URef = 1.05 * 380e3, c = 1.1, portVariablesPhases = true, portVariablesPu = true)  annotation (
     Placement(visible = true, transformation(origin = {56, 10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  PowerGridsMC.Electrical.Loads.LoadImpedancePQ GRIDL(PRefConst = 4.75e+08, QRefConst = 7.6e+07, SNom = 5e+08, UNom = 380000, URef = 1.05 * 380e3, portVariablesPhases = true, portVariablesPu = true)  annotation (
-    Placement(visible = true, transformation(origin = {50, -12}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
+  PowerGridsMC.Electrical.Loads.LoadZeta GRIDL(
+    PRefConst=4.75e+08,
+    QRefConst=7.6e+07,
+    SNom=5e+08,
+    UNom=380000,
+    URef=1.05*380e3,
+    portVariablesPhases=true,
+    portVariablesPu=true) annotation (Placement(visible=true, transformation(
+        origin={50,-12},
+        extent={{-10,-10},{10,10}},
+        rotation=90)));
   PowerGridsMC.Electrical.Buses.BusFault NTHV(R = 0.05,SNom = 5e+08, UNom = 380000, UPhaseStart = 0, UStart = 1.050 * 380e3,portVariablesPhases = true, portVariablesPu = true, startTime = 2, stopTime = 2.1)  annotation (
     Placement(visible = true, transformation(origin = {30, 0}, extent = {{-10, 10}, {10, -10}}, rotation = 90)));
   PowerGridsMC.Examples.Tutorial.GridOperation.Controlled.ControlledGenPSS

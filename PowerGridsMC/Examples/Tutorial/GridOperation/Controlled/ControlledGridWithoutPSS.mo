@@ -11,8 +11,17 @@ model ControlledGridWithoutPSS "System under automatic control without PSS"
     Placement(transformation(origin = {38, -28}, extent = {{-10, -10}, {10, 10}})));
   PowerGridsMC.Electrical.Buses.EquivalentGrid GRID(R_X = 1 / 10, SNom = 5e+08, SSC = 2.5e+09, UNom = 380000, URef = 1.05 * 380e3, c = 1.1, portVariablesPhases = true, portVariablesPu = true)  annotation (
     Placement(transformation(origin = {86, -18}, extent = {{-10, -10}, {10, 10}})));
-  PowerGridsMC.Electrical.Loads.LoadImpedancePQ GRIDL(PRefConst = 4.75e+08, QRefConst = 7.6e+07, SNom = 5e+08, UNom = 380000, URef = 1.05 * 380e3, portVariablesPhases = true, portVariablesPu = true)  annotation (
-    Placement(transformation(origin = {80, -40}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
+  PowerGridsMC.Electrical.Loads.LoadZeta GRIDL(
+    PRefConst=4.75e+08,
+    QRefConst=7.6e+07,
+    SNom=5e+08,
+    UNom=380000,
+    URef=1.05*380e3,
+    portVariablesPhases=true,
+    portVariablesPu=true) annotation (Placement(transformation(
+        origin={80,-40},
+        extent={{-10,-10},{10,10}},
+        rotation=90)));
   PowerGridsMC.Electrical.Controls.TurbineGovernors.IEEE_TGOV1 TGOV(R = 0.05, T1 = 0.5, T2 = 3, T3 = 10, VMax = 1)  annotation (
     Placement(transformation(origin = {-46, 28}, extent = {{-10, 10}, {10, -10}})));
   PowerGridsMC.Electrical.Controls.ExcitationSystems.IEEE_AC4A AVR(Ka = 200, Ta = 0.05, Tb = 10, Tc = 3, VrMax = 4)  annotation (

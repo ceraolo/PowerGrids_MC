@@ -13,8 +13,17 @@ model SynchronousMachine4WindingsPowerSwing
     Placement(visible = true, transformation(origin = {-52, 20}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   PowerGridsMC.Electrical.Branches.LineConstantImpedance line(PStartA = 0, PStartB = 0, R = 0, SNom = 1e+08, UNom = 24000, X = 1, portVariablesPhases = true, portVariablesPu = true) annotation (
     Placement(visible = true, transformation(origin = {30, -8}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  PowerGridsMC.Electrical.Loads.LoadPQVoltageDependenceInputs load(PStart = 4.95e+08, QStart = 2.5e+08, SNom = 5.5e+08, UNom = 24000, UPhaseStart = 0.680678, portVariablesPhases = true) annotation (
-    Placement(visible = true, transformation(origin = {0, -22}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  PowerGridsMC.Electrical.Loads.LoadAlphaBetaInputs load(
+    PStart=4.95e+08,
+    QStart=2.5e+08,
+    SNom=5.5e+08,
+    UNom=24000,
+    UPhaseStart=0.680678,
+    portVariablesPhases=true) annotation (Placement(visible=true,
+        transformation(
+        origin={0,-22},
+        extent={{-10,-10},{10,10}},
+        rotation=0)));
   Modelica.Blocks.Sources.Step P(height = -10e6, offset = 495e6, startTime = 1) annotation (
     Placement(visible = true, transformation(origin = {-50, -18}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Sources.Step Q(height = 0, offset = 250e6) annotation (

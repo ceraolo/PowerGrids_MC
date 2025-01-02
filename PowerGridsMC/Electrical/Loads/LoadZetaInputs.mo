@@ -1,6 +1,7 @@
 within PowerGridsMC.Electrical.Loads;
-model LoadImpedancePQInputs "Load model with impedance specified by PRefIn and QRefIn inputs"
-  extends LoadImpedancePQ(
+model LoadZetaInputs
+  "Load model with impedance specified by PRefIn and QRefIn inputs"
+  extends LoadZeta       (
     final PRef = PRefIn,
     final QRef = QRefIn,
     final PRefConst = 0,
@@ -15,4 +16,4 @@ model LoadImpedancePQInputs "Load model with impedance specified by PRefIn and Q
   Documentation(info = "<html><head></head><body>
 <p>Model of a variable impedance load, whose value is specified by the reference values <code>PRefin</code> and <code>QRefIn</code> inputs and by the <code>URef</code> parameter.</p>
 </body></html>"));
-end LoadImpedancePQInputs;
+end LoadZetaInputs;

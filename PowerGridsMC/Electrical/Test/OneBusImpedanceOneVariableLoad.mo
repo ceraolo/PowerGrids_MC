@@ -3,17 +3,31 @@ model OneBusImpedanceOneVariableLoad
   extends Modelica.Icons.Example;
   PowerGridsMC.Electrical.Buses.InfiniteBus bus1(PStart = -1e+07,R = 0.04,SNom = 1e+08, UNom = 10000, X = 0.4, generatorConvention = true, portVariablesPhases = true, portVariablesPu = true)  annotation (
     Placement(visible = true, transformation(origin = {-50, 10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  PowerGridsMC.Electrical.Loads.LoadPQVoltageDependence load1(
-    PRef = if time < 1 then 10e6 else 20e6, PStart = 1e+07,
-    QRef = if time < 2 then 0 else 30e6, QStart = 0, SNom = 1e+08, UNom = 10000, portVariablesPhases = true)
-    annotation (
-    Placement(visible = true, transformation(origin = {-50,0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  PowerGridsMC.Electrical.Loads.LoadAlphaBeta load1(
+    PRef=if time < 1 then 10e6 else 20e6,
+    PStart=1e+07,
+    QRef=if time < 2 then 0 else 30e6,
+    QStart=0,
+    SNom=1e+08,
+    UNom=10000,
+    portVariablesPhases=true) annotation (Placement(visible=true,
+        transformation(
+        origin={-50,0},
+        extent={{-10,-10},{10,10}},
+        rotation=0)));
   inner System systemPowerGrids annotation (
     Placement(visible = true, transformation(origin = {90, 90}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   PowerGridsMC.Electrical.Buses.InfiniteBus bus2(PStart = -1e+07,R = 0.04, SNom = 1e+08, UNom = 10000, X = 0.4, generatorConvention = true, portVariablesPhases = true, portVariablesPu = true)  annotation (
     Placement(visible = true, transformation(origin = {50, 10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  PowerGridsMC.Electrical.Loads.LoadPQVoltageDependenceInputs load2(PStart = 1e+07, SNom = 1e+08, UNom = 10000, portVariablesPhases = true)  annotation (
-    Placement(visible = true, transformation(origin = {50, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  PowerGridsMC.Electrical.Loads.LoadAlphaBetaInputs load2(
+    PStart=1e+07,
+    SNom=1e+08,
+    UNom=10000,
+    portVariablesPhases=true) annotation (Placement(visible=true,
+        transformation(
+        origin={50,0},
+        extent={{-10,-10},{10,10}},
+        rotation=0)));
   Modelica.Blocks.Sources.Step PSignal(height = 10e6, offset = 10e6, startTime = 1)  annotation (
     Placement(visible = true, transformation(origin = {10, 20}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Sources.Step QSignal(height = 30e6, startTime = 2)  annotation (

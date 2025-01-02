@@ -21,8 +21,16 @@ model PowerFlow "Power flow for the basic grid used in the tutorial"
     Placement(visible = true, transformation(origin = {30, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
   inner PowerGridsMC.Electrical.System systemPowerGrids annotation (
     Placement(visible = true, transformation(origin = {-30, 30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  PowerGridsMC.Electrical.PowerFlow.PQBus GRIDL(P = 4.75e+8, Q = 7.6e+7, SNom = 5e+8, UNom = 380000, portVariablesPhases = true, portVariablesPu = true)  annotation (
-    Placement(visible = true, transformation(origin = {60, -20}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
+  PowerGridsMC.Electrical.Loads.LoadPQ GRIDL(
+    P=4.75e+8,
+    Q=7.6e+7,
+    SNom=5e+8,
+    UNom=380000,
+    portVariablesPhases=true,
+    portVariablesPu=true) annotation (Placement(visible=true, transformation(
+        origin={60,-20},
+        extent={{-10,-10},{10,10}},
+        rotation=90)));
   PowerGridsMC.Electrical.PowerFlow.SlackBus GRID(SNom = 5e+8, U = 399000, UNom = 380000, portVariablesPhases = true, portVariablesPu = true)  annotation (
     Placement(visible = true, transformation(origin = {60, 20}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
 equation

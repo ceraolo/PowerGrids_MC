@@ -1,6 +1,9 @@
-LoadPQVoltageDependence
-LoadPQVoltageDependenceR
-LoadPQVoltageDependenceInputs
-LoadImpedancePQ
-LoadImpedancePQ_R
-LoadImpedancePQInputs
+LoadAlphaBeta
+LoadAlphaBetaR
+LoadAlphaBetaInputs
+LoadZeta
+LoadZetaR
+LoadZetaInputs
+LoadPQ
+LoadPQW
+ZLoad

@@ -15,15 +15,19 @@ model LoadChangeByModifier "Load step response specified by modifiers on a copy 
     Placement(visible = true, transformation(origin={16,-16},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   PowerGridsMC.Electrical.Buses.EquivalentGrid GRID(R_X = 1 / 10, SNom = 5e+08, SSC = 2.5e+09, UNom = 380000, URef = 1.05 * 380e3, c = 1.1, portVariablesPhases = true, portVariablesPu = true)  annotation (
     Placement(visible = true, transformation(origin={68,-6},      extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  PowerGridsMC.Electrical.Loads.LoadImpedancePQ GRIDL(
-      PRef = 4.75e+08*(if time < 2 then 1 else 1.05) "Active power consumption at reference voltage",
-      QRef = 7.6e+07*(if time < 2 then 1 else 1.04) "Reactive power consumption at reference voltage",
-      SNom = 5e+08,
-      UNom = 380000,
-      URef = 1.05 * 380e3,
-      portVariablesPhases = true,
-      portVariablesPu = true)  annotation (
-    Placement(visible = true, transformation(origin={62,-28},     extent = {{-10, -10}, {10, 10}}, rotation = 90)));
+  PowerGridsMC.Electrical.Loads.LoadZeta GRIDL(
+    PRef=4.75e+08*(if time < 2 then 1 else 1.05)
+      "Active power consumption at reference voltage",
+    QRef=7.6e+07*(if time < 2 then 1 else 1.04)
+      "Reactive power consumption at reference voltage",
+    SNom=5e+08,
+    UNom=380000,
+    URef=1.05*380e3,
+    portVariablesPhases=true,
+    portVariablesPu=true) annotation (Placement(visible=true, transformation(
+        origin={62,-28},
+        extent={{-10,-10},{10,10}},
+        rotation=90)));
   Modelica.Blocks.Sources.RealExpression PmPu(y = -GEN.PStart / GEN.SNom)  annotation (
     Placement(visible = true, transformation(origin={-60,-4},   extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression ufPuIn(y = GEN.ufPuInStart)  annotation (

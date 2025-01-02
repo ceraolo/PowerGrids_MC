@@ -5,10 +5,20 @@ model PowerFlow
     Placement(transformation(origin = {-86, 0}, extent = {{10, -10}, {-10, 10}}, rotation = -0)));
   PowerGridsMC.Electrical.PowerFlow.PVBus GEN2(P = -4.5088e+08, SNom = 5e+08, U = 20825, UNom = 21000) annotation (
     Placement(transformation(origin = {86, 0}, extent = {{-10, -10}, {10, 10}})));
-  PowerGridsMC.Electrical.Loads.LoadPQVoltageDependence GRIDL1(PRefConst = 4.5e+08, QRefConst = 200e6, SNom = 5e+08, UNom = 380000, portVariablesPhases = true) annotation (
-    Placement(transformation(origin = {-10, -22}, extent = {{-10, -10}, {10, 10}})));
-  PowerGridsMC.Electrical.Loads.LoadImpedancePQ GRIDL2(PRefConst = 4.5e+08, QRefConst = 200e6, SNom = 5e+08, UNom = 380000, portVariablesPhases = true) annotation (
-    Placement(transformation(origin = {30, -22}, extent = {{-10, -10}, {10, 10}})));
+  PowerGridsMC.Electrical.Loads.LoadAlphaBeta GRIDL1(
+    PRefConst=4.5e+08,
+    QRefConst=200e6,
+    SNom=5e+08,
+    UNom=380000,
+    portVariablesPhases=true) annotation (Placement(transformation(origin={-10,
+            -22}, extent={{-10,-10},{10,10}})));
+  PowerGridsMC.Electrical.Loads.LoadZeta GRIDL2(
+    PRefConst=4.5e+08,
+    QRefConst=200e6,
+    SNom=5e+08,
+    UNom=380000,
+    portVariablesPhases=true) annotation (Placement(transformation(origin={30,-22},
+          extent={{-10,-10},{10,10}})));
   PowerGridsMC.Electrical.Buses.Bus NTLV1(SNom = 5e+08, UNom = 21000, portVariablesPhases = true, portVariablesPu = true) annotation (
     Placement(transformation(origin = {-68, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
   PowerGridsMC.Electrical.Branches.TransformerFixedRatio TGEN1(R = 0.15e-2 * 419 ^ 2 / 500, SNom = 5e+08, UNomA = 21000, UNomB = 419000, X = 16e-2 * 419 ^ 2 / 500, portVariablesPhases = true, portVariablesPu = true, rFixed = 419 / 21, showPortData = true) annotation (

@@ -11,14 +11,38 @@ model SmallSystem
       Placement(visible = true, transformation(origin = {30, -30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   PowerGridsMC.Electrical.Branches.LineConstantImpedance line3(R = 100, SNom = 1e+08, UNom = 400000, X = 1000, portVariablesPu = true)  annotation (
       Placement(visible = true, transformation(origin = {0, 4}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
-  PowerGridsMC.Electrical.PowerFlow.PQBus load1(P = 3e+07, SNom = 3e+07, UNom = 400000, portVariablesPu = true)  annotation (
-      Placement(visible = true, transformation(origin = {-60, -30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  PowerGridsMC.Electrical.PowerFlow.PQBus load2(P = 2e+07, SNom = 4e+07, UNom = 400000, portVariablesPu = true)  annotation (
-      Placement(visible = true, transformation(origin = {60, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  PowerGridsMC.Electrical.PowerFlow.PQBus load3(P = 2e+07, SNom = 2e+07, UNom = 400000, portVariablesPu = true)  annotation (
-      Placement(visible = true, transformation(origin = {0, -50}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  PowerGridsMC.Electrical.PowerFlow.PQBus load4(P = 3e+07, SNom = 3e+07, UNom = 400000, portVariablesPu = true)  annotation (
-      Placement(visible = true, transformation(origin = {20, 30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  PowerGridsMC.Electrical.Loads.LoadPQ load1(
+    P=3e+07,
+    SNom=3e+07,
+    UNom=400000,
+    portVariablesPu=true) annotation (Placement(visible=true, transformation(
+        origin={-60,-30},
+        extent={{-10,-10},{10,10}},
+        rotation=0)));
+  PowerGridsMC.Electrical.Loads.LoadPQ load2(
+    P=2e+07,
+    SNom=4e+07,
+    UNom=400000,
+    portVariablesPu=true) annotation (Placement(visible=true, transformation(
+        origin={60,0},
+        extent={{-10,-10},{10,10}},
+        rotation=0)));
+  PowerGridsMC.Electrical.Loads.LoadPQ load3(
+    P=2e+07,
+    SNom=2e+07,
+    UNom=400000,
+    portVariablesPu=true) annotation (Placement(visible=true, transformation(
+        origin={0,-50},
+        extent={{-10,-10},{10,10}},
+        rotation=0)));
+  PowerGridsMC.Electrical.Loads.LoadPQ load4(
+    P=3e+07,
+    SNom=3e+07,
+    UNom=400000,
+    portVariablesPu=true) annotation (Placement(visible=true, transformation(
+        origin={20,30},
+        extent={{-10,-10},{10,10}},
+        rotation=0)));
   PowerGridsMC.Electrical.PowerFlow.SlackBus slack(SNom = 1e+08, UNom = 400000, portVariablesPu = true)  annotation (
       Placement(visible = true, transformation(origin = {-60, 10}, extent = {{-10, 10}, {10, -10}}, rotation = 0)));
   Buses.Bus bus(SNom = 2e+07, UNom = 400000)  annotation (
