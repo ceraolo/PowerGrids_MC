@@ -47,7 +47,21 @@ annotation (
           points={{-3.01972,29.9973},{18.98,16},{-17.02,0},{18.98,-16}},
           thickness=2,
           arrow={Arrow.None,Arrow.Filled},
-          arrowSize=16)}
+          arrowSize=16),
+      Text(
+        visible = showPortData,
+        textColor = {28, 108, 200},
+        extent={{-168,50},{-30,20}},
+        textString = DynamicSelect("V",
+          if showDataOnDiagramsPu then
+            String((port.U/port.UNom), format="6.3f")
+          else String((port.U/1000), format="9.2f"))),
+      Text(
+        visible = showPortData,
+        textColor = {28, 108, 200},
+        extent={{-162,-20},{-26,-50}},
+        textString = DynamicSelect("Uph",
+         String(((port.UPhase*180)/3.14159), format="4.1f") + "°"))}
 
 
 
