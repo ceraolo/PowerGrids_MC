@@ -69,11 +69,12 @@ equation
   connect(PSS.VstPu, AVR.VsPu) annotation (
     Line(points={{-77,0},{-66.5,0},{-66.5,-10},{-62,-10}},          color = {0, 0, 127}));
   connect(AVR.efdPu, GEN.ufPuIn) annotation (
-    Line(points={{-41,-16},{-34,-16},{-34,-4},{-31,-4},{-31,4},{-26.4,4}},                                          color = {0, 0, 127}));
+    Line(points={{-41,-16},{-34,-16},{-34,4},{-26.4,4}},                                                            color = {0, 0, 127}));
   connect(GEN.omegaPu, TGOV.omegaPu) annotation (
     Line(points={{-5.8,-2},{6,-2},{6,44},{-70,44},{-70,32},{-62,32}},             color = {0, 0, 127}));
-  connect(TGOV.PMechPu, GEN.pmPuIn) annotation (Line(points={{-42,28},{-34,28},
-          {-34,4},{-30,4},{-30,-3.4},{-26.4,-3.4}}, color={0,0,127}));
+  connect(TGOV.PMechPu, GEN.pmPuIn) annotation (Line(points={{-42,28},{-38,28},
+          {-38,-4},{-30,-4},{-30,-3.4},{-26.4,-3.4}},
+                                                    color={0,0,127}));
   connect(NTLV.terminal, TGEN.terminalA) annotation (
     Line(points={{-2,-24},{8,-24}}));
   connect(GEN.terminal, NTLV.terminal) annotation (

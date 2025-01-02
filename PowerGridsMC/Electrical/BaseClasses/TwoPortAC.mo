@@ -74,7 +74,7 @@ partial model TwoPortAC "Base class for two-port AC components"
              String(portA.S.re/1e6, format = "9.2f"))),
       Text(
         visible=showPortData,
-        extent={{-166,46},{-44,16}},
+        extent={{-160,46},{-50,16}},
         lineColor={217,67,180},
         textString=DynamicSelect("Q",
           if showDataOnDiagramsPu then
@@ -92,7 +92,7 @@ partial model TwoPortAC "Base class for two-port AC components"
              String(portB.S.re/1e6, format = "9.2f"))),
       Text(
         visible=showPortData,
-        extent={{42,46},{168,16}},
+        extent={{48,46},{156,16}},
         lineColor={217,67,180},
         textString=DynamicSelect("Q",
           if showDataOnDiagramsPu then

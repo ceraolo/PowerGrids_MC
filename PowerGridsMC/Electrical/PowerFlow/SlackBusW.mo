@@ -41,7 +41,7 @@ equation
   annotation (
   Icon(graphics={
     Text(
-      extent={{36,-12},{80,-46}},
+      extent={{54,-18},{82,-48}},
       textColor={162,29,33},
       textStyle={TextStyle.Italic},
           textString="W")}),

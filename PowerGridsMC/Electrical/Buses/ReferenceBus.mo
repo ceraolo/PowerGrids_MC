@@ -42,7 +42,7 @@ equation
           fillPattern=FillPattern.Solid),
        Text(
           visible=showPortData,
-          extent={{-154,54},{-52,18}},
+          extent={{-154,46},{-52,16}},
           lineColor={238,46,47},
           textString=DynamicSelect("P",
             if showDataOnDiagramsPu then
@@ -51,7 +51,7 @@ equation
               String(port.P/1e6, format = "9.2f"))),
        Text(
           visible=showPortData,
-          extent={{-150,-18},{-50,-52}},
+          extent={{-150,-18},{-50,-48}},
           lineColor={217,67,180},
           textString=DynamicSelect("Q",
             if showDataOnDiagramsPu then
@@ -66,6 +66,5 @@ equation
 <li>Set the initial voltage of the node to the same value as in the power flow model, i.e. with magnitude <code>UStart</code> and phase <code>UPhaseStart</code></li>
 <li>Absorb the excess active power <code>PSlack</code> and reactive power <code>QSlack</code> that allow to balance the power flows at the nominal value of frequency. These two values correspond to the active and reactive power flows into the slack node of the power flow model. <code>PSlack</code> and <code>QSlack</code> then remain constant throughout the simulation. If the power flow is correcty balanced, those two values are nearly zero, so the Reference Bus is not absorbing any significant active or reactive power during the simulation.</li>
 </ul>
-If <code>setPhaseOnly</code> is set to true, then only the initial phase of the bus voltage is set to the same value of the power flow, i.e., <code>UPhaseStart</code>. The initial voltage magnitude is computed to ensure zero reactive power flow <code>QSlack</code>.</body></html>"),
-    Icon(coordinateSystem(grid={2,2}),                            graphics={  Text(origin = {130, 10}, extent = {{-30, 20}, {30, -40}}, textString = "R")}));
+If <code>setPhaseOnly</code> is set to true, then only the initial phase of the bus voltage is set to the same value of the power flow, i.e., <code>UPhaseStart</code>. The initial voltage magnitude is computed to ensure zero reactive power flow <code>QSlack</code>.</body></html>"));
 end ReferenceBus;

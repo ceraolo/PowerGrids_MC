@@ -23,7 +23,7 @@ annotation (
           fillPattern=FillPattern.Solid),
        Text(
           visible=showPortData,
-          extent={{70,68},{172,32}},
+          extent={{-154,46},{-52,16}},
           lineColor={238,46,47},
           textString=DynamicSelect("P",
             if showDataOnDiagramsPu then
@@ -32,7 +32,7 @@ annotation (
               String(port.P/1e6, format = "9.2f"))),
        Text(
           visible=showPortData,
-          extent={{74,-16},{174,-50}},
+          extent={{-150,-18},{-50,-48}},
           lineColor={217,67,180},
           textString=DynamicSelect("Q",
             if showDataOnDiagramsPu then
