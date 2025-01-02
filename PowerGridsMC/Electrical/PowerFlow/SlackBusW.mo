@@ -19,23 +19,20 @@ algorithm
       name,
       index+1,
       Modelica.Utilities.Strings.length(name));
-  end when;
 
-equation
-  when initial() then
-    out[1,1]=port.U;
-    out[1,2]=port.UPhase;
-    out[1,3]=port.P;
-    out[1,4]=port.Q;
-    out[1,5]=port.VPu;
-    out[1,6]=port.PPu;
-    out[1,7]=port.QPu;
+    out[1,1]:=port.U;
+    out[1,2]:=port.UPhase;
+    out[1,3]:=port.P;
+    out[1,4]:=port.Q;
+    out[1,5]:=port.VPu;
+    out[1,6]:=port.PPu;
+    out[1,7]:=port.QPu;
     Modelica.Utilities.Streams.writeRealMatrix(
       nameShort+".mat",  "y", out);
+//    Modelica.Utilities.Streams.print(
+//      "### PVBus model full path: '" + name+".mat" + "'");
     Modelica.Utilities.Streams.print(
-      "### PVBus model full path: '" + name+".mat" + "'");
-    Modelica.Utilities.Streams.print(
-      "*** PVBus model short path: '" + nameShort+".mat" + "'");
+      "*** Slack bus data written on: '" + nameShort+".mat" + "'");
   end when;
 
   annotation (
