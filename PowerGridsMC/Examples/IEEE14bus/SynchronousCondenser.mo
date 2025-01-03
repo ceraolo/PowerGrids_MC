@@ -59,7 +59,7 @@ equation
         Line(points={{-73,-67.7},{-37.1,-67.7},{-36.8,-66.9}}, color={28,108,200}),
        Text(
           visible=showPortData,
-          extent={{-114,66},{-4,30}},
+          extent={{-104,66},{0,36}},
           lineColor={238,46,47},
           textString=DynamicSelect("P",
              if showDataOnDiagramsPu then
@@ -68,9 +68,10 @@ equation
                String(GEN.port.P/1e6, format = "9.2f"))),
        Text(
           visible=showPortData,
-          extent={{0,66},{122,30}},
+          extent={{0,66},{106,36}},
           lineColor={217,67,180},
-         textString=DynamicSelect("Q",
+          horizontalAlignment=TextAlignment.Center,
+          textString=DynamicSelect("Q",
              if showDataOnDiagramsPu then
                String(-GEN.port.QGenPu, format = "6.3f")
              else
