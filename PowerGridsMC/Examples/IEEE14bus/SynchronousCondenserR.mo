@@ -11,8 +11,8 @@ model SynchronousCondenserR
 
   extends SynchronousCondenser(   GEN( PStart=y[1,3],QStart =y[1,4],
   UStart=y[1,1],UPhaseStart=y[1,2]),
-     VrefPuDef(y=y[1, 5]),
-    VrefPu(fixedOffset=false));
+     vRefPuDef(y=y[1, 5]),
+    vRefPu(fixedOffset=false));
 
   //Code to read output from previous PowerFlow run:
   final parameter String name = getInstanceName();

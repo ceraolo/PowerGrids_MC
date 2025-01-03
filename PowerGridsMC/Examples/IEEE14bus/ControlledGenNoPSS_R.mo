@@ -8,9 +8,11 @@ model ControlledGenNoPSS_R
 //    PFout[1,6]=port.PPu;
 //    PFout[1,7]=port.QPu;
 
-  extends ControlledGenNoPSS(     GEN( PStart=PFout[1,3],QStart =PFout[1,4],
-  UStart=PFout[1,1],UPhaseStart=PFout[1,2]),
-    VrefPu(fixedOffset=false));
+  extends ControlledGenNoPSS(GEN(
+      PStart=PFout[1, 3],
+      QStart=PFout[1, 4],
+      UStart=PFout[1, 1],
+      UPhaseStart=PFout[1, 2]), vRefPu(fixedOffset=false));
 
   //Code to read output from previous PowerFlow run:
   final parameter String name = getInstanceName();

@@ -13,7 +13,7 @@ block GoverProportional "Simple proportional governor"
 
   outer PowerGridsMC.Electrical.System systemPowerGrids "Reference to system object";
 
-  Modelica.Blocks.Interfaces.RealInput PmRefPu "Reference frequency/load input [pu]" annotation (
+  Modelica.Blocks.Interfaces.RealInput mpRefPu "Reference frequency/load input [pu]" annotation (
     Placement(visible = true, transformation(origin={-120,50},    extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-100, 40}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   Modelica.Blocks.Interfaces.RealInput omegaPu "Frequency [pu]" annotation (
     Placement(visible = true, transformation(origin={-120,-30},    extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-100, -40}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
@@ -62,7 +62,7 @@ initial equation
 equation
   connect(omegaRefPu.y, deltaOmegaPu.u2) annotation (
     Line(points={{-70,-59},{-70,-38}},                              color = {0, 0, 127}));
-  connect(PmRefPu, errPu.u1) annotation (
+  connect(mpRefPu, errPu.u1) annotation (
     Line(points={{-120,50},{-8,50}},      color = {0, 0, 127}));
   connect(omegaPu, deltaOmegaPu.u1) annotation (
     Line(points={{-120,-30},{-78,-30}},                                color = {0, 0, 127}));
@@ -78,8 +78,8 @@ equation
     Icon( graphics={  Rectangle(origin = {-1, -1}, extent = {{-99, 101}, {101, -99}},
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid),                                              Text(origin = {37, -9}, extent = {{-105, 67}, {31, -47}}, textString = "GOV
-PROP"), Text(origin={0,121},    lineColor = {0, 0, 255}, extent={{-100,13},{100,
-              -13}},                                                                      textString = "%name")}),
+PROP"), Text(origin={-1,121},   lineColor = {0, 0, 255}, extent={{-99,17},{99,
+              -17}},                                                                      textString = "%name")}),
   Documentation(info = "<html><head></head><body><p>The class implements a model of a simple proportional governor with saturation.</p>
 <p>If <code>fixInitialControlledVariable = true</code>, an initial equation is added to ensure that the mechanical power output <code>PMechPu</code> is equal to its start value <code>PMechPuStart</code>. In order to fulfill this condition, the initial value of the reference signal should be free, so that the Modelica tool can back-compute it automatically. For this purpose, the <a href=\"modelica://PowerGridsMC.Controls.FreeOffset\">PowerGridsMC.Controls.FreeOffset</a> block should be used to generate the reference signal to be connected to the <code>VrefPu</code> input.</p>
 <p>In case the condition <code>PMechPu = PMechPuStart</code> cannot be fulfilled without violating the controller saturations, then an alternative initial condition is enforced, which prescribes the saturation block input so as to obtain a certain degree of oversaturation <code>oversaturationPu</code>. This allows to back-compute a unique initial value of the reference signal, which is of course dependent on <code>oversaturationPu</code> and hence somewhat arbitrary.</p>
