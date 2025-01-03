@@ -10,11 +10,11 @@ model SynchronousCondenser "Model of a synchronous condenser for the IEEE-14 bus
             {10,10}},                                                                                                                                                                  rotation = 0)));
   Electrical.Controls.ExcitationSystems.VRProportional AVR(Ka = 20, VcPuStart = GEN.UStart / GEN.UNom, VrMax = 5, VrMin = -5)  annotation (
     Placement(visible = true, transformation(origin={-20,-6},     extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Controls.FreeOffset VrefPu(use_u = true)  annotation (
+  Controls.FreeOffset vRefPu(use_u = true)  annotation (
     Placement(visible = true, transformation(origin={-50,-18},     extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Modelica.Blocks.Sources.RealExpression VrefPuDef(y = 1)  annotation (
+  Modelica.Blocks.Sources.RealExpression vRefPuDef(y = 1)  annotation (
     Placement(visible = true, transformation(origin={-78,-18},     extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Modelica.Blocks.Sources.RealExpression PmPu(y = 0) annotation (
+  Modelica.Blocks.Sources.RealExpression mpPu(y = 0) annotation (
     Placement(visible = true, transformation(origin={-20,24},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Interfaces.RealOutput omega annotation (
     Placement(visible = true, transformation(origin={54,10},    extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin={110,0},   extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -32,13 +32,13 @@ equation
     Line(points={{-29.8,0},{-44,0},{-44,36},{68,36},{68,-2},{34.2,-2}},               color = {0, 0, 127}));
   connect(AVR.efdPu, GEN.ufPuIn) annotation (
     Line(points={{-9.8,-6},{0,-6},{0,0},{13.6,0}},                           color = {0, 0, 127}));
-  connect(VrefPu.y, AVR.VrefPu) annotation (
+  connect(vRefPu.y, AVR.VrefPu) annotation (
     Line(points={{-39,-18},{-36,-18},{-36,-12},{-29.8,-12}},                    color = {0, 0, 127}));
-  connect(VrefPuDef.y, VrefPu.u) annotation (
+  connect(vRefPuDef.y,vRefPu. u) annotation (
     Line(points={{-67,-18},{-61,-18}},                                  color = {0, 0, 127}));
   connect(GEN.omega, omega) annotation (
     Line(points={{34.3,9.9},{42,9.9},{42,10},{54,10}},               color = {0, 0, 127}));
-  connect(PmPu.y, GEN.pmPuIn) annotation (Line(points={{-9,24},{0,24},{0,8},{
+  connect(mpPu.y, GEN.pmPuIn) annotation (Line(points={{-9,24},{0,24},{0,8},{
           13.6,8},{13.6,7.4}}, color={0,0,127}));
   annotation (
     Icon(coordinateSystem(grid={2,2}),   graphics={                                                                                                                                                   Text(origin={-72,-30},   extent={{-30,16},

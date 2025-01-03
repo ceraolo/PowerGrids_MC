@@ -12,13 +12,19 @@ model ControlledGenNoPSS
     Placement(visible = true, transformation(origin={-2,-26},     extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Electrical.Controls.TurbineGovernors.GoverProportional GOV(KGover = 5, PMaxPu = 1, PMinPu = 0, PPuStart = -GEN.PStart / GEN.PNom)  annotation (
     Placement(visible = true, transformation(origin={4,14},      extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  PowerGridsMC.Controls.FreeOffset PmRefPu(use_u = true)  annotation (
+  PowerGridsMC.Controls.FreeOffset mpRefPu(use_u = true)  annotation (
     Placement(visible = true, transformation(origin={-28,26},     extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Controls.FreeOffset VrefPu(use_u = true)  annotation (
-    Placement(visible = true, transformation(origin={-32,-38},     extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Modelica.Blocks.Sources.RealExpression VrefPuDef(y = 1)  annotation (
-    Placement(visible = true, transformation(origin={-62,-38},     extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Modelica.Blocks.Sources.RealExpression PmRefPuDef(y = -GEN.PStart / GEN.PNom) annotation (
+  Controls.FreeOffset vRefPu(use_u=true) annotation (Placement(visible=true,
+        transformation(
+        origin={-32,-38},
+        extent={{-10,-10},{10,10}},
+        rotation=0)));
+  Modelica.Blocks.Sources.RealExpression vRrefPuDef(y=1) annotation (Placement(
+        visible=true, transformation(
+        origin={-62,-38},
+        extent={{-10,-10},{10,10}},
+        rotation=0)));
+  Modelica.Blocks.Sources.RealExpression mpRefPuDef(y = -GEN.PStart / GEN.PNom) annotation (
     Placement(visible = true, transformation(origin={-54,26},     extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Interfaces.RealOutput omega annotation (
     Placement(visible = true, transformation(origin={56,8},     extent = {{-10, -10}, {10, 10}}, rotation=90),  iconTransformation(origin={110,0},   extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -40,15 +46,15 @@ equation
     Line(points={{8.2,-26},{14,-26},{14,-20},{27.6,-20}},                    color = {0, 0, 127}));
   connect(GOV.PMechPu, GEN.pmPuIn) annotation (Line(points={{15,14},{22,14},{22,
           -12.6},{27.6,-12.6}}, color={0,0,127}));
-  connect(PmRefPu.y, GOV.PmRefPu) annotation (
+  connect(mpRefPu.y, GOV.PmRefPu) annotation (
     Line(points={{-17,26},{-12,26},{-12,18},{-6,18}},                      color = {0, 0, 127}));
-  connect(VrefPu.y, AVR.VrefPu) annotation (
-    Line(points={{-21,-38},{-16,-38},{-16,-32},{-11.8,-32}},                    color = {0, 0, 127}));
-  connect(VrefPuDef.y, VrefPu.u) annotation (
-    Line(points={{-51,-38},{-43,-38}},                                  color = {0, 0, 127}));
+  connect(vRefPu.y, AVR.VrefPu) annotation (Line(points={{-21,-38},{-16,-38},{-16,
+          -32},{-11.8,-32}}, color={0,0,127}));
+  connect(vRrefPuDef.y, vRefPu.u)
+    annotation (Line(points={{-51,-38},{-43,-38}}, color={0,0,127}));
   connect(GEN.PPu, GOV.PPu) annotation (
     Line(points={{48.2,-18},{70,-18},{70,50},{-72,50},{-72,0},{10,0},{10,4}},                    color = {0, 0, 127}));
-  connect(PmRefPuDef.y, PmRefPu.u) annotation (
+  connect(mpRefPuDef.y,mpRefPu. u) annotation (
     Line(points={{-43,26},{-39,26}},        color = {0, 0, 127}));
   connect(GEN.omega, omega) annotation (
     Line(points={{48.3,-10.1},{56,-10.1},{56,8}},                    color = {0, 0, 127}));
