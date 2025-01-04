@@ -17,13 +17,22 @@ block VRProportional
 
   outer PowerGridsMC.Electrical.System systemPowerGrids "Reference to system object";
 
-  Modelica.Blocks.Interfaces.RealInput VcPu "Machine terminal voltage p.u." annotation (
-    Placement(visible = true, transformation(origin={-76,18},    extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-98, 60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Modelica.Blocks.Interfaces.RealInput VrefPu "Voltage reference p.u." annotation (
+  Modelica.Blocks.Interfaces.RealInput vMeasPu "Machine terminal voltage p.u."
+    annotation (Placement(
+      visible=true,
+      transformation(
+        origin={-76,18},
+        extent={{-20,-20},{20,20}},
+        rotation=0),
+      iconTransformation(
+        origin={-98,60},
+        extent={{-10,-10},{10,10}},
+        rotation=0)));
+  Modelica.Blocks.Interfaces.RealInput vRefPu "Voltage reference p.u." annotation (
     Placement(visible = true, transformation(origin={-76,-12},     extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-98, -60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Interfaces.RealOutput efdPu "Exciter output voltage p.u." annotation (
     Placement(visible = true, transformation(origin={66,-12},    extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {102, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Modelica.Blocks.Math.Feedback Verr annotation (
+  Modelica.Blocks.Math.Feedback vErr annotation (
     Placement(visible = true, transformation(origin={-36,-12},    extent = {{-10, 10}, {10, -10}}, rotation = 0)));
   PowerGridsMC.Controls.LimiterWithLag limiterWithLag(LagMax = LagMax, LagMin = LagMin, stateStart = stateStart,uMax = VrMax, uMin = VrMin)  annotation (
     Placement(visible = true, transformation(origin={32,-12},   extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -47,20 +56,21 @@ initial equation
      variables. This is only possible by writing those equations in implicit form
   */
   if fixInitialControlledVariable then
-    0 = homotopy(
-      actual = if limiterWithLag.u > limiterWithLag.uMax then limiterWithLag.u - (limiterWithLag.uMax + delta)
-               else if limiterWithLag.u < limiterWithLag.uMin then limiterWithLag.u - (limiterWithLag.uMin - delta)
-               else VcPu - VcPuStart,
-      simplified = VcPu - VcPuStart);
+    0 =homotopy(
+      actual=if limiterWithLag.u > limiterWithLag.uMax then limiterWithLag.u -
+        (limiterWithLag.uMax + delta) else if limiterWithLag.u < limiterWithLag.uMin
+         then limiterWithLag.u - (limiterWithLag.uMin - delta) else vMeasPu -
+        VcPuStart,
+      simplified=vMeasPu - VcPuStart);
   end if;
 equation
-  connect(VrefPu, Verr.u1) annotation (
+  connect(vRefPu,vErr. u1) annotation (
     Line(points={{-76,-12},{-44,-12}},                                 color = {0, 0, 127}));
-  connect(VcPu, Verr.u2) annotation (
-    Line(points={{-76,18},{-36,18},{-36,-4}},                    color = {0, 0, 127}));
+  connect(vMeasPu, vErr.u2)
+    annotation (Line(points={{-76,18},{-36,18},{-36,-4}}, color={0,0,127}));
   connect(limiterWithLag.y, efdPu) annotation (
     Line(points={{43,-12},{66,-12}},      color = {0, 0, 127}));
-  connect(Verr.y, gain.u) annotation (
+  connect(vErr.y, gain.u) annotation (
     Line(points={{-27,-12},{-20,-12}},                              color = {0, 0, 127}));
   connect(gain.y, limiterWithLag.u) annotation (
     Line(points={{3,-12},{20,-12}},         color = {0, 0, 127}));

@@ -28,11 +28,11 @@ model SynchronousCondenser "Model of a synchronous condenser for the IEEE-14 bus
 equation
   connect(GEN.terminal, terminal) annotation (
     Line(points={{24,4},{24,24}}));
-  connect(AVR.VcPu, GEN.VPu) annotation (
+  connect(AVR.vMeasPu, GEN.VPu) annotation (
     Line(points={{-29.8,0},{-44,0},{-44,36},{68,36},{68,-2},{34.2,-2}},               color = {0, 0, 127}));
   connect(AVR.efdPu, GEN.ufPuIn) annotation (
     Line(points={{-9.8,-6},{0,-6},{0,0},{13.6,0}},                           color = {0, 0, 127}));
-  connect(vRefPu.y, AVR.VrefPu) annotation (
+  connect(vRefPu.y, AVR.vRefPu) annotation (
     Line(points={{-39,-18},{-36,-18},{-36,-12},{-29.8,-12}},                    color = {0, 0, 127}));
   connect(vRefPuDef.y,vRefPu. u) annotation (
     Line(points={{-67,-18},{-61,-18}},                                  color = {0, 0, 127}));
