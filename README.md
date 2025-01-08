@@ -1,3 +1,11 @@
+# PowerGrids:MC - Forked from PowerGrids 1.03 library  https://github.com/PowerGrids/PowerGrids
+After the fork a few additions and enhancements have been addedm, maily:
+- added display of powers and voltages directly on digrams
+- added the PFT technique, which allows the power flow ouputs to be used as initial values for transients
+The improvements are described in INFO  of the Examples.PFT folder and subfolders and of individual models (added or modified).
+# BELOW You will find the oridinal descescrption of PowerGrds 1.03, for which PowerGrids_MC was foked
+# **************************************************************
+
 # PowerGrids - A Modelica library for electro-mechanical modelling of power systems
 
 This repository contains the code for PowerGrids, a Modelica library for electro-mechanical modelling of power systems. This library was originally developed by RTE with help from Dynamica s.r.l. It is part of a larger effort to promote both the use of Modelica for power system modelling and the advantages of open-source approaches (for more detail, go to [Dyna&omega;o website](http://dynawo.org)). 
