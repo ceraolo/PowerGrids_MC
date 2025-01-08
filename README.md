@@ -1,9 +1,9 @@
-# PowerGrids:MC - Forked from PowerGrids 1.03 library  https://github.com/PowerGrids/PowerGrids
+# PowerGrids:MC - Forked from PowerGrids 1.0.3 library  https://github.com/PowerGrids/PowerGrids
 After the fork a few additions and enhancements have been added, maily:
 - added display of powers and voltages directly on diagrams
 - added the PFT technique, which allows the power flow ouputs to be used as initial values for transients (PFT: PowerFlow->Transient)
-The improvements are described in INFO  of the Examples.PFT folder and subfolders and of individual models (added or modified).
-# BELOW You will find the oridinal descescrption of PowerGrds 1.03, for which PowerGrids_MC was foked
+The improvements are described in Documentation annotation of the Examples.PFT folder and its subfolders, and of individual models (added or modified).
+# Below You will find the original description of PowerGrds 1.0.3, from which PowerGrids_MC was forked
 # **************************************************************
 
 # PowerGrids - A Modelica library for electro-mechanical modelling of power systems
