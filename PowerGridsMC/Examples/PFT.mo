@@ -1,5 +1,4 @@
 within PowerGridsMC.Examples;
-
 package PFT
   extends Modelica.Icons.ExamplesPackage;
 
@@ -1054,7 +1053,7 @@ cambio i gen eccetto lo slack"), Text(extent = {{-20, 60}, {64, 52}}, textColor 
       connect(Load6.terminal, bus6.terminal) annotation(
         Line(points = {{-26, -14}, {-26, -6}, {-40, -6}, {-40, 0}, {-46, 0}}));
       connect(Load5.terminal, bus5.terminal) annotation(
-        Line(points = {{-74, -26}, {-74, -34}, {-64, -34}, {-64, -40}, {-46, -40}}));
+        Line(points={{-74,-26},{-74,-40},{-46,-40}}));
       connect(Load3.terminal, bus3.terminal) annotation(
         Line(points = {{88, -98}, {88, -80}}));
       connect(Load2.terminal, bus2.terminal) annotation(
@@ -1695,7 +1694,11 @@ cambio i gen eccetto lo slack"), Text(extent = {{-20, 60}, {64, 52}}, textColor 
         annotation(
           Icon(coordinateSystem(preserveAspectRatio = false)),
           Diagram(coordinateSystem(preserveAspectRatio = false)),
-          experiment(StopTime = 20, Interval = 0.002, Tolerance = 1e-06, __Dymola_Algorithm = "Dassl"));
+          experiment(
+            StopTime=20,
+            Interval=0.01,
+            Tolerance=1e-06,
+            __Dymola_Algorithm="Dassl"));
       end Gen2Disconnection;
 
       model BusFaultG1G2
@@ -2307,6 +2310,12 @@ cambio i gen eccetto lo slack"), Text(extent = {{-20, 60}, {64, 52}}, textColor 
           Placement(visible = true, transformation(origin = {-51.5, 50.5}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
         PowerGridsMC.Electrical.Buses.Bus bus22(SNom(displayUnit = "V.A") = 100e6, UNom(displayUnit = "V") = 13.8e3, portVariablesPhases = true, portVariablesPu = true) annotation(
           Placement(visible = true, transformation(origin = {42.5, -13.5}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
+        PowerGridsMC.Electrical.Buses.Bus bus42_(
+          SNom(displayUnit="V.A") = 1e6,
+          UNom(displayUnit="V") = 10e3,
+          portVariablesPhases=true,
+          portVariablesPu=true) annotation (
+          Placement(transformation(origin = {42.5, -85.5}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
       equation
         connect(T1_11_2.terminalA, T1_11_1.terminalA) annotation(
           Line(points = {{-45, 40.5}, {-45, 42}, {-61.5, 42}, {-61.5, 39.5}}));
@@ -2382,6 +2391,10 @@ cambio i gen eccetto lo slack"), Text(extent = {{-20, 60}, {64, 52}}, textColor 
           Line(points = {{32, -14}, {32, -13.5}, {42.5, -13.5}}, color = {0, 0, 0}));
         connect(bus22.terminal, sc22.terminal) annotation(
           Line(points = {{42.5, -13.5}, {44, -13.5}, {44, -14}, {64, -14}}, color = {0, 0, 0}));
+        connect(
+          bus42.terminal, bus42_.terminal)
+          annotation (
+          Line(points = {{18, -86}, {42, -86}}));
         annotation(
           Icon(coordinateSystem(extent = {{-100, -100}, {100, 100}})),
           Diagram(coordinateSystem(extent = {{-160, 80}, {80, -140}}), graphics = {Text(extent = {{-20, 78}, {62, 58}}, textColor = {28, 108, 200}, textString = "Secondo step per il regolato:
@@ -2442,7 +2455,7 @@ cambio i gen eccetto lo slack"), Text(extent = {{-20, 60}, {64, 52}}, textColor 
           Placement(visible = true, transformation(origin = {-4, -72}, extent = {{10, -10}, {-10, 10}}, rotation = 180)));
         PowerGridsMC.Electrical.Branches.TransformerFixedRatio T4_iX2(SNom(displayUnit = "MW") = 190e6*2, UNomA(displayUnit = "kV") = 236100, UNomB(displayUnit = "kV") = 236100, X = 0.04828*220^2/100/2, showPortData = false) annotation(
           Placement(visible = true, transformation(origin = {-28, -58}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
-        Support.ReferenceBusRnew bus42(SNom(displayUnit = "V.A") = 5e8, UNom(displayUnit = "V") = 1e4, portVariablesPhases = true, nameShort = "gen42x2", portVariablesPu = true, setPhaseOnly = false) annotation(
+        Support.ReferenceBusRnew bus42(SNom(displayUnit = "V.A") = 5e8, UNom(displayUnit = "V") = 1e4, portVariablesPhases = true, nameShort = "gen42x2", portVariablesPu = true) annotation(
           Placement(visible = true, transformation(origin = {18, -72}, extent = {{-10, 10}, {10, -10}}, rotation = 90)));
         PowerGridsMC.Electrical.Branches.TransformerFixedRatio T41_iX2(SNom(displayUnit = "MW") = 190e6*2, UNomA(displayUnit = "kV") = 236100, UNomB(displayUnit = "kV") = 127900, X = 0.02476*119^2/100/2, rFixed = 127.9/236.1, showPortData = false) annotation(
           Placement(visible = true, transformation(origin = {-108, -92}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
