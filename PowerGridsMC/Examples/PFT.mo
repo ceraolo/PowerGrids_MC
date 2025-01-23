@@ -1,4 +1,5 @@
 within PowerGridsMC.Examples;
+
 package PFT
   extends Modelica.Icons.ExamplesPackage;
 
@@ -119,11 +120,11 @@ package PFT
     model LoadChangeReg "Regulated verion"
       extends Modelica.Icons.Example;
       /*  The following variables are taken from disk inside GEN_:  
-                UStart=GEN_.y[1, 1],
-                UPhaseStart=GEN_.y[1, 2],
-                PStart=GEN_.y[1, 3],
-                QStart=GEN_.y[1, 4],
-            */
+                      UStart=GEN_.y[1, 1],
+                      UPhaseStart=GEN_.y[1, 2],
+                      PStart=GEN_.y[1, 3],
+                      QStart=GEN_.y[1, 4],
+                  */
       PowerGridsMC.Examples.IEEE14bus.ControlledGenNoPSS_R GEN(GEN(H = 4, SNom = 500000000, Tpd0 = 5.143, Tppd0 = 0.042, Tppq0 = 0.083, Tpq0 = 2.16, UNom = 21000, portVariablesPhases = true, raPu = 0, xdPu = 2, xlPu = 0.15, xpdPu = 0.35, xppdPu = 0.25, xppqPu = 0.3, xpqPu = 0.5, xqPu = 1.8)) annotation(
         Placement(transformation(extent = {{-52, 0}, {-32, 20}})));
       PowerGridsMC.Electrical.Buses.Bus NTLV(SNom = 5e+08, UNom = 21000, portVariablesPhases = true, portVariablesPu = true) annotation(
@@ -1053,7 +1054,7 @@ cambio i gen eccetto lo slack"), Text(extent = {{-20, 60}, {64, 52}}, textColor 
       connect(Load6.terminal, bus6.terminal) annotation(
         Line(points = {{-26, -14}, {-26, -6}, {-40, -6}, {-40, 0}, {-46, 0}}));
       connect(Load5.terminal, bus5.terminal) annotation(
-        Line(points={{-74,-26},{-74,-40},{-46,-40}}));
+        Line(points = {{-74, -26}, {-74, -40}, {-46, -40}}));
       connect(Load3.terminal, bus3.terminal) annotation(
         Line(points = {{88, -98}, {88, -80}}));
       connect(Load2.terminal, bus2.terminal) annotation(
@@ -1694,11 +1695,7 @@ cambio i gen eccetto lo slack"), Text(extent = {{-20, 60}, {64, 52}}, textColor 
         annotation(
           Icon(coordinateSystem(preserveAspectRatio = false)),
           Diagram(coordinateSystem(preserveAspectRatio = false)),
-          experiment(
-            StopTime=20,
-            Interval=0.01,
-            Tolerance=1e-06,
-            __Dymola_Algorithm="Dassl"));
+          experiment(StopTime = 20, Interval = 0.01, Tolerance = 1e-06, __Dymola_Algorithm = "Dassl"));
       end Gen2Disconnection;
 
       model BusFaultG1G2
@@ -1729,7 +1726,7 @@ cambio i gen eccetto lo slack"), Text(extent = {{-20, 60}, {64, 52}}, textColor 
       extends Modelica.Icons.Example;
       Modelica.Units.SI.Power totalLosses = -(gen11x2.port.P + gen42x2.port.P + gen33x2.port.P + pq21.port.P + pq31.port.P + pq41.port.P);
       PowerGridsMC.Electrical.PowerFlow.PVBusW gen33x2(P(displayUnit = "MW") = -100000000, SNom(displayUnit = "MVA") = 120000000, U(displayUnit = "kV") = 13800, UNom(displayUnit = "kV") = 13800, portVariablesPhases = true) annotation(
-        Placement(visible = true, transformation(origin = {-96, 58}, extent = {{-10, 10}, {10, -10}}, rotation = 0)));
+        Placement(transformation(origin = {-96, 58}, extent = {{-10, 10}, {10, -10}})));
       PowerGridsMC.Electrical.PowerFlow.SlackBusW gen42x2(SNom(displayUnit = "MVA") = 100000000, U(displayUnit = "kV") = 15700, UNom(displayUnit = "kV") = 15700) annotation(
         Placement(visible = true, transformation(origin = {64, -70}, extent = {{-10, 10}, {10, -10}}, rotation = 90)));
       PowerGridsMC.Electrical.Loads.LoadPQW pq21(P(displayUnit = "MW") = 200000000, Q(displayUnit = "MVA") = 100000000, SNom(displayUnit = "MVA") = 100000000, UNom(displayUnit = "kV") = 127000, showPortData = true) annotation(
@@ -1832,7 +1829,7 @@ cambio i gen eccetto lo slack"), Text(extent = {{-20, 60}, {64, 52}}, textColor 
       connect(L3_4.terminalA, bus3.terminal) annotation(
         Line(points = {{-32, -24}, {-42, -24}, {-42, -12}, {-48, -12}, {-48, -11.5}, {-47.5, -11.5}}, color = {0, 0, 0}));
       connect(gen33x2.terminal, bus33.terminal) annotation(
-        Line(points = {{-96, 58}, {-95.5, 58}, {-95.5, 40.5}}, color = {0, 0, 0}));
+        Line(points = {{-96, 58}, {-95.5, 58}, {-95.5, 40.5}}));
       connect(T31_33_2.terminalA, bus33.terminal) annotation(
         Line(points = {{-88, 24}, {-88, 30}, {-95.5, 30}, {-95.5, 40.5}}, color = {0, 0, 0}));
       connect(T4_iX2.terminalB, bus4.terminal) annotation(
@@ -1868,7 +1865,7 @@ cambio i gen eccetto lo slack"), Text(extent = {{-20, 60}, {64, 52}}, textColor 
       connect(bus42i.terminal, T4_iX2.terminalA) annotation(
         Line(points = {{22.5, -69.5}, {0, -70}, {0, -62}}, color = {0, 0, 0}));
       annotation(
-        Diagram(coordinateSystem(extent = {{-120, 120}, {120, -100}}), graphics = {Text(origin = {64, -24}, lineColor = {238, 46, 47}, extent = {{-28, 6}, {28, -6}}, textString = "V. Info"), Text(extent = {{74, 104}, {96, 98}}, lineColor = {238, 46, 47}, textString = DynamicSelect("Plost", String(totalLosses/1e6, format = "8.2f") + " MW")), Rectangle(extent = {{64, 112}, {110, 96}}, lineColor = {28, 108, 200}, lineThickness = 1), Text(extent = {{68, 112}, {104, 102}}, textColor = {238, 46, 47}, horizontalAlignment = TextAlignment.Left, textString = "Total line losses:")}),
+        Diagram(coordinateSystem(extent = {{-120, 120}, {120, -100}}), graphics = {Text(origin = {64, -24}, textColor = {238, 46, 47}, extent = {{-28, 6}, {28, -6}}, textString = "V. Info"), Text(textColor = {238, 46, 47}, extent = {{74, 104}, {96, 98}}, textString = DynamicSelect("Plost", (String((totalLosses/1000000), "8.2f") + " MW"))), Rectangle(lineColor = {28, 108, 200}, lineThickness = 1, extent = {{64, 112}, {110, 96}}), Text(textColor = {238, 46, 47}, extent = {{68, 112}, {104, 102}}, textString = "Total line losses:", horizontalAlignment = TextAlignment.Left)}),
         Documentation(info = "<html>
     <p>Per i trasformatori a tre avvolgimenti <b>scelgo lo schema paris a stella con trasformatori ideali ai lati a pi&ugrave; bassa tensione</b>. Quindi: </p>
     <p>1) parto dai parametri nella base di sistema calcolati in &quot;Descrizione rete.docx&quot; </p>
@@ -2310,11 +2307,7 @@ cambio i gen eccetto lo slack"), Text(extent = {{-20, 60}, {64, 52}}, textColor 
           Placement(visible = true, transformation(origin = {-51.5, 50.5}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
         PowerGridsMC.Electrical.Buses.Bus bus22(SNom(displayUnit = "V.A") = 100e6, UNom(displayUnit = "V") = 13.8e3, portVariablesPhases = true, portVariablesPu = true) annotation(
           Placement(visible = true, transformation(origin = {42.5, -13.5}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-        PowerGridsMC.Electrical.Buses.Bus bus42_(
-          SNom(displayUnit="V.A") = 1e6,
-          UNom(displayUnit="V") = 10e3,
-          portVariablesPhases=true,
-          portVariablesPu=true) annotation (
+        PowerGridsMC.Electrical.Buses.Bus bus42_(SNom(displayUnit = "V.A") = 1e6, UNom(displayUnit = "V") = 10e3, portVariablesPhases = true, portVariablesPu = true) annotation(
           Placement(transformation(origin = {42.5, -85.5}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
       equation
         connect(T1_11_2.terminalA, T1_11_1.terminalA) annotation(
@@ -2391,9 +2384,7 @@ cambio i gen eccetto lo slack"), Text(extent = {{-20, 60}, {64, 52}}, textColor 
           Line(points = {{32, -14}, {32, -13.5}, {42.5, -13.5}}, color = {0, 0, 0}));
         connect(bus22.terminal, sc22.terminal) annotation(
           Line(points = {{42.5, -13.5}, {44, -13.5}, {44, -14}, {64, -14}}, color = {0, 0, 0}));
-        connect(
-          bus42.terminal, bus42_.terminal)
-          annotation (
+        connect(bus42.terminal, bus42_.terminal) annotation(
           Line(points = {{18, -86}, {42, -86}}));
         annotation(
           Icon(coordinateSystem(extent = {{-100, -100}, {100, 100}})),
@@ -2577,6 +2568,171 @@ cambio i gen eccetto lo slack"), Text(extent = {{-20, 60}, {64, 52}}, textColor 
 <p>Il problema &egrave; che i dati iniziali di potenza del generatore non vengono tenuti bloccati ma sono variabili. In questo modo la soluzione del problema iniziale &egrave; indeterminata e le potenze del bus reference possono andare dappertutto.</p>
 </html>"));
       end Bus1FaultSI2bis;
+      
+      model NoRefBus
+        parameter Real alpha = 2;
+        parameter Real beta = 2;
+        parameter Real uf = 1;
+        extends Modelica.Icons.Example;
+        Line line annotation(
+          Placement(visible = true, transformation(origin = {-110, 65.304}, extent = {{-10.0001, -11.3047}, {10.0001, 8.69585}}, rotation = 0)));
+        Electrical.Branches.LineConstantImpedance L2_1(B = 200e3*line.Yd, R = 200e3*line.Rd, SNom(displayUnit = "MW") = 100000000, UNom(displayUnit = "kV") = 220000, UNomA(displayUnit = "kV") = 220000, UNomB(displayUnit = "kV") = 220000, X = 200e3*line.Xd, showPortData = false) annotation(
+          Placement(visible = true, transformation(origin = {-52.5, 5.5}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
+        Electrical.Branches.TransformerFixedRatio T1_11_2(R = 377/110e3*240^2/110, SNom(displayUnit = "MW") = 110000000, UNomA(displayUnit = "kV") = 13800, UNomB(displayUnit = "kV") = 240000, X = 0.0999*240^2/110, rFixed = 240/13.8) annotation(
+          Placement(visible = true, transformation(origin = {-45, 44.5}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
+        Electrical.Branches.TransformerFixedRatio T1_11_1(R = 377/110e3*240^2/110, SNom(displayUnit = "MW") = 110000000, UNomA(displayUnit = "kV") = 13800, UNomB(displayUnit = "kV") = 240000, X = 0.0999*240^2/110, rFixed = 240/13.8, showPortData = false) annotation(
+          Placement(visible = true, transformation(origin = {-61.5, 43.5}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
+        Electrical.Branches.LineConstantImpedance L3_2(B = 75e3*line.Yd, R = 75e3*line.Rd, SNom(displayUnit = "MW") = 100000000, UNom(displayUnit = "kV") = 220000, UNomA(displayUnit = "kV") = 220000, UNomB(displayUnit = "kV") = 220000, X = 75e3*line.Xd, showPortData = true) annotation(
+          Placement(visible = true, transformation(origin = {-71, -15}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+        Electrical.Branches.LineConstantImpedance L4_2(B = 90e3*line.Yd, R = 90e3*line.Rd, SNom(displayUnit = "MW") = 100000000, UNom(displayUnit = "V") = 1, UNomA(displayUnit = "kV") = 220000, UNomB(displayUnit = "kV") = 220000, X = 90e3*line.Xd, showPortData = false) annotation(
+          Placement(visible = true, transformation(origin = {-52, -35}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
+        Electrical.Branches.LineConstantImpedance L3_4(B = 50e3*line.Yd, R = 50e3*line.Rd, SNom(displayUnit = "MW") = 100000000, UNom(displayUnit = "kV") = 220000, UNomA(displayUnit = "kV") = 220000, UNomB(displayUnit = "kV") = 220000, X = 50e3*line.Xd, showPortData = true) annotation(
+          Placement(visible = true, transformation(origin = {-71.5, -55}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+        inner Electrical.System systemPowerGrids(initOpt = Types.Choices.InitializationOption.globalSteadyStateFixedPowerFlow, referenceFrequency = Types.Choices.ReferenceFrequency.fixedReferenceGenerator, showDataOnDiagramsPu = false) annotation(
+          Placement(visible = true, transformation(origin = {68, -88}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+        Electrical.Machines.SynchronousMachine4WindingsR gen42x2(H = 4, SNom = 1000000*(206*2e6), Tpd0 = 5.143, Tppd0 = 0.042, Tppq0 = 0.083, Tpq0 = 2.16, UNom = 15700, portVariablesPhases = true, raPu = 0, xdPu = 2, xlPu = 0.15, xpdPu = 0.35, xppdPu = 0.25, xppqPu = 0.3, xpqPu = 0.5, xqPu = 1.8) annotation(
+          Placement(visible = true, transformation(origin = {34, -96}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+        Electrical.Loads.LoadAlphaBetaR pq31(SNom(displayUnit = "V.A") = 100e6, UNom(displayUnit = "V") = 129e3, UPhaseStart(displayUnit = "rad"), UStart(displayUnit = "V"), alpha = alpha, beta = beta, portVariablesPhases = true) annotation(
+          Placement(visible = true, transformation(origin = {-142.5, -61}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+        // Transformers
+        Electrical.Branches.TransformerFixedRatio Teq31_3(R = 0.0948*230^2/160/30, SNom(displayUnit = "MW") = 160000000, UNomA(displayUnit = "kV") = 135000, UNomB(displayUnit = "kV") = 230000, X = 0.0948*230^2/160, rFixed = 230/135, showPortData = true) annotation(
+          Placement(visible = true, transformation(origin = {-116, -38}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+        Electrical.Branches.TransformerFixedRatio T31_33_1(R = 273/75e3*132^2/75, SNom(displayUnit = "MW") = 75000000, UNomA(displayUnit = "kV") = 13800, UNomB(displayUnit = "kV") = 132000, X = 0.0965*132^2/75, rFixed = 132/13.8, showPortData = false) annotation(
+          Placement(visible = true, transformation(origin = {-148, -16}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
+        Electrical.Branches.TransformerFixedRatio T31_33_2(R = 273/75e3*132^2/75, SNom(displayUnit = "MW") = 75000000, UNomA(displayUnit = "kV") = 13800, UNomB(displayUnit = "kV") = 132000, X = 0.0965*132^2/75, rFixed = 132/13.8, showPortData = false) annotation(
+          Placement(visible = true, transformation(origin = {-130, -16}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
+        Electrical.Branches.TransformerFixedRatio T2_i(SNom(displayUnit = "MW") = 125000000, UNomA(displayUnit = "kV") = 230000, UNomB(displayUnit = "kV") = 230000, X = 71.884e-3*220^2/100, showPortData = false) annotation(
+          Placement(visible = true, transformation(origin = {4, -10}, extent = {{10, -10}, {-10, 10}}, rotation = 90)));
+        Electrical.Branches.TransformerFixedRatio Teq2_21(R = 435/125e3*126.9^2/100, SNom(displayUnit = "MW") = 125000000, UNomA(displayUnit = "kV") = 230000, UNomB(displayUnit = "kV") = 132700, X = 0.0875*126.9^2/100, rFixed = 132.7/230, showPortData = false) annotation(
+          Placement(visible = true, transformation(origin = {-20, 4}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
+        Electrical.Branches.TransformerFixedRatio T22_i(SNom(displayUnit = "MW") = 39000000, UNomA(displayUnit = "kV") = 230000, UNomB(displayUnit = "kV") = 10500, X = 0.1635*10.04^2/100, rFixed = 10.5/230, showPortData = false) annotation(
+          Placement(visible = true, transformation(origin = {22, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+        Electrical.Branches.TransformerFixedRatio T21_i(SNom(displayUnit = "MW") = 125000000, UNomA(displayUnit = "kV") = 230000, UNomB(displayUnit = "kV") = 132700, X = 4.624e-3*126.9^2/100, rFixed = 132.7/230, showPortData = false) annotation(
+          Placement(visible = true, transformation(origin = {4, 22}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
+        Electrical.Buses.BusFault bus1(R = 1, SNom(displayUnit = "V.A") = 500000000, UNom(displayUnit = "V") = 234000, X = 0, portVariablesPhases = true, portVariablesPu = true, startTime = 0.5e6, stopTime = 0.6e6) annotation(
+          Placement(visible = true, transformation(origin = {-52, 24}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+        Electrical.Branches.TransformerFixedRatio T42_iX2(SNom(displayUnit = "MW") = 190*2, UNomA(displayUnit = "V") = 236.1, UNomB(displayUnit = "V") = 15.75, X = 0.017488*14.7^2/100/2, rFixed = 15.75/236.1, showPortData = true) annotation(
+          Placement(visible = true, transformation(origin = {-4, -72}, extent = {{10, -10}, {-10, 10}}, rotation = 180)));
+        Electrical.Branches.TransformerFixedRatio T4_iX2(SNom(displayUnit = "MW") = 190e6*2, UNomA(displayUnit = "kV") = 236100, UNomB(displayUnit = "kV") = 236100, X = 0.04828*220^2/100/2, showPortData = false) annotation(
+          Placement(visible = true, transformation(origin = {-28, -58}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
+        Electrical.Branches.TransformerFixedRatio T41_iX2(SNom(displayUnit = "MW") = 190e6*2, UNomA(displayUnit = "kV") = 236100, UNomB(displayUnit = "kV") = 127900, X = 0.02476*119^2/100/2, rFixed = 127.9/236.1, showPortData = false) annotation(
+          Placement(visible = true, transformation(origin = {-108, -92}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
+        Electrical.Buses.Bus bus3(SNom(displayUnit = "V.A") = 100e6, UNom(displayUnit = "V") = 220e3, portVariablesPhases = true, portVariablesPu = true) annotation(
+          Placement(visible = true, transformation(origin = {-95.5, -37.5}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
+        Electrical.Loads.LoadAlphaBetaR pq21(SNom(displayUnit = "V.A") = 100000000, UNom(displayUnit = "V") = 127000, UPhaseStart(displayUnit = "rad"), UStart(displayUnit = "V"), alpha = alpha, beta = beta) annotation(
+          Placement(visible = true, transformation(origin = {0, 44}, extent = {{-10, 10}, {10, -10}}, rotation = 0)));
+        Electrical.Loads.LoadAlphaBetaR pq41(SNom(displayUnit = "V.A") = 100000000, UNom(displayUnit = "V") = 119000, UPhaseStart(displayUnit = "rad"), UStart(displayUnit = "V"), alpha = alpha, beta = beta) annotation(
+          Placement(visible = true, transformation(origin = {-124, -110}, extent = {{-10, 10}, {10, -10}}, rotation = 90)));
+        // Buses
+        Electrical.Buses.Bus bus33(SNom(displayUnit = "V.A") = 100e6, UNom(displayUnit = "V") = 13.8e3, portVariablesPhases = true, portVariablesPu = true) annotation(
+          Placement(visible = true, transformation(origin = {-139.75, 16.25}, extent = {{-9.75, -9.75}, {9.75, 9.75}}, rotation = 0)));
+        Electrical.Buses.Bus bus31(SNom(displayUnit = "V.A") = 100e6, UNom(displayUnit = "V") = 135e3, portVariablesPhases = true, portVariablesPu = true) annotation(
+          Placement(visible = true, transformation(origin = {-141.5, -47.5}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+        Examples.Tutorial.GridOperation.Controlled.ControlledGenPSS_R gen11x2(GEN(H = 4, SNom = 200000000, Tpd0 = 5.143, Tppd0 = 0.042, Tppq0 = 0.083, Tpq0 = 2.16, UNom = 13800, portVariablesPhases = true, raPu = 0, xdPu = 2, xlPu = 0.15, xpdPu = 0.35, xppdPu = 0.25, xppqPu = 0.3, xpqPu = 0.5, xqPu = 1.8)) annotation(
+          Placement(transformation(extent = {{-62, 90}, {-42, 70}})));
+        Electrical.Buses.Bus bus2(SNom(displayUnit = "V.A") = 100e6, UNom(displayUnit = "V") = 220e3, portVariablesPhases = true, portVariablesPu = true) annotation(
+          Placement(visible = true, transformation(origin = {-31.5, -15.5}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
+        Examples.Tutorial.GridOperation.Controlled.ControlledGenPSS_R gen33x2(GEN(H = 4, SNom = 120000000, Tpd0 = 5.143, Tppd0 = 0.042, Tppq0 = 0.083, Tpq0 = 2.16, UNom = 13800, portVariablesPhases = true, raPu = 0, xdPu = 2, xlPu = 0.15, xpdPu = 0.35, xppdPu = 0.25, xppqPu = 0.3, xpqPu = 0.5, xqPu = 1.8)) annotation(
+          Placement(transformation(extent = {{-150, 50}, {-130, 30}})));
+        Examples.IEEE14bus.SynchronousCondenserR sc22(GEN(DPu = 0.0, H = 5.625, Tppd0 = 0.065, xpdPu = 0.509, Tpd0 = 10.041, raPu = 0.00316, xpqPu = 0.601, Tppq0 = 0.094, Tpq0 = 1.22, xppdPu = 0.354, xdPu = 2.81, xlPu = 0.256, xppqPu = 0.377, xqPu = 2.62, PNom = 40e6, SNom = 60e6, UNom = 13.8e3)) annotation(
+          Placement(visible = true, transformation(origin = {64, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+        Electrical.Buses.Bus bus11(SNom(displayUnit = "V.A") = 100e6, UNom(displayUnit = "V") = 13.8e3, portVariablesPhases = true, portVariablesPu = true) annotation(
+          Placement(visible = true, transformation(origin = {-51.5, 64.5}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+        Electrical.Buses.Bus bus22(SNom(displayUnit = "V.A") = 100e6, UNom(displayUnit = "V") = 13.8e3, portVariablesPhases = true, portVariablesPu = true) annotation(
+          Placement(visible = true, transformation(origin = {42.5, 0.5}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
+        Modelica.Blocks.Sources.RealExpression pm42(y = -gen42x2.PStart/gen42x2.SNom) annotation(
+          Placement(visible = true, transformation(origin = {-11, -93}, extent = {{-15, -9}, {15, 9}}, rotation = 0)));
+        Modelica.Blocks.Sources.RealExpression uf42(y = uf) annotation(
+          Placement(visible = true, transformation(origin = {-11, -106}, extent = {{-15, -8}, {15, 8}}, rotation = 0)));
+        Electrical.Buses.Bus bus42_(SNom(displayUnit = "V.A") = 1e6, UNom(displayUnit = "V") = 10e3, portVariablesPhases = true, portVariablesPu = true) annotation(
+          Placement(visible = true, transformation(origin = {42.5, -71.5}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
+      equation
+        connect(T1_11_2.terminalA, T1_11_1.terminalA) annotation(
+          Line(points = {{-45, 54.5}, {-45, 56}, {-61.5, 56}, {-61.5, 53.5}}));
+        connect(T1_11_2.terminalB, T1_11_1.terminalB) annotation(
+          Line(points = {{-45, 34.5}, {-45, 33.5}, {-61.5, 33.5}}));
+        connect(L3_2.terminalB, L2_1.terminalB) annotation(
+          Line(points = {{-61, -15}, {-52.5, -15}, {-52.5, -4.5}}, color = {0, 0, 0}));
+        connect(L2_1.terminalB, L4_2.terminalA) annotation(
+          Line(points = {{-52.5, -4.5}, {-52.5, -25}, {-52, -25}}));
+        connect(L4_2.terminalB, L3_4.terminalB) annotation(
+          Line(points = {{-52, -45}, {-51.75, -45}, {-51.75, -55}, {-61.5, -55}}));
+        connect(gen42x2.omega, systemPowerGrids.omegaRefIn) annotation(
+          Line(points = {{44.3, -90.1}, {50.1, -90.1}, {50.1, -87.8}, {57.2, -87.8}}, color = {0, 0, 127}));
+        connect(T31_33_2.terminalB, Teq31_3.terminalA) annotation(
+          Line(points = {{-130, -26}, {-130, -38}, {-126, -38}}));
+        connect(T31_33_1.terminalB, Teq31_3.terminalA) annotation(
+          Line(points = {{-148, -26}, {-148, -38}, {-126, -38}}));
+        connect(T22_i.terminalA, T2_i.terminalA) annotation(
+          Line(points = {{12, 0}, {4, 0}}));
+        connect(Teq2_21.terminalA, T2_i.terminalB) annotation(
+          Line(points = {{-20, -6}, {-20, -26}, {4, -26}, {4, -20}}));
+        connect(T21_i.terminalA, T2_i.terminalA) annotation(
+          Line(points = {{4, 12}, {4, 0}}));
+        connect(T21_i.terminalB, Teq2_21.terminalB) annotation(
+          Line(points = {{4, 32}, {-20, 32}, {-20, 14}}));
+        connect(T1_11_1.terminalB, bus1.terminal) annotation(
+          Line(points = {{-61.5, 33.5}, {-52, 33.5}, {-52, 24}}));
+        connect(L2_1.terminalA, bus1.terminal) annotation(
+          Line(points = {{-52.5, 15.5}, {-52.5, 20}, {-52, 20}, {-52, 24}}));
+        connect(T42_iX2.terminalA, T41_iX2.terminalA) annotation(
+          Line(points = {{-14, -72}, {-28, -72}, {-28, -74}, {-108, -74}, {-108, -82}}));
+        connect(T41_iX2.terminalA, T4_iX2.terminalA) annotation(
+          Line(points = {{-108, -82}, {-108, -74}, {-28, -74}, {-28, -68}}));
+        connect(T4_iX2.terminalB, L4_2.terminalB) annotation(
+          Line(points = {{-28, -48}, {-52, -48}, {-52, -45}}));
+        connect(Teq31_3.terminalB, bus3.terminal) annotation(
+          Line(points = {{-106, -38}, {-102, -38}, {-102, -37.5}, {-95.5, -37.5}}));
+        connect(L3_2.terminalA, bus3.terminal) annotation(
+          Line(points = {{-81, -15}, {-88, -15}, {-88, -37.5}, {-95.5, -37.5}}));
+        connect(L3_4.terminalA, bus3.terminal) annotation(
+          Line(points = {{-81.5, -55}, {-88, -55}, {-88, -37.5}, {-95.5, -37.5}}));
+        connect(pq21.terminal, T21_i.terminalB) annotation(
+          Line(points = {{0, 44}, {0, 32}, {4, 32}}));
+        connect(T41_iX2.terminalB, pq41.terminal) annotation(
+          Line(points = {{-108, -102}, {-108, -110}, {-124, -110}}));
+        connect(pq31.terminal, bus31.terminal) annotation(
+          Line(points = {{-142.5, -61}, {-141.5, -61}, {-141.5, -47.5}}, color = {0, 0, 0}));
+        connect(bus31.terminal, Teq31_3.terminalA) annotation(
+          Line(points = {{-141.5, -47.5}, {-141.5, -38}, {-126, -38}}, color = {0, 0, 0}));
+        connect(T31_33_1.terminalA, T31_33_2.terminalA) annotation(
+          Line(points = {{-148, -6}, {-148, 0}, {-130, 0}, {-130, -6}}, color = {0, 0, 0}));
+        connect(bus33.terminal, T31_33_2.terminalA) annotation(
+          Line(points = {{-139.75, 16.25}, {-139.75, 0}, {-130, 0}, {-130, -6}}, color = {0, 0, 0}));
+        connect(bus2.terminal, T2_i.terminalB) annotation(
+          Line(points = {{-31.5, -15.5}, {-20, -15.5}, {-20, -26}, {4, -26}, {4, -20}}, color = {0, 0, 0}));
+        connect(bus2.terminal, L2_1.terminalB) annotation(
+          Line(points = {{-31.5, -15.5}, {-52.5, -15.5}, {-52.5, -4.5}}, color = {0, 0, 0}));
+        connect(gen33x2.terminal, bus33.terminal) annotation(
+          Line(points = {{-140, 40}, {-140, 16.25}, {-139.75, 16.25}}, color = {0, 0, 0}));
+        connect(gen11x2.terminal, bus11.terminal) annotation(
+          Line(points = {{-52, 80}, {-51.5, 80}, {-51.5, 64.5}}, color = {0, 0, 0}));
+        connect(bus11.terminal, T1_11_1.terminalA) annotation(
+          Line(points = {{-51.5, 64.5}, {-51.5, 56}, {-61.5, 56}, {-61.5, 53.5}}, color = {0, 0, 0}));
+        connect(T22_i.terminalB, bus22.terminal) annotation(
+          Line(points = {{32, 0}, {32, 0.5}, {42.5, 0.5}}, color = {0, 0, 0}));
+        connect(bus22.terminal, sc22.terminal) annotation(
+          Line(points = {{42.5, 0.5}, {44, 0.5}, {44, 0}, {64, 0}}, color = {0, 0, 0}));
+        connect(gen42x2.pmPuIn, pm42.y) annotation(
+          Line(points = {{23.6, -92.6}, {5.5, -92.6}, {5.5, -93}}, color = {0, 0, 127}));
+        connect(gen42x2.ufPuIn, uf42.y) annotation(
+          Line(points = {{23.6, -100}, {14, -100}, {14, -106}, {5.5, -106}}, color = {0, 0, 127}));
+  connect(T42_iX2.terminalB, bus42_.terminal) annotation(
+          Line(points = {{6, -72}, {42, -72}}));
+  connect(T42_iX2.terminalB, gen42x2.terminal) annotation(
+          Line(points = {{6, -72}, {34, -72}, {34, -96}}));
+        annotation(
+          Diagram(coordinateSystem(extent = {{-160, -120}, {80, 100}}), graphics = {Text(extent = {{-10, 86}, {62, 72}}, textColor = {238, 46, 47}, textString = "BUG: v. info")}),
+          experiment(StopTime = 6, Interval = 0.00400267, Tolerance = 1e-06, StartTime = 0),
+          __OpenModelica_simulationFlags(lv = "LOG_STATS", outputFormat = "mat", s = "dassl"),
+          Documentation(info = "<html>
+      <p>Il meccanismo delle reference bus &egrave; estremamente imprevedibile.</p>
+      <p>Questo &egrave; mostrato chiaramente da questo modello sostanzialmente identico a Bus1FaultSI2OK, ma con diversa presentazione della tensione di eccitazione, sempre di valore unitario.</p>
+      <p>Qui il nodo reference genera il reattivo che avrebbe dovuto invece generare il generatore!</p>
+      <p>Un altro esempio &egrave; in Bus1faultSI3, ma questo &egrave; pi&ugrave; efficace a mostrare il problema, in quanto molto pi&ugrave; semplice.</p>
+      <p>Il problema &egrave; che i dati iniziali di potenza del generatore non vengono tenuti bloccati ma sono variabili. In questo modo la soluzione del problema iniziale &egrave; indeterminata e le potenze del bus reference possono andare dappertutto.</p>
+      </html>"));
+      end NoRefBus;
     end Regulated;
 
     package Support
