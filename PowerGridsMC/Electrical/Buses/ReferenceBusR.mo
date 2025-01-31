@@ -11,7 +11,7 @@ model ReferenceBusR "Reference bus for an isolated grid"
 
 
   extends ReferenceBus( PStart=PFout[1,3], QStart=PFout[1,4], UStart=PFout[1,1],
-  UNom=PFout[1,1], SNom=PFout[1,3], UPhaseStart=PFout[1,2]);
+  UNom=PFout[1,1], SNom=PFout[1,3], UPhaseStart=PFout[1,2], setPhaseOnly=true);
 
 
   //Code to read output from previous PowerFlow run:
