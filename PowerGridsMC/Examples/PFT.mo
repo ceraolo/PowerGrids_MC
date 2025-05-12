@@ -169,7 +169,7 @@ package PFT
 <p>This model shows the usage of the following new components, not existing in the original Powergirds library: </p>
 <p>LoadPQVoltageDependenceR, SynchronousMachine4WindingR, EquivalentGridR, ControlledGeneratorR.</p>
 </html>"),
-        Diagram(coordinateSystem(extent = {{-60, -40}, {60, 40}})));
+        Diagram(coordinateSystem(extent = {{-60, -40}, {60, 40}}), graphics = {Text(origin = {-33, 33}, textColor = {238, 46, 47}, extent = {{-7, 3}, {7, -3}}, textString = "Red: MW"), Text(origin = {-12, 33}, textColor = {255, 0, 255}, extent = {{-10, 3}, {10, -3}}, textString = "Fucsja:  Mvar"), Text(origin = {8, 33}, textColor = {0, 0, 255}, extent = {{-10, -2}, {8, 2}}, textString = "Blue: kV")}));
     end LoadChangeReg;
     annotation(
       Documentation(info = "<html>
