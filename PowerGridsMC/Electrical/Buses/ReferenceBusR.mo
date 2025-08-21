@@ -16,7 +16,7 @@ model ReferenceBusR "Reference bus for an isolated grid"
 
   //Code to read output from previous PowerFlow run:
   final parameter String name = getInstanceName();
-  final parameter String nameShort = PowerGridsMC.Functions.giveShortName(name);
+  parameter String nameShort = PowerGridsMC.Functions.giveShortName(name);
   final parameter Real PFout[:,:] = Modelica.Utilities.Streams.readRealMatrix(
           nameShort+".mat","y",1,7);
 

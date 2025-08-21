@@ -120,11 +120,11 @@ package PFT
     model LoadChangeReg "Regulated verion"
       extends Modelica.Icons.Example;
       /*  The following variables are taken from disk inside GEN_:  
-                            UStart=GEN_.y[1, 1],
-                            UPhaseStart=GEN_.y[1, 2],
-                            PStart=GEN_.y[1, 3],
-                            QStart=GEN_.y[1, 4],
-                        */
+                                  UStart=GEN_.y[1, 1],
+                                  UPhaseStart=GEN_.y[1, 2],
+                                  PStart=GEN_.y[1, 3],
+                                  QStart=GEN_.y[1, 4],
+                              */
       PowerGridsMC.Examples.IEEE14bus.ControlledGenNoPSS_R GEN(GEN(H = 4, SNom = 500000000, Tpd0 = 5.143, Tppd0 = 0.042, Tppq0 = 0.083, Tpq0 = 2.16, UNom = 21000, portVariablesPhases = true, raPu = 0, xdPu = 2, xlPu = 0.15, xpdPu = 0.35, xppdPu = 0.25, xppqPu = 0.3, xpqPu = 0.5, xqPu = 1.8)) annotation(
         Placement(transformation(extent = {{-52, 0}, {-32, 20}})));
       PowerGridsMC.Electrical.Buses.Bus NTLV(SNom = 5e+08, UNom = 21000, portVariablesPhases = true, portVariablesPu = true) annotation(
@@ -323,7 +323,7 @@ package PFT
       connect(bus2.terminal, T2_i.terminalB) annotation(
         Line(points = {{20.5, 8.5}, {56, 8.5}, {56, 14}}, color = {0, 0, 0}));
       annotation(
-        Diagram(coordinateSystem(extent = {{-120, -120}, {120, 120}}), graphics = {Text(origin = {64, -24}, lineColor = {238, 46, 47}, extent = {{-28, 6}, {28, -6}}, textString = "V. Info"), Rectangle(extent = {{42, 66}, {82, 2}}, lineColor = {256, 0, 0})}),
+        Diagram(coordinateSystem(extent = {{-120, -120}, {120, 120}}), graphics = {Text(origin = {64, -24}, textColor = {238, 46, 47}, extent = {{-28, 6}, {28, -6}}, textString = "V. Info"), Rectangle(lineColor = {238, 46, 47}, pattern = LinePattern.Dash, extent = {{42, 66}, {82, 2}})}),
         Documentation(info = "<html>
 <p>In this example the network is analysed throgh a Power Flow, in which all e PV voltages are set to be equal to the corresponding nominal values. Therefore on the corresponding busbars we read in diagram voltages all equal to 1.</p>
 <p>The numerical data on diagram are in pw of the nominal values of the corresponding components. </p>
@@ -374,7 +374,7 @@ package PFT
         Placement(visible = true, transformation(origin = {-82, -12}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
       PowerGridsMC.Electrical.Loads.LoadPQW pq41(P(displayUnit = "W") = 1, Q(displayUnit = "var") = 0.5, SNom(displayUnit = "V.A") = 1, UNom(displayUnit = "V") = 1) annotation(
         Placement(visible = true, transformation(origin = {-22, -86}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-      inner PowerGridsMC.Electrical.System systemPowerGrids(showDataOnDiagramsPu = true)  annotation(
+      inner PowerGridsMC.Electrical.System systemPowerGrids(showDataOnDiagramsPu = true) annotation(
         Placement(visible = true, transformation(origin = {-70, 98}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
       PowerGridsMC.Electrical.Branches.TransformerFixedRatio Teq2_21u(SNom(displayUnit = "W") = 1, UNomA(displayUnit = "V") = 1, UNomB(displayUnit = "V") = 1, X = 0.076469) annotation(
         Placement(visible = true, transformation(origin = {16, 32}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
