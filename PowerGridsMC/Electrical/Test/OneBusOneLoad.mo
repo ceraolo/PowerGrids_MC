@@ -14,13 +14,13 @@ model OneBusOneLoad
         extent={{-10,-10},{10,10}},
         rotation=0)));
   inner PowerGridsMC.Electrical.System systemPowerGrids annotation (
-    Placement(visible = true, transformation(origin = {70, 70}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(transformation(origin = {50, 50}, extent = {{-10, -10}, {10, 10}})));
 equation
   connect(infiniteBus.terminal, loadPQ.terminal) annotation (
     Line(points = {{0, 10}, {0, -10}}));
   annotation (
     Icon(coordinateSystem(grid = {0.1, 0.1})),
-    Diagram(coordinateSystem(extent = {{-100, -100}, {100, 100}})),
+    Diagram(coordinateSystem(extent = {{-20, 60}, {60, -20}})),
     experiment(StopTime = 1, Interval = 0.02),
   Documentation(info="<html>
 <p>An infinite bus with zero impedance, U_abs = 10 kV, theta = 30 deg, is connected to a PQ load with P = 10 MW and Q = 0 MW.</p>

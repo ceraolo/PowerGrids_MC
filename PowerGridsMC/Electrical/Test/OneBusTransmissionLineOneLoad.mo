@@ -16,7 +16,7 @@ model OneBusTransmissionLineOneLoad
         extent={{-10,-10},{10,10}},
         rotation=0)));
   inner PowerGridsMC.Electrical.System systemPowerGrids annotation (
-    Placement(visible = true, transformation(origin = {70, 70}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(transformation(origin = {50, 50}, extent = {{-10, -10}, {10, 10}})));
   PowerGridsMC.Electrical.Branches.LineConstantImpedance transmissionLine(R = 0.3, SNom = 1e+07, UNom = 10000, X = 1.5, portVariablesPu = true) annotation (
     Placement(visible = true, transformation(origin = {-10, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
@@ -26,7 +26,7 @@ equation
     Line(points = {{0, 0}, {20, 0}}));
   annotation (
     Icon(coordinateSystem(grid = {0.1, 0.1})),
-    Diagram(coordinateSystem(extent = {{-100, -100}, {100, 100}})),
+    Diagram(coordinateSystem(extent = {{-60, 60}, {60, -20}})),
     experiment(StopTime = 1, Interval = 0.02),
     Documentation(info = "<html><head></head><body><p>Same behaviour as <a href=\"modelica://PowerGridsMC.Electrical.Test.OneBusImpedanceOneLoad\">OneBusImpedanceOneLoad</a>, but this time the line impedance is not built-in the bus but rather represented explicitly with a Transmission Line. All quantities in the load are the same.
 </body></html>"));

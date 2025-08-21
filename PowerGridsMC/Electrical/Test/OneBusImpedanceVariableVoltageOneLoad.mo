@@ -16,7 +16,7 @@ model OneBusImpedanceVariableVoltageOneLoad
         extent={{-10,-10},{10,10}},
         rotation=0)));
   inner System systemPowerGrids annotation (
-    Placement(visible = true, transformation(origin = {90, 90}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(transformation(origin = {30, 50}, extent = {{-10, -10}, {10, 10}})));
   Modelica.Blocks.Sources.Step UMod(height = -2e3, offset = 10e3, startTime = 1)  annotation (
     Placement(visible = true, transformation(origin = {-50, 30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Sources.Step UPhase(height = 30 / 180 * Modelica.Constants.pi, startTime = 2)  annotation (
@@ -32,5 +32,6 @@ equation
     experiment(StopTime = 3.0, Interval = 0.01),
     Documentation(info = "<html><head></head><body><p>This model demonstrates the usage of a variable-voltage infinite bus.</p>
 <p>The model is similar to <a href=\"modelica://PowerGridsMC.Electrical.Test.OneBusImpedanceOneLoad\">OneBusImpedanceOneLoad</a>, except that the bus reference voltage is reduced from 10 kV to 8 kV at time = 1 and the reference phase is increased from 0 to 30 deg at time = 2.</p>
-</body></html>"));
+</body></html>"),
+  Diagram(coordinateSystem(extent = {{-60, 60}, {40, -20}})));
 end OneBusImpedanceVariableVoltageOneLoad;

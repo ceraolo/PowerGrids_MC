@@ -17,7 +17,7 @@ equation
   valueAboveMax = time >= 1 and time < 10;
   annotation (
     Icon(coordinateSystem(grid = {0.1, 0.1})),
-    Diagram(coordinateSystem(extent = {{-200, -100}, {200, 100}})),
+    Diagram(coordinateSystem(extent = {{-100, -100}, {100, 100}})),
     Documentation(info = "<html><head></head><body><span style=\"font-size: 12px;\">This model demonstrates the correct behaviour of a tap-changer logic of type MAX</span><span style=\"font-size: 12px;\">&nbsp;by directly prescribing the moniitoring conditions <code>valueUnderStop</code>, <code>valueAboveMax</code>&nbsp;as functions of time.&nbsp;</span><span style=\"font-size: 12px;\">The logic starts with tap changer in position 10.</span><div><span style=\"font-size: 12px;\"><br></span></div><div><span style=\"font-size: 12px;\">valueAboveMax becomes true t=1, and becomes false at t=10, while valueUnderStop becomes true at t=15.5.</span></div><div>Locked signal is active in t = [5, 8] interval.</div><div><br></div><div>According to the defined time lag intervals (3 second for first tap, 1 second for subsequent taps), the tap starts to decrease at t=4 (i.e. 3 seconds after the monitored value raises above MAX), then stays frozen until t=8 because the locked signal becomes active.</div><div><br></div><div>After the locked signal disappears (t=8) and 3 seconds are elapsed (lag for first tap) the tap restarts to decrease, one tap per second, until the Stop is reached.<figure>
  <img src=\"modelica://PowerGridsMC/Resources/Images/Branches/TestTapChangerLogicMax.png\">
 </figure>

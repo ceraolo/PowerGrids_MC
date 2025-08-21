@@ -2,7 +2,7 @@ within PowerGridsMC.Electrical.Test;
 model LoadImpedancePQ "Test case for LoadImpedancePQ"
   extends Modelica.Icons.Example;
   inner System systemPowerGrids annotation (
-    Placement(visible = true, transformation(origin = {78, 78}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(transformation(origin = {50, 50}, extent = {{-10, -10}, {10, 10}})));
   PowerGridsMC.Electrical.Loads.LoadZeta load1(
     PRef=8e+07,
     PRefConst=40e6,
@@ -63,5 +63,6 @@ equation
     Documentation(info="<html><head></head><body><p>Test case for <a href=\"modelica://PowerGridsMC.Electrical.Loads.LoadZeta\">Electrical.Loads.LoadImpedancePQ</a>.</p>
 <p>A load with reference voltage 400 kV is connected to an infinite bus with the same voltage. The impedance Z is computed so as to obtain the required values of P = 80 MW and Q = 40 MVA in the reference conditions.</p>
 </body></html>"),
-    experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-6, Interval = 0.002));
+    experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-6, Interval = 0.002),
+  Diagram(coordinateSystem(extent = {{-80, 60}, {80, -60}})));
 end LoadImpedancePQ;

@@ -18,7 +18,7 @@ equation
     Line(points = {{-58, 10}, {-18, 10}, {-18, 12}, {-20, 12}}, color = {85, 170, 255}));
   annotation (
     Icon(coordinateSystem(grid = {0.1, 0.1})),
-    Diagram(coordinateSystem(extent = {{-200, -100}, {200, 100}})),
+    Diagram(coordinateSystem(extent = {{-80, 40}, {20, -60}})),
     experiment(StartTime = 0, StopTime = 10, Tolerance = 1e-06, Interval = 0.02),
     __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
   Documentation(info = "<html><head></head><body><span style=\"font-size: 12px;\">This model demonstrates the correct implementation of the exciter rectifier regulation characteristic IEEE.</span></body></html>"));

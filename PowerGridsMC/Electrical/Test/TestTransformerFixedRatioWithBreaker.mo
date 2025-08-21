@@ -16,7 +16,7 @@ model TestTransformerFixedRatioWithBreaker
         extent={{-10,-10},{10,10}},
         rotation=0)));
   inner PowerGridsMC.Electrical.System systemPowerGrids annotation (
-    Placement(visible = true, transformation(origin = {70, 70}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(transformation(origin = {50, 50}, extent = {{-10, -10}, {10, 10}})));
   PowerGridsMC.Electrical.Branches.TransformerFixedRatioWithBreaker transformer(B = 1e-6, G = 1e-6,R = 0.3, SNom = 1e+07, UNomA = 5000, UNomB = 10000, X = 1.5, portVariablesPu = true, rFixed = 2, useBreaker = true) annotation (
     Placement(visible = true, transformation(origin = {-10, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Sources.BooleanExpression breakerState(y = time < 2)  annotation (
@@ -38,7 +38,7 @@ equation
     Line(points = {{60, 0}, {80, 0}, {80, 0}, {80, 0}}));
   annotation (
     Icon(coordinateSystem(grid = {0.1, 0.1})),
-    Diagram(coordinateSystem(extent = {{-100, -100}, {100, 100}})),
+    Diagram(coordinateSystem(extent = {{-60, 60}, {100, -20}})),
     experiment(StopTime = 4, Interval = 0.08, StartTime = 0, Tolerance = 1e-6),
     Documentation(info = "<html><head></head><body><p>Similar to <a href=\"modelica://PowerGridsMC.Electrical.Test.TestTransformerFixedRatio\">TestTransformerFixedRatio</a>, but this time a new branch has been added, to supply the load when the transformer breaker is open.</p><p>The voltage at the new infinite bus is the same of one at port b of the transformer, the line has little resistance and the same impedance of the transformer.</p><p>If the breaker is closed the power to the load is supplied in the same ratio by the transformer and the line (50% from the transformer and 50% from the line).</p><p>When breacker opens (time = 2 seconds), all the power is supplied by the line, and the transformer is closed on the equivalent shunt impedance.</p></body></html>"));
 end TestTransformerFixedRatioWithBreaker;

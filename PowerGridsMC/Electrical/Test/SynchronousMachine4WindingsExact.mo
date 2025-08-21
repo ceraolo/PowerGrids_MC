@@ -4,20 +4,20 @@ model SynchronousMachine4WindingsExact
   PowerGridsMC.Electrical.Buses.InfiniteBus bus(SNom = 5.5e+08, UNom = 24000, UStart = 24000, X = 0, portVariablesPhases = true, portVariablesPu = true, theta = 0) annotation (
     Placement(visible = true, transformation(origin = {0, 20}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   PowerGridsMC.Electrical.Machines.SynchronousMachine4Windings machine(H = 6, PStart = -5.52e+08, QStart = -2.52e+08, SNom = 5.5e+08, Tpd0 = 8, Tppd0 = 0.03, Tppq0 = 0.07, Tpq0 = 1, UNom = 24000, UStart = 24000, excitationPuType = PowerGridsMC.Types.Choices.ExcitationPuType.Kundur, portVariablesPhases = true, raPu = 0.003, timeConstApprox = PowerGridsMC.Types.Choices.TimeConstantsApproximation.exactComputation, xdPu = 1.81, xlPu = 0.15, xpdPu = 0.3, xppdPu = 0.23, xppqPu = 0.25, xpqPu = 0.65, xqPu = 1.76) annotation (
-    Placement(visible = true, transformation(origin = {0, -10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(transformation(origin = {0, -10}, extent = {{-10, -10}, {10, 10}})));
   inner PowerGridsMC.Electrical.System systemPowerGrids(fNom = 60) annotation (
-    Placement(visible = true, transformation(origin = {68, 70}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(transformation(origin = {30, 50}, extent = {{-10, -10}, {10, 10}})));
   Modelica.Blocks.Sources.Step PmPu(height = 0.0, offset = 0.9, startTime = 50) annotation (
     Placement(visible = true, transformation(origin = {-50, 10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Sources.Step ufPu(height = 0, offset = 0.000939) annotation (
     Placement(visible = true, transformation(origin = {-50, -30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
   connect(bus.terminal, machine.terminal) annotation (
-    Line(points = {{0, 20}, {0, 0}}));
+    Line(points = {{0, 20}, {0, -10}}));
   connect(ufPu.y, machine.ufPuIn) annotation (
-    Line(points = {{-38, -30}, {-24, -30}, {-24, -14}, {-10, -14}, {-10, -14}}, color = {0, 0, 127}));
+    Line(points = {{-38, -30}, {-24, -30}, {-24, -14}, {-10, -14}}, color = {0, 0, 127}));
   connect(PmPu.y, machine.pmPuIn) annotation (Line(points={{-38,10},{-24,10},{-24,
-          -6},{-10,-6},{-10,-6}}, color={0,0,127}));
+          -7},{-10,-7}}, color={0,0,127}));
   annotation (
     experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-06, Interval = 0.002),
     __OpenModelica_simulationFlags(homotopyOnFirstTry = "()"),
@@ -41,5 +41,6 @@ equation
 </tbody>
 </table>
 
-</body></html>"));
+</body></html>"),
+  Diagram(coordinateSystem(extent = {{-60, 60}, {40, -40}})));
 end SynchronousMachine4WindingsExact;

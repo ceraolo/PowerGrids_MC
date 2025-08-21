@@ -16,7 +16,7 @@ model TestTransformerFixedRatio
         extent={{-10,-10},{10,10}},
         rotation=0)));
   inner PowerGridsMC.Electrical.System systemPowerGrids annotation (
-    Placement(visible = true, transformation(origin = {70, 70}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(transformation(origin = {20, 40}, extent = {{-10, -10}, {10, 10}})));
   PowerGridsMC.Electrical.Branches.TransformerFixedRatio transformer(R = 0.3, SNom = 1e+07, UNomA = 5000, UNomB = 10000, X = 1.5, portVariablesPu = true, rFixed = 2) annotation (
     Placement(visible = true, transformation(origin = {-10, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
@@ -26,7 +26,7 @@ equation
     Line(points = {{0, 0}, {20, 0}}));
   annotation (
     Icon(coordinateSystem(grid = {0.1, 0.1})),
-    Diagram(coordinateSystem(extent = {{-100, -100}, {100, 100}})),
+    Diagram(coordinateSystem(extent = {{-60, 60}, {40, -20}})),
     experiment(StopTime = 1, Interval = 0.02),
     Documentation(info = "<html><head></head><body><p>Similar to <a href=\"modelica://PowerGridsMC.Electrical.Test.OneBusTransmissionLineOneLoad\">OneBusImpedanceOneLoad</a>, but this time the line impedance has been substituted with a transformer with fixed ratio:</p><p>&nbsp; - ratio = 2<br>&nbsp; - phase shifting null</p><p>The voltage at the infinite bus has been halved, all quantities in the load are the same.</p><p>The results doesn't change.</p></body></html>"));
 end TestTransformerFixedRatio;

@@ -10,7 +10,7 @@ equation
     Line(points = {{-42, 0}, {-24, 0}, {-24, 0}, {-24, 0}}, color = {0, 0, 127}));
   annotation (
     Icon(coordinateSystem(grid = {0.1, 0.1})),
-    Diagram(coordinateSystem(extent = {{-200, -100}, {200, 100}})),
+    Diagram(coordinateSystem(extent = {{-80, -60}, {80, 60}})),
   experiment(StartTime = 0, StopTime = 2, Tolerance = 1e-06, Interval = 0.004),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"));
 end TestExciterRectifierRegulationCharacteristicIEEE;

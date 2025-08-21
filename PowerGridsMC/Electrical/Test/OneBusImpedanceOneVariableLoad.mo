@@ -16,7 +16,7 @@ model OneBusImpedanceOneVariableLoad
         extent={{-10,-10},{10,10}},
         rotation=0)));
   inner System systemPowerGrids annotation (
-    Placement(visible = true, transformation(origin = {90, 90}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(transformation(origin = {50, 50}, extent = {{-10, -10}, {10, 10}})));
   PowerGridsMC.Electrical.Buses.InfiniteBus bus2(PStart = -1e+07,R = 0.04, SNom = 1e+08, UNom = 10000, X = 0.4, generatorConvention = true, portVariablesPhases = true, portVariablesPu = true)  annotation (
     Placement(visible = true, transformation(origin = {50, 10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   PowerGridsMC.Electrical.Loads.LoadAlphaBetaInputs load2(
@@ -46,5 +46,6 @@ equation
     Documentation(info = "<html><head></head><body><p>This model demonstrates both ways of implementing a time-varying load.</p>
 The model is similar to <a href=\"modelica://PowerGridsMC.Electrical.Test.OneBusImpedanceOneLoad\">OneBusImpedanceOneLoad</a>, except that the active power P of the load is increased from 10 MW to 20 MW at time = 1 and the reactive power is increased from 0 to 30 MW at time = 2.<p></p>
 <p>Both ways of implementing a variable load, with the expression in the modifier and with the input signals, are demonstrated. The results are exactly the same.</p>
-</body></html>"));
+</body></html>"),
+  Diagram(coordinateSystem(extent = {{-60, 60}, {60, -40}})));
 end OneBusImpedanceOneVariableLoad;
