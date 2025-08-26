@@ -6,7 +6,7 @@ model TestCase2 "Test Case 2, Section 5.2, focuses on the dynamic behavior of th
   PowerGridsMC.Electrical.Machines.SynchronousMachine4Windings GEN(H = 4, PStart = -3.8e+08, QStart = 0, SNom = 4.75e+08, Tpd0 = 5.143, Tppd0 = 0.042, Tppq0 = 0.083, Tpq0 = 2.16, UNom = 21000, UPhaseStart = 0, UStart = 21000, portVariablesPhases = true, raPu = 0, referenceGenerator = true, xdPu = 2, xlPu = 0.15, xpdPu = 0.35, xppdPu = 0.25, xppqPu = 0.3, xpqPu = 0.5, xqPu = 1.8) annotation (
     Placement(transformation(origin = {-26, 6}, extent={{-10,10},{10,-10}})));
   PowerGridsMC.Electrical.Buses.ReferenceBus NGEN(SNom = 5e+08, UNom = 21000, portVariablesPhases = true, portVariablesPu = true) annotation (
-    Placement(transformation(origin = {14, -14}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
+    Placement(transformation(origin={14,-10},    extent = {{-10, -10}, {10, 10}}, rotation = 90)));
   PowerGridsMC.Electrical.Controls.TurbineGovernors.IEEE_TGOV1 TGOV(R = 0.05, T1 = 0.5, T2 = 3, T3 = 10, VMax = 1) annotation (
     Placement(transformation(origin = {-62, 34}, extent = {{-10, 10}, {10, -10}})));
   PowerGridsMC.Electrical.Controls.ExcitationSystems.IEEE_AC4A AVR(Ka = 200, Ta = 0.05, Tb = 10, Tc = 3, VrMax = 4) annotation (
@@ -35,6 +35,8 @@ model TestCase2 "Test Case 2, Section 5.2, focuses on the dynamic behavior of th
     "Fig. 5-5, mechanical power of the synchronous machine";
   Types.PerUnit AA_04_GEN_omegaPu = GEN.omegaPu "Fig. 5-6, speed";
 
+  Electrical.Sensors.UIsensor uIsensor(showPortData=false)
+    annotation (Placement(transformation(extent={{-14,-20},{6,0}})));
 equation
   connect(GEN.VPu, AVR.VcPu) annotation (
     Line(points={{-15.8,12},{-8,12},{-8,52},{-114,52},{-114,-8},{-72,-8}},          color = {0, 0, 127}));
@@ -49,17 +51,19 @@ equation
   connect(PLoad.y, LOAD.PRefIn) annotation (
     Line(points={{-9.2,-28},{-0.2,-28},{-0.2,-36},{12,-36}},            color = {0, 0, 127}));
   connect(NGEN.terminal, LOAD.terminal) annotation (
-    Line(points = {{14, -14}, {22, -14}, {22, -32}}));
+    Line(points={{14,-10},{22,-10},{22,-32}}));
   connect(RefLPu.y, TGOV.RefLPu) annotation (
     Line(points = {{-87, 30}, {-72, 30}}, color = {0, 0, 127}));
   connect(AVR.efdPu, GEN.ufPuIn) annotation (
-    Line(points={{-49.8,-10},{-44,-10},{-44,10},{-36.4,10}},                                                    color = {0, 0, 127}));
+    Line(points={{-51,-10},{-44,-10},{-44,10},{-36.4,10}},                                                      color = {0, 0, 127}));
   connect(GEN.omegaPu, TGOV.omegaPu) annotation (
     Line(points={{-15.8,4},{-12,4},{-12,48},{-78,48},{-78,38},{-72,38}},            color = {0, 0, 127}));
   connect(TGOV.PMechPu, GEN.pmPuIn) annotation (Line(points={{-52,34},{-48,34},
           {-48,4},{-40,4},{-40,2.6},{-36.4,2.6}}, color={0,0,127}));
-  connect(GEN.terminal, NGEN.terminal) annotation (
-    Line(points = {{-26, 6}, {-26, -14}, {14, -14}}));
+  connect(uIsensor.terminalA, GEN.terminal)
+    annotation (Line(points={{-14,-10},{-26,-10},{-26,6}}, color={0,0,0}));
+  connect(uIsensor.terminalB, NGEN.terminal)
+    annotation (Line(points={{6,-10},{14,-10}}, color={0,0,0}));
   annotation (
     Diagram(coordinateSystem(extent = {{-120, -60}, {40, 60}})),
     experiment(StartTime = 0, StopTime = 2, Tolerance = 1e-6, Interval = 0.004),
@@ -68,6 +72,9 @@ equation
     Documentation(info="<html>
 <p><i><span style=\"font-family: Arial; font-size: 12pt;\">Library PowerGridsMC was forked from https://github.com/PowerGrids/PowerGrids on 22 November 2024.</span></i></p>
 <p><i><span style=\"font-size: 12pt;\">The following info is derived from the original version on that source, modified whenever changes introduced in this fork require this.</span></i></p>
-<p>************************** </p>
+<p>**************************</p>
+<p>nothing </p>
+<p>**************************</p>
+<p>New in PowerLibMC is the component UIsensor, whose behaviour is checked in this example.</p>
 </html>"));
 end TestCase2;

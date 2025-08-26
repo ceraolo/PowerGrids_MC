@@ -49,7 +49,7 @@ package Sensors "Voltage transducer models"
     connect(constRc.y, constZc.re) annotation (
       Line(points={{-97,-4},{-80,-4}},                                color = {0, 0, 127}));
     annotation (
-      Icon(coordinateSystem(grid = {0.1, 0.1}), graphics={  Rectangle(lineColor = {0, 0, 127}, fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid, extent = {{-100, 100}, {100, -100}}), Text(origin = {-4, 119}, lineColor = {0, 0, 255}, extent = {{-48, 11}, {48, -11}}, textString = "%name"), Text(origin = {0, 26}, extent = {{-56, 36}, {56, -36}}, textString = "Vt It"), Text(origin = {-3, -25}, extent = {{-79, 59}, {87, -51}}, textString = "Transducer")}),
+      Icon( graphics={  Rectangle(lineColor = {0, 0, 127}, fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid, extent = {{-100, 100}, {100, -100}}), Text(origin = {-4, 119}, lineColor = {0, 0, 255}, extent = {{-48, 11}, {48, -11}}, textString = "%name"), Text(origin = {0, 26}, extent = {{-56, 36}, {56, -36}}, textString = "Vt It"), Text(origin = {-3, -25}, extent = {{-79, 59}, {87, -51}}, textString = "Transducer")}),
       Diagram(coordinateSystem(extent={{-120,-80},{120,80}})),
     Documentation(info = "<html><head></head><body>This model implements a terminal voltage transducer according to the IEEE Std 421.5TM-2005.<div><br></div><div>It includes a load compensator and a time constant, which is common for the combined voltage sensing and compensation signal.</div></body></html>"));
   end TerminalVoltageTransducerIEEE;
@@ -124,10 +124,42 @@ package Sensors "Voltage transducer models"
     connect(constKp.y, complexKp.len) annotation (
       Line(points={{-135,16},{-118,16}},                              color = {0, 0, 127}));
     annotation (
-      Icon(coordinateSystem(grid = {0.1, 0.1}, initialScale = 0.1), graphics={  Rectangle(lineColor = {0, 0, 127}, fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid, extent = {{-100, 100}, {100, -100}}), Text(origin = {-4, 119}, lineColor = {0, 0, 255}, extent = {{-48, 11}, {48, -11}}, textString = "%name"), Text(origin = {0, 6}, extent = {{-56, 36}, {56, -36}}, textString = "Vt It"), Text(origin = {-11, -23}, extent = {{-65, 1}, {87, -51}}, textString = "Transducer"), Text(origin = {-1, 79}, extent = {{-65, 1}, {57, -39}}, textString = "Exciter")}),
+      Icon(coordinateSystem(initialScale = 0.1), graphics={  Rectangle(lineColor = {0, 0, 127}, fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid, extent = {{-100, 100}, {100, -100}}), Text(origin={-1.65,
+                123.25},                                                                                                                                                                                                        lineColor = {0, 0, 255}, extent={{-99.95,
+                13.75},{99.95,-13.75}},                                                                                                                                                                                                        textString = "%name"), Text(origin = {0, 6}, extent = {{-56, 36}, {56, -36}}, textString = "Vt It"), Text(origin = {-11, -23}, extent = {{-65, 1}, {87, -51}}, textString = "Transducer"), Text(origin = {-1, 79}, extent = {{-65, 1}, {57, -39}}, textString = "Exciter")}),
       Diagram(coordinateSystem(extent={{-160,-60},{160,60}})),
     Documentation(info = "<html><head></head><body><span style=\"font-size: 12px;\">This class implements a model of the voltage transducer tipically used in static excitation systems,&nbsp;</span><span style=\"font-size: 12px;\">according to the IEEE Std 421.5TM-2005.</span><div><br></div><div>More precisely, said transducer is included in the exciters models of Type ST3A and ST4B of the IEEE Std 421.5TM-2005.</div></body></html>"));
   end ExciterVoltageTransducerIEEE;
+
+  model UIsensor
+    extends PowerGridsMC.Electrical.BaseClasses.TwoPortAC;
+    Modelica.ComplexBlocks.Interfaces.ComplexOutput u annotation (Placement(
+          transformation(
+          extent={{10,-10},{-10,10}},
+          rotation=90,
+          origin={-40,-50}), iconTransformation(
+          extent={{10,-10},{-10,10}},
+          rotation=90,
+          origin={-40,-50})));
+    Modelica.ComplexBlocks.Interfaces.ComplexOutput i annotation (Placement(
+          transformation(
+          extent={{10,-10},{-10,10}},
+          rotation=90,
+          origin={40,-50}), iconTransformation(
+          extent={{10,-10},{-10,10}},
+          rotation=90,
+          origin={40,-50})));
+  equation
+    portA.v=portB.v;
+    portA.i+portB.i=Complex(0);
+    u=portA.u;
+    i=portA.i;
+
+    connect(u,u)
+      annotation (Line(points={{-40,-50},{-40,-50}}, color={85,170,255}));
+    annotation (Icon(graphics = {Line(points = {{-92, 0}, {96, 0}}, color = {28, 108, 200}), Ellipse(extent = {{-50, 50}, {50, -50}}, lineColor = {28, 108, 200}, fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid), Text(extent = {{-48, 14}, {44, -20}}, textColor = {28, 108, 200}, textString = "UI"), Text(extent = {{-100, 90}, {100, 56}}, textColor = {0, 0, 255}, textString = "%name")}),
+  Diagram(coordinateSystem(extent = {{-100, -80}, {100, 80}})));
+  end UIsensor;
   annotation (
     Icon(coordinateSystem(grid = {0.1, 0.1})),
     Diagram(coordinateSystem(extent = {{-200, -100}, {200, 100}})));
