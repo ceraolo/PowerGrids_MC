@@ -1,5 +1,4 @@
 within PowerGridsMC.Examples;
-
 package PFT
   extends Modelica.Icons.ExamplesPackage;
 
@@ -688,7 +687,7 @@ package PFT
         Placement(visible = true, transformation(origin = {22, -14}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
       PowerGridsMC.Electrical.Branches.TransformerFixedRatio T21_i(SNom(displayUnit = "MW") = 125000000, UNomA(displayUnit = "kV") = 230000, UNomB(displayUnit = "kV") = 132700, X = 4.624e-3*126.9^2/100, rFixed = 132.7/230, showPortData = false) annotation(
         Placement(visible = true, transformation(origin = {4, 8}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
-      PowerGridsMC.Electrical.Buses.BusFault bus1(R = 1, SNom(displayUnit = "V.A") = 500000000, UNom(displayUnit = "V") = 234000, X = 0, portVariablesPhases = true, portVariablesPu = true, startTime = 0.5e6, stopTime = 0.6e6) annotation(
+      PowerGridsMC.Electrical.Buses.BusFault bus1(R = 1, SNom(displayUnit = "V.A") = 5e8, UNom(displayUnit = "V") = 234000, X = 0, portVariablesPhases = true, portVariablesPu = true, startTime = 0.5, stopTime = 0.6) annotation(
         Placement(visible = true, transformation(origin = {-52, 10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
       PowerGridsMC.Electrical.Branches.TransformerFixedRatio T42_iX2(SNom(displayUnit = "MW") = 190e6*2, UNomA(displayUnit = "V") = 236.1, UNomB(displayUnit = "V") = 15.75, X = 0.017488*14.7^2/100/2, rFixed = 15.75/236.1, showPortData = true) annotation(
         Placement(visible = true, transformation(origin = {-4, -86}, extent = {{10, -10}, {-10, 10}}, rotation = 180)));

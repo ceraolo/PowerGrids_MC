@@ -9,8 +9,15 @@ model TestExciterVoltageTransducerIEEE
                                                    re   = 1, im   = 1))
                                                                        annotation (
     Placement(visible = true, transformation(origin = {-70, -30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  PowerGridsMC.Electrical.VoltageTransducers.ExciterVoltageTransducerIEEE exciterVoltageTransducerIEEE(ki = 1,kp = sqrt(2), thetap = 0.785398, xl = 1)  annotation (
-    Placement(visible = true, transformation(origin = {-3.33067e-15, -4.21885e-15}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
+  PowerGridsMC.Electrical.Sensors.ExciterVoltageTransducerIEEE
+    exciterVoltageTransducerIEEE(
+    ki=1,
+    kp=sqrt(2),
+    thetap=0.785398,
+    xl=1) annotation (Placement(visible=true, transformation(
+        origin={-3.33067e-15,-4.21885e-15},
+        extent={{-20,-20},{20,20}},
+        rotation=0)));
 equation
   connect(I.y, exciterVoltageTransducerIEEE.It) annotation (
     Line(points = {{-58, -30}, {-40, -30}, {-40, -12}, {-20, -12}, {-20, -12}}, color = {85, 170, 255}));
