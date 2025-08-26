@@ -131,7 +131,7 @@ package Sensors "Voltage transducer models"
     Documentation(info = "<html><head></head><body><span style=\"font-size: 12px;\">This class implements a model of the voltage transducer tipically used in static excitation systems,&nbsp;</span><span style=\"font-size: 12px;\">according to the IEEE Std 421.5TM-2005.</span><div><br></div><div>More precisely, said transducer is included in the exciters models of Type ST3A and ST4B of the IEEE Std 421.5TM-2005.</div></body></html>"));
   end ExciterVoltageTransducerIEEE;
 
-  model UIsensor
+  model UIsensorC "Measures complex voltage and current"
     extends PowerGridsMC.Electrical.BaseClasses.TwoPortAC;
     Modelica.ComplexBlocks.Interfaces.ComplexOutput u annotation (Placement(
           transformation(
@@ -158,8 +158,82 @@ package Sensors "Voltage transducer models"
     connect(u,u)
       annotation (Line(points={{-40,-50},{-40,-50}}, color={85,170,255}));
     annotation (Icon(graphics = {Line(points = {{-92, 0}, {96, 0}}, color = {28, 108, 200}), Ellipse(extent = {{-50, 50}, {50, -50}}, lineColor = {28, 108, 200}, fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid), Text(extent = {{-48, 14}, {44, -20}}, textColor = {28, 108, 200}, textString = "UI"), Text(extent = {{-100, 90}, {100, 56}}, textColor = {0, 0, 255}, textString = "%name")}),
-  Diagram(coordinateSystem(extent = {{-100, -80}, {100, 80}})));
-  end UIsensor;
+  Diagram(coordinateSystem(extent={{-100,-60},{100,60}})));
+  end UIsensorC;
+
+  model UIsensorR "Measures complex voltage and current as real arrays"
+    extends PowerGridsMC.Electrical.BaseClasses.TwoPortAC;
+    Modelica.Blocks.Interfaces.RealOutput u[2] annotation (Placement(
+          transformation(
+          extent={{10,-10},{-10,10}},
+          rotation=90,
+          origin={-40,-50}), iconTransformation(
+          extent={{10,-10},{-10,10}},
+          rotation=90,
+          origin={-40,-50})));
+    Modelica.Blocks.Interfaces.RealOutput i[2] annotation (Placement(
+          transformation(
+          extent={{10,-10},{-10,10}},
+          rotation=90,
+          origin={40,-50}), iconTransformation(
+          extent={{10,-10},{-10,10}},
+          rotation=90,
+          origin={40,-50})));
+  equation
+    portA.v=portB.v;
+    portA.i+portB.i=Complex(0);
+    u[1]=portA.u.re;
+    u[2]=portA.u.im;
+    i[1]=portA.i.re;
+    i[2]=portA.i.im;
+    connect(u,u)
+      annotation (Line(points={{-40,-50},{-40,-50}}, color={85,170,255}));
+    annotation (Icon(graphics = {Line(points = {{-92, 0}, {96, 0}}, color = {28, 108, 200}), Ellipse(extent = {{-50, 50}, {50, -50}}, lineColor={0,0,0},          fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid), Text(extent = {{-48, 14}, {44, -20}}, textColor={0,0,0},
+            textString="UI"),                                                                                                                                                                                                        Text(extent = {{-100, 90}, {100, 56}}, textColor = {0, 0, 255}, textString = "%name")}),
+  Diagram(coordinateSystem(extent={{-100,-60},{100,60}})));
+  end UIsensorR;
+
+  model MultisensorR
+    "Measures complex voltage and current as real arrays, and voltage phase"
+    extends PowerGridsMC.Electrical.BaseClasses.TwoPortAC;
+    Modelica.Blocks.Interfaces.RealOutput u[2] annotation (Placement(
+          transformation(
+          extent={{10,-10},{-10,10}},
+          rotation=90,
+          origin={-40,-50}), iconTransformation(
+          extent={{10,-10},{-10,10}},
+          rotation=90,
+          origin={-40,-50})));
+    Modelica.Blocks.Interfaces.RealOutput i[2] annotation (Placement(
+          transformation(
+          extent={{10,-10},{-10,10}},
+          rotation=90,
+          origin={40,-50}), iconTransformation(
+          extent={{10,-10},{-10,10}},
+          rotation=90,
+          origin={40,-50})));
+    Modelica.Blocks.Interfaces.RealOutput uPhase annotation (Placement(
+          transformation(
+          extent={{10,-10},{-10,10}},
+          rotation=90,
+          origin={40,-50}), iconTransformation(
+          extent={{10,-10},{-10,10}},
+          rotation=90,
+          origin={0,-60})));
+  equation
+    portA.v=portB.v;
+    portA.i+portB.i=Complex(0);
+    u[1]=portA.u.re;
+    u[2]=portA.u.im;
+    i[1]=portA.i.re;
+    i[2]=portA.i.im;
+    uPhase=portA.UPhase;
+    connect(u,u)
+      annotation (Line(points={{-40,-50},{-40,-50}}, color={85,170,255}));
+    annotation (Icon(graphics = {Line(points = {{-92, 0}, {96, 0}}, color = {28, 108, 200}), Ellipse(extent = {{-50, 50}, {50, -50}}, lineColor={0,0,0},          fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid), Text(extent = {{-48, 14}, {44, -20}}, textColor={0,0,0},
+            textString="UI"),                                                                                                                                                                                                        Text(extent = {{-100, 90}, {100, 56}}, textColor = {0, 0, 255}, textString = "%name")}),
+  Diagram(coordinateSystem(extent={{-100,-60},{100,60}})));
+  end MultisensorR;
   annotation (
     Icon(coordinateSystem(grid = {0.1, 0.1})),
     Diagram(coordinateSystem(extent = {{-200, -100}, {200, 100}})));

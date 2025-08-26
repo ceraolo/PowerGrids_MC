@@ -14,11 +14,12 @@ block IEEE_TGOV1 "Simple Steam Turbine Governor - IEEE type TGOV1"
   final parameter Real delta = (firstOrderLim.yMax - firstOrderLim.yMin)*oversaturationPu "Actuator saturation margin";
 
   Modelica.Blocks.Interfaces.RealInput RefLPu "Reference frequency/load input [pu]" annotation (
-    Placement(visible = true, transformation(origin = {-140, 50}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-100, 40}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {-140, 50}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin={-104,40},    extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   Modelica.Blocks.Interfaces.RealInput omegaPu "Frequency [pu]" annotation (
-    Placement(visible = true, transformation(origin = {-140, -30}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-100, -40}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {-140, -30}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin={-104,-40},    extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   Modelica.Blocks.Interfaces.RealOutput PMechPu "Mechanical turbine power [pu]" annotation (
-    Placement(visible = true, transformation(origin={122,50},   extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {100, 3.55271e-15}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
+    Placement(visible = true, transformation(origin={122,50},   extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin={106,
+            3.55271e-15},                                                                                                                                       extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   Modelica.Blocks.Math.Feedback errPu annotation (
     Placement(visible = true, transformation(origin = {-70, 50}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Math.Feedback deltaOmegaPu annotation (
