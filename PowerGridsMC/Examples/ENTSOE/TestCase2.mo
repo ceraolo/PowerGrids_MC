@@ -35,9 +35,16 @@ model TestCase2 "Test Case 2, Section 5.2, focuses on the dynamic behavior of th
     "Fig. 5-5, mechanical power of the synchronous machine";
   Types.PerUnit AA_04_GEN_omegaPu = GEN.omegaPu "Fig. 5-6, speed";
 
-  Electrical.Sensors.UIsensorC uIsensC(showPortData=false)
+  Electrical.Sensors.UIsensorC uIsensC(
+    UNomA=21000,
+    UNomB=21000,
+    SNom=500000000,                    showPortData=false)
     annotation (Placement(transformation(extent={{4,-20},{24,0}})));
-  Electrical.Sensors.MultisensorR multisens(showPortData=false)
+  Electrical.Sensors.MultisensorR multisens(
+    usePU=false,
+    UNomA=21000,
+    UNomB=21000,
+    SNom=500000000,                         showPortData=false)
     annotation (Placement(transformation(extent={{30,-20},{50,0}})));
 equation
   connect(GEN.VPu, AVR.VcPu) annotation (

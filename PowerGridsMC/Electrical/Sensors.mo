@@ -195,6 +195,8 @@ package Sensors "Voltage transducer models"
 
   model MultisensorR
     "Measures complex voltage and current as real arrays, and voltage phase"
+    parameter Boolean usePU=false;
+    final parameter Real INom=SNom/(sqrt(3)*UNomA);
     extends PowerGridsMC.Electrical.BaseClasses.TwoPortAC;
     Modelica.Blocks.Interfaces.RealOutput u[2] annotation (Placement(
           transformation(
@@ -216,17 +218,24 @@ package Sensors "Voltage transducer models"
           transformation(
           extent={{10,-10},{-10,10}},
           rotation=90,
-          origin={40,-50}), iconTransformation(
+          origin={0,-60}),  iconTransformation(
           extent={{10,-10},{-10,10}},
           rotation=90,
           origin={0,-60})));
   equation
     portA.v=portB.v;
     portA.i+portB.i=Complex(0);
-    u[1]=portA.u.re;
-    u[2]=portA.u.im;
-    i[1]=portA.i.re;
-    i[2]=portA.i.im;
+    if usePU then
+      u[1]=portA.u.re/UNomA;
+      u[2]=portA.u.im/UNomA;
+      i[1]=portA.i.re/INom;
+      i[2]=portA.i.im/INom;
+    else
+      u[1]=portA.u.re;
+      u[2]=portA.u.im;
+      i[1]=portA.i.re;
+      i[2]=portA.i.im;
+    end if;
     uPhase=portA.UPhase;
     connect(u,u)
       annotation (Line(points={{-40,-50},{-40,-50}}, color={85,170,255}));

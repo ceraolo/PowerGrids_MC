@@ -10,7 +10,7 @@ model System "System object"
   final parameter SI.AngularVelocity omegaNom = fNom*2*Modelica.Constants.pi "Nominal system angular frequency";
 
    parameter Boolean showDataOnDiagramsPu = false
-    "=true, if P,Q,V and phase are shown on the diagrams in per-unit of local machine base";
+    "=true, if P,Q,V are shown on the diagrams per-unit of component's base, otherwise MVA and kV";
   parameter Boolean loadLowVoltageAsImpedance = true "= true, all loads work as fixed impedances below their VPuThr voltage threshold" annotation(
     Evaluate = true);
 

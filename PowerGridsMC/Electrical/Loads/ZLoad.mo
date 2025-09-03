@@ -9,7 +9,9 @@ model ZLoad "Load with constant impedance"
 equation
   port.v = Z*port.i;
 annotation (
-    Icon(coordinateSystem(grid = {0.1, 0.1}, initialScale = 0.1), graphics={  Text(origin = {72, -60}, extent = {{-20, 20}, {20, -20}}, textString = "PQ")}),
+    Icon( graphics={  Text(origin={67,-70},    extent={{-19,18},{19,-18}},
+          textString="Z",
+          textColor={0,0,0})}),
     Documentation(info="<html>
 <p>Load with constant impedance <span style=\"font-family: Courier New;\">Z</span>. The impedance is computed by default from the nominal values <span style=\"font-family: Courier New;\">PNom, QNom, UNom,</span> but can also be provided directly, by overriding the default binding for <span style=\"font-family: Courier New;\">Z</span>.</p>
 <p>This is somehow a duplicate of LoadZeta: it is programmed to unify these two models in the  near future.</p>
