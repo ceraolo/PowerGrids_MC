@@ -4,7 +4,7 @@ model TwoGeneratorsFixedFrequencyReference
                                              referenceFrequency                  = PowerGridsMC.Types.Choices.ReferenceFrequency.nominalFrequency));
   annotation (
     Icon(coordinateSystem(grid = {0.1, 0.1})),
-    Diagram(coordinateSystem(extent = {{-100, 40}, {120, -20}}, grid = {0.5, 0.5})),
+    Diagram(coordinateSystem(extent = {{-100, -20}, {120, 40}})),
     experiment(StartTime = 0, StopTime = 30, Tolerance = 1e-06, Interval = 0.01),
     __OpenModelica_commandLineOptions = "--tearingMethod=minimalTearing",
     __OpenModelica_simulationFlags(nls="kinsol", lv="LOG_INIT_HOMOTOPY"),
