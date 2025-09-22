@@ -155,9 +155,8 @@ package Sensors "Voltage transducer models"
     u=portA.u;
     i=portA.i;
 
-    connect(u,u)
-      annotation (Line(points={{-40,-50},{-40,-50}}, color={85,170,255}));
-    annotation (Icon(graphics = {Line(points = {{-92, 0}, {96, 0}}, color = {28, 108, 200}), Ellipse(extent = {{-50, 50}, {50, -50}}, lineColor = {28, 108, 200}, fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid), Text(extent = {{-48, 14}, {44, -20}}, textColor = {28, 108, 200}, textString = "UI"), Text(extent = {{-100, 90}, {100, 56}}, textColor = {0, 0, 255}, textString = "%name")}),
+      annotation (Line(points={{-40,-50},{-40,-50}}, color={85,170,255}),
+                Icon(graphics = {Line(points = {{-92, 0}, {96, 0}}, color = {28, 108, 200}), Ellipse(extent = {{-50, 50}, {50, -50}}, lineColor = {28, 108, 200}, fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid), Text(extent = {{-48, 14}, {44, -20}}, textColor = {28, 108, 200}, textString = "UI"), Text(extent = {{-100, 90}, {100, 56}}, textColor = {0, 0, 255}, textString = "%name")}),
   Diagram(coordinateSystem(extent={{-100,-60},{100,60}})));
   end UIsensorC;
 
@@ -186,9 +185,8 @@ package Sensors "Voltage transducer models"
     u[2]=portA.u.im;
     i[1]=portA.i.re;
     i[2]=portA.i.im;
-    connect(u,u)
-      annotation (Line(points={{-40,-50},{-40,-50}}, color={85,170,255}));
-    annotation (Icon(graphics = {Line(points = {{-92, 0}, {96, 0}}, color = {28, 108, 200}), Ellipse(extent = {{-50, 50}, {50, -50}}, lineColor={0,0,0},          fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid), Text(extent = {{-48, 14}, {44, -20}}, textColor={0,0,0},
+      annotation (Line(points={{-40,-50},{-40,-50}}, color={85,170,255}),
+                Icon(graphics = {Line(points = {{-92, 0}, {96, 0}}, color = {28, 108, 200}), Ellipse(extent = {{-50, 50}, {50, -50}}, lineColor={0,0,0},          fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid), Text(extent = {{-48, 14}, {44, -20}}, textColor={0,0,0},
             textString="UI"),                                                                                                                                                                                                        Text(extent = {{-100, 90}, {100, 56}}, textColor = {0, 0, 255}, textString = "%name")}),
   Diagram(coordinateSystem(extent={{-100,-60},{100,60}})));
   end UIsensorR;
@@ -237,9 +235,8 @@ package Sensors "Voltage transducer models"
       i[2]=portA.i.im;
     end if;
     uPhase=portA.UPhase;
-    connect(u,u)
-      annotation (Line(points={{-40,-50},{-40,-50}}, color={85,170,255}));
-    annotation (Icon(graphics = {Line(points = {{-92, 0}, {96, 0}}, color = {28, 108, 200}), Ellipse(extent = {{-50, 50}, {50, -50}}, lineColor={0,0,0},          fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid), Text(extent = {{-48, 14}, {44, -20}}, textColor={0,0,0},
+      annotation (Line(points={{-40,-50},{-40,-50}}, color={85,170,255}),
+                Icon(graphics = {Line(points = {{-92, 0}, {96, 0}}, color = {28, 108, 200}), Ellipse(extent = {{-50, 50}, {50, -50}}, lineColor={0,0,0},          fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid), Text(extent = {{-48, 14}, {44, -20}}, textColor={0,0,0},
             textString="UI"),                                                                                                                                                                                                        Text(extent = {{-100, 90}, {100, 56}}, textColor = {0, 0, 255}, textString = "%name")}),
   Diagram(coordinateSystem(extent={{-100,-60},{100,60}})));
   end MultisensorR;
