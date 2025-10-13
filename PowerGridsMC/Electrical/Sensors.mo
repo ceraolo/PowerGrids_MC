@@ -133,6 +133,8 @@ package Sensors "Voltage transducer models"
 
   model UIsensorC "Measures complex voltage and current"
     extends PowerGridsMC.Electrical.BaseClasses.TwoPortAC;
+    Real f=2*Modelica.Constants.pi*der(portA.UPhase);
+
     Modelica.ComplexBlocks.Interfaces.ComplexOutput u annotation (Placement(
           transformation(
           extent={{10,-10},{-10,10}},
@@ -162,6 +164,7 @@ package Sensors "Voltage transducer models"
 
   model UIsensorR "Measures complex voltage and current as real arrays"
     extends PowerGridsMC.Electrical.BaseClasses.TwoPortAC;
+
     Modelica.Blocks.Interfaces.RealOutput u[2] annotation (Placement(
           transformation(
           extent={{10,-10},{-10,10}},
@@ -240,6 +243,7 @@ package Sensors "Voltage transducer models"
             textString="UI"),                                                                                                                                                                                                        Text(extent = {{-100, 90}, {100, 56}}, textColor = {0, 0, 255}, textString = "%name")}),
   Diagram(coordinateSystem(extent={{-100,-60},{100,60}})));
   end MultisensorR;
+
   annotation (
     Icon(coordinateSystem(grid = {0.1, 0.1})),
     Diagram(coordinateSystem(extent = {{-200, -100}, {200, 100}})));
