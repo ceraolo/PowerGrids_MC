@@ -77,10 +77,7 @@ model IEEE14busStaticNetwork "Dynamic model of the IEEE 14-bus system, operating
     UNom=69e3,
     URef=72.105e3,
     UStart=72.0866e3,
-    UPhaseStart=-0.087) annotation (Placement(visible=true, transformation(
-        origin={-104,-94},
-        extent={{-10,-10},{10,10}},
-        rotation=0)));
+    UPhaseStart=-0.087) annotation (Placement(transformation(origin = {-104, -96}, extent = {{-10, -10}, {10, 10}})));
   PowerGridsMC.Electrical.Loads.LoadAlphaBeta Load3(
     alpha=1.5,
     beta=2.5,
@@ -90,10 +87,7 @@ model IEEE14busStaticNetwork "Dynamic model of the IEEE 14-bus system, operating
     UNom=69e3,
     URef=69.69e3,
     UStart=69.685e3,
-    UPhaseStart=-0.22231) annotation (Placement(visible=true, transformation(
-        origin={106,-94},
-        extent={{-10,-10},{10,10}},
-        rotation=0)));
+    UPhaseStart=-0.22231) annotation (Placement(transformation(origin = {106, -98}, extent = {{-10, -10}, {10, 10}})));
   PowerGridsMC.Electrical.Loads.LoadAlphaBeta Load4(
     alpha=1.5,
     beta=2.5,
@@ -103,10 +97,7 @@ model IEEE14busStaticNetwork "Dynamic model of the IEEE 14-bus system, operating
     UNom=69e3,
     URef=70.2756e3,
     UStart=70.2049e3,
-    UPhaseStart=-0.180223) annotation (Placement(visible=true, transformation(
-        origin={122,-50},
-        extent={{-10,-10},{10,10}},
-        rotation=0)));
+    UPhaseStart=-0.180223) annotation (Placement(transformation(origin = {122, -52}, extent = {{-10, -10}, {10, 10}})));
   PowerGridsMC.Electrical.Loads.LoadAlphaBeta Load5(
     alpha=1.5,
     beta=2.5,
@@ -116,10 +107,7 @@ model IEEE14busStaticNetwork "Dynamic model of the IEEE 14-bus system, operating
     UNom=69e3,
     URef=70.4552e3,
     UStart=70.3898e3,
-    UPhaseStart=-0.153511) annotation (Placement(visible=true, transformation(
-        origin={-64,-34},
-        extent={{-10,-10},{10,10}},
-        rotation=180)));
+    UPhaseStart=-0.153511) annotation (Placement(transformation(origin = {-64, -34}, extent = {{10, -10}, {-10, 10}}, rotation = -180)));
   PowerGridsMC.Electrical.Loads.LoadAlphaBeta Load6(
     alpha=1.5,
     beta=2.5,
@@ -129,10 +117,7 @@ model IEEE14busStaticNetwork "Dynamic model of the IEEE 14-bus system, operating
     UNom=13.8e3,
     URef=14.766e3,
     UStart=14.7347e3,
-    UPhaseStart=-0.249364) annotation (Placement(visible=true, transformation(
-        origin={-24,-10},
-        extent={{-10,-10},{10,10}},
-        rotation=0)));
+    UPhaseStart=-0.249364) annotation (Placement(transformation(origin = {-24, -14}, extent = {{-10, -10}, {10, 10}})));
   PowerGridsMC.Electrical.Loads.LoadAlphaBeta Load9(
     alpha=1.5,
     beta=2.5,
@@ -142,10 +127,7 @@ model IEEE14busStaticNetwork "Dynamic model of the IEEE 14-bus system, operating
     UNom=13.8e3,
     URef=14.5966e3,
     UStart=14.5624e3,
-    UPhaseStart=-0.261599) annotation (Placement(visible=true, transformation(
-        origin={116,54},
-        extent={{-10,-10},{10,10}},
-        rotation=180)));
+    UPhaseStart=-0.261599) annotation (Placement(transformation(origin = {116, 54}, extent = {{10, -10}, {-10, 10}}, rotation = -180)));
   PowerGridsMC.Electrical.Loads.LoadAlphaBeta Load10(
     alpha=1.5,
     beta=2.5,
@@ -155,10 +137,7 @@ model IEEE14busStaticNetwork "Dynamic model of the IEEE 14-bus system, operating
     UNom=13.8e3,
     URef=14.5241e3,
     UStart=14.4903e3,
-    UPhaseStart=-0.264445) annotation (Placement(visible=true, transformation(
-        origin={26,54},
-        extent={{-10,-10},{10,10}},
-        rotation=180)));
+    UPhaseStart=-0.264445) annotation (Placement(transformation(origin = {26, 54}, extent = {{10, -10}, {-10, 10}}, rotation = -180)));
   PowerGridsMC.Electrical.Loads.LoadAlphaBeta Load11(
     alpha=1.5,
     beta=2.5,
@@ -168,10 +147,7 @@ model IEEE14busStaticNetwork "Dynamic model of the IEEE 14-bus system, operating
     UNom=13.8e3,
     URef=14.5959e3,
     UStart=14.5633e3,
-    UPhaseStart=-0.259223) annotation (Placement(visible=true, transformation(
-        origin={-24,54},
-        extent={{-10,-10},{10,10}},
-        rotation=180)));
+    UPhaseStart=-0.259223) annotation (Placement(transformation(origin = {-24, 54}, extent = {{10, -10}, {-10, 10}}, rotation = -180)));
   PowerGridsMC.Electrical.Loads.LoadAlphaBeta Load12(
     alpha=1.5,
     beta=2.5,
@@ -181,10 +157,7 @@ model IEEE14busStaticNetwork "Dynamic model of the IEEE 14-bus system, operating
     UNom=13.8e3,
     URef=14.499e3,
     UStart=14.5308e3,
-    UPhaseStart=-0.264428) annotation (Placement(visible=true, transformation(
-        origin={-104,94},
-        extent={{-10,-10},{10,10}},
-        rotation=180)));
+    UPhaseStart=-0.264428) annotation (Placement(transformation(origin = {-104, 94}, extent = {{10, -10}, {-10, 10}}, rotation = -180)));
   PowerGridsMC.Electrical.Loads.LoadAlphaBeta Load13(
     alpha=1.5,
     beta=2.5,
@@ -194,10 +167,7 @@ model IEEE14busStaticNetwork "Dynamic model of the IEEE 14-bus system, operating
     UNom=13.8e3,
     URef=14.5634e3,
     UStart=14.4648e3,
-    UPhaseStart=-0.265952) annotation (Placement(visible=true, transformation(
-        origin={-44,94},
-        extent={{-10,-10},{10,10}},
-        rotation=180)));
+    UPhaseStart=-0.265952) annotation (Placement(transformation(origin = {-44, 94}, extent = {{10, -10}, {-10, 10}}, rotation = -180)));
   PowerGridsMC.Electrical.Loads.LoadAlphaBeta Load14(
     alpha=1.5,
     beta=2.5,
@@ -207,10 +177,7 @@ model IEEE14busStaticNetwork "Dynamic model of the IEEE 14-bus system, operating
     UNom=13.8e3,
     URef=14.3062e3,
     UStart=14.2714e3,
-    UPhaseStart=-0.281002) annotation (Placement(visible=true, transformation(
-        origin={16,94},
-        extent={{-10,-10},{10,10}},
-        rotation=180)));
+    UPhaseStart=-0.281002) annotation (Placement(transformation(origin = {16, 94}, extent = {{10, -10}, {-10, 10}}, rotation = -180)));
   // Capacitor Bank
   PowerGridsMC.Electrical.Banks.CapacitorBankFixed Cbank9(B = 0.099769, SNom = 100e6, UNom = 13.8e3) annotation (
     Placement(visible = true, transformation(origin={96,54},     extent = {{-10, -10}, {10, 10}}, rotation = 180)));
@@ -401,13 +368,13 @@ equation
   connect(Load9.terminal, bus9.terminal) annotation (
     Line(points={{116,54},{116,46},{104,46},{104,40},{96,40}}));
   connect(Load6.terminal, bus6.terminal) annotation (
-    Line(points={{-24,-10},{-24,-6},{-38,-6},{-38,0},{-44,0}}));
+    Line(points={{-24,-14},{-24,-6},{-38,-6},{-38,0},{-44,0}}));
   connect(Load5.terminal, bus5.terminal) annotation (
     Line(points={{-64,-34},{-64,-36},{-50,-36},{-50,-40},{-44,-40}}));
   connect(Load3.terminal, bus3.terminal) annotation (
-    Line(points={{106,-94},{106,-80}}));
+    Line(points={{106,-98},{106,-80}}));
   connect(Load2.terminal, bus2.terminal) annotation (
-    Line(points={{-104,-94},{-104,-80}}));
+    Line(points={{-104,-96},{-104,-80}}));
   connect(L2to3.terminalA, bus2.terminal) annotation (
     Line(points={{-24,-90},{-96,-90},{-96,-80},{-104,-80}}));
   connect(Tgen1.terminalA, GEN1.terminal) annotation (
@@ -419,7 +386,7 @@ equation
   connect(GEN8.terminal, Tgen8.terminalA) annotation (
     Line(points={{166,-26},{166,-10}}));
   connect(Load4.terminal, bus4.terminal) annotation (
-    Line(points={{122,-50},{122,-46},{108,-46},{108,-40},{100,-40}}));
+    Line(points={{122,-52},{122,-46},{108,-46},{108,-40},{100,-40}}));
   connect(GEN6.terminal, bus6.terminal) annotation (
     Line(points={{-84,-10},{-50,-10},{-50,0},{-44,0}}));
   connect(T4to7.terminalA, bus4.terminal) annotation (

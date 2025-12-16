@@ -21,5 +21,17 @@ annotation (
     Documentation(info = "<html>
 <p>Transmission line with constant series impedance R+jX and constant shunt admittance G+jB. </p>
 <p>Implemented as a child class of <a href=\"modelica://PowerGridsMC.Electrical.Branches.BaseClasses.PiNetwork\">PiNetwork</a>, where Ya=Yb=(G+jB)/2 and k = 1, see the corresponding documentation.</p>
-</html>"));
+</html>"), Icon(graphics={
+      Text(
+        visible = showPortData,
+        textColor={28,108,200},
+        extent={{-172,-16},{-34,-38}},
+          textString=DynamicSelect("V", if showDataOnDiagramsPu then String(
+           (portA.U/portA.UNom), format ="6.3f") else String((portA.U/1000), format ="9.2f"))),
+      Text(
+        visible = showPortData,
+        textColor = {28, 108, 200},
+        extent={{32,-16},{168,-38}},
+        textString = DynamicSelect("V", if showDataOnDiagramsPu then String(
+           (portB.U/portB.UNom), format ="6.3f") else String((portB.U/1000), format ="9.2f")))}));
 end LineConstantImpedance;
