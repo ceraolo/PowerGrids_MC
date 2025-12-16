@@ -128,5 +128,17 @@ equation
   annotation (
     Documentation(info = "<html><head></head><body><p>Transmission line with constant series impedance R+jX and constant shunt admittance G+jB. </p>
 <p>Implemented as a child class of <a href=\"modelica://PowerGridsMC.Electrical.Branches.BaseClasses.PiNetwork\">PiNetwork</a>, where Ya=Yb=(G+jB)/2 and k = 1, see the corresponding documentation.</p><p>Two breakers are provided, one for each port of the line. Each breaker has a conditional boolean input to set the logical status:<br></p><ul><li>true &nbsp;= breaker closed</li><li>false = breaker open&nbsp;</li></ul><div>When a breaker is open the current entering from the corresponding port is forced to 0 (by setting to 0 both the actual values of the line impedance and of the shunt impedance of said port), and the total impedance seen to the other port becomes equal to the line impedance + the shunt impedance.</div><div><br></div><div>The actual values of the series impedance and of both the shunt impedances are managed by a state-machine, which monitors the state of the breakers.</div><p></p>
-</body></html>"));
+</body></html>"), Icon(graphics={
+      Text(
+        visible = showPortData,
+        textColor = {28, 108, 200},
+        extent={{32,-16},{168,-40}},
+        textString = DynamicSelect("V", if showDataOnDiagramsPu then String(
+           (portB.U/portB.UNom), format ="6.3f") else String((portB.U/1000), format ="9.2f"))),
+      Text(
+        visible = showPortData,
+        textColor={28,108,200},
+        extent={{-172,-16},{-34,-40}},
+          textString=DynamicSelect("V", if showDataOnDiagramsPu then String(
+           (portA.U/portA.UNom), format ="6.3f") else String((portA.U/1000), format ="9.2f")))}));
 end LineConstantImpedanceWithBreakers;

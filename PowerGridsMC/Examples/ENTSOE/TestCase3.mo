@@ -2,8 +2,7 @@ within PowerGridsMC.Examples.ENTSOE;
 model TestCase3 "Test Case 3, Section 5.3, focuses on the dynamic behavior of the model for the synchronous machine with its whole control in response to a short-circuit"
   extends Modelica.Icons.Example;
   PowerGridsMC.Electrical.Machines.SynchronousMachine4Windings GEN(H = 4, PStart = -4.75e+08, QStart = -1.56e+08, SNom = 5e+08, Tpd0 = 5.143, Tppd0 = 0.042, Tppq0 = 0.083, Tpq0 = 2.16, UNom = 21000, UPhaseStart = 0.161146, UStart = 21e3 * 0.992, portVariablesPhases = true, raPu = 0, xdPu = 2, xlPu = 0.15, xpdPu = 0.35, xppdPu = 0.25, xppqPu = 0.3, xpqPu = 0.5, xqPu = 1.8)  annotation (
-    Placement(visible = true, transformation(origin={-16,0},    extent={{-10,10},
-            {10,-10}},                                                                           rotation = 0)));
+    Placement(transformation(origin = {-16, 0}, extent = {{-10, 10}, {10, -10}})));
   PowerGridsMC.Electrical.Buses.Bus NTLV(SNom = 5e+08, UNom = 21000, portVariablesPhases = true, portVariablesPu = true)  annotation (
     Placement(transformation(origin={-2,-24},    extent = {{-10, -10}, {10, 10}}, rotation = 90)));
   PowerGridsMC.Electrical.Buses.BusFault NTHV(R = 0.05, SNom = 5e+08, UNom = 380000, UStart = 1.050 * 380e3, X = 0, portVariablesPhases = true, portVariablesPu = true, startTime = 0.1, stopTime = 0.2)  annotation (

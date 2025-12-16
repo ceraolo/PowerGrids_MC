@@ -22,7 +22,7 @@ equation
     "pre() is required because k influences the triggering conditions
      of the state machine so it should be computed before the event takes place";
   annotation (
-    Icon(coordinateSystem(grid = {0.1, 0.1})),
-    Diagram(coordinateSystem(extent = {{-200, -100}, {200, 100}})),
+    Icon(coordinateSystem(grid={2,2})),
+    Diagram(coordinateSystem(grid={2,2})),
   Documentation(info = "<html><head></head><body>This model implements a transformer with a tap changer which takes a phase-to-phase voltage magnitude range, and tries to maintain the magnitude of phase-to-phase voltage at portB within that range.<div><br></div><div>It extends two classes:</div><div><ul><li><a href=\"Modelica:///PowerGridsMC.Electrical.Branches.BaseClasses.TapChangerPhaseShifterCommon\">TapChangerPhaseShifterCommon</a>, which implements the model of the transformer,</li></ul><ul><li><a href=\"Modelica:///PowerGridsMC.Electrical.Branches.BaseClasses.TapChangerPhaseShifterLogicInterval\">TapChangerPhaseShifterLogicInterval</a>, which implements the logic that updates the position of the tap changer.</li></ul><div><br></div></div><div><br></div></body></html>"));
 end TransformerWithTapChangerInterval;

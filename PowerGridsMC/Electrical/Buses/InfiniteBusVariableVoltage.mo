@@ -38,8 +38,8 @@ equation
    assert(UAux >= 0, "Magnitude must be positive");
 
   annotation (
-    Icon(coordinateSystem(grid = {0.1, 0.1})),
-    Diagram(coordinateSystem(extent = {{-200, -100}, {200, 100}})),
+    Icon(coordinateSystem(grid={2,2})),
+    Diagram(coordinateSystem(grid={2,2})),
   Documentation(info = "<html>
 <p>Infinite bus model with voltage e. The port voltage is v = e + Zi, where i is the current entering the bus. The default value of the series impedance Z = R + jX is zero.</p>
 <p>The magnitude and angle of the voltage e can provided by external input connectors. If useUin = true, the UIn input is used to set the magnitude of voltage e, otherwise the constant value UFixed is used.</p>

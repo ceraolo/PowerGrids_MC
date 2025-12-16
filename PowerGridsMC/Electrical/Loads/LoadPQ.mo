@@ -18,11 +18,11 @@ equation
 annotation (
     Icon(coordinateSystem(grid={2,2}),
      graphics={  Text(origin={53.4118,-66.6664},
-                                          extent={{-19.4118,8.66645},{46.5882,
-              -17.3336}},                                                  textString = "PQ"),
+        extent={{-19.4118,8.66645},{46.5882,
+              -17.3336}}, textString = "PQ"),
        Text(
           visible=showPortData,
-          extent={{-102,62},{-2,30}},
+          extent={{-100,44},{0,22}},
           lineColor={238,46,47},
           textString=DynamicSelect("P",
              if showDataOnDiagramsPu then
@@ -31,7 +31,7 @@ annotation (
                String(port.S.re/1e6, format = "9.2f"))),
        Text(
           visible=showPortData,
-          extent={{0,62},{112,30}},
+          extent={{0,44},{102,22}},
           lineColor={217,67,180},
           textString=DynamicSelect("Q",
             if showDataOnDiagramsPu then

@@ -42,7 +42,7 @@ equation
       "pre() is required because k influences the triggering conditions
        of the state machine so it should be computed before the event takes place";
   annotation (
-    Icon(coordinateSystem(grid = {0.1, 0.1})),
-    Diagram(coordinateSystem(extent = {{-200, -100}, {200, 100}})),
+    Icon(coordinateSystem(grid={2,2})),
+    Diagram(coordinateSystem(grid={2,2})),
   Documentation(info = "<html><head></head><body><div><span style=\"font-size: 12px;\">This model implements a transformer with a phase shifter which takes a range for an electrical quantity at portB, and tries to maintain said quantity within it.</span></div><div><span style=\"font-size: 12px;\"><br></span></div><div><span style=\"font-size: 12px;\">The available electrical quantities are Current Magnitude and Active Power.</span><br><div><span style=\"font-size: 12px;\"><br></span></div></div><div><div style=\"font-size: 12px;\">It extends two classes:</div><div style=\"font-size: 12px;\"><ul><li><a href=\"Modelica:///PowerGridsMC.Electrical.Branches.BaseClasses.TapChangerPhaseShifterCommon\">TapChangerPhaseShifterCommon</a>, which implements the model of the transformer,</li></ul><ul><li><a href=\"Modelica:///PowerGridsMC.Electrical.Branches.BaseClasses.TapChangerPhaseShifterLogicInterval\">TapChangerPhaseShifterLogicInterval</a>, which implements the logic that updates the position of the tap changer.</li></ul></div></div></body></html>"));
 end TransformerWithPhaseShifterInterval;
