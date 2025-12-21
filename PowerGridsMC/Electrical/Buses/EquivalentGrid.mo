@@ -26,5 +26,6 @@ annotation (
     Documentation(info = "<html><head></head><body><p>This model describes an equivalent grid with an internal impedance driven by a constant voltage source.</p>
 <p>The impedance is computed to provide a power flow <code>SSC/c </code> out of the voltage source, assuming the voltage is set to the nominal value <code>UNom</code> and that the grid terminal is shorted to ground.</p>
 <p>The actual modulus and phase of the voltage source are computed to give the required voltage modulus and phase <code>URef, UPhaseRef</code> during initialization.</p>
-</body></html>"));
+</body></html>"), Icon(graphics={Rectangle(extent={{-100,100},{100,-100}},
+            lineColor={28,108,200})}));
 end EquivalentGrid;

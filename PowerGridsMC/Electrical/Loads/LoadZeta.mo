@@ -25,24 +25,24 @@ model LoadZeta "Load model with impedance specified by PRef QRef and URef"
 </body></html>"),
   Diagram(graphics),
     Icon(graphics = {
+      Text(origin={41.4118,-68.6664},
+        extent={{-19.4118,8.66645},{46.5882, -17.3336}},
+        textString="Z",
+        textColor={0,0,0}),
       Text(visible = showPortData,
-        textColor = {238, 46, 47}, extent = {{-110, 56}, {0, 26}},
+        textColor = {238, 46, 47}, extent={{-100,46},{-14,24}},
         textString = DynamicSelect("P",
         if showDataOnDiagramsPu then
           String(-port.PGenPu, "6.3f")
         else
-          String((port.S.re/1000000), format="9.2f"))),
+          String((port.S.re/1000000), format="9.2f")),
+          horizontalAlignment = TextAlignment.Right),
       Text(
         visible = showPortData,
         textColor = {217, 67, 180},
-        extent = {{0, 56}, {110, 26}},
+        extent={{14,46},{92,24}},
         textString = DynamicSelect("Q",
         if showDataOnDiagramsPu then
           String(-port.QGenPu, "6.3f") else
-          String((port.S.im/1000000), format="9.2f"))),
-                 Text(origin={41.4118,-68.6664},
-                                          extent={{-19.4118,8.66645},{46.5882,
-              -17.3336}},
-          textString="Z",
-          textColor={0,0,0})}));
+          String((port.S.im/1000000), format="-9.2f")),horizontalAlignment = TextAlignment.Left)}));
 end LoadZeta;

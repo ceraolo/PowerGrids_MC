@@ -12,7 +12,7 @@ package Icons "Icons for the PowerGridsMC library"
 
   annotation (
       Icon(graphics={  Rectangle(origin = {0, 2}, fillPattern = FillPattern.Solid,
-           extent = {{-100, 6}, {100, -10}}), Text(origin={67,34},
+           extent = {{-100, 6}, {100, -10}}), Text(origin={67,24},
            lineColor = {0, 0, 255}, extent={{-65,10},
                 {65,-10}},                                                                                                                                                                               textString = "%name")}));
   end Bus;
