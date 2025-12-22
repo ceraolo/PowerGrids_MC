@@ -13,8 +13,7 @@ model LoadAlphaBeta "Load model with voltage dependent P and Q"
   parameter Types.Voltage URef = UNom "Reference value of phase-to-phase voltage";
   parameter Boolean showPortData = true "=true, if PowerFlow data are to be shown";
   outer Electrical.System systemPowerGrids "Reference to system object";
-  parameter Boolean showDataOnDiagramsPu = systemPowerGrids.showDataOnDiagramsPu "=true, P,Q,V and phase are shown on the diagrams in per-unit of local machine base" annotation(
-    Dialog(tab = "Visualization"));
+  parameter Boolean showDataOnDiagramsPu = systemPowerGrids.showDataOnDiagramsPu "=true, P,Q,V and phase are shown on the diagrams in per-unit of component base";
   Types.ActivePower PRef(nominal = SNom) = PRefConst "Active power at reference voltage, the default binding can be changed when instantiating";
   Types.ActivePower QRef(nominal = SNom) = QRefConst "Reactive power at reference voltage, the default binding can be changed when instantiating";
   Types.PerUnit U_URef(start = UStart/UNom) "Ratio between voltage and reference voltage";
@@ -27,7 +26,36 @@ equation
     port.v = port.i/CM.conj(Complex(PRef*(UNom*VPuThr/URef)^alpha, QRef*(UNom*VPuThr/URef)^beta)/(UNom*VPuThr)^2);
   end if;
   annotation(
-    Icon(coordinateSystem(grid = {2, 2}), graphics = {Text(extent = {{18, -4}, {96, -32}}, textString = "a, b", fontName = "Symbol", textStyle = {TextStyle.Italic}), Text(visible = showPortData, origin = {-14, -2}, textColor = {238, 46, 47}, extent = {{-86, 48}, {0, 26}}, textString = DynamicSelect("P", if showDataOnDiagramsPu then String(-port.PGenPu, format="6.3f") else String((port.S.re/1000000), format="9.2f")), horizontalAlignment = TextAlignment.Right), Text(visible = showPortData, origin = {14, -2}, textColor = {217, 67, 180}, extent = {{0, 48}, {86, 26}}, textString = DynamicSelect("Q", if showDataOnDiagramsPu then String(-port.QGenPu, format="-6.3f") else String((port.S.im/1000000), format="-9.2f")), horizontalAlignment = TextAlignment.Left)}),
+    Icon(coordinateSystem(grid = {2, 2}), 
+      graphics = {
+      Text(
+        extent = {{18, -4}, {96, -32}}, 
+        textString = "a, b", 
+        fontName = "Symbol", 
+        textStyle = {TextStyle.Italic}), 
+      Text(
+        visible = showPortData, 
+        origin = {-14, -2}, 
+        textColor = {238, 46, 47}, 
+        extent = {{-86, 48}, {0, 26}}, 
+        textString = DynamicSelect("P", 
+          if showDataOnDiagramsPu then 
+            String(-port.PGenPu, format="6.3f") 
+          else 
+            String((port.S.re/1000000), format="9.2f")), 
+          horizontalAlignment = TextAlignment.Right), 
+          
+        Text(
+          visible = showPortData,
+          origin = {14, -2}, 
+          textColor = {217, 67, 180}, 
+          extent = {{0, 48}, {86, 26}}, 
+          textString = DynamicSelect("Q", 
+            if showDataOnDiagramsPu then 
+              String(-port.QGenPu, format="-6.3f") 
+            else 
+              String((port.S.im/1000000), format="-9.2f")), 
+          horizontalAlignment = TextAlignment.Left)}),
     Documentation(info = "<html><head></head><body><p>Model of a PQ load with voltage dependence.</p>
 <p><code>port.P = PRef*(port.U/URef)^alpha;</code> <br> <code>port.Q = QRef*(port.U/URef)^beta</code>.</p>
 <p>By default <br><br><code>PRef = PRefConst</code><br><code>QRef = QRefConst</code>,<br><br> so by just setting the <code>PRefConst</code> and <code>QRefConst</code>&nbsp;parameters one can obtain a PQ source with fixed reference P and Q values.</p>

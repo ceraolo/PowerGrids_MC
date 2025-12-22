@@ -7,8 +7,7 @@ model LoadPQ "PQ bus"
   parameter Types.ReactivePower Q = 0 "Reactive power entering the bus";
   parameter Boolean showPortData = true "if Port Data are shown in diagram (P&Q or U)";
   outer Electrical.System systemPowerGrids "Reference to system object";
-  parameter Boolean showDataOnDiagramsPu = systemPowerGrids.showDataOnDiagramsPu "=true, P,Q,V and phase are shown on the diagrams in per-unit of local machine base" annotation(
-    Dialog(tab = "Visualization"));
+  parameter Boolean showDataOnDiagramsPu = systemPowerGrids.showDataOnDiagramsPu "=true, P,Q,V and phase are shown on the diagrams in per-unit of local machine base" ;
 equation
   port.P = P;
   port.Q = Q;
@@ -22,7 +21,7 @@ equation
         visible = showPortData, 
         origin = {-14, 2}, 
         textColor = {238, 46, 47}, 
-        extent = {{-80, 44}, {0, 22}}, 
+        extent = {{-86, 44}, {0, 22}}, 
         textString = DynamicSelect("P", 
             if showDataOnDiagramsPu then 
                String(-port.PGenPu, format="6.3f") 
@@ -33,7 +32,7 @@ equation
         visible = showPortData, 
         origin = {14, 2}, 
         textColor = {217, 67, 180}, 
-        extent = {{0, 44}, {84, 22}}, 
+        extent = {{0, 44}, {86, 22}}, 
         textString = DynamicSelect("Q",
            if showDataOnDiagramsPu then 
              String(-port.QGenPu, format="-6.3f") 

@@ -48,7 +48,7 @@ algorithm
           textString="W"),
        Text(
           visible=showPortData,
-          extent={{-108,66},{-6,36}},
+          extent={{-108,48},{-6,36}},
           lineColor={238,46,47},
           textString=DynamicSelect("P",
              if showDataOnDiagramsPu then
@@ -57,7 +57,7 @@ algorithm
                String(port.S.re/1e6, format = "9.2f"))),
        Text(
           visible=showPortData,
-          extent={{2,66},{102,36}},
+          extent={{2,48},{102,36}},
           lineColor={217,67,180},
           textString=DynamicSelect("Q",
             if showDataOnDiagramsPu then

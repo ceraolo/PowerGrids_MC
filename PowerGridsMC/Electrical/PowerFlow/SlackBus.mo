@@ -8,7 +8,7 @@ model SlackBus "Slack Bus"
   parameter Boolean showPortData=true "=true, if PowerFlow data are to be shown";
   outer Electrical.System systemPowerGrids "Reference to system object";
   parameter Boolean showDataOnDiagramsPu = systemPowerGrids.showDataOnDiagramsPu
-   "=true, P,Q,V and phase are shown on the diagrams in per-unit of local machine base"
+   "=true, P,Q,V and phase are shown on the diagrams in per-unit of component base"
    annotation(Dialog(tab = "Visualization"));
 
 
@@ -23,7 +23,7 @@ annotation (
           fillPattern=FillPattern.Solid),
        Text(
           visible=showPortData,
-          extent={{-154,46},{-52,16}},
+          extent={{-154,38},{-52,16}},
           lineColor={238,46,47},
           textString=DynamicSelect("P",
             if showDataOnDiagramsPu then
@@ -32,7 +32,7 @@ annotation (
               String(port.P/1e6, format = "9.2f"))),
        Text(
           visible=showPortData,
-          extent={{-150,-18},{-50,-48}},
+          extent={{-150,-18},{-50,-40}},
           lineColor={217,67,180},
           textString=DynamicSelect("Q",
             if showDataOnDiagramsPu then

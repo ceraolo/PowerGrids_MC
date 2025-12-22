@@ -13,8 +13,8 @@ package PFT
       PowerGridsMC.Electrical.Buses.Bus NTHV(SNom = 5e+8, UNom = 380e3, portVariablesPhases = true, portVariablesPu = true) annotation(
         Placement(transformation(origin = {16, -10}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
       inner PowerGridsMC.Electrical.System systemPowerGrids annotation(
-        Placement(transformation(origin = {0, 18}, extent = {{-6, -6}, {6, 6}})));
-      PowerGridsMC.Electrical.Loads.LoadPQW GRIDL(P = 475000000, Q = 76000000, SNom = 500000000, UNom = 380000, portVariablesPhases = true, portVariablesPu = true, showDataOnDiagramsPu = true) annotation(
+        Placement(transformation(origin = {-10, 20}, extent = {{-10, -10}, {10, 10}})));
+      PowerGridsMC.Electrical.Loads.LoadPQW GRIDL(P = 475000000, Q = 76000000, SNom = 500000000, UNom = 380000, portVariablesPhases = true, portVariablesPu = true, showDataOnDiagramsPu = false) annotation(
         Placement(transformation(origin = {42, -24}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
       PowerGridsMC.Electrical.PowerFlow.SlackBusW GRID(SNom = 500000000, U = 398000, UNom = 380000, portVariablesPhases = true, portVariablesPu = true) annotation(
         Placement(transformation(origin = {40, 2}, extent = {{10, -10}, {-10, 10}}, rotation = -90)));
@@ -57,7 +57,7 @@ package PFT
       PowerGridsMC.Electrical.Branches.TransformerFixedRatio TGEN(R = 0.15e-2*419^2/500, SNom = 500000000, UNomA = 21000, UNomB = 419000, X = 16e-2*419^2/500, portVariablesPhases = true, showPortData = true, portVariablesPu = true, rFixed = 419/21) annotation(
         Placement(transformation(origin = {-4, -2}, extent = {{-10, -10}, {10, 10}})));
       PowerGridsMC.Electrical.Buses.EquivalentGridR GRID(R_X = 1/10, SNom = 500000000, SSC = 2500000000, UNom = 380000, c = 1.1, portVariablesPhases = true, portVariablesPu = true) annotation(
-        Placement(transformation(origin = {38, 8}, extent = {{-10, -10}, {10, 10}})));
+        Placement(transformation(origin = {40, 16}, extent = {{-10, -10}, {10, 10}})));
       PowerGridsMC.Electrical.Loads.LoadAlphaBetaR GRIDL(alpha = 2, beta = 2, SNom = 500000000, UNom = 380000, portVariablesPhases = true) annotation(
         Placement(transformation(origin = {48, -14}, extent = {{-10, -10}, {10, 10}})));
       //    URef=GRIDL_.y[1, 1],              port.U
@@ -74,12 +74,14 @@ package PFT
         Placement(transformation(origin = {-64, 14}, extent = {{-10, -10}, {10, 10}})));
       Modelica.Blocks.Sources.RealExpression ufPuIn(y = GEN.ufPuInStart) annotation(
         Placement(transformation(origin = {-64, 28}, extent = {{-10, -10}, {10, 10}})));
-      PowerGridsMC.Electrical.Loads.LoadAlphaBetaInputs Grid2(UNom = 380000, SNom = 500000000, alpha = 2, beta = 2) annotation(
+      PowerGridsMC.Electrical.Loads.LoadAlphaBetaInputs GridLd2(UNom = 380000, SNom = 500000000, alpha = 2, beta = 2) annotation(
         Placement(transformation(origin = {-16, -2}, extent = {{34, -28}, {54, -8}})));
       Modelica.Blocks.Sources.Step stepQ(height = 76e6, startTime = 1) annotation(
         Placement(transformation(origin = {-16, -2}, extent = {{-2, -34}, {6, -26}})));
       Modelica.Blocks.Sources.Step stepP(height = 500e6, startTime = 1) annotation(
         Placement(transformation(origin = {-16, -2}, extent = {{10, -26}, {18, -18}})));
+  inner PowerGridsMC.Electrical.System systemPowerGrids annotation(
+        Placement(transformation(origin = {-60, -10}, extent = {{-10, -10}, {10, 10}})));
     equation
       connect(PmPu.y, GEN.pmPuIn) annotation(
         Line(points = {{-53, 14}, {-48, 14}, {-48, 20.6}, {-42.4, 20.6}}, color = {0, 0, 127}));
@@ -94,12 +96,12 @@ package PFT
       connect(TGEN.terminalB, NTHV.terminal) annotation(
         Line(points = {{6, -2}, {14, -2}}));
       connect(NTHV.terminal, GRID.terminal) annotation(
-        Line(points = {{14, -2}, {38, -2}, {38, 8}}));
-      connect(Grid2.terminal, NTHV.terminal) annotation(
+        Line(points = {{14, -2}, {40, -2}, {40, 16}}));
+      connect(GridLd2.terminal, NTHV.terminal) annotation(
         Line(points = {{28, -20}, {28, -2}, {14, -2}}));
-      connect(Grid2.QRefIn, stepQ.y) annotation(
+      connect(GridLd2.QRefIn, stepQ.y) annotation(
         Line(points = {{18, -30}, {14, -30}, {14, -32}, {-9.6, -32}}, color = {0, 0, 127}));
-      connect(stepP.y, Grid2.PRefIn) annotation(
+      connect(stepP.y, GridLd2.PRefIn) annotation(
         Line(points = {{2.4, -24}, {18, -24}}, color = {0, 0, 127}));
       annotation(
         Icon(coordinateSystem(grid = {2, 2}, extent = {{-100, -100}, {100, 100}})),
@@ -107,14 +109,13 @@ package PFT
         experiment(StopTime = 15, Interval = 0.004, Tolerance = 1e-06, __Dymola_Algorithm = "Dassl"),
         __OpenModelica_commandLineOptions = "--daeMode --tearingMethod=minimalTearing",
         __OpenModelica_simulationFlags(nls = "kinsol", lv = "LOG_INIT_HOMOTOPY", homotopyOnFirstTry = "()"),
-        Documentation(info = "<html>
-<p>Library PowerGridsMC was forked from https://github.com/PowerGrids/PowerGrids on 22 November 2024.</p>
+        Documentation(info = "<html><head></head><body><p>Library PowerGridsMC was forked from https://github.com/PowerGrids/PowerGrids on 22 November 2024.</p>
 <p>Folder PFT was not present in the original PowerGrids library</p>
 <p>************************** </p>
-<p>LoadChangeUnreg a transient on the BasicGrid considered in the Basicgrid folder, starting from the initial operating point as computed runnint PowerFlow model. In the first part of the transient, all the data are exactly the same as the power flow output this can be easily checked looking at the on-diagram numerical outputs, stopping the simulation bbefore the load change takes place, i.e. before t=1s, e.g. at t=0.5s. then, the load change occurs at t=1s.</p>
-<p>This model shows the usage of the following new components, not existing in the original Powergirds library: </p>
+<p>LoadChangeUnreg a transient on the basic grid considered in the BasicSystem folder, starting from the initial operating point as computed runnint PowerFlow model. In the first part of the transient, all the data are exactly the same as the power flow output; this can be easily checked looking at the on-diagram numerical outputs, stopping the simulation before the load change takes place, i.e. before t=1s, e.g. at t=0.5s. then, the load change occurs at t=1s.</p>
+<p>This model shows the usage of the following new components, not existing in the original PowerGrids library: </p>
 <p>LoadPQVoltageDependenceR, SynchronousMachine4WindingR, EquivalentGridR</p>
-</html>"));
+</body></html>"));
     end LoadChangeUnreg;
 
     model LoadChangeReg "Regulated verion"
