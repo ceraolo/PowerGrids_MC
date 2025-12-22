@@ -12,5 +12,11 @@ model InfiniteBus "Infinite bus with internal impedance"
 
   annotation (
   Documentation(info = "<html><head></head><body>Infinite bus model with constant voltage e and internal impedance Z. The port voltage is v = e + Zi, where i is the current entering the bus. The default value of the series impedance Z = R + jX is zero.
-</body></html>"));
+</body></html>"),
+  Diagram(graphics),
+  Icon(graphics = {Rectangle(origin = {0, -54}, fillColor = {255, 255, 255}, fillPattern = FillPattern.CrossDiag, extent = {{-100, 47}, {100, -46}}), Text(origin={0,-53},    extent={{-100,31},
+              {100,-31}},                                                                                                                                                                                                        textStyle={
+              TextStyle.Bold,TextStyle.Italic},
+          textString="E-Z",
+          textColor={0,0,0})}));
 end InfiniteBus;

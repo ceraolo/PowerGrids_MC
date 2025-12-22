@@ -10,7 +10,7 @@ model EquivalentGrid "Equivalent grid model characterized by short circuit capac
   parameter Types.Voltage URef = UNom "Reference phase-to-phase voltage at connection terminal";
   parameter Types.Angle UPhaseRef = 0 "Voltage phase angle at connection terminal";
   parameter Types.ApparentPower SSC "Short-circuit capacity";
-  parameter Types.PerUnit c = 1.1 "c-factor for calculation of short-circuit capacity";
+  parameter Types.PerUnit c = 1.1 "voltage factor for calculation of short-circuit capacity (IEC 60909, eq.4)";
   parameter Types.PerUnit R_X = 1/10 "Ratio of resistance to reactance of the grid";
 
   final parameter Types.ComplexPower Ssc = ComplexMath.fromPolar(SSC/c, atan(1/R_X))  "Short circuit active power";
