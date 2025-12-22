@@ -57,7 +57,7 @@ package PFT
       PowerGridsMC.Electrical.Branches.TransformerFixedRatio TGEN(R = 0.15e-2*419^2/500, SNom = 500000000, UNomA = 21000, UNomB = 419000, X = 16e-2*419^2/500, portVariablesPhases = true, showPortData = true, portVariablesPu = true, rFixed = 419/21) annotation(
         Placement(transformation(origin = {-4, -2}, extent = {{-10, -10}, {10, 10}})));
       PowerGridsMC.Electrical.Buses.EquivalentGridR GRID(R_X = 1/10, SNom = 500000000, SSC = 2500000000, UNom = 380000, c = 1.1, portVariablesPhases = true, portVariablesPu = true) annotation(
-        Placement(transformation(origin = {40, 16}, extent = {{-10, -10}, {10, 10}})));
+        Placement(transformation(origin={40,14},    extent = {{-10, -10}, {10, 10}})));
       PowerGridsMC.Electrical.Loads.LoadAlphaBetaR GRIDL(alpha = 2, beta = 2, SNom = 500000000, UNom = 380000, portVariablesPhases = true) annotation(
         Placement(transformation(origin = {48, -14}, extent = {{-10, -10}, {10, 10}})));
       //    URef=GRIDL_.y[1, 1],              port.U
@@ -96,7 +96,7 @@ package PFT
       connect(TGEN.terminalB, NTHV.terminal) annotation(
         Line(points = {{6, -2}, {14, -2}}));
       connect(NTHV.terminal, GRID.terminal) annotation(
-        Line(points = {{14, -2}, {40, -2}, {40, 16}}));
+        Line(points={{14,-2},{40,-2},{40,14}}));
       connect(GridLd2.terminal, NTHV.terminal) annotation(
         Line(points = {{28, -20}, {28, -2}, {14, -2}}));
       connect(GridLd2.QRefIn, stepQ.y) annotation(
@@ -105,7 +105,7 @@ package PFT
         Line(points = {{2.4, -24}, {18, -24}}, color = {0, 0, 127}));
       annotation(
         Icon(coordinateSystem(grid = {2, 2}, extent = {{-100, -100}, {100, 100}})),
-        Diagram(coordinateSystem(extent = {{-80, 40}, {60, -40}})),
+        Diagram(coordinateSystem(extent = {{-80, 40}, {60, -40}}), graphics={  Text(origin={-3,33},     textColor = {238, 46, 47}, extent = {{-7, 3}, {7, -3}}, textString = "Red: MW"), Text(origin={18,33},     textColor = {255, 0, 255}, extent = {{-10, 3}, {10, -3}}, textString = "Fucsja:  Mvar"), Text(origin={38,33},   textColor = {0, 0, 255}, extent = {{-10, -2}, {8, 2}}, textString = "Blue: kV")}),
         experiment(StopTime = 15, Interval = 0.004, Tolerance = 1e-06, __Dymola_Algorithm = "Dassl"),
         __OpenModelica_commandLineOptions = "--daeMode --tearingMethod=minimalTearing",
         __OpenModelica_simulationFlags(nls = "kinsol", lv = "LOG_INIT_HOMOTOPY", homotopyOnFirstTry = "()"),
@@ -133,9 +133,9 @@ package PFT
       PowerGridsMC.Electrical.Buses.Bus NTHV(SNom = 5e+08, UNom = 380000, portVariablesPhases = true, portVariablesPu = true) annotation(
         Placement(visible = true, transformation(origin = {20, 10}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
       PowerGridsMC.Electrical.Branches.TransformerFixedRatio TGEN(R = 0.15e-2*419^2/500, SNom = 500000000, UNomA = 21000, UNomB = 419000, X = 16e-2*419^2/500, portVariablesPhases = true, showPortData = true, portVariablesPu = true, rFixed = 419/21) annotation(
-        Placement(visible = true, transformation(origin = {-4, 10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+        Placement(visible = true, transformation(origin={0,10},     extent = {{-10, -10}, {10, 10}}, rotation = 0)));
       PowerGridsMC.Electrical.Buses.EquivalentGridR GRID(R_X = 1/10, SNom = 500000000, SSC = 2500000000, UNom = 380000, c = 1.1, portVariablesPhases = true, portVariablesPu = true) annotation(
-        Placement(visible = true, transformation(origin = {38, 20}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+        Placement(visible = true, transformation(origin={42,26},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
       PowerGridsMC.Electrical.Loads.LoadAlphaBetaR GRIDL(alpha = 2, beta = 2, SNom = 500000000, UNom = 380000, portVariablesPhases = true) annotation(
         Placement(visible = true, transformation(origin = {50, -6}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
       PowerGridsMC.Electrical.Loads.LoadAlphaBetaInputs Grid2(UNom = 380000, SNom = 500000000, alpha = 2, beta = 2) annotation(
@@ -150,11 +150,11 @@ package PFT
       connect(GEN.terminal, NTLV.terminal) annotation(
         Line(points = {{-42, 10}, {-22, 10}}));
       connect(NTLV.terminal, TGEN.terminalA) annotation(
-        Line(points = {{-22, 10}, {-14, 10}}));
+        Line(points={{-22,10},{-10,10}}));
       connect(TGEN.terminalB, NTHV.terminal) annotation(
-        Line(points = {{6, 10}, {20, 10}}));
+        Line(points={{10,10},{20,10}}));
       connect(NTHV.terminal, GRID.terminal) annotation(
-        Line(points = {{20, 10}, {38, 10}, {38, 20}}));
+        Line(points={{20,10},{42,10},{42,26}}));
       connect(Grid2.QRefIn, stepQ.y) annotation(
         Line(points = {{20, -22}, {16, -22}, {16, -24}, {-7.6, -24}}, color = {0, 0, 127}));
       connect(stepP.y, Grid2.PRefIn) annotation(

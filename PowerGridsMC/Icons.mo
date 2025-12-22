@@ -50,8 +50,8 @@ package Icons "Icons for the PowerGridsMC library"
 
   model Machine
   annotation (
-      Icon(graphics={  Text(origin={-1,-121},   textColor = {0, 0, 255}, extent={{-99,17},
-                {99,-17}},                                                                                textString = "%name"),
+      Icon(graphics={  Text(origin={0,-120},    textColor = {0, 0, 255}, extent={{-100,14},
+                {100,-14}},                                                                               textString = "%name"),
         Rectangle(                  fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid, extent={{-100,80},
                 {100,-100}}),
         Ellipse(origin={0,-51},    extent = {{-40, 41}, {40, -40}}),
