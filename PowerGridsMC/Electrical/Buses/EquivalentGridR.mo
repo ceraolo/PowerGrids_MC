@@ -12,6 +12,9 @@ model EquivalentGridR
 
   extends EquivalentGrid( PStart=PFout[1,3], QStart=PFout[1,4], UStart=PFout[1,1],
 URef=PFout[1,1], UPhaseStart=PFout[1,2]);
+  parameter Boolean showPortData = true "=true, if PowerFlow data are to be shown";
+  parameter Boolean showDataOnDiagramsPu = systemPowerGrids.showDataOnDiagramsPu "=true, P,Q,V and phase are shown on the diagrams in per-unit of local machine base" annotation(
+    Dialog(tab = "Visualization"));
 
 
   //Code to read output from previous PowerFlow run:
@@ -26,11 +29,32 @@ URef=PFout[1,1], UPhaseStart=PFout[1,2]);
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid,
           pattern=LinePattern.None),
-                             Text(
+         Text(
           extent={{-58,-22},{-14,-56}},
           textColor={238,46,47},
           textString="R",
-          textStyle={TextStyle.Italic})}), Documentation(info="<html>
+          textStyle={TextStyle.Italic}),
+         Text(visible = showPortData, origin={-5.6539,
+              -138},     textColor = {238, 46, 47}, extent={{
+             -92.3461,66},{5.65386,44}},
+           textString=
+           DynamicSelect("P",
+             if showDataOnDiagramsPu then
+               String(-port.PGenPu, format="6.3f")
+             else
+             String((-port.PGenPu)*SNom/1000000, format="9.2f"))),
+         Text(
+           visible = showPortData,
+           origin={9,-138},
+           textColor = {217, 67, 180},
+           extent = {{-9, 66}, {91, 44}},
+           textString = DynamicSelect("Q",
+             if showDataOnDiagramsPu then
+               String(-port.QGenPu, format="6.3f")
+             else
+             String((-port.QGenPu)*SNom/1000000, format="9.2f")))}),
+
+         Documentation(info="<html>
 <p><i><span style=\"font-size: 12pt;\">Library PowerGridsMC is forked from https://github.com/PowerGrids/PowerGrids.</span></i></p>
 <p>************************** </p>
 <p>This is a new component not existing in the original library. It has the peculiarity that reads the PowerFlow data from a file automatically generated in a previous PowerFlow study. </p>

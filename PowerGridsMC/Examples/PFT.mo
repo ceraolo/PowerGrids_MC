@@ -80,7 +80,7 @@ package PFT
         Placement(transformation(origin = {-16, -2}, extent = {{-2, -34}, {6, -26}})));
       Modelica.Blocks.Sources.Step stepP(height = 500e6, startTime = 1) annotation(
         Placement(transformation(origin = {-16, -2}, extent = {{10, -26}, {18, -18}})));
-  inner PowerGridsMC.Electrical.System systemPowerGrids annotation(
+      inner PowerGridsMC.Electrical.System systemPowerGrids annotation (
         Placement(transformation(origin = {-60, -10}, extent = {{-10, -10}, {10, 10}})));
     equation
       connect(PmPu.y, GEN.pmPuIn) annotation(
