@@ -197,17 +197,41 @@ package PFT
         Placement(visible = true, transformation(origin = {-100, -42}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
       PowerGridsMC.Electrical.Branches.TransformerFixedRatio T4_iX2(SNom(displayUnit = "MW") = 190e6*2, UNomA(displayUnit = "kV") = 236100, UNomB(displayUnit = "kV") = 236100, X = 0.04828*220^2/100/2) annotation(
         Placement(visible = true, transformation(origin = {0, -54}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
-      PowerGridsMC.Electrical.Branches.LineConstantImpedance L3_2(B = 75e3*line.Yd, R = 75e3*line.Rd, SNom(displayUnit = "MW") = 100000000, UNom(displayUnit = "kV") = 220000, UNomA(displayUnit = "kV") = 220000, UNomB(displayUnit = "kV") = 220000, X = 75e3*line.Xd, showPortData = true) annotation(
+      PowerGridsMC.Electrical.Branches.LineConstantImpedance L3_2(
+        B = 75e3*line.Yd,
+        R = 75e3*line.Rd,
+        SNom(displayUnit = "MW") = 100000000,
+        UNom(displayUnit = "kV") = 220000,
+        X = 75e3*line.Xd,
+        showPortData = true) annotation(
         Placement(visible = true, transformation(origin = {-22, 10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
       PowerGridsMC.Electrical.PowerFlow.PVBusW gen11x2(P(displayUnit = "MW") = -200000000, SNom(displayUnit = "MVA") = 200000000, U(displayUnit = "kV") = 13800, UNom(displayUnit = "kV") = 13800, portVariablesPhases = true) annotation(
         Placement(visible = true, transformation(origin = {0, 108}, extent = {{-10, 10}, {10, -10}}, rotation = 0)));
       PowerGridsMC.Electrical.Branches.TransformerFixedRatio T1_11_2(R = 377/110e3*240^2/110, SNom(displayUnit = "MW") = 110000000, UNomA(displayUnit = "kV") = 13800, UNomB(displayUnit = "kV") = 240000, X = 0.0999*240^2/110, rFixed = 240/13.8) annotation(
         Placement(visible = true, transformation(origin = {10, 72}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-      PowerGridsMC.Electrical.Branches.LineConstantImpedance L2_1(B = 200e3*line.Yd, R = 200e3*line.Rd, SNom(displayUnit = "MW") = 100000000, UNom(displayUnit = "kV") = 220000, UNomA(displayUnit = "kV") = 220000, UNomB(displayUnit = "kV") = 220000, X = 200e3*line.Xd, showPortData = true) annotation(
+      PowerGridsMC.Electrical.Branches.LineConstantImpedance L2_1(
+        B = 200e3*line.Yd,
+        R = 200e3*line.Rd,
+        SNom(displayUnit = "MW") = 100000000,
+        UNom(displayUnit = "kV") = 220000,
+        X = 200e3*line.Xd,
+        showPortData = true) annotation(
         Placement(visible = true, transformation(origin = {0, 28}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-      PowerGridsMC.Electrical.Branches.LineConstantImpedance L4_2(B = 90e3*line.Yd, R = 90e3*line.Rd, SNom(displayUnit = "MW") = 100000000, UNom(displayUnit = "V") = 1, UNomA(displayUnit = "kV") = 220000, UNomB(displayUnit = "kV") = 220000, X = 90e3*line.Xd, showPortData = true) annotation(
+      PowerGridsMC.Electrical.Branches.LineConstantImpedance L4_2(
+        B = 90e3*line.Yd,
+        R = 90e3*line.Rd,
+        SNom(displayUnit = "MW") = 100000000,
+        UNom(displayUnit = "kV") = 220000,
+        X = 90e3*line.Xd,
+        showPortData = true) annotation(
         Placement(visible = true, transformation(origin = {0, -8}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-      PowerGridsMC.Electrical.Branches.LineConstantImpedance L3_4(B = 50e3*line.Yd, R = 50e3*line.Rd, SNom(displayUnit = "MW") = 100000000, UNom(displayUnit = "kV") = 220000, UNomA(displayUnit = "kV") = 220000, UNomB(displayUnit = "kV") = 220000, X = 50e3*line.Xd, showPortData = true) annotation(
+      PowerGridsMC.Electrical.Branches.LineConstantImpedance L3_4(
+        B = 50e3*line.Yd,
+        R = 50e3*line.Rd,
+        SNom(displayUnit = "MW") = 100000000,
+        UNom(displayUnit = "kV") = 220000,
+        X = 50e3*line.Xd,
+        showPortData = true) annotation(
         Placement(visible = true, transformation(origin = {-22, -24}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
       PowerGridsMC.Electrical.Branches.TransformerFixedRatio T41_iX2(SNom(displayUnit = "MW") = 190e6*2, UNomA(displayUnit = "kV") = 236100, UNomB(displayUnit = "kV") = 127900, X = 0.02476*119^2/100/2, rFixed = 127.9/236.1) annotation(
         Placement(visible = true, transformation(origin = {0, -80}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
@@ -342,17 +366,41 @@ package PFT
         Placement(visible = true, transformation(origin = {-106, -38}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
       PowerGridsMC.Electrical.Branches.TransformerFixedRatio T4_42x2(SNom(displayUnit = "W") = 1, UNomA(displayUnit = "V") = 1, UNomB(displayUnit = "V") = 1, X = 0.052545, showPortData = true) annotation(
         Placement(visible = true, transformation(origin = {0, -46}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
-      PowerGridsMC.Electrical.Branches.LineConstantImpedance L3_2(B = 0.10257, R = 0.0088822, SNom(displayUnit = "W") = 1, UNom(displayUnit = "V") = 1, UNomA(displayUnit = "V") = 1, UNomB(displayUnit = "V") = 1, X = 0.062069, showPortData = true) annotation(
+      PowerGridsMC.Electrical.Branches.LineConstantImpedance L3_2(
+        B = 0.10257,
+        R = 0.0088822,
+        SNom(displayUnit = "W") = 1,
+        UNom(displayUnit = "V") = 1,
+        X = 0.062069,
+        showPortData = true) annotation(
         Placement(visible = true, transformation(origin = {-38, 22}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
       PowerGridsMC.Electrical.PowerFlow.PVBusW pv11(P(displayUnit = "W") = -2, SNom(displayUnit = "V.A") = 1, U(displayUnit = "V") = 1.05, UNom(displayUnit = "V") = 1, portVariablesPhases = true) annotation(
         Placement(visible = true, transformation(origin = {-8, 106}, extent = {{-10, 10}, {10, -10}}, rotation = 0)));
       PowerGridsMC.Electrical.Branches.TransformerFixedRatio T11_1x2(SNom(displayUnit = "W") = 1, UNomA(displayUnit = "V") = 1, UNomB(displayUnit = "V") = 1, X = 0.05404, showPortData = true) annotation(
         Placement(visible = true, transformation(origin = {-8, 70}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-      PowerGridsMC.Electrical.Branches.LineConstantImpedance L2_1(B = 0.27353, R = 0.023686, SNom(displayUnit = "W") = 1, UNom(displayUnit = "V") = 1, UNomA(displayUnit = "V") = 1, UNomB(displayUnit = "V") = 1, X = 0.16552, showPortData = true) annotation(
+      PowerGridsMC.Electrical.Branches.LineConstantImpedance L2_1(
+        B = 0.27353,
+        R = 0.023686,
+        SNom(displayUnit = "W") = 1,
+        UNom(displayUnit = "V") = 1,
+        X = 0.16552,
+        showPortData = true) annotation(
         Placement(visible = true, transformation(origin = {-8, 40}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-      PowerGridsMC.Electrical.Branches.LineConstantImpedance L4_2(B = 0.12309, R = 0.10659, SNom(displayUnit = "W") = 1, UNom(displayUnit = "V") = 1, UNomA(displayUnit = "V") = 1, UNomB(displayUnit = "V") = 1, X = 0.074482, showPortData = true) annotation(
+      PowerGridsMC.Electrical.Branches.LineConstantImpedance L4_2(
+        B = 0.12309,
+        R = 0.10659,
+        SNom(displayUnit = "W") = 1,
+        UNom(displayUnit = "V") = 1,
+        X = 0.074482,
+        showPortData = true) annotation(
         Placement(visible = true, transformation(origin = {-8, -6}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-      PowerGridsMC.Electrical.Branches.LineConstantImpedance L3_4(B = 0.068382, R = 0.0059215, SNom(displayUnit = "W") = 1, UNom(displayUnit = "V") = 1, UNomA(displayUnit = "V") = 1, UNomB(displayUnit = "V") = 1, X = 0.041479, showPortData = true) annotation(
+      PowerGridsMC.Electrical.Branches.LineConstantImpedance L3_4(
+        B = 0.068382,
+        R = 0.0059215,
+        SNom(displayUnit = "W") = 1,
+        UNom(displayUnit = "V") = 1,
+        X = 0.041479,
+        showPortData = true) annotation(
         Placement(visible = true, transformation(origin = {-40, -30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
       PowerGridsMC.Electrical.Branches.TransformerFixedRatio T4_41x2(SNom(displayUnit = "W") = 1, UNomA(displayUnit = "V") = 1, UNomB(displayUnit = "V") = 1, X = 0.074412) annotation(
         Placement(visible = true, transformation(origin = {-22, -66}, extent = {{10, -10}, {-10, 10}}, rotation = -90)));
@@ -463,13 +511,37 @@ package PFT
       PowerGridsMC.Examples.PFT.FourATbus.Line line annotation(
         Placement(visible = true, transformation(origin = {-109.75, -108.413}, extent = {{-10.25, -11.5871}, {10.25, 8.91309}}, rotation = 0)));
       //Lines
-      PowerGridsMC.Electrical.Branches.LineConstantImpedance L2_1(B = 200e3*line.Yd, R = 200e3*line.Rd, SNom(displayUnit = "MW") = 100000000, UNom(displayUnit = "kV") = 220000, UNomA(displayUnit = "kV") = 220000, UNomB(displayUnit = "kV") = 220000, X = 200e3*line.Xd, showPortData = false) annotation(
+      PowerGridsMC.Electrical.Branches.LineConstantImpedance L2_1(
+        B = 200e3*line.Yd,
+        R = 200e3*line.Rd,
+        SNom(displayUnit = "MW") = 100000000,
+        UNom(displayUnit = "kV") = 220000,
+        X = 200e3*line.Xd,
+        showPortData = false) annotation(
         Placement(visible = true, transformation(origin = {-52.5, -6.5}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-      PowerGridsMC.Electrical.Branches.LineConstantImpedance L3_2(B = 75e3*line.Yd, R = 75e3*line.Rd, SNom(displayUnit = "MW") = 100000000, UNom(displayUnit = "kV") = 220000, UNomA(displayUnit = "kV") = 220000, UNomB(displayUnit = "kV") = 220000, X = 75e3*line.Xd, showPortData = true) annotation(
+      PowerGridsMC.Electrical.Branches.LineConstantImpedance L3_2(
+        B = 75e3*line.Yd,
+        R = 75e3*line.Rd,
+        SNom(displayUnit = "MW") = 100000000,
+        UNom(displayUnit = "kV") = 220000,
+        X = 75e3*line.Xd,
+        showPortData = true) annotation(
         Placement(visible = true, transformation(origin = {-71, -33}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-      PowerGridsMC.Electrical.Branches.LineConstantImpedance L4_2(B = 90e3*line.Yd, R = 90e3*line.Rd, SNom(displayUnit = "MW") = 100000000, UNom(displayUnit = "V") = 1, UNomA(displayUnit = "kV") = 220000, UNomB(displayUnit = "kV") = 220000, X = 90e3*line.Xd, showPortData = false) annotation(
+      PowerGridsMC.Electrical.Branches.LineConstantImpedance L4_2(
+        B = 90e3*line.Yd,
+        R = 90e3*line.Rd,
+        SNom(displayUnit = "MW") = 100000000,
+        UNom(displayUnit = "kV") = 220000,
+        X = 90e3*line.Xd,
+        showPortData = false) annotation(
         Placement(visible = true, transformation(origin = {-52, -47}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-      PowerGridsMC.Electrical.Branches.LineConstantImpedance L3_4(B = 50e3*line.Yd, R = 50e3*line.Rd, SNom(displayUnit = "MW") = 100000000, UNom(displayUnit = "kV") = 220000, UNomA(displayUnit = "kV") = 220000, UNomB(displayUnit = "kV") = 220000, X = 50e3*line.Xd, showPortData = false) annotation(
+      PowerGridsMC.Electrical.Branches.LineConstantImpedance L3_4(
+         B = 50e3*line.Yd,
+          R = 50e3*line.Rd,
+          SNom(displayUnit = "MW") = 100000000,
+          UNom(displayUnit = "kV") = 220000,
+          X = 50e3*line.Xd,
+          showPortData = false) annotation(
         Placement(visible = true, transformation(origin = {-71.5, -67}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
       inner PowerGridsMC.Electrical.System systemPowerGrids(initOpt = PowerGridsMC.Types.Choices.InitializationOption.globalSteadyStateFixedPowerFlow, referenceFrequency = PowerGridsMC.Types.Choices.ReferenceFrequency.fixedReferenceGenerator) annotation(
         Placement(visible = true, transformation(origin = {62, -106}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -651,17 +723,41 @@ package PFT
       extends Modelica.Icons.Example;
       Line line annotation(
         Placement(visible = true, transformation(origin = {-110, -108.696}, extent = {{-10.0001, -11.3047}, {10.0001, 8.69585}}, rotation = 0)));
-      PowerGridsMC.Electrical.Branches.LineConstantImpedance L2_1(B = 200e3*line.Yd, R = 200e3*line.Rd, SNom(displayUnit = "MW") = 100000000, UNom(displayUnit = "kV") = 220000, UNomA(displayUnit = "kV") = 220000, UNomB(displayUnit = "kV") = 220000, X = 200e3*line.Xd, showPortData = false) annotation(
+      PowerGridsMC.Electrical.Branches.LineConstantImpedance L2_1(
+        B = 200e3*line.Yd,
+        R = 200e3*line.Rd,
+        SNom(displayUnit = "MW") = 100000000,
+        UNom(displayUnit = "kV") = 220000,
+        X = 200e3*line.Xd,
+        showPortData = false) annotation(
         Placement(visible = true, transformation(origin = {-52.5, -8.5}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
       PowerGridsMC.Electrical.Branches.TransformerFixedRatio T1_11_2(R = 377/110e3*240^2/110, SNom(displayUnit = "MW") = 110000000, UNomA(displayUnit = "kV") = 13800, UNomB(displayUnit = "kV") = 240000, X = 0.0999*240^2/110, rFixed = 240/13.8) annotation(
         Placement(visible = true, transformation(origin = {-45, 30.5}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
       PowerGridsMC.Electrical.Branches.TransformerFixedRatio T1_11_1(R = 377/110e3*240^2/110, SNom(displayUnit = "MW") = 110000000, UNomA(displayUnit = "kV") = 13800, UNomB(displayUnit = "kV") = 240000, X = 0.0999*240^2/110, rFixed = 240/13.8, showPortData = false) annotation(
         Placement(visible = true, transformation(origin = {-61.5, 29.5}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-      PowerGridsMC.Electrical.Branches.LineConstantImpedance L3_2(B = 75e3*line.Yd, R = 75e3*line.Rd, SNom(displayUnit = "MW") = 100000000, UNom(displayUnit = "kV") = 220000, UNomA(displayUnit = "kV") = 220000, UNomB(displayUnit = "kV") = 220000, X = 75e3*line.Xd, showPortData = true) annotation(
+      PowerGridsMC.Electrical.Branches.LineConstantImpedance L3_2(
+        B = 75e3*line.Yd,
+        R = 75e3*line.Rd,
+        SNom(displayUnit = "MW") = 100000000,
+        UNom(displayUnit = "kV") = 220000,
+        X = 75e3*line.Xd,
+        showPortData = true) annotation(
         Placement(visible = true, transformation(origin = {-71, -29}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-      PowerGridsMC.Electrical.Branches.LineConstantImpedance L4_2(B = 90e3*line.Yd, R = 90e3*line.Rd, SNom(displayUnit = "MW") = 100000000, UNom(displayUnit = "V") = 1, UNomA(displayUnit = "kV") = 220000, UNomB(displayUnit = "kV") = 220000, X = 90e3*line.Xd, showPortData = false) annotation(
+      PowerGridsMC.Electrical.Branches.LineConstantImpedance L4_2(
+        B = 90e3*line.Yd,
+        R = 90e3*line.Rd,
+        SNom(displayUnit = "MW") = 100000000,
+        UNom(displayUnit = "kV") = 220000,
+        X = 90e3*line.Xd,
+        showPortData = false) annotation(
         Placement(visible = true, transformation(origin = {-52, -49}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-      PowerGridsMC.Electrical.Branches.LineConstantImpedance L3_4(B = 50e3*line.Yd, R = 50e3*line.Rd, SNom(displayUnit = "MW") = 100000000, UNom(displayUnit = "kV") = 220000, UNomA(displayUnit = "kV") = 220000, UNomB(displayUnit = "kV") = 220000, X = 50e3*line.Xd, showPortData = true) annotation(
+      PowerGridsMC.Electrical.Branches.LineConstantImpedance L3_4(
+        B = 50e3*line.Yd,
+        R = 50e3*line.Rd,
+        SNom(displayUnit = "MW") = 100000000,
+        UNom(displayUnit = "kV") = 220000,
+        X = 50e3*line.Xd,
+        showPortData = true) annotation(
         Placement(visible = true, transformation(origin = {-71.5, -69}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
       inner PowerGridsMC.Electrical.System systemPowerGrids(initOpt = PowerGridsMC.Types.Choices.InitializationOption.globalSteadyStateFixedPowerFlow, referenceFrequency = PowerGridsMC.Types.Choices.ReferenceFrequency.fixedReferenceGenerator, showDataOnDiagramsPu = false) annotation(
         Placement(visible = true, transformation(origin = {62, -102}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -1728,17 +1824,52 @@ cambio i gen eccetto lo slack"), Text(extent = {{-20, 60}, {64, 52}}, textColor 
       extends Modelica.Icons.Example;
       FourATbus.Line line annotation(
         Placement(visible = true, transformation(origin = {-110, -108.696}, extent = {{-10.0001, -11.3047}, {10.0001, 8.69585}}, rotation = 0)));
-      PowerGridsMC.Electrical.Branches.LineConstantImpedance L2_1(B = 200e3*line.Yd, R = 200e3*line.Rd, SNom(displayUnit = "MW") = 100000000, UNom(displayUnit = "kV") = 220000, UNomA(displayUnit = "kV") = 220000, UNomB(displayUnit = "kV") = 220000, X = 200e3*line.Xd, showPortData = false) annotation(
+      PowerGridsMC.Electrical.Branches.LineConstantImpedance L2_1(
+        B = 200e3*line.Yd,
+        R = 200e3*line.Rd,
+        SNom(displayUnit = "MW") = 100000000,
+        UNom(displayUnit = "kV") = 220000,
+        X = 200e3*line.Xd,
+        showPortData = false) annotation(
         Placement(visible = true, transformation(origin = {-52.5, -8.5}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-      PowerGridsMC.Electrical.Branches.TransformerFixedRatio T1_11_2(R = 377/110e3*240^2/110, SNom(displayUnit = "MW") = 110000000, UNomA(displayUnit = "kV") = 13800, UNomB(displayUnit = "kV") = 240000, X = 0.0999*240^2/110, rFixed = 240/13.8) annotation(
+      PowerGridsMC.Electrical.Branches.TransformerFixedRatio T1_11_2(
+        R = 377/110e3*240^2/110,
+        SNom(displayUnit = "MW") = 110000000,
+        UNomA(displayUnit = "kV") = 13800,
+        UNomB(displayUnit = "kV") = 240000,
+        X = 0.0999*240^2/110,
+        rFixed = 240/13.8) annotation(
         Placement(visible = true, transformation(origin = {-45, 30.5}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-      PowerGridsMC.Electrical.Branches.TransformerFixedRatio T1_11_1(R = 377/110e3*240^2/110, SNom(displayUnit = "MW") = 110000000, UNomA(displayUnit = "kV") = 13800, UNomB(displayUnit = "kV") = 240000, X = 0.0999*240^2/110, rFixed = 240/13.8, showPortData = false) annotation(
+      PowerGridsMC.Electrical.Branches.TransformerFixedRatio T1_11_1(
+        R = 377/110e3*240^2/110, SNom(displayUnit = "MW") = 110000000,
+        UNomA(displayUnit = "kV") = 13800,
+        UNomB(displayUnit = "kV") = 240000,
+        X = 0.0999*240^2/110,
+        rFixed = 240/13.8, showPortData = false) annotation(
         Placement(visible = true, transformation(origin = {-61.5, 29.5}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-      PowerGridsMC.Electrical.Branches.LineConstantImpedance L3_2(B = 75e3*line.Yd, R = 75e3*line.Rd, SNom(displayUnit = "MW") = 100000000, UNom(displayUnit = "kV") = 220000, UNomA(displayUnit = "kV") = 220000, UNomB(displayUnit = "kV") = 220000, X = 75e3*line.Xd, showPortData = true) annotation(
+      PowerGridsMC.Electrical.Branches.LineConstantImpedance L3_2(
+        B = 75e3*line.Yd,
+        R = 75e3*line.Rd,
+        SNom(displayUnit = "MW") = 100000000,
+        UNom(displayUnit = "kV") = 220000,
+        X = 75e3*line.Xd,
+        showPortData = true) annotation(
         Placement(visible = true, transformation(origin = {-71, -29}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-      PowerGridsMC.Electrical.Branches.LineConstantImpedance L4_2(B = 90e3*line.Yd, R = 90e3*line.Rd, SNom(displayUnit = "MW") = 100000000, UNom(displayUnit = "V") = 1, UNomA(displayUnit = "kV") = 220000, UNomB(displayUnit = "kV") = 220000, X = 90e3*line.Xd, showPortData = false) annotation(
+      PowerGridsMC.Electrical.Branches.LineConstantImpedance L4_2(
+        B = 90e3*line.Yd,
+        R = 90e3*line.Rd,
+        SNom(displayUnit = "MW") = 100000000,
+        UNom(displayUnit = "kV") = 220000,
+        X = 90e3*line.Xd,
+        showPortData = false) annotation(
         Placement(visible = true, transformation(origin = {-52, -49}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-      PowerGridsMC.Electrical.Branches.LineConstantImpedance L3_4(B = 50e3*line.Yd, R = 50e3*line.Rd, SNom(displayUnit = "MW") = 100000000, UNom(displayUnit = "kV") = 220000, UNomA(displayUnit = "kV") = 220000, UNomB(displayUnit = "kV") = 220000, X = 50e3*line.Xd, showPortData = true) annotation(
+      PowerGridsMC.Electrical.Branches.LineConstantImpedance L3_4(
+        B = 50e3*line.Yd,
+        R = 50e3*line.Rd,
+        SNom(displayUnit = "MW") = 100000000,
+        UNom(displayUnit = "kV") = 220000,
+        X = 50e3*line.Xd,
+        showPortData = true) annotation(
         Placement(visible = true, transformation(origin = {-71.5, -69}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
       inner PowerGridsMC.Electrical.System systemPowerGrids(initOpt = PowerGridsMC.Types.Choices.InitializationOption.globalSteadyStateFixedPowerFlow, referenceFrequency = PowerGridsMC.Types.Choices.ReferenceFrequency.fixedReferenceGenerator, showDataOnDiagramsPu = false) annotation(
         Placement(visible = true, transformation(origin = {64, -102}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -1891,17 +2022,41 @@ cambio i gen eccetto lo slack"), Text(extent = {{-20, 60}, {64, 52}}, textColor 
         Placement(visible = true, transformation(origin = {16, -100}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
       PowerGridsMC.Electrical.Branches.TransformerFixedRatio T4_iX2(SNom(displayUnit = "MW") = 190e6*2, UNomA(displayUnit = "kV") = 236100, UNomB(displayUnit = "kV") = 236100, X = 0.04828*220^2/100/2) annotation(
         Placement(visible = true, transformation(origin = {0, -52}, extent = {{-10, 10}, {10, -10}}, rotation = 90)));
-      PowerGridsMC.Electrical.Branches.LineConstantImpedance L3_2(B = 75e3*line.Yd, R = 75e3*line.Rd, SNom(displayUnit = "MW") = 100000000, UNom(displayUnit = "kV") = 220000, UNomA(displayUnit = "kV") = 220000, UNomB(displayUnit = "kV") = 220000, X = 75e3*line.Xd, showPortData = true) annotation(
+      PowerGridsMC.Electrical.Branches.LineConstantImpedance L3_2(
+        B = 75e3*line.Yd,
+        R = 75e3*line.Rd,
+        SNom(displayUnit = "MW") = 100000000,
+        UNom(displayUnit = "kV") = 220000,
+        X = 75e3*line.Xd,
+        showPortData = true) annotation(
         Placement(visible = true, transformation(origin = {-22, 10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
       PowerGridsMC.Electrical.PowerFlow.PVBusW gen11x2(P(displayUnit = "MW") = -200000000, SNom(displayUnit = "MVA") = 200000000, U(displayUnit = "kV") = 13800, UNom(displayUnit = "kV") = 13800, portVariablesPhases = true) annotation(
         Placement(visible = true, transformation(origin = {0, 108}, extent = {{-10, 10}, {10, -10}}, rotation = 0)));
       PowerGridsMC.Electrical.Branches.TransformerFixedRatio T1_11_2(R = 377/110e3*240^2/110, SNom(displayUnit = "MW") = 110000000, UNomA(displayUnit = "kV") = 13800, UNomB(displayUnit = "kV") = 240000, X = 0.0999*240^2/110, rFixed = 240/13.8) annotation(
         Placement(visible = true, transformation(origin = {10, 72}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-      PowerGridsMC.Electrical.Branches.LineConstantImpedance L2_1(B = 200e3*line.Yd, R = 200e3*line.Rd, SNom(displayUnit = "MW") = 100000000, UNom(displayUnit = "kV") = 220000, UNomA(displayUnit = "kV") = 220000, UNomB(displayUnit = "kV") = 220000, X = 200e3*line.Xd, showPortData = true) annotation(
+      PowerGridsMC.Electrical.Branches.LineConstantImpedance L2_1(
+        B = 200e3*line.Yd,
+        R = 200e3*line.Rd,
+        SNom(displayUnit = "MW") = 100000000,
+        UNom(displayUnit = "kV") = 220000,
+        X = 200e3*line.Xd,
+        showPortData = true) annotation(
         Placement(visible = true, transformation(origin = {0, 28}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-      PowerGridsMC.Electrical.Branches.LineConstantImpedance L4_2(B = 90e3*line.Yd, R = 90e3*line.Rd, SNom(displayUnit = "MW") = 100000000, UNom(displayUnit = "V") = 1, UNomA(displayUnit = "kV") = 220000, UNomB(displayUnit = "kV") = 220000, X = 90e3*line.Xd, showPortData = true) annotation(
+      PowerGridsMC.Electrical.Branches.LineConstantImpedance L4_2(
+        B = 90e3*line.Yd,
+        R = 90e3*line.Rd,
+        SNom(displayUnit = "MW") = 100000000,
+        UNom(displayUnit = "kV") = 220000,
+        X = 90e3*line.Xd,
+        showPortData = true) annotation(
         Placement(visible = true, transformation(origin = {0, -8}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-      PowerGridsMC.Electrical.Branches.LineConstantImpedance L3_4(B = 50e3*line.Yd, R = 50e3*line.Rd, SNom(displayUnit = "MW") = 100000000, UNom(displayUnit = "kV") = 220000, UNomA(displayUnit = "kV") = 220000, UNomB(displayUnit = "kV") = 220000, X = 50e3*line.Xd, showPortData = true) annotation(
+      PowerGridsMC.Electrical.Branches.LineConstantImpedance L3_4(
+        B = 50e3*line.Yd,
+        R = 50e3*line.Rd,
+        SNom(displayUnit = "MW") = 100000000,
+        UNom(displayUnit = "kV") = 220000,
+        X = 50e3*line.Xd,
+        showPortData = true) annotation(
         Placement(visible = true, transformation(origin = {-22, -24}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
       PowerGridsMC.Electrical.Branches.TransformerFixedRatio T41_iX2(SNom(displayUnit = "MW") = 190e6*2, UNomA(displayUnit = "kV") = 236100, UNomB(displayUnit = "kV") = 127900, X = 0.02476*119^2/100/2, rFixed = 127.9/236.1) annotation(
         Placement(visible = true, transformation(origin = {0, -84}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
@@ -2044,17 +2199,40 @@ cambio i gen eccetto lo slack"), Text(extent = {{-20, 60}, {64, 52}}, textColor 
         Placement(visible = true, transformation(origin = {16, -98}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
       PowerGridsMC.Electrical.Branches.TransformerFixedRatio T4_iX2(SNom(displayUnit = "MW") = 190e6*2, UNomA(displayUnit = "kV") = 236100, UNomB(displayUnit = "kV") = 236100, X = 0.04828*220^2/100/2) annotation(
         Placement(visible = true, transformation(origin = {0, -50}, extent = {{-10, 10}, {10, -10}}, rotation = 90)));
-      PowerGridsMC.Electrical.Branches.LineConstantImpedance L3_2(B = 75e3*line.Yd, R = 75e3*line.Rd, SNom(displayUnit = "MW") = 100000000, UNom(displayUnit = "kV") = 220000, UNomA(displayUnit = "kV") = 220000, UNomB(displayUnit = "kV") = 220000, X = 75e3*line.Xd, showPortData = true) annotation(
+      PowerGridsMC.Electrical.Branches.LineConstantImpedance L3_2(
+        B = 75e3*line.Yd,
+        R = 75e3*line.Rd,
+        SNom(displayUnit = "MW") = 100000000,
+        UNom(displayUnit = "kV") = 220000,
+        X = 75e3*line.Xd,
+        showPortData = true) annotation(
         Placement(visible = true, transformation(origin = {-22, 10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
       PowerGridsMC.Electrical.PowerFlow.PVBusW gen11x2(P(displayUnit = "MW") = -200000000, SNom(displayUnit = "MVA") = 200000000, U(displayUnit = "kV") = 13800, UNom(displayUnit = "kV") = 13800, portVariablesPhases = true) annotation(
         Placement(visible = true, transformation(origin = {0, 108}, extent = {{-10, 10}, {10, -10}}, rotation = 0)));
       PowerGridsMC.Electrical.Branches.TransformerFixedRatio T1_11_2(R = 377/110e3*240^2/110, SNom(displayUnit = "MW") = 110000000, UNomA(displayUnit = "kV") = 13800, UNomB(displayUnit = "kV") = 240000, X = 0.0999*240^2/110, rFixed = 240/13.8) annotation(
         Placement(visible = true, transformation(origin = {10, 72}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-      PowerGridsMC.Electrical.Branches.LineConstantImpedance L2_1(B = 200e3*line.Yd, R = 200e3*line.Rd, SNom(displayUnit = "MW") = 100000000, UNom(displayUnit = "kV") = 220000, UNomA(displayUnit = "kV") = 220000, UNomB(displayUnit = "kV") = 220000, X = 200e3*line.Xd, showPortData = true) annotation(
+      PowerGridsMC.Electrical.Branches.LineConstantImpedance L2_1(
+        B = 200e3*line.Yd,
+        R = 200e3*line.Rd,
+        SNom(displayUnit = "MW") = 100000000,
+        UNom(displayUnit = "kV") = 220000,
+        X = 200e3*line.Xd,
+        showPortData = true) annotation(
         Placement(visible = true, transformation(origin = {0, 28}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-      PowerGridsMC.Electrical.Branches.LineConstantImpedance L4_2(B = 90e3*line.Yd, R = 90e3*line.Rd, SNom(displayUnit = "MW") = 100000000, UNom(displayUnit = "V") = 1, UNomA(displayUnit = "kV") = 220000, UNomB(displayUnit = "kV") = 220000, X = 90e3*line.Xd, showPortData = true) annotation(
+      PowerGridsMC.Electrical.Branches.LineConstantImpedance L4_2(
+        B = 90e3*line.Yd,
+        R = 90e3*line.Rd,
+        SNom(displayUnit = "MW") = 100000000,
+        UNom(displayUnit = "kV") = 220000,
+        X = 90e3*line.Xd,
+        showPortData = true) annotation(
         Placement(visible = true, transformation(origin = {0, -8}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-      PowerGridsMC.Electrical.Branches.LineConstantImpedance L3_4(B = 50e3*line.Yd, R = 50e3*line.Rd, SNom(displayUnit = "MW") = 100000000, UNom(displayUnit = "kV") = 220000, UNomA(displayUnit = "kV") = 220000, UNomB(displayUnit = "kV") = 220000, X = 50e3*line.Xd, showPortData = true) annotation(
+      PowerGridsMC.Electrical.Branches.LineConstantImpedance L3_4(
+        B = 50e3*line.Yd,
+        R = 50e3*line.Rd,
+        SNom(displayUnit = "MW") = 100000000,
+        UNom(displayUnit = "kV") = 220000,
+        X = 50e3*line.Xd, showPortData = true) annotation(
         Placement(visible = true, transformation(origin = {-22, -24}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
       PowerGridsMC.Electrical.Branches.TransformerFixedRatio T41_iX2(SNom(displayUnit = "MW") = 190e6*2, UNomA(displayUnit = "kV") = 236100, UNomB(displayUnit = "kV") = 127900, X = 0.02476*119^2/100/2, rFixed = 127.9/236.1) annotation(
         Placement(visible = true, transformation(origin = {0, -82}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
@@ -2191,13 +2369,37 @@ cambio i gen eccetto lo slack"), Text(extent = {{-20, 60}, {64, 52}}, textColor 
       inner PowerGridsMC.Electrical.System systemPowerGrids(initOpt = PowerGridsMC.Types.Choices.InitializationOption.globalSteadyStateFixedPowerFlow, referenceFrequency = PowerGridsMC.Types.Choices.ReferenceFrequency.fixedReferenceGenerator, showDataOnDiagramsPu = false) annotation(
         Placement(visible = true, transformation(origin = {62, -100}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
       //Lines
-      PowerGridsMC.Electrical.Branches.LineConstantImpedance L2_1(B = 200e3*line.Yd, R = 200e3*line.Rd, SNom(displayUnit = "MW") = 100000000, UNom(displayUnit = "kV") = 220000, UNomA(displayUnit = "kV") = 220000, UNomB(displayUnit = "kV") = 220000, X = 200e3*line.Xd, showPortData = true) annotation(
+      PowerGridsMC.Electrical.Branches.LineConstantImpedance L2_1(
+        B = 200e3*line.Yd,
+        R = 200e3*line.Rd,
+        SNom(displayUnit = "MW") = 100000000,
+        UNom(displayUnit = "kV") = 220000,
+        X = 200e3*line.Xd,
+        showPortData = true) annotation(
         Placement(visible = true, transformation(origin = {-52.5, -10.5}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-      PowerGridsMC.Electrical.Branches.LineConstantImpedance L3_2(B = 75e3*line.Yd, R = 75e3*line.Rd, SNom(displayUnit = "MW") = 100000000, UNom(displayUnit = "kV") = 220000, UNomA(displayUnit = "kV") = 220000, UNomB(displayUnit = "kV") = 220000, X = 75e3*line.Xd, showPortData = true) annotation(
+      PowerGridsMC.Electrical.Branches.LineConstantImpedance L3_2(
+        B = 75e3*line.Yd,
+        R = 75e3*line.Rd,
+        SNom(displayUnit = "MW") = 100000000,
+        UNom(displayUnit = "kV") = 220000,
+        X = 75e3*line.Xd,
+        showPortData = true) annotation(
         Placement(visible = true, transformation(origin = {-71, -33}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-      PowerGridsMC.Electrical.Branches.LineConstantImpedance L4_2(B = 90e3*line.Yd, R = 90e3*line.Rd, SNom(displayUnit = "MW") = 100000000, UNom(displayUnit = "V") = 1, UNomA(displayUnit = "kV") = 220000, UNomB(displayUnit = "kV") = 220000, X = 90e3*line.Xd, showPortData = false) annotation(
+      PowerGridsMC.Electrical.Branches.LineConstantImpedance L4_2(
+        B = 90e3*line.Yd,
+        R = 90e3*line.Rd,
+        SNom(displayUnit = "MW") = 100000000,
+        UNom(displayUnit = "kV") = 220000,
+        X = 90e3*line.Xd,
+        showPortData = false) annotation(
         Placement(visible = true, transformation(origin = {-52, -47}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-      PowerGridsMC.Electrical.Branches.LineConstantImpedance L3_4(B = 50e3*line.Yd, R = 50e3*line.Rd, SNom(displayUnit = "MW") = 100000000, UNom(displayUnit = "kV") = 220000, UNomA(displayUnit = "kV") = 220000, UNomB(displayUnit = "kV") = 220000, X = 50e3*line.Xd, showPortData = true) annotation(
+      PowerGridsMC.Electrical.Branches.LineConstantImpedance L3_4(
+        B = 50e3*line.Yd,
+        R = 50e3*line.Rd,
+        SNom(displayUnit = "MW") = 100000000,
+        UNom(displayUnit = "kV") = 220000,
+        X = 50e3*line.Xd,
+        showPortData = true) annotation(
         Placement(visible = true, transformation(origin = {-69.5, -67}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
       //Machines
       PowerGridsMC.Electrical.Machines.SynchronousMachine4WindingsR gen11x2(H = 4, PStart(displayUnit = "W"), SNom = 2*110e6, Tpd0 = 5.143, Tppd0 = 0.042, Tppq0 = 0.083, Tpq0 = 2.16, UNom(displayUnit = "V") = 13.8e3, UPhaseStart(displayUnit = "rad"), UStart(displayUnit = "V"), portVariablesPhases = true, raPu = 0, xdPu = 2, xlPu = 0.15, xpdPu = 0.35, xppdPu = 0.25, xppqPu = 0.3, xpqPu = 0.5, xqPu = 1.8) annotation(
@@ -2391,17 +2593,54 @@ cambio i gen eccetto lo slack"), Text(extent = {{-20, 60}, {64, 52}}, textColor 
         extends Modelica.Icons.Example;
         Line line annotation(
           Placement(visible = true, transformation(origin = {-110, -108.696}, extent = {{-10.0001, -11.3047}, {10.0001, 8.69585}}, rotation = 0)));
-        PowerGridsMC.Electrical.Branches.LineConstantImpedance L2_1(B = 200e3*line.Yd, R = 200e3*line.Rd, SNom(displayUnit = "MW") = 100000000, UNom(displayUnit = "kV") = 220000, UNomA(displayUnit = "kV") = 220000, UNomB(displayUnit = "kV") = 220000, X = 200e3*line.Xd, showPortData = false) annotation(
+        PowerGridsMC.Electrical.Branches.LineConstantImpedance L2_1(
+          B = 200e3*line.Yd,
+          R = 200e3*line.Rd,
+          SNom(displayUnit = "MW") = 100000000,
+          UNom(displayUnit = "kV") = 220000,
+          X = 200e3*line.Xd,
+          showPortData = false) annotation(
           Placement(visible = true, transformation(origin = {-52.5, -8.5}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-        PowerGridsMC.Electrical.Branches.TransformerFixedRatio T1_11_2(R = 377/110e3*240^2/110, SNom(displayUnit = "MW") = 110000000, UNomA(displayUnit = "kV") = 13800, UNomB(displayUnit = "kV") = 240000, X = 0.0999*240^2/110, rFixed = 240/13.8) annotation(
+        PowerGridsMC.Electrical.Branches.TransformerFixedRatio T1_11_2(
+          R = 377/110e3*240^2/110,
+          SNom(displayUnit = "MW") = 110000000,
+          UNomA(displayUnit = "kV") = 13800,
+          UNomB(displayUnit = "kV") = 240000,
+          X = 0.0999*240^2/110,
+          rFixed = 240/13.8) annotation(
           Placement(visible = true, transformation(origin = {-45, 30.5}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-        PowerGridsMC.Electrical.Branches.TransformerFixedRatio T1_11_1(R = 377/110e3*240^2/110, SNom(displayUnit = "MW") = 110000000, UNomA(displayUnit = "kV") = 13800, UNomB(displayUnit = "kV") = 240000, X = 0.0999*240^2/110, rFixed = 240/13.8, showPortData = false) annotation(
+        PowerGridsMC.Electrical.Branches.TransformerFixedRatio T1_11_1(
+          R = 377/110e3*240^2/110,
+          SNom(displayUnit = "MW") = 110000000,
+          UNomA(displayUnit = "kV") = 13800,
+          UNomB(displayUnit = "kV") = 240000,
+          X = 0.0999*240^2/110,
+          rFixed = 240/13.8,
+          showPortData = false) annotation(
           Placement(visible = true, transformation(origin = {-61.5, 29.5}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-        PowerGridsMC.Electrical.Branches.LineConstantImpedance L3_2(B = 75e3*line.Yd, R = 75e3*line.Rd, SNom(displayUnit = "MW") = 100000000, UNom(displayUnit = "kV") = 220000, UNomA(displayUnit = "kV") = 220000, UNomB(displayUnit = "kV") = 220000, X = 75e3*line.Xd, showPortData = true) annotation(
+        PowerGridsMC.Electrical.Branches.LineConstantImpedance L3_2(
+          B = 75e3*line.Yd,
+          R = 75e3*line.Rd,
+          SNom(displayUnit = "MW") = 100000000,
+          UNom(displayUnit = "kV") = 220000,
+          X = 75e3*line.Xd,
+          showPortData = true) annotation(
           Placement(visible = true, transformation(origin = {-71, -29}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-        PowerGridsMC.Electrical.Branches.LineConstantImpedance L4_2(B = 90e3*line.Yd, R = 90e3*line.Rd, SNom(displayUnit = "MW") = 100000000, UNom(displayUnit = "V") = 1, UNomA(displayUnit = "kV") = 220000, UNomB(displayUnit = "kV") = 220000, X = 90e3*line.Xd, showPortData = false) annotation(
+        PowerGridsMC.Electrical.Branches.LineConstantImpedance L4_2(
+          B = 90e3*line.Yd,
+          R = 90e3*line.Rd,
+          SNom(displayUnit = "MW") = 100000000,
+          UNom(displayUnit = "kV") = 220000,
+          X = 90e3*line.Xd,
+          showPortData = false) annotation(
           Placement(visible = true, transformation(origin = {-52, -49}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-        PowerGridsMC.Electrical.Branches.LineConstantImpedance L3_4(B = 50e3*line.Yd, R = 50e3*line.Rd, SNom(displayUnit = "MW") = 100000000, UNom(displayUnit = "kV") = 220000, UNomA(displayUnit = "kV") = 220000, UNomB(displayUnit = "kV") = 220000, X = 50e3*line.Xd, showPortData = true) annotation(
+        PowerGridsMC.Electrical.Branches.LineConstantImpedance L3_4(
+          B = 50e3*line.Yd,
+          R = 50e3*line.Rd,
+          SNom(displayUnit = "MW") = 100000000,
+          UNom(displayUnit = "kV") = 220000,
+          X = 50e3*line.Xd,
+          showPortData = true) annotation(
           Placement(visible = true, transformation(origin = {-71.5, -69}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
         inner PowerGridsMC.Electrical.System systemPowerGrids(initOpt = PowerGridsMC.Types.Choices.InitializationOption.globalSteadyStateFixedPowerFlow, referenceFrequency = PowerGridsMC.Types.Choices.ReferenceFrequency.fixedReferenceGenerator, showDataOnDiagramsPu = false) annotation(
           Placement(visible = true, transformation(origin = {62, -102}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -2561,17 +2800,54 @@ cambio i gen eccetto lo slack"), Text(extent = {{-20, 60}, {64, 52}}, textColor 
         extends Modelica.Icons.Example;
         Line line annotation(
           Placement(visible = true, transformation(origin = {-110, 65.304}, extent = {{-10.0001, -11.3047}, {10.0001, 8.69585}}, rotation = 0)));
-        PowerGridsMC.Electrical.Branches.LineConstantImpedance L2_1(B = 200e3*line.Yd, R = 200e3*line.Rd, SNom(displayUnit = "MW") = 100000000, UNom(displayUnit = "kV") = 220000, UNomA(displayUnit = "kV") = 220000, UNomB(displayUnit = "kV") = 220000, X = 200e3*line.Xd, showPortData = false) annotation(
+        PowerGridsMC.Electrical.Branches.LineConstantImpedance L2_1(
+          B = 200e3*line.Yd,
+          R = 200e3*line.Rd,
+          SNom(displayUnit = "MW") = 100000000,
+          UNom(displayUnit = "kV") = 220000,
+          X = 200e3*line.Xd,
+          showPortData = false) annotation(
           Placement(visible = true, transformation(origin = {-52.5, 5.5}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-        PowerGridsMC.Electrical.Branches.TransformerFixedRatio T1_11_2(R = 377/110e3*240^2/110, SNom(displayUnit = "MW") = 110000000, UNomA(displayUnit = "kV") = 13800, UNomB(displayUnit = "kV") = 240000, X = 0.0999*240^2/110, rFixed = 240/13.8) annotation(
+        PowerGridsMC.Electrical.Branches.TransformerFixedRatio T1_11_2(
+          R = 377/110e3*240^2/110,
+          SNom(displayUnit = "MW") = 110000000,
+          UNomA(displayUnit = "kV") = 13800,
+          UNomB(displayUnit = "kV") = 240000,
+          X = 0.0999*240^2/110,
+          rFixed = 240/13.8) annotation(
           Placement(visible = true, transformation(origin = {-45, 44.5}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-        PowerGridsMC.Electrical.Branches.TransformerFixedRatio T1_11_1(R = 377/110e3*240^2/110, SNom(displayUnit = "MW") = 110000000, UNomA(displayUnit = "kV") = 13800, UNomB(displayUnit = "kV") = 240000, X = 0.0999*240^2/110, rFixed = 240/13.8, showPortData = false) annotation(
+        PowerGridsMC.Electrical.Branches.TransformerFixedRatio T1_11_1(
+          R = 377/110e3*240^2/110,
+          SNom(displayUnit = "MW") = 110000000,
+          UNomA(displayUnit = "kV") = 13800,
+          UNomB(displayUnit = "kV") = 240000,
+          X = 0.0999*240^2/110,
+          rFixed = 240/13.8,
+          showPortData = false) annotation(
           Placement(visible = true, transformation(origin = {-61.5, 43.5}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-        PowerGridsMC.Electrical.Branches.LineConstantImpedance L3_2(B = 75e3*line.Yd, R = 75e3*line.Rd, SNom(displayUnit = "MW") = 100000000, UNom(displayUnit = "kV") = 220000, UNomA(displayUnit = "kV") = 220000, UNomB(displayUnit = "kV") = 220000, X = 75e3*line.Xd, showPortData = true) annotation(
+        PowerGridsMC.Electrical.Branches.LineConstantImpedance L3_2(
+          B = 75e3*line.Yd,
+          R = 75e3*line.Rd,
+          SNom(displayUnit = "MW") = 100000000,
+          UNom(displayUnit = "kV") = 220000,
+          X = 75e3*line.Xd,
+          showPortData = true) annotation(
           Placement(visible = true, transformation(origin = {-71, -15}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-        PowerGridsMC.Electrical.Branches.LineConstantImpedance L4_2(B = 90e3*line.Yd, R = 90e3*line.Rd, SNom(displayUnit = "MW") = 100000000, UNom(displayUnit = "V") = 1, UNomA(displayUnit = "kV") = 220000, UNomB(displayUnit = "kV") = 220000, X = 90e3*line.Xd, showPortData = false) annotation(
+        PowerGridsMC.Electrical.Branches.LineConstantImpedance L4_2(
+          B = 90e3*line.Yd,
+          R = 90e3*line.Rd,
+          SNom(displayUnit = "MW") = 100000000,
+          UNom(displayUnit = "kV") = 220000,
+          X = 90e3*line.Xd,
+          showPortData = false) annotation(
           Placement(visible = true, transformation(origin = {-52, -35}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-        PowerGridsMC.Electrical.Branches.LineConstantImpedance L3_4(B = 50e3*line.Yd, R = 50e3*line.Rd, SNom(displayUnit = "MW") = 100000000, UNom(displayUnit = "kV") = 220000, UNomA(displayUnit = "kV") = 220000, UNomB(displayUnit = "kV") = 220000, X = 50e3*line.Xd, showPortData = true) annotation(
+        PowerGridsMC.Electrical.Branches.LineConstantImpedance L3_4(
+          B = 50e3*line.Yd,
+          R = 50e3*line.Rd,
+          SNom(displayUnit = "MW") = 100000000,
+          UNom(displayUnit = "kV") = 220000,
+          X = 50e3*line.Xd,
+          showPortData = true) annotation(
           Placement(visible = true, transformation(origin = {-71.5, -55}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
         inner PowerGridsMC.Electrical.System systemPowerGrids(initOpt = PowerGridsMC.Types.Choices.InitializationOption.globalSteadyStateFixedPowerFlow, referenceFrequency = PowerGridsMC.Types.Choices.ReferenceFrequency.fixedReferenceGenerator, showDataOnDiagramsPu = false) annotation(
           Placement(visible = true, transformation(origin = {68, -88}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -2730,23 +3006,83 @@ cambio i gen eccetto lo slack"), Text(extent = {{-20, 60}, {64, 52}}, textColor 
         extends Modelica.Icons.Example;
         Line line annotation(
           Placement(visible = true, transformation(origin = {-110, 65.304}, extent = {{-10.0001, -11.3047}, {10.0001, 8.69585}}, rotation = 0)));
-        Electrical.Branches.LineConstantImpedance L2_1(B = 200e3*line.Yd, R = 200e3*line.Rd, SNom(displayUnit = "MW") = 100000000, UNom(displayUnit = "kV") = 220000, UNomA(displayUnit = "kV") = 220000, UNomB(displayUnit = "kV") = 220000, X = 200e3*line.Xd, showPortData = false) annotation(
+        Electrical.Branches.LineConstantImpedance L2_1(
+          B = 200e3*line.Yd,
+          R = 200e3*line.Rd,
+          SNom(displayUnit = "MW") = 100000000,
+          UNom(displayUnit = "kV") = 220000,
+          X = 200e3*line.Xd,
+          showPortData = false) annotation(
           Placement(visible = true, transformation(origin = {-52.5, 5.5}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-        Electrical.Branches.TransformerFixedRatio T1_11_2(R = 377/110e3*240^2/110, SNom(displayUnit = "MW") = 110000000, UNomA(displayUnit = "kV") = 13800, UNomB(displayUnit = "kV") = 240000, X = 0.0999*240^2/110, rFixed = 240/13.8) annotation(
+        Electrical.Branches.TransformerFixedRatio T1_11_2(
+          R = 377/110e3*240^2/110,
+          SNom(displayUnit = "MW") = 110000000,
+          UNomA(displayUnit = "kV") = 13800,
+          UNomB(displayUnit = "kV") = 240000,
+          X = 0.0999*240^2/110,
+          rFixed = 240/13.8) annotation(
           Placement(visible = true, transformation(origin = {-45, 44.5}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-        Electrical.Branches.TransformerFixedRatio T1_11_1(R = 377/110e3*240^2/110, SNom(displayUnit = "MW") = 110000000, UNomA(displayUnit = "kV") = 13800, UNomB(displayUnit = "kV") = 240000, X = 0.0999*240^2/110, rFixed = 240/13.8, showPortData = false) annotation(
+        Electrical.Branches.TransformerFixedRatio T1_11_1(
+          R = 377/110e3*240^2/110,
+          SNom(displayUnit = "MW") = 110000000,
+          UNomA(displayUnit = "kV") = 13800,
+          UNomB(displayUnit = "kV") = 240000,
+          X = 0.0999*240^2/110,
+          rFixed = 240/13.8,
+          showPortData = false) annotation(
           Placement(visible = true, transformation(origin = {-61.5, 43.5}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-        Electrical.Branches.LineConstantImpedance L3_2(B = 75e3*line.Yd, R = 75e3*line.Rd, SNom(displayUnit = "MW") = 100000000, UNom(displayUnit = "kV") = 220000, UNomA(displayUnit = "kV") = 220000, UNomB(displayUnit = "kV") = 220000, X = 75e3*line.Xd, showPortData = true) annotation(
+        Electrical.Branches.LineConstantImpedance L3_2(
+          B = 75e3*line.Yd,
+          R = 75e3*line.Rd,
+          SNom(displayUnit = "MW") = 100000000,
+          UNom(displayUnit = "kV") = 220000,
+          X = 75e3*line.Xd,
+          showPortData = true) annotation(
           Placement(visible = true, transformation(origin = {-71, -15}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-        Electrical.Branches.LineConstantImpedance L4_2(B = 90e3*line.Yd, R = 90e3*line.Rd, SNom(displayUnit = "MW") = 100000000, UNom(displayUnit = "V") = 1, UNomA(displayUnit = "kV") = 220000, UNomB(displayUnit = "kV") = 220000, X = 90e3*line.Xd, showPortData = false) annotation(
+        Electrical.Branches.LineConstantImpedance L4_2(
+          B = 90e3*line.Yd,
+          R = 90e3*line.Rd,
+          SNom(displayUnit = "MW") = 100000000,
+          UNom(displayUnit = "kV") = 220000,
+          X = 90e3*line.Xd,
+          showPortData = false) annotation(
           Placement(visible = true, transformation(origin = {-52, -35}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-        Electrical.Branches.LineConstantImpedance L3_4(B = 50e3*line.Yd, R = 50e3*line.Rd, SNom(displayUnit = "MW") = 100000000, UNom(displayUnit = "kV") = 220000, UNomA(displayUnit = "kV") = 220000, UNomB(displayUnit = "kV") = 220000, X = 50e3*line.Xd, showPortData = true) annotation(
+        Electrical.Branches.LineConstantImpedance L3_4(
+          B = 50e3*line.Yd,
+          R = 50e3*line.Rd,
+          SNom(displayUnit = "MW") = 100000000,
+          UNom(displayUnit = "kV") = 220000,
+          X = 50e3*line.Xd,
+          showPortData = true) annotation(
           Placement(visible = true, transformation(origin = {-71.5, -55}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
         inner Electrical.System systemPowerGrids(initOpt = Types.Choices.InitializationOption.globalSteadyStateFixedPowerFlow, referenceFrequency = Types.Choices.ReferenceFrequency.fixedReferenceGenerator, showDataOnDiagramsPu = false) annotation(
           Placement(visible = true, transformation(origin = {68, -88}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-        Electrical.Machines.SynchronousMachine4WindingsR gen42x2(H = 4, SNom = 1000000*(206*2e6), Tpd0 = 5.143, Tppd0 = 0.042, Tppq0 = 0.083, Tpq0 = 2.16, UNom = 15700, portVariablesPhases = true, raPu = 0, xdPu = 2, xlPu = 0.15, xpdPu = 0.35, xppdPu = 0.25, xppqPu = 0.3, xpqPu = 0.5, xqPu = 1.8) annotation(
+        Electrical.Machines.SynchronousMachine4WindingsR gen42x2(
+          H = 4,
+          SNom = 1000000*(206*2e6),
+          Tpd0 = 5.143,
+          Tppd0 = 0.042,
+          Tppq0 = 0.083,
+          Tpq0 = 2.16,
+          UNom = 15700,
+          portVariablesPhases = true,
+          raPu = 0,
+          xdPu = 2,
+          xlPu = 0.15,
+          xpdPu = 0.35,
+          xppdPu = 0.25,
+          xppqPu = 0.3,
+          xpqPu = 0.5,
+          xqPu = 1.8) annotation(
           Placement(visible = true, transformation(origin = {34, -96}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-        Electrical.Loads.LoadAlphaBetaR pq31(SNom(displayUnit = "V.A") = 100e6, UNom(displayUnit = "V") = 129e3, UPhaseStart(displayUnit = "rad"), UStart(displayUnit = "V"), alpha = alpha, beta = beta, portVariablesPhases = true) annotation(
+        Electrical.Loads.LoadAlphaBetaR pq31(
+          SNom(displayUnit = "V.A") = 100e6,
+          UNom(displayUnit = "V") = 129e3,
+          UPhaseStart(displayUnit = "rad"),
+          UStart(displayUnit = "V"),
+          alpha = alpha,
+          beta = beta,
+          portVariablesPhases = true) annotation(
           Placement(visible = true, transformation(origin = {-142.5, -61}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
         // Transformers
         Electrical.Branches.TransformerFixedRatio Teq31_3(R = 0.0948*230^2/160/30, SNom(displayUnit = "MW") = 160000000, UNomA(displayUnit = "kV") = 135000, UNomB(displayUnit = "kV") = 230000, X = 0.0948*230^2/160, rFixed = 230/135, showPortData = true) annotation(
