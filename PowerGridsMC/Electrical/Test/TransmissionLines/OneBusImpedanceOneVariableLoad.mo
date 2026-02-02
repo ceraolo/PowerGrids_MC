@@ -1,4 +1,4 @@
-within PowerGridsMC.Electrical.Test;
+within PowerGridsMC.Electrical.Test.TransmissionLines;
 model OneBusImpedanceOneVariableLoad
   extends Modelica.Icons.Example;
   PowerGridsMC.Electrical.Buses.InfiniteBus bus1(PStart = -1e+07,R = 0.04,SNom = 1e+08, UNom = 10000, X = 0.4, generatorConvention = true, portVariablesPhases = true, portVariablesPu = true)  annotation (
@@ -38,13 +38,13 @@ equation
   connect(QSignal.y, load2.QRefIn) annotation (
     Line(points = {{21, -20}, {31.5, -20}, {31.5, -10}, {42, -10}}, color = {0, 0, 127}));
   connect(bus2.terminal, load2.terminal) annotation (
-    Line(points = {{52, 10}, {52, 5}, {50, 5}, {50, 0}}));
+    Line(points={{50,10},{50,5},{50,5},{50,0}}));
   connect(bus1.terminal, load1.terminal) annotation (
-    Line(points = {{-48, 10}, {-48, 5}, {-50, 5}, {-50, 0}}));
+    Line(points={{-50,10},{-50,5},{-50,5},{-50,0}}));
   annotation (
     experiment(StopTime = 3.0, Interval = 0.01),
     Documentation(info = "<html><head></head><body><p>This model demonstrates both ways of implementing a time-varying load.</p>
-The model is similar to <a href=\"modelica://PowerGridsMC.Electrical.Test.OneBusImpedanceOneLoad\">OneBusImpedanceOneLoad</a>, except that the active power P of the load is increased from 10 MW to 20 MW at time = 1 and the reactive power is increased from 0 to 30 MW at time = 2.<p></p>
+The model is similar to <a href=\"modelica://PowerGridsMC.Electrical.Test.Loads.OneBusImpedanceOneLoad\">OneBusImpedanceOneLoad</a>, except that the active power P of the load is increased from 10 MW to 20 MW at time = 1 and the reactive power is increased from 0 to 30 MW at time = 2.<p></p>
 <p>Both ways of implementing a variable load, with the expression in the modifier and with the input signals, are demonstrated. The results are exactly the same.</p>
 </body></html>"),
   Diagram(coordinateSystem(extent = {{-60, 60}, {60, -40}})));

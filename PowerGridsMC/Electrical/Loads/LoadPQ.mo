@@ -7,38 +7,38 @@ model LoadPQ "PQ bus"
   parameter Types.ReactivePower Q = 0 "Reactive power entering the bus";
   parameter Boolean showPortData = true "if Port Data are shown in diagram (P&Q or U)";
   outer Electrical.System systemPowerGrids "Reference to system object";
-  parameter Boolean showDataOnDiagramsPu = systemPowerGrids.showDataOnDiagramsPu "=true, P,Q,V and phase are shown on the diagrams in per-unit of local machine base" ;
+  parameter Boolean showDataOnDiagramsPu = systemPowerGrids.showDataOnDiagramsPu "=true, P,Q,V and phase are shown on the diagrams in per-unit of local machine base";
 equation
   port.P = P;
   port.Q = Q;
   annotation(
     Icon(coordinateSystem(grid = {2, 2}), graphics = {
       Text(
-        origin = {53.4118, -66.6664}, 
-        extent = {{-19.4118, 8.66645}, {46.5882, -17.3336}}, 
-        textString = "PQ"), 
+        origin = {53.4118, -66.6664},
+        extent = {{-19.4118, 8.66645}, {46.5882, -17.3336}},
+        textString = "PQ"),
       Text(
-        visible = showPortData, 
-        origin = {-14, 2}, 
-        textColor = {238, 46, 47}, 
-        extent = {{-86, 44}, {0, 22}}, 
-        textString = DynamicSelect("P", 
-            if showDataOnDiagramsPu then 
-               String(-port.PGenPu, format="6.3f") 
-            else 
+        visible = showPortData,
+        origin = {-14, 2},
+        textColor = {238, 46, 47},
+        extent = {{-86, 44}, {0, 22}},
+        textString = DynamicSelect("P",
+            if showDataOnDiagramsPu then
+               String(-port.PGenPu, format="6.3f")
+            else
                String((port.S.re/1000000), format="9.2f")),
             horizontalAlignment = TextAlignment.Right),
       Text(
-        visible = showPortData, 
-        origin = {14, 2}, 
-        textColor = {217, 67, 180}, 
-        extent = {{0, 44}, {86, 22}}, 
+        visible = showPortData,
+        origin = {14, 2},
+        textColor = {217, 67, 180},
+        extent = {{0, 44}, {86, 22}},
         textString = DynamicSelect("Q",
-           if showDataOnDiagramsPu then 
-             String(-port.QGenPu, format="-6.3f") 
+           if showDataOnDiagramsPu then
+             String(-port.QGenPu, format="-6.3f")
            else String((port.S.im/1000000), format="-9.2f")),
           horizontalAlignment = TextAlignment.Left)}),
-          
+
     Documentation(info = "<html>
 <p>PQBus: prescribes the active power <code>P</code> and the reactive power <code>Q</code> entering the bus.</p>
 </html>"),

@@ -6,7 +6,8 @@ package PowerGridsMC
 
   annotation (
     version="1.0.0",
-    uses(Modelica(version="4.0.0"), Complex(version="4.0.0")),
+    uses(Modelica(version="4.0.0"), Complex(version="4.0.0"),
+      AsmaElecQsPg(version="1")),
   Documentation(info="<html>
 <p><i>Library PowerGridsMC was forked from https://github.com/PowerGrids/PowerGrids on 22 November 2024.</i></p>
 <p><i>Herebelow you find the original  text from the above library.</i></p>
@@ -30,5 +31,16 @@ package PowerGridsMC
 <p>PowerGrids was developed and tested using OpenModelica 1.14.1, but is expected to run on all Modelica tools that fully support Complex numbers and the homotopy transformation. For numerical efficiency of models with more than a few buses, it is necessary that the tool does not transform the equations into ODE form, but rather directly uses a sparse DAE solver. The reason for this requirement is that while the DAE is sparse, the corresponding ODE is dense.</p>
 <p>Note that most of the models and test cases run with this version of OpenModelica but some solver issues are still under consideration and should only be available from OpenModelica 1.16 - in case you want to benefit from the latest developments, we recommend you to download the nightly-build from OpenModelica.</p>
 <p>For further technical information, see the <a href=\"modelica://PowerGridsMC.UsersGuide\">User&apos;s Guide</a>.</p>
-</html>"));
+</html>"),
+    Icon(graphics={
+        Ellipse(extent={{-86,38},{-6,-40}}, lineColor={28,108,200}),
+        Line(points={{-68,0},{-62,14},{-50,14},{-40,-16},{-28,-16},{-22,0}},
+            color={28,108,200}),
+        Line(points={{86,0},{-6,0}}, color={28,108,200}),
+        Line(
+          points={{26,44},{26,-46}},
+          color={28,108,200},
+          thickness=1),
+        Line(points={{26,20},{72,50}}, color={28,108,200}),
+        Line(points={{26,-26},{72,-56}}, color={28,108,200})}));
 end PowerGridsMC;

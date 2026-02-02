@@ -1,4 +1,4 @@
-within PowerGridsMC.Electrical.Test;
+within PowerGridsMC.Electrical.Test.Transformers;
 model TestTransformerWithTapChangerInterval
   extends Modelica.Icons.Example;
   PowerGridsMC.Electrical.Buses.InfiniteBusVariableVoltage infiniteBus(R = 0, SNom = 1e+06, UNom = 1000, X = 0, useUIn = true) annotation (

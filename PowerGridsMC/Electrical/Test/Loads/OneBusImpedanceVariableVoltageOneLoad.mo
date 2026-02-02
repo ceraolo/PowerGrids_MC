@@ -1,4 +1,4 @@
-within PowerGridsMC.Electrical.Test;
+within PowerGridsMC.Electrical.Test.Loads;
 model OneBusImpedanceVariableVoltageOneLoad
   extends Modelica.Icons.Example;
   PowerGridsMC.Electrical.Buses.InfiniteBusVariableVoltage bus1(PStart = -1e+07, R = 0.04, SNom = 1e+08, UNom = 10000, X = 0.4, generatorConvention = true, portVariablesPhases = true, portVariablesPu = true, useThetaIn = true, useUIn = true) annotation (
@@ -31,7 +31,7 @@ equation
   annotation (
     experiment(StopTime = 3.0, Interval = 0.01),
     Documentation(info = "<html><head></head><body><p>This model demonstrates the usage of a variable-voltage infinite bus.</p>
-<p>The model is similar to <a href=\"modelica://PowerGridsMC.Electrical.Test.OneBusImpedanceOneLoad\">OneBusImpedanceOneLoad</a>, except that the bus reference voltage is reduced from 10 kV to 8 kV at time = 1 and the reference phase is increased from 0 to 30 deg at time = 2.</p>
+<p>The model is similar to <a href=\"modelica://PowerGridsMC.Electrical.Test.Loads.OneBusImpedanceOneLoad\">OneBusImpedanceOneLoad</a>, except that the bus reference voltage is reduced from 10 kV to 8 kV at time = 1 and the reference phase is increased from 0 to 30 deg at time = 2.</p>
 </body></html>"),
   Diagram(coordinateSystem(extent = {{-60, 60}, {40, -20}})));
 end OneBusImpedanceVariableVoltageOneLoad;

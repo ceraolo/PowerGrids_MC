@@ -12,7 +12,7 @@ model TestEquivalentGrid "Test case EquivalentGrid model"
     Placement(visible = true, transformation(origin = {40, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Buses.Ground ground annotation (
     Placement(visible = true, transformation(origin = {-20, -40}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Loads.LoadAlphaBeta load(
+  .PowerGridsMC.Electrical.Loads.LoadAlphaBeta load(
     PRefConst=1e+07,
     QRefConst=2e+07,
     SNom=5e+08,

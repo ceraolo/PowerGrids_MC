@@ -1,4 +1,4 @@
-within PowerGridsMC.Electrical.Test;
+within PowerGridsMC.Electrical.Test.SynchronousMachines;
 model SynchronousMachine4WindingsNoLoadExact
   extends Modelica.Icons.Example;
   PowerGridsMC.Electrical.Buses.InfiniteBus bus(PStart = 0, SNom = 5.5e+08, UNom = 24000, UStart = 24000, X = 0, portVariablesPhases = true, portVariablesPu = true, theta = 0) annotation (
@@ -22,7 +22,7 @@ equation
     experiment(StartTime = 0, StopTime = 200, Tolerance = 1e-06, Interval = 0.02),
     __OpenModelica_simulationFlags(homotopyOnFirstTry = "()"),
     Documentation(info = "<html><head></head><body><p>This test case validates the NoLoad choice of base excitation voltage of the SynchronousMachine4Windings model.</p>
-<p>By setting ufPuIn = 1 and PmPu = 0, one obtains machine.port.VPu = 1 and machine.port.IPu = 0, as &nbsp;required by the base voltage definition.</p><p>The extermal machine parameters are the same as in the  <a href=\"modelica://PowerGridsMC.Electrical.Test.SynchronousMachine4Windings\">SynchronousMachine4Windings</a> test, but with the system frequency set at 50 Hz. The internal parameters are computed exactly.</p>
+<p>By setting ufPuIn = 1 and PmPu = 0, one obtains machine.port.VPu = 1 and machine.port.IPu = 0, as &nbsp;required by the base voltage definition.</p><p>The extermal machine parameters are the same as in the  <a href=\"modelica://PowerGridsMC.Electrical.Test.SynchronousMachines.SynchronousMachine4Windings\">SynchronousMachine4Windings</a> test, but with the system frequency set at 50 Hz. The internal parameters are computed exactly.</p>
 </body></html>"),
   Diagram(coordinateSystem(extent = {{-60, 60}, {40, -40}})));
 end SynchronousMachine4WindingsNoLoadExact;

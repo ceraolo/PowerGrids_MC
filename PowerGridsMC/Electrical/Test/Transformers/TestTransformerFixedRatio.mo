@@ -1,4 +1,4 @@
-within PowerGridsMC.Electrical.Test;
+within PowerGridsMC.Electrical.Test.Transformers;
 model TestTransformerFixedRatio
   extends Modelica.Icons.Example;
   PowerGridsMC.Electrical.Buses.InfiniteBus infiniteBus(SNom = 1e+07, UNom = 5000, portVariablesPu = true, theta = 0.523599) annotation (
@@ -28,5 +28,5 @@ equation
     Icon(coordinateSystem(grid = {0.1, 0.1})),
     Diagram(coordinateSystem(extent = {{-60, 60}, {40, -20}})),
     experiment(StopTime = 1, Interval = 0.02),
-    Documentation(info = "<html><head></head><body><p>Similar to <a href=\"modelica://PowerGridsMC.Electrical.Test.OneBusTransmissionLineOneLoad\">OneBusImpedanceOneLoad</a>, but this time the line impedance has been substituted with a transformer with fixed ratio:</p><p>&nbsp; - ratio = 2<br>&nbsp; - phase shifting null</p><p>The voltage at the infinite bus has been halved, all quantities in the load are the same.</p><p>The results doesn't change.</p></body></html>"));
+    Documentation(info = "<html><head></head><body><p>Similar to <a href=\"modelica://PowerGridsMC.Electrical.Test.TransmissionLines.OneBusTransmissionLineOneLoad\">OneBusImpedanceOneLoad</a>, but this time the line impedance has been substituted with a transformer with fixed ratio:</p><p>&nbsp; - ratio = 2<br>&nbsp; - phase shifting null</p><p>The voltage at the infinite bus has been halved, all quantities in the load are the same.</p><p>The results doesn't change.</p></body></html>"));
 end TestTransformerFixedRatio;

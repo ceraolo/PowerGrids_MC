@@ -1,4 +1,4 @@
-within PowerGridsMC.Electrical.Test;
+within PowerGridsMC.Electrical.Test.Transformers;
 model TestTransformerFixedRatioWithBreaker
   extends Modelica.Icons.Example;
   PowerGridsMC.Electrical.Buses.InfiniteBus infiniteBus1(SNom = 1e+07, UNom = 5000, portVariablesPu = true, theta = 0.523599) annotation (
@@ -40,5 +40,5 @@ equation
     Icon(coordinateSystem(grid = {0.1, 0.1})),
     Diagram(coordinateSystem(extent = {{-60, 60}, {100, -20}})),
     experiment(StopTime = 4, Interval = 0.08, StartTime = 0, Tolerance = 1e-6),
-    Documentation(info = "<html><head></head><body><p>Similar to <a href=\"modelica://PowerGridsMC.Electrical.Test.TestTransformerFixedRatio\">TestTransformerFixedRatio</a>, but this time a new branch has been added, to supply the load when the transformer breaker is open.</p><p>The voltage at the new infinite bus is the same of one at port b of the transformer, the line has little resistance and the same impedance of the transformer.</p><p>If the breaker is closed the power to the load is supplied in the same ratio by the transformer and the line (50% from the transformer and 50% from the line).</p><p>When breacker opens (time = 2 seconds), all the power is supplied by the line, and the transformer is closed on the equivalent shunt impedance.</p></body></html>"));
+    Documentation(info = "<html><head></head><body><p>Similar to <a href=\"modelica://PowerGridsMC.Electrical.Test.Transformers.TestTransformerFixedRatio\">TestTransformerFixedRatio</a>, but this time a new branch has been added, to supply the load when the transformer breaker is open.</p><p>The voltage at the new infinite bus is the same of one at port b of the transformer, the line has little resistance and the same impedance of the transformer.</p><p>If the breaker is closed the power to the load is supplied in the same ratio by the transformer and the line (50% from the transformer and 50% from the line).</p><p>When breacker opens (time = 2 seconds), all the power is supplied by the line, and the transformer is closed on the equivalent shunt impedance.</p></body></html>"));
 end TestTransformerFixedRatioWithBreaker;

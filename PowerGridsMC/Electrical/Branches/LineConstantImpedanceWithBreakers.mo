@@ -1,7 +1,7 @@
 within PowerGridsMC.Electrical.Branches;
 model LineConstantImpedanceWithBreakers "Transmission line with constant impedance and breakers"
   extends BaseClasses.PiNetwork(
-    final UNomA = UNom, 
+    final UNomA = UNom,
     final UNomB = UNom);
   extends Icons.Line;
   encapsulated type BreakersState = enumeration(

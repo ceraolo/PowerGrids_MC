@@ -1,4 +1,4 @@
-within PowerGridsMC.Electrical.Test;
+within PowerGridsMC.Electrical.Test.SynchronousMachines;
 model SynchronousMachine4WindingsAccurate
   extends Modelica.Icons.Example;
   PowerGridsMC.Electrical.Buses.InfiniteBus bus(SNom = 5.5e+08, UNom = 24000, UStart = 24000, X = 0, portVariablesPhases = true, portVariablesPu = true, theta = 0) annotation (
@@ -22,8 +22,8 @@ equation
     experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-06, Interval = 0.002),
     __OpenModelica_simulationFlags(homotopyOnFirstTry = "()"),
   Documentation(info = "<html><head></head><body>
-<p>This test case is the same as <a href=\"modelica://PowerGridsMC.Electrical.Test.SynchronousMachine4Windings\">SynchronousMachine4Windings</a>, except that the accurate time constant estimation is performed.</p><p> </p><p>The use of homotopy may be necessary to achieve convergence of the intital equations, as the solution is first computed for the classical approximation, for which convergence is easily achieved, and then brought to the accurate (but less numerically robust) one by a continuous homotopy path.</p>
-<p>The external parameters are the same as in <a href=\"modelica://PowerGridsMC.Electrical.Test.SynchronousMachine4Windings\"> SynchronousMachine4Windings</a>. The computed internal parameters are shown in the following table</p>
+<p>This test case is the same as <a href=\"modelica://PowerGridsMC.Electrical.Test.SynchronousMachines.SynchronousMachine4Windings\">SynchronousMachine4Windings</a>, except that the accurate time constant estimation is performed.</p><p> </p><p>The use of homotopy may be necessary to achieve convergence of the intital equations, as the solution is first computed for the classical approximation, for which convergence is easily achieved, and then brought to the accurate (but less numerically robust) one by a continuous homotopy path.</p>
+<p>The external parameters are the same as in <a href=\"modelica://PowerGridsMC.Electrical.Test.SynchronousMachines.SynchronousMachine4Windings\"> SynchronousMachine4Windings</a>. The computed internal parameters are shown in the following table</p>
 <table>
 <tbody><tr> <th>PowerGridsMC</th><th>Meaning</th><th>Approx. Value</th><th>Accurate Value</th><th>Unit</th></tr>
 <tr><td>LdPu</td><td>Direct axis stator leakage</td><td>0.15</td><td>0.15</td><td>pu</td></tr>

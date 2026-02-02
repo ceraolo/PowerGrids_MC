@@ -1,10 +1,10 @@
-within PowerGridsMC.Electrical.Test;
+within PowerGridsMC.Electrical.Test.TransmissionLines;
 model TwoBusesResistiveTransmissionLine
   extends Modelica.Icons.Example;
   PowerGridsMC.Electrical.Buses.InfiniteBus infiniteBusA(SNom = 1e+07, UNom = 10000, portVariablesPu = true, theta = 0.523599) annotation (
     Placement(visible = true, transformation(origin = {-40, 0}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   inner PowerGridsMC.Electrical.System systemPowerGrids annotation (
-    Placement(transformation(origin = {50, 30}, extent = {{-10, -10}, {10, 10}})));
+    Placement(transformation(origin={30,30},    extent = {{-10, -10}, {10, 10}})));
   PowerGridsMC.Electrical.Branches.LineConstantImpedance transmissionLine(R = 1, SNom = 1e+07, UNom = 10000, X = 0, portVariablesPhases = true, portVariablesPu = true, showPortData = true) annotation (
     Placement(visible = true, transformation(origin = {0, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   PowerGridsMC.Electrical.Buses.InfiniteBus infiniteBusB(SNom = 1e+07, UNom = 9000, portVariablesPu = true, theta = 0.523599) annotation (

@@ -1,9 +1,9 @@
-within PowerGridsMC.Electrical.Test;
-model SynchronousMachine4WindingsNoLoad
+within PowerGridsMC.Electrical.Test.SynchronousMachines;
+model SynchronousMachine4WindingsNoLoadAccurate
   extends Modelica.Icons.Example;
-  PowerGridsMC.Electrical.Buses.InfiniteBus bus(PStart = 0,SNom = 5.5e+08, UNom = 24000, UStart = 24000, X = 0, portVariablesPhases = true, portVariablesPu = true, theta = 0) annotation (
+  PowerGridsMC.Electrical.Buses.InfiniteBus bus(PStart = 0, SNom = 5.5e+08, UNom = 24000, UStart = 24000, X = 0, portVariablesPhases = true, portVariablesPu = true, theta = 0) annotation (
     Placement(visible = true, transformation(origin = {0, 20}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  PowerGridsMC.Electrical.Machines.SynchronousMachine4Windings machine(H = 6, PStart = 0, QStart = 0, SNom = 5.5e+08, Tpd0 = 8, Tppd0 = 0.03, Tppq0 = 0.07, Tpq0 = 1, UNom = 24000, UStart = 24000, excitationPuType = PowerGridsMC.Types.Choices.ExcitationPuType.nominalStatorVoltageNoLoad, portVariablesPhases = true, raPu = 0.003, timeConstApprox = PowerGridsMC.Types.Choices.TimeConstantsApproximation.classicalDefinition, xdPu = 1.81, xlPu = 0.15, xpdPu = 0.3, xppdPu = 0.23, xppqPu = 0.25, xpqPu = 0.65, xqPu = 1.76) annotation (
+  PowerGridsMC.Electrical.Machines.SynchronousMachine4Windings machine(H = 6, PStart = 0, QStart = 0, SNom = 5.5e+08, Tpd0 = 8, Tppd0 = 0.03, Tppq0 = 0.07, Tpq0 = 1, UNom = 24000, UStart = 24000, excitationPuType = PowerGridsMC.Types.Choices.ExcitationPuType.nominalStatorVoltageNoLoad, portVariablesPhases = true, raPu = 0.003, timeConstApprox = PowerGridsMC.Types.Choices.TimeConstantsApproximation.accurateEstimation, xdPu = 1.81, xlPu = 0.15, xpdPu = 0.3, xppdPu = 0.23, xppqPu = 0.25, xpqPu = 0.65, xqPu = 1.76) annotation (
     Placement(transformation(origin = {0, -10}, extent = {{-10, -10}, {10, 10}})));
   inner PowerGridsMC.Electrical.System systemPowerGrids(fNom = 50) annotation (
     Placement(transformation(origin = {30, 50}, extent = {{-10, -10}, {10, 10}})));
@@ -20,8 +20,9 @@ equation
           -7},{-10,-7}}, color={0,0,127}));
   annotation (
     experiment(StartTime = 0, StopTime = 200, Tolerance = 1e-06, Interval = 0.02),
+    __OpenModelica_simulationFlags(homotopyOnFirstTry = "()"),
     Documentation(info = "<html><head></head><body><p>This test case validates the NoLoad choice of base excitation voltage of the SynchronousMachine4Windings model.</p>
-<p>By setting ufPuIn = 1 and PmPu = 0, one obtains machine.port.VPu = 1 and machine.port.IPu = 0, as &nbsp;required by the base voltage definition.</p><p>The extermal machine parameters are the same as in the  <a href=\"modelica://PowerGridsMC.Electrical.Test.SynchronousMachine4Windings\">SynchronousMachine4Windings</a> test, but with the system frequency set at 50 Hz. The internal parameter are computed with the classical approximation.</p>
+<p>By setting ufPuIn = 1 and PmPu = 0, one obtains machine.port.VPu = 1 and machine.port.IPu = 0, as &nbsp;required by the base voltage definition.</p><p>The extermal machine parameters are the same as in the  <a href=\"modelica://PowerGridsMC.Electrical.Test.SynchronousMachines.SynchronousMachine4Windings\">SynchronousMachine4Windings</a> test, but with the system frequency set at 50 Hz. The internal parameters are computed with the accurate estimation.</p>
 </body></html>"),
   Diagram(coordinateSystem(extent = {{-60, 60}, {40, -40}})));
-end SynchronousMachine4WindingsNoLoad;
+end SynchronousMachine4WindingsNoLoadAccurate;
