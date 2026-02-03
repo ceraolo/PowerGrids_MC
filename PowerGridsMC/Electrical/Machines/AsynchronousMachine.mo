@@ -19,11 +19,6 @@ model AsynchronousMachine "With dynamic equations from Fitzgerald-Ceraolo"
   parameter Modelica.Units.SI.MomentOfInertia J = 2.0 "rotor's moment of inertia";
   final parameter Real Ls = L1 + M, Lr = L2 + M;
   Modelica.Units.SI.Torque tauElectrical, tauElec;
-  /* inertia.w è una variabile di stato. Modelica riconosce le variabili di stato 
-        e automaticamente mette a maschera la possibilità di sceglierne il valore iniziale.
-        Con il seguente assegnamento, anche wMechanical è riconosciuta come variabile 
-        di stato, e questo, oltre a dare un nome diretto alla variabile, consente di 
-        avere automaticamente a maschera il suo valore iniziale.*/
   Modelica.Units.SI.AngularVelocity wMechanical = inertia.w "Mechanical speed" annotation(
     Dialog(tab = "Initialization", showStartAttribute = true, enable = startSteadyState));
   Modelica.Units.SI.AngularFrequency W0 "Synchronous mechanical speed";
