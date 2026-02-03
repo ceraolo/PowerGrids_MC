@@ -11,7 +11,8 @@ block GoverProportional "Simple proportional governor"
   Dialog(enable = fixInitialControlledVariable));
   final parameter Real delta = (limiter.uMax-limiter.uMin)*oversaturationPu "Actuator saturation margin";
 
-  outer PowerGridsMC.Electrical.System systemPowerGrids "Reference to system object";
+  outer PowerGridsMC.Electrical.System systemPowerGrids
+    "Reference to system object";
 
   Modelica.Blocks.Interfaces.RealInput mpRefPu "Reference frequency/load input [pu]" annotation (
     Placement(visible = true, transformation(origin={-120,50},    extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-100, 40}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));

@@ -1,5 +1,4 @@
 within PowerGridsMC.Examples;
-
 package PFT
   extends Modelica.Icons.ExamplesPackage;
 

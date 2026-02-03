@@ -8,11 +8,14 @@ model TestTapChangerLogicInterval
     tapMax = 20 "Maximum tap",
     Ntap = 20 "Number of taps",
     actionSel = ActionType.direct "Tap direct or reverse action selector",
-    lockedStart = false "Wether the tap-changer/phase-shifter is initially locked",
-    runningStart = true "Wether the tap-changer/phase-shifter is initially running",
+    lockedStart = false
+      "Wether the tap-changer/phase-shifter is initially locked",
+    runningStart = true
+      "Wether the tap-changer/phase-shifter is initially running",
     tapStart = 10 "Initial tap",
     stateStart = State.standard "Initial state",
-    tToStandardState = 2 "Time lag before transition to standard state, in order to avoid chattering");
+    tToStandardState = 2
+      "Time lag before transition to standard state, in order to avoid chattering");
     Real U = sin(2*Modelica.Constants.pi*time/40) "Monitored Value";
     Real Umin = -0.5;
     Real Umax = 0.5;

@@ -11,7 +11,9 @@ model LeadMOrderLag "Lead-lag filter with M poles"
   Dialog(group="Initialization"));
   LeadLag leadLag(T1 = T1, T2 = T2, initType = initType, k = k, yStart = yStart)  annotation (
     Placement(visible = true, transformation(origin = {-50, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  PowerGridsMC.Controls.FirstOrder firstOrderCascade[max(0,M-1)](each T = T2, each initType = initType, each k = 1, each y_start = yStart) if M > 1 annotation (
+  PowerGridsMC.Controls.FirstOrder firstOrderCascade[max(0, M - 1)](
+                                                                 each T = T2, each initType = initType, each k = 1, each y_start = yStart)
+    if M > 1                                                                                                                                        annotation (
     Placement(visible = true, transformation(origin = {10, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 initial equation
   assert((T1 > 0 and T2 > 0) or ((not T1 > 0) and (not T2 > 0)), "Either T1 = T2 = 0 or T1 > 0 and T2 > 0");

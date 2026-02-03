@@ -1,5 +1,4 @@
 within PowerGridsMC.Examples.Tutorial.IslandOperation;
-
 model TwoGeneratorsOneReferenceGenerator
   extends Modelica.Icons.Example;
   inner PowerGridsMC.Electrical.System systemPowerGrids(initOpt = PowerGridsMC.Types.Choices.InitializationOption.globalSteadyStateFixedPowerFlow, referenceFrequency = PowerGridsMC.Types.Choices.ReferenceFrequency.fixedReferenceGenerator) annotation(

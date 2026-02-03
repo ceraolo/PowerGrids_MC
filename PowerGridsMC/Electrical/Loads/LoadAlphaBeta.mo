@@ -1,5 +1,4 @@
 within PowerGridsMC.Electrical.Loads;
-
 model LoadAlphaBeta "Load model with voltage dependent P and Q"
   extends PowerGridsMC.Electrical.BaseClasses.OnePortAC(final portVariablesPu = true, PStart = PRefConst, QStart = QRefConst);
   extends Icons.Load;
@@ -26,37 +25,37 @@ equation
     port.v = port.i/CM.conj(Complex(PRef*(UNom*VPuThr/URef)^alpha, QRef*(UNom*VPuThr/URef)^beta)/(UNom*VPuThr)^2);
   end if;
   annotation(
-    Icon(coordinateSystem(grid = {2, 2}), 
+    Icon(coordinateSystem(grid = {2, 2}),
       graphics = {
       Text(
-        extent = {{18, -4}, {96, -32}}, 
-        textString = "a, b", 
-        fontName = "Symbol", 
-        textStyle = {TextStyle.Italic}), 
+        extent = {{18, -4}, {96, -32}},
+        textString = "a, b",
+        fontName = "Symbol",
+        textStyle = {TextStyle.Italic}),
       Text(
-        visible = showPortData, 
-        origin = {-14, -2}, 
-        textColor = {238, 46, 47}, 
-        extent = {{-86, 48}, {0, 26}}, 
-        textString = DynamicSelect("P", 
-          if showDataOnDiagramsPu then 
-            String(-port.PGenPu, format="6.3f") 
-          else 
-            String((port.S.re/1000000), format="9.2f")), 
-          horizontalAlignment = TextAlignment.Right), 
-          
+        visible = showPortData,
+        origin = {-14, -2},
+        textColor = {238, 46, 47},
+        extent = {{-86, 48}, {0, 26}},
+        textString = DynamicSelect("P",
+          if showDataOnDiagramsPu then
+            String(-port.PGenPu, format="6.3f")
+          else
+            String((port.S.re/1000000), format="9.2f")),
+          horizontalAlignment = TextAlignment.Right),
         Text(
           visible = showPortData,
-          origin = {14, -2}, 
-          textColor = {217, 67, 180}, 
-          extent = {{0, 48}, {86, 26}}, 
-          textString = DynamicSelect("Q", 
-            if showDataOnDiagramsPu then 
-              String(-port.QGenPu, format="-6.3f") 
-            else 
-              String((port.S.im/1000000), format="-9.2f")), 
-          horizontalAlignment = TextAlignment.Left)}),
-    Documentation(info = "<html><head></head><body><p>Model of a PQ load with voltage dependence.</p>
+          origin = {14, -2},
+          textColor = {217, 67, 180},
+          extent = {{0, 48}, {86, 26}},
+          textString = DynamicSelect("Q",
+            if showDataOnDiagramsPu then
+              String(-port.QGenPu, format="-6.3f")
+            else
+              String((port.S.im/1000000), format="-9.2f")),
+          horizontalAlignment = TextAlignment.Left)}
+
+),  Documentation(info = "<html><head></head><body><p>Model of a PQ load with voltage dependence.</p>
 <p><code>port.P = PRef*(port.U/URef)^alpha;</code> <br> <code>port.Q = QRef*(port.U/URef)^beta</code>.</p>
 <p>By default <br><br><code>PRef = PRefConst</code><br><code>QRef = QRefConst</code>,<br><br> so by just setting the <code>PRefConst</code> and <code>QRefConst</code>&nbsp;parameters one can obtain a PQ source with fixed reference P and Q values.</p>
 <p>It is possible to change the binding of <code>PRef</code> and  <code>QRef</code> when instantiating the model, to obtain time-varying PQ loads without the need of signal generator blocks, e.g.<br><br>
