@@ -1,5 +1,4 @@
 within PowerGridsMC.Electrical.Loads;
-
 model LoadPQ "PQ bus"
   extends PowerGridsMC.Electrical.BaseClasses.OnePortAC;
   extends Icons.Load;

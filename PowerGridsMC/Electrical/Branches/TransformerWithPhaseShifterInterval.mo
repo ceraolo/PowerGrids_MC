@@ -4,7 +4,8 @@ model TransformerWithPhaseShifterInterval
   extends BaseClasses.TapChangerPhaseShifterLogicInterval;
 
   parameter Types.Angle kPhase[Ntap] "Array with angle of transformer complex ratio for each tap";
-  parameter PowerGridsMC.Electrical.Branches.BaseClasses.TapChangerPhaseShifterCommon.MonitoredQuantitySelection quantitySel "monitored quantity selection";
+  parameter PowerGridsMC.Electrical.Branches.BaseClasses.TapChangerPhaseShifterCommon.MonitoredQuantitySelection quantitySel
+    "monitored quantity selection";
   parameter Types.Current IMax = NotUsed "Maximum Current threshold for phase shifter logic" annotation (
   Dialog(enable = quantitySel == MonitoredQuantitySelection.currentMagnitude));
   parameter Types.Current IMin = NotUsed "Minimum Current threshold for phase shifter logic" annotation (

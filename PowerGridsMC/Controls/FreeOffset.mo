@@ -12,7 +12,8 @@ model FreeOffset
   parameter Boolean fixedOffset = fixedOffsetDefault "= true if offset is fixed to zero, = false if offset is left free";
   final parameter Real offset(fixed = false) "Free offset of output y";
 
-  outer PowerGridsMC.Electrical.System systemPowerGrids "Reference to system object";
+  outer PowerGridsMC.Electrical.System systemPowerGrids
+    "Reference to system object";
 
   Modelica.Blocks.Interfaces.RealInput u if use_u annotation (
     Placement(visible = true, transformation(origin = {-106, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-110, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));

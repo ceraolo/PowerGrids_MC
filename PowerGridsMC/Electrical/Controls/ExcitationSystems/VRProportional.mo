@@ -7,7 +7,8 @@ block VRProportional
   parameter SI.PerUnit VrMin "Output voltage min limit in p.u.";
   parameter Types.Time LagMax = 0 "Time lag before taking action when u going above uMax";
   parameter Types.Time LagMin = 0 "Time lag before taking action when u going below uMin";
-  parameter PowerGridsMC.Controls.LimiterWithLag.State stateStart = PowerGridsMC.Controls.LimiterWithLag.State.notSat "Saturation initial state" annotation (
+  parameter PowerGridsMC.Controls.LimiterWithLag.State stateStart = PowerGridsMC.Controls.LimiterWithLag.State.notSat
+    "Saturation initial state"                                                                                                                   annotation (
   Dialog(tab = "Initialization"));
   parameter SI.PerUnit VcPuStart = 1 "Required start value of VcPu when fixInitialControlledVariable = true" annotation (
   Dialog(enable = fixInitialControlledVariable));
@@ -15,7 +16,8 @@ block VRProportional
   Dialog(enable = fixInitialControlledVariable));
   final parameter Real delta = (limiterWithLag.uMax-limiterWithLag.uMin)*oversaturationPu "Actuator saturation margin";
 
-  outer PowerGridsMC.Electrical.System systemPowerGrids "Reference to system object";
+  outer PowerGridsMC.Electrical.System systemPowerGrids
+    "Reference to system object";
 
   Modelica.Blocks.Interfaces.RealInput vMeasPu "Machine terminal voltage p.u."
     annotation (Placement(
