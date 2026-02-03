@@ -1,5 +1,5 @@
 within PowerGridsMC.Examples.AsynchronousMachine;
-model StartPg_MSL_QS
+model StartElecPg_BMB
   "Compares MSL and PowerGridsMC asynchronous machine models start from standstill"
   import Modelica.Constants.pi;
   extends Modelica.Icons.Example;
@@ -49,7 +49,7 @@ model StartPg_MSL_QS
     TrOperational = 293.15) annotation(
     Placement(transformation(origin = {-2, 0}, extent = {{-14, -11}, {6, 9}})));
   Electrical.Machines.AsynchronousMachine aimcPg(
-    startSteadyState=true,
+    startSteadyState=false,
     J=aimcData.Jr,
     L1=aimcData.Lssigma,
     L2=aimcData.Lrsigma,
@@ -64,8 +64,8 @@ model StartPg_MSL_QS
       displayUnit="rpm")) annotation (Placement(transformation(origin={23.3334,
             -24}, extent={{-43.3334,-30},{-23.3334,-10}})));
 
-  parameter AsmaElecQsPg.AllSimModels.AsmaMSL aimcData annotation (Placement(
-        transformation(origin={-72,-36}, extent={{-10,-10},{10,10}})));
+  parameter AsmaElecQsPg.AllSimModels.AsmaBMB aimcData
+    annotation (Placement(transformation(extent={{-88,-48},{-68,-28}})));
 equation
   connect(ground.p, star.pin_n) annotation(
     Line(points = {{-78, 0}, {-79, 0}, {-79, 8}, {-78, 8}}, color = {0, 0, 255}));
@@ -103,6 +103,7 @@ equation
     experiment(Interval = 0.0005, StartTime = 0, StopTime = 3, Tolerance = 1e-06),
     experimentSetupOutput,
     Documentation(info="<html>
-<p>Similar to StartElecPg_MSL, but all derivatives of fluxes are initially set to zero. ths eliminates the torque oscillations, and gives a much smoother torque behaviour, identical to the one obtainable using the equivalent circuit, considered operating electrically in steady-state.</p>
+<p>Equal to StartElecPg_MSL byut using a different machine, called MBM, which is anisotropic.</p>
+<p>To obtain the same behaviour of StarPg_MSL_QS you should select startSteadyState=true in the initilization tab.</p>
 </html>"));
-end StartPg_MSL_QS;
+end StartElecPg_BMB;

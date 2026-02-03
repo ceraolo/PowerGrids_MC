@@ -3,7 +3,7 @@ model AsynchronousMachine "With dynamic equations from Fitzgerald-Ceraolo"
   import Modelica.Constants.pi;
   extends PowerGridsMC.Electrical.BaseClasses.OnePortAC3;
   //The component nead special  initialization. Therefore we add specific parameters:
-  parameter Boolean StartSteadyState = false "If true start with zero derivatives; otherwise zero currents." annotation(
+  parameter Boolean startSteadyState = false "If true start with zero derivatives; otherwise zero currents." annotation(
     Dialog(tab = "Initialization"),
     choices(checkBox = true));
   outer PowerGridsMC.Electrical.System systemPowerGrids;
@@ -25,7 +25,7 @@ model AsynchronousMachine "With dynamic equations from Fitzgerald-Ceraolo"
         di stato, e questo, oltre a dare un nome diretto alla variabile, consente di 
         avere automaticamente a maschera il suo valore iniziale.*/
   Modelica.Units.SI.AngularVelocity wMechanical = inertia.w "Mechanical speed" annotation(
-    Dialog(tab = "Initialization", showStartAttribute = true, enable = StartSteadyState));
+    Dialog(tab = "Initialization", showStartAttribute = true, enable = startSteadyState));
   Modelica.Units.SI.AngularFrequency W0 "Synchronous mechanical speed";
   Modelica.Units.SI.AngularFrequency w0 = W0*pp "Synchronous electrical speed";
   Real s "slip";
@@ -48,7 +48,7 @@ initial equation
   else
     fluxDerFactor = 0.001;
   end if;
-  if StartSteadyState then
+  if startSteadyState then
     der(lambdaS.re)=0;
     der(lambdaS.im)=0;
     der(lambdaR.re)=0;

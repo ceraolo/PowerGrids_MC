@@ -49,7 +49,7 @@ model StartElecPg_MSL
     TrOperational = 293.15) annotation(
     Placement(transformation(origin = {-2, 0}, extent = {{-14, -11}, {6, 9}})));
   Electrical.Machines.AsynchronousMachine aimcPg(
-    StartSteadyState=false,
+    startSteadyState=false,
     J=aimcData.Jr,
     L1=aimcData.Lssigma,
     L2=aimcData.Lrsigma,
@@ -98,14 +98,12 @@ equation
   connect(sineVoltage.plug_p, pDcElec.plug_p)
     annotation (Line(points={{-42,28},{-34,28}}, color={0,0,255}));
   annotation(
-    Diagram(coordinateSystem(preserveAspectRatio = false, extent = {{-100, -60}, {120, 60}}, grid = {2, 2}), graphics = {Text(origin = {102, 94}, textColor = {238, 46, 47}, extent = {{-92, -60}, {-48, -72}}, textString = "v. info"), Text(extent = {{-92, 54}, {4, 46}}, textColor = {28, 108, 200}, textString = "Valori iniziali macchina Park messi a zero
-tramite modifier",
-             horizontalAlignment = TextAlignment.Left)}),
+    Diagram(coordinateSystem(preserveAspectRatio=false,
+    extent={{-100,-60},{120,  40}})),
     experiment(Interval = 0.0005, StartTime = 0, StopTime = 3, Tolerance = 1e-06),
-    experimentSetupOutput,
     Documentation(info="<html>
-<p>Shows electric starting from standstill and compares the result with the one crom the MSL model. Machine parameters are exactly those of the MSL machine model. </p>
+<p>Shows electric starting from standstill and compares the result with the one from the MSL model. Machine parameters are exactly those of the MSL machine model. </p>
 <p>Since &quot;Start from SteadyState&quot; is not selected in the PG machine initialization tab, the set initial condition is that all stator and rotor currents to be initially zero. This causes the transient to be identical to MSL&apos;s. Check in particular the trend of variable &quot;tauElectrical&quot; im both aimc models.</p>
-<p>To see a moch smoother startup transient, similar to the one often reported in textbooks, check StartElec_QS, in which all derivative os of fluxes are initially set to zero.</p>
+<p>To see a moch smoother startup transient, similar to the one often reported in textbooks, check StartElec_QS, in which all derivatives of fluxes are initially set to zero.</p>
 </html>"));
 end StartElecPg_MSL;
