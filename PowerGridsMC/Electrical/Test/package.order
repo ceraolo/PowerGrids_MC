@@ -1,8 +1,6 @@
 Info
 LoadImpedancePQ
 TestGridModels
-TestTapChangerLogicMax
-TestTapChangerLogicInterval
 TestTerminalVoltageTransducerIEEE
 TestExciterVoltageTransducerIEEE
 TestExciterRectifierRegulationCharacteristicIEEE

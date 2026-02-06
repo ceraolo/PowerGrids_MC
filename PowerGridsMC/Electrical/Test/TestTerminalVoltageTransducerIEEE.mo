@@ -1,7 +1,7 @@
 within PowerGridsMC.Electrical.Test;
 model TestTerminalVoltageTransducerIEEE
   extends Modelica.Icons.Example;
-  PowerGridsMC.Electrical.Sensors.TerminalVoltageTransducerIEEE
+  PowerGridsMC.Electrical.Sensors.IEEETerminalVoltageTransducer
     terminalVoltageTransducer(
     Rc=1,
     Xc=1,
@@ -21,9 +21,9 @@ model TestTerminalVoltageTransducerIEEE
     Placement(visible = true, transformation(origin = {-70, -30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
   connect(I.y, terminalVoltageTransducer.It) annotation (
-    Line(points = {{-58, -30}, {-48, -30}, {-48, -12}, {-20, -12}, {-20, -12}}, color = {85, 170, 255}));
+    Line(points={{-59,-30},{-48,-30},{-48,-12},{-20,-12},{-20,-12}},            color = {85, 170, 255}));
   connect(V.y, terminalVoltageTransducer.Vt) annotation (
-    Line(points = {{-58, 10}, {-20, 10}, {-20, 12}, {-20, 12}}, color = {85, 170, 255}));
+    Line(points={{-59,10},{-20,10},{-20,12},{-20,12}},          color = {85, 170, 255}));
   annotation (
     Icon(coordinateSystem(grid = {0.1, 0.1})),
     Diagram(coordinateSystem(extent = {{-80, 40}, {20, -60}})),

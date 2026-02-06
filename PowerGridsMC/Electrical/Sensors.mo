@@ -1,7 +1,7 @@
 within PowerGridsMC.Electrical;
 package Sensors "Voltage transducer models"
   extends Modelica.Icons.Package;
-  model TerminalVoltageTransducerIEEE "Terminal voltage transducer IEEE"
+  model IEEETerminalVoltageTransducer "Terminal voltage transducer IEEE"
     parameter Modelica.Units.SI.Time Tr=0 "Transducer time constant";
     parameter Modelica.Units.SI.PerUnit Rc=0 "Load compensation resistance";
     parameter Modelica.Units.SI.PerUnit Xc=0 "Load compensation reactance";
@@ -10,7 +10,7 @@ package Sensors "Voltage transducer models"
     parameter Real yStart=0 "Initial or guess value of output (= state)" annotation (
     Dialog(group="Initialization"));
     Modelica.ComplexBlocks.Interfaces.ComplexInput Vt annotation (
-      Placement(visible = true, transformation(origin={-128,70},    extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-100, 60}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
+      Placement(visible = true, transformation(origin={-128,52},    extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-100, 60}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
     Modelica.ComplexBlocks.Interfaces.ComplexInput It annotation (
       Placement(visible = true, transformation(origin={-128,30},    extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-100, -60}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
     Modelica.Blocks.Interfaces.RealOutput Vc annotation (
@@ -37,7 +37,7 @@ package Sensors "Voltage transducer models"
     connect(add1.y, complexToPolar.u) annotation (
       Line(points={{23,-10},{36,-10}},                             color = {85, 170, 255}));
     connect(Vt, add1.u1) annotation (
-      Line(points={{-128,70},{-10,70},{-10,-4},{0,-4}},                       color = {85, 170, 255}));
+      Line(points={{-128,52},{-10,52},{-10,-4},{0,-4}},                       color = {85, 170, 255}));
     connect(prod1.y, add1.u2) annotation (
       Line(points={{-17,-10},{-10,-10},{-10,-16},{0,-16}},                        color = {85, 170, 255}));
     connect(It, prod1.u1) annotation (
@@ -49,12 +49,13 @@ package Sensors "Voltage transducer models"
     connect(constRc.y, constZc.re) annotation (
       Line(points={{-97,-4},{-80,-4}},                                color = {0, 0, 127}));
     annotation (
-      Icon( graphics={  Rectangle(lineColor = {0, 0, 127}, fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid, extent = {{-100, 100}, {100, -100}}), Text(origin = {-4, 119}, lineColor = {0, 0, 255}, extent = {{-48, 11}, {48, -11}}, textString = "%name"), Text(origin = {0, 26}, extent = {{-56, 36}, {56, -36}}, textString = "Vt It"), Text(origin = {-3, -25}, extent = {{-79, 59}, {87, -51}}, textString = "Transducer")}),
-      Diagram(coordinateSystem(extent={{-120,-80},{120,80}})),
+      Icon( graphics={  Rectangle(lineColor = {0, 0, 127}, fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid, extent = {{-100, 100}, {100, -100}}), Text(origin={-1,123},    lineColor = {0, 0, 255}, extent={{-99,13},
+                {99,-13}},                                                                                                                                                                                                        textString = "%name"), Text(origin = {0, 26}, extent = {{-56, 36}, {56, -36}}, textString = "Vt It"), Text(origin = {-3, -25}, extent = {{-79, 59}, {87, -51}}, textString = "Transducer")}),
+      Diagram(coordinateSystem(extent={{-120,-60},{120,60}})),
     Documentation(info = "<html><head></head><body>This model implements a terminal voltage transducer according to the IEEE Std 421.5TM-2005.<div><br></div><div>It includes a load compensator and a time constant, which is common for the combined voltage sensing and compensation signal.</div></body></html>"));
-  end TerminalVoltageTransducerIEEE;
+  end IEEETerminalVoltageTransducer;
 
-  model ExciterVoltageTransducerIEEE "Exciter voltage transducer"
+  model IEEEExciterVoltageTransducer "Exciter voltage transducer"
     parameter SI.PerUnit kp = 9.3
                                  "First potential circuit gain";
     parameter SI.Angle thetap = 0 "Potential circuit phase angle Thetap";
@@ -124,12 +125,12 @@ package Sensors "Voltage transducer models"
     connect(constKp.y, complexKp.len) annotation (
       Line(points={{-135,16},{-118,16}},                              color = {0, 0, 127}));
     annotation (
-      Icon(coordinateSystem(initialScale = 0.1), graphics={  Rectangle(lineColor = {0, 0, 127}, fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid, extent = {{-100, 100}, {100, -100}}), Text(origin={-1.65,
-                123.25},                                                                                                                                                                                                        lineColor = {0, 0, 255}, extent={{-99.95,
-                13.75},{99.95,-13.75}},                                                                                                                                                                                                        textString = "%name"), Text(origin = {0, 6}, extent = {{-56, 36}, {56, -36}}, textString = "Vt It"), Text(origin = {-11, -23}, extent = {{-65, 1}, {87, -51}}, textString = "Transducer"), Text(origin = {-1, 79}, extent = {{-65, 1}, {57, -39}}, textString = "Exciter")}),
+      Icon(coordinateSystem(initialScale = 0.1), graphics={  Rectangle(lineColor = {0, 0, 127}, fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid, extent = {{-100, 100}, {100, -100}}), Text(origin={-0.85,
+                122.75},                                                                                                                                                                                                        lineColor = {0, 0, 255}, extent={{-99.15,
+                13.25},{99.15,-13.25}},                                                                                                                                                                                                        textString = "%name"), Text(origin = {0, 6}, extent = {{-56, 36}, {56, -36}}, textString = "Vt It"), Text(origin = {-11, -23}, extent = {{-65, 1}, {87, -51}}, textString = "Transducer"), Text(origin = {-1, 79}, extent = {{-65, 1}, {57, -39}}, textString = "Exciter")}),
       Diagram(coordinateSystem(extent={{-160,-60},{160,60}})),
     Documentation(info = "<html><head></head><body><span style=\"font-size: 12px;\">This class implements a model of the voltage transducer tipically used in static excitation systems,&nbsp;</span><span style=\"font-size: 12px;\">according to the IEEE Std 421.5TM-2005.</span><div><br></div><div>More precisely, said transducer is included in the exciters models of Type ST3A and ST4B of the IEEE Std 421.5TM-2005.</div></body></html>"));
-  end ExciterVoltageTransducerIEEE;
+  end IEEEExciterVoltageTransducer;
 
   model UIsensorC "Measures complex voltage and current"
     extends PowerGridsMC.Electrical.BaseClasses.TwoPortAC;
