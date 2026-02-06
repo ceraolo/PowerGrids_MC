@@ -2,3 +2,5 @@ TestTransformerWithTapChangerMax
 TestTransformerWithTapChangerInterval
 TestTransformerFixedRatio
 TestTransformerFixedRatioWithBreaker
+TestTapChangerLogicMax
+TestTapChangerLogicInterval

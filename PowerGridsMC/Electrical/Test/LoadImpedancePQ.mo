@@ -39,11 +39,11 @@ model LoadImpedancePQ "Test case for LoadImpedancePQ"
         extent={{-10,-10},{10,10}},
         rotation=0)));
   PowerGridsMC.Electrical.Buses.InfiniteBus infiniteBus1(SNom = 1e+08, UNom = 380000, URef = 400000, portVariablesPhases = true, portVariablesPu = true) annotation (
-    Placement(visible = true, transformation(origin = {-70, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(transformation(origin = {-70, 0}, extent = {{-10, 10}, {10, -10}}, rotation = -0)));
   PowerGridsMC.Electrical.Buses.InfiniteBus infiniteBus2(SNom = 1e+08, UNom = 380000, URef = 400000, portVariablesPhases = true, portVariablesPu = true) annotation (
-    Placement(visible = true, transformation(origin = {0, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(transformation(extent = {{-10, 10}, {10, -10}}, rotation = -0)));
   PowerGridsMC.Electrical.Buses.InfiniteBus infiniteBus3(SNom = 1e+08, UNom = 380000, URef = 400000, portVariablesPhases = true, portVariablesPu = true) annotation (
-    Placement(visible = true, transformation(origin = {70, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(transformation(origin = {70, 0}, extent = {{-10, 10}, {10, -10}}, rotation = -0)));
   Modelica.Blocks.Sources.Step PRef(height = 10e6, offset = 80e6, startTime = 1)  annotation (
     Placement(visible = true, transformation(origin = {34, -10}, extent = {{-8, -8}, {8, 8}}, rotation = 0)));
   Modelica.Blocks.Sources.Step QRef(height = 10e6, offset = 40e6, startTime = 2)  annotation (
@@ -54,11 +54,11 @@ equation
   connect(PRef.y, load3.PRefIn) annotation (
     Line(points = {{42, -10}, {52, -10}, {52, -24}, {60, -24}, {60, -24}}, color = {0, 0, 127}));
   connect(infiniteBus3.terminal, load3.terminal) annotation (
-    Line(points = {{70, 0}, {70, 0}, {70, -20}, {70, -20}}));
+    Line(points = {{70, 0}, {70, -20}}));
   connect(infiniteBus2.terminal, load2.terminal) annotation (
-    Line(points = {{0, 0}, {0, 0}, {0, -20}, {0, -20}}));
+    Line(points = {{0, 0}, {0, -20}}));
   connect(infiniteBus1.terminal, load1.terminal) annotation (
-    Line(points = {{-70, 0}, {-71, 0}, {-71, 0}, {-68, 0}, {-68, -20}, {-68, -20}, {-68, -20}, {-70, -20}, {-70, -20}}));
+    Line(points = {{-70, 0}, {-70, -20}}));
   annotation (
     Documentation(info="<html><head></head><body><p>Test case for <a href=\"modelica://PowerGridsMC.Electrical.Loads.LoadZeta\">Electrical.Loads.LoadImpedancePQ</a>.</p>
 <p>A load with reference voltage 400 kV is connected to an infinite bus with the same voltage. The impedance Z is computed so as to obtain the required values of P = 80 MW and Q = 40 MVA in the reference conditions.</p>

@@ -1,4 +1,4 @@
-within PowerGridsMC.Electrical.Test;
+within PowerGridsMC.Electrical.Test.Transformers;
 model TestTapChangerLogicMax
   extends Modelica.Icons.Example;
   extends PowerGridsMC.Electrical.Branches.BaseClasses.TapChangerPhaseShifterLogicMax(

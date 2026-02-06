@@ -2,7 +2,8 @@ within PowerGridsMC.Electrical.Test.TransmissionLines;
 model OneBusImpedanceOneVariableLoad
   extends Modelica.Icons.Example;
   PowerGridsMC.Electrical.Buses.InfiniteBus bus1(PStart = -1e+07,R = 0.04,SNom = 1e+08, UNom = 10000, X = 0.4, generatorConvention = true, portVariablesPhases = true, portVariablesPu = true)  annotation (
-    Placement(visible = true, transformation(origin = {-50, 10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {-50, 10}, extent={{-10,10},
+            {10,-10}},                                                                            rotation = 0)));
   PowerGridsMC.Electrical.Loads.LoadAlphaBeta load1(
     PRef=if time < 1 then 10e6 else 20e6,
     PStart=1e+07,
@@ -18,7 +19,8 @@ model OneBusImpedanceOneVariableLoad
   inner System systemPowerGrids annotation (
     Placement(transformation(origin = {50, 50}, extent = {{-10, -10}, {10, 10}})));
   PowerGridsMC.Electrical.Buses.InfiniteBus bus2(PStart = -1e+07,R = 0.04, SNom = 1e+08, UNom = 10000, X = 0.4, generatorConvention = true, portVariablesPhases = true, portVariablesPu = true)  annotation (
-    Placement(visible = true, transformation(origin = {50, 10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {50, 10}, extent={{-10,10},
+            {10,-10}},                                                                           rotation = 0)));
   PowerGridsMC.Electrical.Loads.LoadAlphaBetaInputs load2(
     PStart=1e+07,
     SNom=1e+08,
@@ -34,9 +36,9 @@ model OneBusImpedanceOneVariableLoad
     Placement(visible = true, transformation(origin = {10, -20}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
   connect(PSignal.y, load2.PRefIn) annotation (
-    Line(points = {{21, 20}, {29, 20}, {29, -4}, {42, -4}}, color = {0, 0, 127}));
+    Line(points={{21,20},{29,20},{29,-4},{40,-4}},          color = {0, 0, 127}));
   connect(QSignal.y, load2.QRefIn) annotation (
-    Line(points = {{21, -20}, {31.5, -20}, {31.5, -10}, {42, -10}}, color = {0, 0, 127}));
+    Line(points={{21,-20},{31.5,-20},{31.5,-10},{40,-10}},          color = {0, 0, 127}));
   connect(bus2.terminal, load2.terminal) annotation (
     Line(points={{50,10},{50,5},{50,5},{50,0}}));
   connect(bus1.terminal, load1.terminal) annotation (

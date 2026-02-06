@@ -6,7 +6,7 @@ model StaticGridDifferentGeneratorParam "Systems operating in steady-state with 
 
 // First Grid
   PowerGridsMC.Electrical.Machines.SynchronousMachine4Windings GEN_1(H = 4, PStart = -4.75e+08, QStart = -1.56e+08,SNom = 5e+08, Tpd0 = 5.143, Tppd0 = 0.042, Tppq0 = 0.083, Tpq0 = 2.16, UNom = 21000, UPhaseStart = 0.161156, UStart = 21e3 * 0.9917, portVariablesPhases = true, raPu = 0, xdPu = 2, xlPu = 0.15, xpdPu = 0.35, xppdPu = 0.25, xppqPu = 0.3, xpqPu = 0.5, xqPu = 1.8)  annotation (
-    Placement(visible = true, transformation(origin={-69.5, 50},  extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(transformation(origin = {-69.5, 50}, extent = {{-10, 10}, {10, -10}}, rotation = -0)));
   PowerGridsMC.Electrical.Buses.Bus NTLV_1(SNom = 5e+08, UNom = 21000, portVariablesPhases = true, portVariablesPu = true)  annotation (
     Placement(visible = true, transformation(origin={-34.5, 34},  extent = {{-10, -10}, {10, 10}}, rotation = 90)));
   PowerGridsMC.Electrical.Buses.Bus NTHV_1(SNom = 5e+08, UNom = 380000, portVariablesPhases = true, portVariablesPu = true)  annotation (
@@ -27,12 +27,12 @@ model StaticGridDifferentGeneratorParam "Systems operating in steady-state with 
         extent={{-10,-10},{10,10}},
         rotation=90)));
   Modelica.Blocks.Sources.RealExpression PmPu_1(y = -GEN_1.PStart / GEN_1.SNom)  annotation (
-    Placement(visible = true, transformation(origin={-103.5, 54},  extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(transformation(origin = {-103.5, 44}, extent = {{-10, -10}, {10, 10}})));
   Modelica.Blocks.Sources.RealExpression ufPuIn_1(y = GEN_1.ufPuInStart)  annotation (
-    Placement(visible = true, transformation(origin={-103.5, 35},  extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(transformation(origin = {-103.5, 55}, extent = {{-10, -10}, {10, 10}})));
   // Second Grid - Transformer nominal voltage changed
   PowerGridsMC.Electrical.Machines.SynchronousMachine4Windings GEN_2(H = 4, PStart = -4.75e+08, QStart = -1.56e+08,SNom = 5e+08, Tpd0 = 5.143, Tppd0 = 0.042, Tppq0 = 0.083, Tpq0 = 2.16, UNom = 21000, UPhaseStart = 0.161156, UStart = 21e3 * 0.9917, excitationPuType = PowerGridsMC.Types.Choices.ExcitationPuType.Kundur, portVariablesPhases = true, raPu = 0, xdPu = 2, xlPu = 0.15, xpdPu = 0.35, xppdPu = 0.25, xppqPu = 0.3, xpqPu = 0.5, xqPu = 1.8)  annotation (
-    Placement(visible = true, transformation(origin={-69.5, -6},  extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(transformation(origin = {-69.5, -6}, extent = {{-10, 10}, {10, -10}}, rotation = -0)));
   PowerGridsMC.Electrical.Buses.Bus NTLV_2(SNom = 5e+08, UNom = 21000, portVariablesPhases = true, portVariablesPu = true)  annotation (
     Placement(visible = true, transformation(origin={-34.5, -22},  extent = {{-10, -10}, {10, 10}}, rotation = 90)));
   PowerGridsMC.Electrical.Buses.Bus NTHV_2(SNom = 5e+08, UNom = 380000, portVariablesPhases = true, portVariablesPu = true)  annotation (
@@ -53,13 +53,13 @@ model StaticGridDifferentGeneratorParam "Systems operating in steady-state with 
         extent={{-10,-10},{10,10}},
         rotation=90)));
   Modelica.Blocks.Sources.RealExpression PmPu_2(y = -GEN_2.PStart / GEN_2.SNom)  annotation (
-    Placement(visible = true, transformation(origin={-103.5, -2},  extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(transformation(origin = {-103.5, -14}, extent = {{-10, -10}, {10, 10}})));
   Modelica.Blocks.Sources.RealExpression ufPuIn_2(y = GEN_2.ufPuInStart)  annotation (
-    Placement(visible = true, transformation(origin={-103.5, -21},  extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(transformation(origin = {-103.5, 1}, extent = {{-10, -10}, {10, 10}})));
 
 // Third Grid - Generator Nominal Voltage changed
   PowerGridsMC.Electrical.Machines.SynchronousMachine4WindingsInternalParameters GEN_3(H = 4, LDPu = 0.2, LQ1Pu = 0.444231, LQ2Pu = 0.2625, LdPu = 0.15, LfPu = 0.224242, LqPu = 0.15, MdPu = 1.85, MqPu = 1.65, PStart = -4.75e+08, QStart = -1.56e+08,SNom = 5e+08, UNom = 21000, UPhaseStart = 0.161156, UStart = 21e3 * 0.9917, mrcPu = 0, portVariablesPhases = true, rDPu = 0.0303152, rQ1Pu = 0.00308618, rQ2Pu = 0.0234897, raPu = 0, rfPu = 0.00128379)  annotation (
-    Placement(visible = true, transformation(origin={-69.5, -62},  extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(transformation(origin = {-69.5, -62}, extent = {{-10, 10}, {10, -10}}, rotation = -0)));
   PowerGridsMC.Electrical.Buses.Bus NTLV_3(SNom = 5e+08, UNom = 21000, portVariablesPhases = true, portVariablesPu = true)  annotation (
     Placement(visible = true, transformation(origin={-34.5, -78},  extent = {{-10, -10}, {10, 10}}, rotation = 90)));
   PowerGridsMC.Electrical.Buses.Bus NTHV_3(SNom = 5e+08, UNom = 380000, portVariablesPhases = true, portVariablesPu = true)  annotation (
@@ -80,22 +80,22 @@ model StaticGridDifferentGeneratorParam "Systems operating in steady-state with 
         extent={{-10,-10},{10,10}},
         rotation=90)));
   Modelica.Blocks.Sources.RealExpression PmPu_3(y = 0.95)  annotation (
-    Placement(visible = true, transformation(origin={-103.5, -58},  extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(transformation(origin = {-103.5, -72}, extent = {{-10, -10}, {10, 10}})));
   Modelica.Blocks.Sources.RealExpression ufPuIn_3(y = 2.50826)  annotation (
-    Placement(visible = true, transformation(origin={-103.5, -76.5},extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(transformation(origin = {-103.5, -56.5}, extent = {{-10, -10}, {10, 10}})));
 equation
   connect(PmPu_1.y, GEN_1.pmPuIn)
-    annotation (Line(points={{-92.5,54},{-79.5,54}}, color={0,0,127}));
+    annotation (Line(points={{-92.5,44},{-86, 44}, {-86, 47}, {-80, 47}}, color={0,0,127}));
   connect(ufPuIn_1.y, GEN_1.ufPuIn) annotation (
-    Line(points = {{-92.5, 35}, {-86.5, 35}, {-86.5, 46}, {-79.5, 46}}, color = {0, 0, 127}));
+    Line(points = {{-92.5, 55}, {-86.5, 55}, {-86.5, 54}, {-80, 54}}, color = {0, 0, 127}));
   connect(PmPu_2.y, GEN_2.pmPuIn)
-    annotation (Line(points={{-92.5,-2},{-79.5,-2}}, color={0,0,127}));
+    annotation (Line(points={{-92.5,-14},{-86, -14}, {-86, -9}, {-80, -9}}, color={0,0,127}));
   connect(ufPuIn_2.y, GEN_2.ufPuIn) annotation (
-    Line(points = {{-92.5, -21}, {-85.5, -21}, {-85.5, -10}, {-79.5, -10}}, color = {0, 0, 127}));
+    Line(points = {{-92.5, 1}, {-85.5, 1}, {-85.5, -2}, {-80, -2}}, color = {0, 0, 127}));
   connect(PmPu_3.y, GEN_3.pmPuIn)
-    annotation (Line(points={{-92.5,-58},{-79.5,-58}}, color={0,0,127}));
+    annotation (Line(points={{-92.5,-72},{-86, -72}, {-86, -65}, {-80, -65}}, color={0,0,127}));
   connect(ufPuIn_3.y, GEN_3.ufPuIn) annotation (
-    Line(points = {{-92.5, -76.5}, {-86, -76.5}, {-86, -65.5}, {-83, -65.5}, {-83, -66}, {-79.5, -66}}, color = {0, 0, 127}));
+    Line(points = {{-92.5, -56.5}, {-86, -56.5}, {-86, -57.5}, {-83, -57.5}, {-83, -58}, {-80, -58}}, color = {0, 0, 127}));
   connect(GEN_1.terminal, NTLV_1.terminal) annotation (
     Line(points = {{-69.5, 50}, {-69.5, 34}, {-34.5, 34}}));
   connect(NTLV_1.terminal, TGEN_1.terminalA) annotation (

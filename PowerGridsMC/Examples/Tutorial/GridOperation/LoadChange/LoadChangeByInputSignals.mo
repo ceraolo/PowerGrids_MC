@@ -4,7 +4,7 @@ model LoadChangeByInputSignals "Load step response specified by input signals"
   inner PowerGridsMC.Electrical.System systemPowerGrids annotation (
     Placement(visible = true, transformation(origin={70,50},     extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   PowerGridsMC.Electrical.Machines.SynchronousMachine4Windings GEN(H = 4, PStart = -4.75e+08, QStart = -1.56e+08,SNom = 5e+08, Tpd0 = 5.143, Tppd0 = 0.042, Tppq0 = 0.083, Tpq0 = 2.16, UNom = 21000, UPhaseStart = 0.161156, UStart = 21e3 * 0.9917, portVariablesPhases = true, raPu = 0, xdPu = 2, xlPu = 0.15, xpdPu = 0.35, xppdPu = 0.25, xppqPu = 0.3, xpqPu = 0.5, xqPu = 1.8)  annotation (
-    Placement(visible = true, transformation(origin={-50,24},   extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(transformation(origin = {-50, 24}, extent = {{-10, 10}, {10, -10}}, rotation = -0)));
   PowerGridsMC.Electrical.Buses.Bus NTLV(SNom = 5e+08, UNom = 21000, portVariablesPhases = true, portVariablesPu = true)  annotation (
     Placement(visible = true, transformation(origin={-30,4},     extent = {{-10, -10}, {10, 10}}, rotation = 90)));
   PowerGridsMC.Electrical.Buses.BusFault NTHV(R = 0.05,SNom = 5e+08, UNom = 380000, UPhaseStart = 0, UStart = 1.050 * 380e3,portVariablesPhases = true, portVariablesPu = true, startTime = 1e10, stopTime = 1e10)  annotation (
@@ -23,18 +23,18 @@ model LoadChangeByInputSignals "Load step response specified by input signals"
         extent={{-10,-10},{10,10}},
         rotation=90)));
   Modelica.Blocks.Sources.RealExpression PmPu(y = -GEN.PStart / GEN.SNom)  annotation (
-    Placement(visible = true, transformation(origin={-88,28},   extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(transformation(origin = {-88, 18}, extent = {{-10, -10}, {10, 10}})));
   Modelica.Blocks.Sources.RealExpression ufPuIn(y = GEN.ufPuInStart)  annotation (
-    Placement(visible = true, transformation(origin={-88,4},      extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(transformation(origin = {-88, 30}, extent = {{-10, -10}, {10, 10}})));
   Modelica.Blocks.Sources.Step PRef(height = 475e6 * 0.05, offset = 475e6, startTime = 2)  annotation (
     Placement(visible = true, transformation(origin={10,-26},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Sources.Step QRef(height = 76e6 * 0.04, offset = 76e6, startTime = 2) annotation (
     Placement(visible = true, transformation(origin={-34,-44},   extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
   connect(PmPu.y, GEN.pmPuIn)
-    annotation (Line(points={{-77,28},{-60,28}}, color={0,0,127}));
+    annotation (Line(points={{-77,18},{-68.5, 18}, {-68.5, 21}, {-60, 21}}, color={0,0,127}));
   connect(ufPuIn.y, GEN.ufPuIn) annotation (
-    Line(points={{-77,4},{-72,4},{-72,20},{-60,20}},                         color = {0, 0, 127}));
+    Line(points={{-77,30},{-68.5,30},{-68.5,28},{-60,28}},                         color = {0, 0, 127}));
   connect(GEN.terminal, NTLV.terminal) annotation (
     Line(points={{-50,24},{-50,4},{-30,4}}));
   connect(NTLV.terminal, TGEN.terminalA) annotation (

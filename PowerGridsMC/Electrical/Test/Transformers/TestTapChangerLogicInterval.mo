@@ -1,4 +1,4 @@
-within PowerGridsMC.Electrical.Test;
+within PowerGridsMC.Electrical.Test.Transformers;
 model TestTapChangerLogicInterval
   extends Modelica.Icons.Example;
   extends PowerGridsMC.Electrical.Branches.BaseClasses.TapChangerPhaseShifterLogicInterval(

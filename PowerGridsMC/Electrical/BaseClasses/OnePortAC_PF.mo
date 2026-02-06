@@ -1,6 +1,6 @@
 within PowerGridsMC.Electrical.BaseClasses;
 partial model OnePortAC_PF
-  "Base class for AC components with one port forPower Flow"
+  "Base class for AC components with one port for PowerFlow"
   import PowerGridsMC.Types.Choices.LocalInitializationOption;
   parameter Types.Voltage UNom(start = 400e3) "Nominal/rated line-to-line voltage" annotation(Evaluate = true);
   parameter Types.ApparentPower SNom(start = 100e6) "Nominal/rated apparent power" annotation(Evaluate = true);
