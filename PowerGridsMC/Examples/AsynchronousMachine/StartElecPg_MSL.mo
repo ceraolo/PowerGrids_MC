@@ -30,7 +30,7 @@ model StartElecPg_MSL
   PowerGridsMC.Electrical.Buses.InfiniteBus bus(UNom = 100*sqrt(3), SNom = 100000) annotation(
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = -90, origin = {-38, -44})));
   inner PowerGridsMC.Electrical.System systemPowerGrids(showDataOnDiagramsPu = true) annotation(
-    Placement(transformation(origin = {70, 38}, extent = {{-10, -10}, {10, 10}})));
+    Placement(transformation(origin={70,30},    extent = {{-10, -10}, {10, 10}})));
   Modelica.Electrical.Machines.BasicMachines.InductionMachines.IM_SquirrelCage
     aimc(p = aimcData.p, fsNominal = aimcData.fsNominal, Rs = aimcData.Rs,
     TsRef = aimcData.TsRef, alpha20s(displayUnit = "1/K") = aimcData.alpha20s,

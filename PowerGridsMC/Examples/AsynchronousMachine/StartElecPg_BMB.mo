@@ -11,7 +11,7 @@ model StartElecPg_BMB
     Placement(transformation(origin = {-78, 18}, extent = {{-10, -10}, {10, 10}}, rotation = 270)));
   Modelica.Mechanics.Rotational.Sources.Torque torque annotation(
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 180, origin = {80, 0})));
-  Modelica.Blocks.Sources.Constant const(k = -100.0) annotation(
+  Modelica.Blocks.Sources.Constant const(k=-50.0)    annotation(
     Placement(transformation(extent = {{-8, -8}, {8, 8}}, rotation = 180, origin = {110, 0})));
   Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage(f = systemPowerGrids.fNom*ones(3), V = bus.UNom*sqrt(2/3)*ones(3)) annotation(
     Placement(transformation(origin={-100,0},  extent={{58,18},{38,38}})));
@@ -27,8 +27,8 @@ model StartElecPg_BMB
     Placement(transformation(extent = {{14, -10}, {34, 10}})));
   Modelica.Mechanics.Rotational.Sensors.PowerSensor pMeccQs annotation(
     Placement(transformation(extent = {{16, -54}, {36, -34}})));
-  PowerGridsMC.Electrical.Buses.InfiniteBus bus(UNom = 100*sqrt(3), SNom = 100000) annotation(
-    Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = -90, origin = {-38, -44})));
+  PowerGridsMC.Electrical.Buses.InfiniteBus bus(UNom=400, SNom=100000)             annotation(
+    Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = -90, origin={-36,-44})));
   inner PowerGridsMC.Electrical.System systemPowerGrids(showDataOnDiagramsPu = true) annotation(
     Placement(transformation(origin={70,30},    extent = {{-10, -10}, {10, 10}})));
   Modelica.Electrical.Machines.BasicMachines.InductionMachines.IM_SquirrelCage
@@ -90,7 +90,7 @@ equation
   connect(aimc.flange, pMeccElec.flange_a) annotation(
     Line(points = {{4, -1}, {4, 0}, {14, 0}}));
   connect(bus.terminal, aimcPg.terminal)
-    annotation (Line(points={{-38,-44},{-20,-44}}));
+    annotation (Line(points={{-36,-44},{-20,-44}}));
   connect(aimcPg.flange, pMeccQs.flange_a)
     annotation (Line(points={{0,-44},{16,-44}}));
   connect(star.plug_p, sineVoltage.plug_n)
@@ -100,7 +100,11 @@ equation
   annotation(
     Diagram(coordinateSystem(preserveAspectRatio=false,   extent={{-100,-60},{120,
             40}})),
-    experiment(Interval = 0.0005, StartTime = 0, StopTime = 3, Tolerance = 1e-06),
+    experiment(
+      StopTime=10,
+      Interval=0.0005,
+      Tolerance=1e-06,
+      __Dymola_Algorithm="Dassl"),
     experimentSetupOutput,
     Documentation(info="<html>
 <p>Equal to StartElecPg_MSL byut using a different machine, called MBM, which is anisotropic.</p>

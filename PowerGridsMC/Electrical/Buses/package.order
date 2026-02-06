@@ -6,5 +6,5 @@ InfiniteBusVariableVoltage
 BusFault
 EquivalentGrid
 EquivalentGridR
-Ground
+ShortedLineEnd
 BaseClasses

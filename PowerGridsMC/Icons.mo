@@ -91,7 +91,11 @@ package Icons "Icons for the PowerGridsMC library"
   equation
 
     annotation (
-      Icon(graphics={  Line(origin = {0, -20}, points = {{0, 20}, {0, -20}, {0, -20}}), Line(origin = {0, -40}, points = {{-40, 0}, {40, 0}, {40, 0}, {40, 0}}), Line(origin = {0, -60}, points = {{-20, 0}, {20, 0}, {20, 0}}), Line(origin = {0, -80}, points = {{-4, 0}, {4, 0}})}, coordinateSystem(initialScale = 0.1)));
+      Icon(graphics={  Line(origin={0,-30},    points={{0,0},{0,-20},{0,-20}}),
+            Line(origin={0,-50},    points = {{-40, 0}, {40, 0}, {40, 0}, {40, 0}}),
+            Line(origin={0,-70},    points = {{-20, 0}, {20, 0}, {20, 0}}),
+            Line(origin={0,-90},    points = {{-4, 0}, {4, 0}})},
+            coordinateSystem(initialScale = 0.1)));
   end Ground;
 
   model Grid

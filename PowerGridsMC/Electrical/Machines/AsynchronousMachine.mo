@@ -103,7 +103,7 @@ equation
 <p>The equations contain the transformer terms (derivatives of flux), which determine oscillating torques, during severe transients, such as startup from a constant-frequency grid. They can be nearly totally omitted selecting &quot;useTransformerTerms=false&quot;.</p>
 <p>Note that a very small contribution of transformer terms is still present since the implementation of &quot;useTransformerTerms=false&quot; is made using one thousandth of the transformer terms in the equations, This trick is due to difficulties in initialisation while omitting these terms totally from the used equations.</p>
 <h4>Initialization</h4>
-<p>Currently initialisation can be made settin either </p>
+<p>Currently initialisation can be made setting either </p>
 <p>1. all currents to zero or </p>
 <p>2. all derivativves of fluxes to zero.</p>
 <p>Solution 1 is adequate to simulate machine startups from standstill as per the example StartElecPg_MSL</p>
