@@ -36,13 +36,7 @@ model AsynchronousMachine "With dynamic equations from Fitzgerald-Ceraolo"
     Placement(transformation(origin = {-46, 0}, extent = {{44, -10}, {64, 10}})));
   Modelica.Mechanics.Rotational.Interfaces.Flange_a flange annotation(
     Placement(transformation(origin = {-46, 0}, extent = {{70, -10}, {90, 10}}), iconTransformation(extent = {{90, -10}, {110, 10}})));
-  parameter Real fluxDerFactor(fixed = false);
 initial equation
-  if useFluxDerivatives then
-    fluxDerFactor = 1;
-  else
-    fluxDerFactor = 0.001;
-  end if;
   if startSteadyState then
     der(lambdaS.re)=0;
     der(lambdaS.im)=0;
@@ -68,13 +62,13 @@ equation
   */
   //The following four equations are eqs in rows 713-716 of PS's AsynchronBase
   //when omega[2]=omega and n_r=1 (v_rd=v_rq=0 by PS's in rows 688-689)
-  v_s.re = Rs*i_s.re + fluxDerFactor*der(lambdaS.re) - w0*lambdaS.im;
+  v_s.re = Rs*i_s.re + der(lambdaS.re) - w0*lambdaS.im;
   //Stator's faraday-real
-  v_s.im = Rs*i_s.im + fluxDerFactor*der(lambdaS.im) + w0*lambdaS.re;
+  v_s.im = Rs*i_s.im + der(lambdaS.im) + w0*lambdaS.re;
   //Stator's faraday-imaginary
-  0 = Rr*i_r.re + fluxDerFactor*der(lambdaR.re) - w0*s*lambdaR.im;
+  0 = Rr*i_r.re + der(lambdaR.re) - w0*s*lambdaR.im;
   //Rotor's faraday-real
-  0 = Rr*i_r.im + fluxDerFactor*der(lambdaR.im) + w0*s*lambdaR.re;
+  0 = Rr*i_r.im + der(lambdaR.im) + w0*s*lambdaR.re;
   //Rotor's faraday.imaginary
   lambdaS = Ls*i_s + M*i_r;
   //Eq in row 708 in PS's AsynchronBase
@@ -99,18 +93,17 @@ equation
     Diagram(coordinateSystem(preserveAspectRatio = true, extent = {{-100, -20}, {40, 20}})),
     Icon(coordinateSystem(preserveAspectRatio = true, grid = {2, 2}), graphics = {Text(textColor = {0, 0, 255}, extent = {{-120, 150}, {120, 112}}, textString = "%name"), Rectangle(lineColor = {28, 108, 200}, fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid, extent = {{-100, 100}, {100, -100}}), Line(points = {{-108, 0}, {-58, 0}}, color = {28, 108, 200}), Rectangle(fillColor = {95, 95, 95}, fillPattern = FillPattern.HorizontalCylinder, extent = {{62, 10}, {102, -10}}), Rectangle(fillColor = {175, 175, 175}, fillPattern = FillPattern.HorizontalCylinder, extent = {{-70, 60}, {76, -54}}), Polygon(fillPattern = FillPattern.Solid, points = {{-60, -84}, {-50, -84}, {-20, -14}, {30, -14}, {60, -84}, {70, -84}, {70, -94}, {-60, -94}, {-60, -84}}), Text(origin = {3, 10.9231}, textColor = {255, 255, 255}, extent = {{-71, 43.0769}, {71, 3.07689}}, textString = "Park IM")}),
     Documentation(info="<html>
-<p>This model models a asynchronous machines based on Park&apos;s equations written in a reference frame rotating at the synchronous speed.</p>
-<p>The equations contain the transformer terms (derivatives of flux), which determine oscillating torques, during severe transients, such as startup from a constant-frequency grid. They can be nearly totally omitted selecting &quot;useTransformerTerms=false&quot;.</p>
-<p>Note that a very small contribution of transformer terms is still present since the implementation of &quot;useTransformerTerms=false&quot; is made using one thousandth of the transformer terms in the equations, This trick is due to difficulties in initialisation while omitting these terms totally from the used equations.</p>
+<p>This model models an asynchronous machines based on Park&apos;s equations written in a reference frame rotating at the synchronous speed.</p>
+<p>The equations contain the transformer terms (derivatives of flux), which determine oscillating torques, during severe transients, such as startup from a constant-frequency grid. They have nearly no influence in stransients, if &quot;startSteadyState=true&quot; in the intialization tab.</p>
 <h4>Initialization</h4>
 <p>Currently initialisation can be made setting either </p>
-<p>1. all currents to zero or </p>
-<p>2. all derivativves of fluxes to zero.</p>
+<p>1. all currents to zero (&quot;startSteadyState=false&quot; in the intialization tab) or </p>
+<p>2. all derivaties of fluxes to zero &quot;startSteadyState=true&quot; in the intialization tab).</p>
 <p>Solution 1 is adequate to simulate machine startups from standstill as per the example StartElecPg_MSL</p>
 <p>Solution 2 is adequate to simulate simulations in steady state, without current, fluz and torque oscillations, machine startups from standstill as per the example StartPg_MSL_QS, PG_SS</p>
-<h4>Problematiche di inizializzazione</h4>
-<p>La maschera del modello contiene delle opzioni di inizializzazione. Al momento la situazione &egrave; embrrionale per due ragioni:</p>
-<p>- la maschera propone UStart, UPhaseStart, Pstart e Qstart che sono quelli del terminal di PowerGrids e non si sa che fine fanno</p>
-<p>- manca del tutto un&apos;opzione adatta alll&apos;inizializzazione assieme al pPower flow.</p>
+<h4><span style=\"color: #ee2e2f\">Problematiche di inizializzazione</span></h4>
+<p><span style=\"color: #ee2e2f;\">La maschera del modello contiene delle opzioni di inizializzazione. Al momento la situazione &egrave; embrionale per due ragioni:</span></p>
+<p><span style=\"color: #ee2e2f;\">- la maschera propone UStart, UPhaseStart, Pstart e Qstart che sono quelli del terminal di PowerGrids e non si sa che fine fanno</span></p>
+<p><span style=\"color: #ee2e2f;\">- manca del tutto un&apos;opzione adatta alll&apos;inizializzazione assieme al pPower flow.</span></p>
 </html>"));
 end AsynchronousMachine;

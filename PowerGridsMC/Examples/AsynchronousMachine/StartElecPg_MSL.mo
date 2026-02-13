@@ -28,7 +28,7 @@ model StartElecPg_MSL
   Modelica.Mechanics.Rotational.Sensors.PowerSensor pMeccQs annotation(
     Placement(transformation(extent = {{16, -54}, {36, -34}})));
   PowerGridsMC.Electrical.Buses.InfiniteBus bus(UNom = 100*sqrt(3), SNom = 100000) annotation(
-    Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = -90, origin = {-38, -44})));
+    Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = -90, origin={-36,-44})));
   inner PowerGridsMC.Electrical.System systemPowerGrids(showDataOnDiagramsPu = true) annotation(
     Placement(transformation(origin={70,30},    extent = {{-10, -10}, {10, 10}})));
   Modelica.Electrical.Machines.BasicMachines.InductionMachines.IM_SquirrelCage
@@ -64,7 +64,7 @@ model StartElecPg_MSL
       displayUnit="rpm")) annotation (Placement(transformation(origin={23.3334,
             -24}, extent={{-43.3334,-30},{-23.3334,-10}})));
 
-  parameter AsmaElecQsPg.AllSimModels.AsmaMSL aimcData annotation (Placement(
+  parameter AsmaMSL aimcData annotation (Placement(
         transformation(origin={-72,-36}, extent={{-10,-10},{10,10}})));
 equation
   connect(ground.p, star.pin_n) annotation(
@@ -90,7 +90,7 @@ equation
   connect(aimc.flange, pMeccElec.flange_a) annotation(
     Line(points = {{4, -1}, {4, 0}, {14, 0}}));
   connect(bus.terminal, aimcPg.terminal)
-    annotation (Line(points={{-38,-44},{-20,-44}}));
+    annotation (Line(points={{-36,-44},{-20,-44}}));
   connect(aimcPg.flange, pMeccQs.flange_a)
     annotation (Line(points={{0,-44},{16,-44}}));
   connect(star.plug_p, sineVoltage.plug_n)

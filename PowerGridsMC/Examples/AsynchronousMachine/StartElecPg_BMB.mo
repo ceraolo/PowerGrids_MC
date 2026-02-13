@@ -64,8 +64,8 @@ model StartElecPg_BMB
       displayUnit="rpm")) annotation (Placement(transformation(origin={23.3334,
             -24}, extent={{-43.3334,-30},{-23.3334,-10}})));
 
-  parameter AsmaElecQsPg.AllSimModels.AsmaBMB aimcData
-    annotation (Placement(transformation(extent={{-88,-48},{-68,-28}})));
+  parameter AsmaBMB aimcData
+    annotation (Placement(transformation(extent={{-82,-46},{-62,-26}})));
 equation
   connect(ground.p, star.pin_n) annotation(
     Line(points = {{-78, 0}, {-79, 0}, {-79, 8}, {-78, 8}}, color = {0, 0, 255}));
@@ -107,7 +107,7 @@ equation
       __Dymola_Algorithm="Dassl"),
     experimentSetupOutput,
     Documentation(info="<html>
-<p>Equal to StartElecPg_MSL byut using a different machine, called MBM, which is anisotropic.</p>
+<p>Equal to StartElecPg_MSL but using a different machine, called BMB, which is anisotropic.</p>
 <p>To obtain the same behaviour of StarPg_MSL_QS you should select startSteadyState=true in the initilization tab.</p>
 </html>"));
 end StartElecPg_BMB;

@@ -1,5 +1,6 @@
 within PowerGridsMC.Functions;
 function giveShortName
+  extends Modelica.Icons.Function;
   input String name;
   output String nameShort;
 protected
