@@ -51,8 +51,8 @@ model StartPg_MSL_QS
   Electrical.Machines.AsynchronousMachine aimcPg(
     startSteadyState=true,
     J=aimcData.Jr,
-    L1=aimcData.Lssigma,
-    L2=aimcData.Lrsigma,
+    L1l=aimcData.Lssigma,
+    L2l=aimcData.Lrsigma,
     M=aimcData.Lm,
     Rr=aimcData.Rr,
     Rs=aimcData.Rs,
