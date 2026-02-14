@@ -61,7 +61,7 @@ initial equation
   end if;
 
 // (Req,Xeq,tauElectrical,S1)=Functions.asmaValuesFunOfSpeed(
-  (,,tauElectrical) = AsmaElecQsPg.Functions.asmaValuesFunOfSpeed(
+  (,,tauElectrical) = Functions.asmaValuesFunOfSpeed(
     V=CM.abs(v_s),
     W=wStart,
     pp=pp,

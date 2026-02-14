@@ -1,4 +1,4 @@
-within PowerGridsMC.Examples;
+within PowerGridsMC.Electrical.Test;
 package AsynchronousMachine
   extends Modelica.Icons.ExamplesPackage;
 

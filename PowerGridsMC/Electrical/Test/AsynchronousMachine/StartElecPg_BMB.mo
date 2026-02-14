@@ -1,5 +1,4 @@
-within PowerGridsMC.Examples.AsynchronousMachine;
-
+within PowerGridsMC.Electrical.Test.AsynchronousMachine;
 model StartElecPg_BMB "Compares MSL and PowerGridsMC asynchronous machine models start from standstill"
   import Modelica.Constants.pi;
   extends Modelica.Icons.Example;
@@ -33,7 +32,7 @@ model StartElecPg_BMB "Compares MSL and PowerGridsMC asynchronous machine models
     Placement(transformation(origin = {70, 30}, extent = {{-10, -10}, {10, 10}})));
   Modelica.Electrical.Machines.BasicMachines.InductionMachines.IM_SquirrelCage aimc(p = aimcData.p, fsNominal = aimcData.fsNominal, Rs = aimcData.Rs, TsRef = aimcData.TsRef, alpha20s(displayUnit = "1/K") = aimcData.alpha20s, Lszero = aimcData.Lszero, Lssigma = aimcData.Lssigma, Jr = aimcData.Jr, Js = aimcData.Js, frictionParameters = aimcData.frictionParameters, wMechanical(start = 0, fixed = true), statorCoreParameters = aimcData.statorCoreParameters, strayLoadParameters = aimcData.strayLoadParameters, Lm = aimcData.Lm, Lrsigma = aimcData.Lrsigma, Rr = aimcData.Rr, TrRef = aimcData.TrRef, phiMechanical(fixed = true), TsOperational = 293.15, alpha20r = aimcData.alpha20r, TrOperational = 293.15) annotation(
     Placement(transformation(origin = {-2, 0}, extent = {{-14, -11}, {6, 9}})));
-  Electrical.Machines.AsynchronousMachine aimcPg(startSteadyState = true, J = aimcData.Jr, Lsl = aimcData.Lssigma, Lrl = aimcData.Lrsigma, M = aimcData.Lm, Rr = aimcData.Rr, Rs = aimcData.Rs, SNom(displayUnit = "V.A") = 0.1, UNom = 100, wMechanical(start = 0, fixed = true, displayUnit = "rpm")) annotation(
+  Electrical.Machines.AsynchronousMachine aimcPg(startSteadyState = true, J = aimcData.Jr, Lsl = aimcData.Lssigma, Lrl = aimcData.Lrsigma, M = aimcData.Lm, Rr = aimcData.Rr, Rs = aimcData.Rs, SNom(displayUnit = "V.A") = 0.1, UNom = 100, wMechanical(start = 0, fixed = true)) annotation(
     Placement(transformation(origin = {23.3334, -24}, extent = {{-43.3334, -30}, {-23.3334, -10}})));
   parameter AsmaBMB aimcData annotation(
     Placement(transformation(extent = {{-82, -46}, {-62, -26}})));

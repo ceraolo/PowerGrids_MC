@@ -1,4 +1,4 @@
-within PowerGridsMC.Examples.AsynchronousMachine;
+within PowerGridsMC.Electrical.Test.AsynchronousMachine;
 record AsmaMSL "Parameters for MSL induction machine"
   extends Modelica.Icons.Record;
   extends Modelica.Electrical.Machines.Utilities.ParameterRecords.InductionMachineData;

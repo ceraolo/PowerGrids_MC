@@ -1,4 +1,4 @@
-within PowerGridsMC.Electrical.Test;
+within PowerGridsMC.Electrical.Test.AsynchronousMachine;
 model AsynchronousMachine2
   "Compares MSL and PowerGridsMC asynchronous machine models start from standstill"
   import Modelica.Constants.pi;
@@ -11,8 +11,8 @@ model AsynchronousMachine2
   inner PowerGridsMC.Electrical.System systemPowerGrids(showDataOnDiagramsPu = true) annotation(
     Placement(transformation(origin={10,10},    extent = {{-10, -10}, {10, 10}})));
 
-  parameter PowerGridsMC.Examples.AsynchronousMachine.AsmaMSL aimcData
-    annotation (Placement(transformation(origin={-32,8},   extent={{-10,-10},{10,
+  parameter PowerGridsMC.Electrical.Test.AsynchronousMachine.AsmaMSL aimcData
+    annotation (Placement(transformation(origin={-32,8}, extent={{-10,-10},{10,
             10}})));
   PowerGridsMC.Electrical.Machines.AsynchronousMachine2 pgAsma2(
     startSteadyState=true,
