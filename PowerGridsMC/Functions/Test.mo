@@ -68,7 +68,11 @@ package Test
     Real tauElectrical "Generated electromagnetical and mechanical torques";
     Modelica.Units.SI.ComplexPower S1;
   equation
-    (Req, Xeq, tauElectrical, S1) = Functions.asmaValuesFunOfSpeed(V = V, W = W, pp = pp, R1 = R1, R2 = R2, L1l = L1l, L2l = L2l, Lm = Lm, T1 = T1, T2 = T2, Wsyn = Wsyn);
+    (Req, Xeq, tauElectrical, S1) = Functions.asmaValuesFunOfSpeed(
+       V = V, W = W,
+       pp = pp, R1 = R1, R2 = R2, L1l = L1l,
+       L2l = L2l, Lm = Lm, T1 = T1, T2 = T2,
+       Wsyn = Wsyn);
     //W is determined iteratively by imposing the equality of the torque generated
     //by the machine and the one absorbed by the mechanical load:
     tauElectrical = T1 + T2*(W/Wsyn)^2;

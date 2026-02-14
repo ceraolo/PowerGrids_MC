@@ -62,22 +62,14 @@ initial equation
 
 // (Req,Xeq,tauElectrical,S1)=Functions.asmaValuesFunOfSpeed(
   (,,tauElectrical) = Functions.asmaValuesFunOfSpeed(
-    V=CM.abs(v_s),
-    W=wStart,
-    pp=pp,
-    R1=Rs,
-    R2=Rr,
-    L1l=Lsl,
-    L2l=Lrl,
-    Lm=M,
-    T1=T1,
-    T2=T2,
+    V=CM.abs(v_s),    W=wStart,
+    pp=pp,     R1=Rs,     R2=Rr,     L1l=Lsl,
+    L2l=Lrl,   Lm=M,      T1=T1,     T2=T2,
     Wsyn=Wsyn);
   //wStart is determined iteratively by imposing the equality of the torque generated
   //by the machine and the one absorbed by the mechanical load:
     tauElectrical=T1+T2*(wStart/Wsyn)^2;
   Modelica.Utilities.Streams.print("\ninitial tau: "+String(tauElectrical)+", initial W: "+String(wStart));
-  Modelica.Utilities.Streams.print("initial inertia.w: "+String(inertia.w)+"\n");
 
 /*  IMPORTANT USAGE NOTE
     Effectiveness of function asmaVlaluesFunOfSpeed is checked thourouhgly in Functions.Test.FindSteadyState.
