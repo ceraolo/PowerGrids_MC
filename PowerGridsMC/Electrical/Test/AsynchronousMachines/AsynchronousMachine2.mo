@@ -1,4 +1,4 @@
-within PowerGridsMC.Electrical.Test.AsynchronousMachine;
+within PowerGridsMC.Electrical.Test.AsynchronousMachines;
 model AsynchronousMachine2
   "Compares MSL and PowerGridsMC asynchronous machine models start from standstill"
   import Modelica.Constants.pi;
@@ -11,7 +11,7 @@ model AsynchronousMachine2
   inner PowerGridsMC.Electrical.System systemPowerGrids(showDataOnDiagramsPu = true) annotation(
     Placement(transformation(origin={10,10},    extent = {{-10, -10}, {10, 10}})));
 
-  parameter PowerGridsMC.Electrical.Test.AsynchronousMachine.AsmaMSL aimcData
+  parameter PowerGridsMC.Electrical.Test.AsynchronousMachines.AsmaMSL aimcData
     annotation (Placement(transformation(origin={-32,8}, extent={{-10,-10},{10,
             10}})));
   PowerGridsMC.Electrical.Machines.AsynchronousMachine2 pgAsma2(
@@ -24,8 +24,8 @@ model AsynchronousMachine2
     M=aimcData.Lm,
     Rr=aimcData.Rr,
     Rs=aimcData.Rs,
-    SNom(displayUnit="V.A") = 0.1,
-    UNom=100,
+//    SNom(displayUnit="V.A") = 0.1,
+//    UNom=100,
     T1=T1,
     T2=T2) annotation (Placement(transformation(origin={14,0}, extent={{-20,-40},
             {0,-20}})));
@@ -58,5 +58,6 @@ equation
 <p>It shows that the system starts in steady-state, no matter what the values of load torque and external system internal impedance is, given that there exists a speed able to match machine and load torque.</p>
 <p>Then a perturbation is made on the system, causing a transient.</p>
 <p>For instance, the user can check the trend of machines&apos; tauElectrical and wMechanical, as well as its terminal voltage over time.</p>
+<p>NOTE: this model does not run on Dymola, which complains about the busFault component. This iissue is not addressed yet, since Dymola has another isue, related to the initi9alization of AsynchronousMachine2, for which the &quot;Experimental&quot; model has been created. Once the initialization issue shown in &quot;Experimental&quot; is solved the issue with this busFault will be addressed.</p>
 </html>"));
 end AsynchronousMachine2;

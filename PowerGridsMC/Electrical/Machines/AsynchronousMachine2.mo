@@ -2,14 +2,15 @@ within PowerGridsMC.Electrical.Machines;
 model AsynchronousMachine2
   "In addition to AsynchrnousMachine allows Steady-state initialization"
   import Modelica.Constants.pi;
-  extends PowerGridsMC.Electrical.BaseClasses.OnePortAC3;
+    extends PowerGridsMC.Electrical.BaseClasses.OnePortAC3 (final UStart, final UPhaseStart,
+      final PStart, final QStart, final localInit, final portVariablesPhases,
+      final UNom, final SNom);
   //The component nead special  initialization. Therefore we add specific parameters:
   parameter Boolean startSteadyState = false "If true start with zero derivatives; otherwise zero currents." annotation(
     Dialog(tab = "Initialization"),
     choices(checkBox = true));
   outer PowerGridsMC.Electrical.System systemPowerGrids;
   import Modelica.ComplexMath.*;
-  parameter Boolean useFluxDerivatives = true;
   parameter Integer pp = 2 "pole pairs";
   parameter Modelica.Units.SI.Resistance Rs = 0.435 "stator's phase resistance";
   parameter Modelica.Units.SI.Inductance Lsl = 4.0e-3 "stator's leakage inductance";
@@ -44,6 +45,9 @@ model AsynchronousMachine2
 //  Modelica.Units.SI.Reactance Xeq "Reactance of the equivalent impedance";
 //  Modelica.Units.SI.ComplexPower S1;
   parameter Modelica.Units.SI.Torque T1=10, T2=20 "Load torque constants";
+  parameter Boolean useFluxDerivatives = true annotation(
+    choices(checkBox = true));
+
   final parameter Modelica.Units.SI.AngularVelocity Wsyn=systemPowerGrids.omegaNom/pp "initial synchronous (mechanical) angular velocity";
   final parameter Modelica.Units.SI.AngularVelocity wStart(start=Wsyn, fixed=false);
 

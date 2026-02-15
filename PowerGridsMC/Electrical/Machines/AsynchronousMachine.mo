@@ -1,14 +1,12 @@
 within PowerGridsMC.Electrical.Machines;
 model AsynchronousMachine "With dynamic equations from Fitzgerald-Ceraolo"
   import Modelica.Constants.pi;
-  extends PowerGridsMC.Electrical.BaseClasses.OnePortAC3;
+  extends PowerGridsMC.Electrical.BaseClasses.OnePortAC3 (final UStart, final UPhaseStart,
+      final PStart, final QStart, final localInit, final portVariablesPhases,
+      final UNom=1, final SNom=1);
   //The component nead special  initialization. Therefore we add specific parameters:
-  parameter Boolean startSteadyState = false "If true start with zero derivatives; otherwise zero currents." annotation(
-    Dialog(tab = "Initialization"),
-    choices(checkBox = true));
   outer PowerGridsMC.Electrical.System systemPowerGrids;
   import Modelica.ComplexMath.*;
-  parameter Boolean useFluxDerivatives = true;
   parameter Integer pp = 2 "pole pairs";
   parameter Modelica.Units.SI.Resistance Rs = 0.435 "stator's phase resistance";
   parameter Modelica.Units.SI.Inductance Lsl = 4.0e-3 "stator's leakage inductance";
@@ -17,10 +15,13 @@ model AsynchronousMachine "With dynamic equations from Fitzgerald-Ceraolo"
   parameter Modelica.Units.SI.Inductance Lrl = 2.0e-3 "rotor's leakage inductance";
   parameter Modelica.Units.SI.AngularFrequency wNom = 2*pi*50 "Nominal angular speed";
   parameter Modelica.Units.SI.MomentOfInertia J = 2.0 "rotor's moment of inertia";
+  parameter Boolean startSteadyState = false "If true start with zero derivatives; otherwise zero currents"
+                                                                                                           annotation(
+    choices(checkBox = true));
+
   final parameter Real Ls = Lsl + M, Lr = Lrl + M;
   Modelica.Units.SI.Torque tauElectrical, tauElec;
-  Modelica.Units.SI.AngularVelocity wMechanical = inertia.w "Mechanical speed" annotation(
-    Dialog(tab = "Initialization", showStartAttribute = true, enable = startSteadyState));
+  Modelica.Units.SI.AngularVelocity wMechanical = inertia.w "Mechanical speed";
   Modelica.Units.SI.AngularFrequency W0 "Synchronous mechanical speed";
   Modelica.Units.SI.AngularFrequency w0 = W0*pp "Synchronous electrical speed";
   Real s "slip";
