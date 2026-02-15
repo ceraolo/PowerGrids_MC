@@ -1,5 +1,5 @@
-within PowerGridsMC.Electrical.Test.AsynchronousMachine;
-model StartElecPg_MSL
+within PowerGridsMC.Electrical.Test.AsynchronousMachines;
+model StartPg_MSL_QS
   "Compares MSL and PowerGridsMC asynchronous machine models start from standstill"
   import Modelica.Constants.pi;
   extends Modelica.Icons.Example;
@@ -49,15 +49,15 @@ model StartElecPg_MSL
     TrOperational = 293.15) annotation(
     Placement(transformation(origin = {-2, 0}, extent = {{-14, -11}, {6, 9}})));
   Electrical.Machines.AsynchronousMachine aimcPg(
-    startSteadyState=false,
+    startSteadyState=true,
     J=aimcData.Jr,
     Lsl=aimcData.Lssigma,
     Lrl=aimcData.Lrsigma,
     M=aimcData.Lm,
     Rr=aimcData.Rr,
     Rs=aimcData.Rs,
-    SNom(displayUnit="V.A") = 0.1,
-    UNom=100,
+//    SNom(displayUnit="V.A") = 0.1,
+//    UNom=100,
     wMechanical(
       fixed=true,
       start=0,
@@ -102,8 +102,6 @@ equation
     extent={{-100,-60},{120,  40}})),
     experiment(Interval = 0.0005, StartTime = 0, StopTime = 3, Tolerance = 1e-06),
     Documentation(info="<html>
-<p>Shows electric starting from standstill and compares the result with the one from the MSL model. Machine parameters are exactly those of the MSL machine model. </p>
-<p>Since &quot;Start from SteadyState&quot; is not selected in the PG machine initialization tab, the set initial condition is that all stator and rotor currents to be initially zero. This causes the transient to be identical to MSL&apos;s. Check in particular the trend of variable &quot;tauElectrical&quot; im both aimc models.</p>
-<p>To see a moch smoother startup transient, similar to the one often reported in textbooks, check StartElec_QS, in which all derivatives of fluxes are initially set to zero.</p>
+<p>Similar to StartElecPg_MSL, but all derivatives of fluxes are initially set to zero. This eliminates the torque oscillations, and gives a much smoother torque behaviour, identical to the one obtainable using the equivalent circuit, considered operating electrically in steady-state.</p>
 </html>"));
-end StartElecPg_MSL;
+end StartPg_MSL_QS;

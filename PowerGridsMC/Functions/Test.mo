@@ -20,7 +20,7 @@ package Test
         It refers to the single-phase equivalent circuit represented by impedances 
         described by complex numbers.
       */
-    parameter PowerGridsMC.Electrical.Test.AsynchronousMachine.AsmaMSL r;
+    parameter PowerGridsMC.Electrical.Test.AsynchronousMachines.AsmaMSL r;
     import Modelica.Constants.pi;
     Real W "rotational velocity";
     //parameters
@@ -55,7 +55,7 @@ package Test
     extends Modelica.Icons.Example;
     import Modelica.Constants.pi;
     parameter Modelica.Units.SI.Voltage V = 100;
-    parameter PowerGridsMC.Electrical.Test.AsynchronousMachine.AsmaMSL r;
+    parameter PowerGridsMC.Electrical.Test.AsynchronousMachines.AsmaMSL r;
     parameter Integer pp = r.p "Pole pairs";
     parameter Real R1 = r.Rs, R2 = r.Rr "Stator and rotor resistances";
     parameter Real L1l = r.Lssigma, L2l = r.Lrsigma "Stator and rotor inductances";
@@ -111,9 +111,9 @@ package Test
       Placement(transformation(origin = {30, 30}, extent = {{-10, -10}, {10, 10}})));
     PowerGridsMC.Electrical.Machines.AsynchronousMachine aimcPg(startSteadyState = true, J = aimcData.Jr, Lsl = aimcData.Lssigma, Lrl = aimcData.Lrsigma, M = aimcData.Lm, Rr = aimcData.Rr, Rs = aimcData.Rs, SNom(displayUnit = "V.A") = 0.1, UNom = 100, wMechanical(fixed = true, start = 0, displayUnit = "rpm")) annotation(
       Placement(transformation(origin = {-2.6666, -6}, extent = {{-43.3334, -30}, {-23.3334, -10}})));
-    parameter PowerGridsMC.Electrical.Test.AsynchronousMachine.AsmaMSL aimcData
-      annotation (Placement(transformation(origin={-60,12}, extent={{-10,-10},{
-              10,10}})));
+    parameter PowerGridsMC.Electrical.Test.AsynchronousMachines.AsmaMSL
+      aimcData annotation (Placement(transformation(origin={-60,12}, extent={{-10,
+              -10},{10,10}})));
     Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque tau2(tau_nominal = -T2, w_nominal = 314.159/2) annotation(
       Placement(transformation(origin = {-6, -34}, extent = {{80, -20}, {60, 0}})));
     Modelica.Mechanics.Rotational.Sources.ConstantTorque tau1(tau_constant = -T1) annotation(
