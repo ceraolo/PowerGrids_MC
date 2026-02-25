@@ -1,5 +1,4 @@
 within PowerGridsMC.Functions;
-
 package Test
   extends Modelica.Icons.ExamplesPackage;
 
@@ -16,11 +15,11 @@ package Test
   model TestAsmaFunOfVW
     extends Modelica.Icons.Example;
     /* Function AsmFunOfSpeeed returns the steady-state equivalent impedance of 
-            an asynchronous machine as a function of rotational speed, and the torque related 
-            to this speed and the given the input voltage. 
-            It refers to the single-phase equivalent circuit represented by impedances 
-            described by complex numbers.
-          */
+        an asynchronous machine as a function of rotational speed, and the torque related 
+        to this speed and the given the input voltage. 
+        It refers to the single-phase equivalent circuit represented by impedances 
+        described by complex numbers.
+      */
     parameter PowerGridsMC.Electrical.Test.AsynchronousMachines.AsmaMSL r;
     import Modelica.Constants.pi;
     Real W "rotational velocity";
@@ -36,7 +35,7 @@ package Test
     Real tauElectrical "Generated electromagnetical torque";
     Modelica.Units.SI.ComplexPower S1;
   equation
-// When simulation ends with time=0, we have reached the synchronous speed
+    // When simulation ends with time=0, we have reached the synchronous speed
     W = Wsyn*time;
     (Req, Xeq, tauElectrical, S1) = Functions.asmaValuesFunOfSpeed(V = 100, W = W, pp = pp, R1 = R1, R2 = R2, L1l = L1l, L2l = L2l, Lm = Lm, T1 = T1, T2 = T2, Wsyn = Wsyn);
     annotation(
@@ -50,9 +49,9 @@ package Test
 
   model FindSteadyState
     /* this model contains 6 equations and variables.
-            variables are: 
-            Req, Xeq, tauElectrical, S1.P, S1.Q, W.
-          */
+        variables are: 
+        Req, Xeq, tauElectrical, S1.P, S1.Q, W.
+      */
     extends Modelica.Icons.Example;
     import Modelica.Constants.pi;
     parameter Modelica.Units.SI.Voltage V = 100;
@@ -69,13 +68,17 @@ package Test
     Real tauElectrical "Generated electromagnetical and mechanical torques";
     Modelica.Units.SI.ComplexPower S1;
   equation
-    (Req, Xeq, tauElectrical, S1) = Functions.asmaValuesFunOfSpeed(V = V, W = W, pp = pp, R1 = R1, R2 = R2, L1l = L1l, L2l = L2l, Lm = Lm, T1 = T1, T2 = T2, Wsyn = Wsyn);
-//W is determined iteratively by imposing the equality of the torque generated
-//by the machine and the one absorbed by the mechanical load:
+    (Req, Xeq, tauElectrical, S1) = Functions.asmaValuesFunOfSpeed(
+       V = V, W = W,
+       pp = pp, R1 = R1, R2 = R2, L1l = L1l,
+       L2l = L2l, Lm = Lm, T1 = T1, T2 = T2,
+       Wsyn = Wsyn);
+    //W is determined iteratively by imposing the equality of the torque generated
+    //by the machine and the one absorbed by the mechanical load:
     tauElectrical = T1 + T2*(W/Wsyn)^2;
     when initial() then
       Modelica.Utilities.Streams.print("\nss tau: " + String(tauElectrical) + ", ss W: " + String(W));
-// da togliere successivamente:
+      // da togliere successivamente:
       Modelica.Utilities.Streams.print("pp, R1, R2, L1l, L2l, Lm:\n" + String(pp) + ", " + String(R1) + ", " + String(R2) + ", " + String(L1l) + ", " + String(L2l) + ", " + String(Lm));
       Modelica.Utilities.Streams.print("T1: " + String(T1) + ", ss T2: " + String(T2));
       Modelica.Utilities.Streams.print("ss V: " + String(V) + ", ss Wsyn: " + String(Wsyn) + "\n");
@@ -89,8 +92,7 @@ package Test
 </html>"));
     annotation(
       Icon(graphics = {Text(textColor = {0, 0, 255}, extent = {{-98, 140}, {98, 104}}, textString = "%name")}),
-      experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-06, Interval = 0.002),
-      Documentation(info = "<html><head></head><body>This model tests the effectiveness of the function asmaValuesdFunOfSpeed, which is in particular useful to find steady-state initial values of torque and speed, given machine parameters and feeding voltage.<div>This function is used in the models in Electrical.Machines.Test.AsynchronousMachines, where the voltage is iteratively and automatically determined by the simulation tool, given the knowledge of the grid behavour outside the machine.</div><div>If the voltage (and machine parameters) from those models is the same used here, then this model will find exactly the same steady-state values (equivalent resistance and reactance, torque, speed, complex powers).</div></body></html>"));
+  experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-06, Interval = 0.002));
   end FindSteadyState;
 
   model TestStartAndSS_MSL "Compares MSL and PowerGridsMC asynchronous machine models start from standstill"
@@ -109,8 +111,9 @@ package Test
       Placement(transformation(origin = {30, 30}, extent = {{-10, -10}, {10, 10}})));
     PowerGridsMC.Electrical.Machines.AsynchronousMachine aimcPg(startSteadyState = true, J = aimcData.Jr, Lsl = aimcData.Lssigma, Lrl = aimcData.Lrsigma, M = aimcData.Lm, Rr = aimcData.Rr, Rs = aimcData.Rs, SNom(displayUnit = "V.A") = 0.1, UNom = 100, wMechanical(fixed = true, start = 0, displayUnit = "rpm")) annotation(
       Placement(transformation(origin = {-2.6666, -6}, extent = {{-43.3334, -30}, {-23.3334, -10}})));
-    parameter PowerGridsMC.Electrical.Test.AsynchronousMachines.AsmaMSL aimcData annotation(
-      Placement(transformation(origin = {-60, 12}, extent = {{-10, -10}, {10, 10}})));
+    parameter PowerGridsMC.Electrical.Test.AsynchronousMachines.AsmaMSL
+      aimcData annotation (Placement(transformation(origin={-60,12}, extent={{-10,
+              -10},{10,10}})));
     Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque tau2(tau_nominal = -T2, w_nominal = 314.159/2) annotation(
       Placement(transformation(origin = {-6, -34}, extent = {{80, -20}, {60, 0}})));
     Modelica.Mechanics.Rotational.Sources.ConstantTorque tau1(tau_constant = -T1) annotation(
