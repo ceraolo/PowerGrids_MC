@@ -8,22 +8,23 @@ model AsynchronousMachine "With dynamic equations from Fitzgerald-Ceraolo"
   outer PowerGridsMC.Electrical.System systemPowerGrids;
   import Modelica.ComplexMath.*;
   parameter Integer pp = 2 "pole pairs";
-  parameter Modelica.Units.SI.Resistance Rs = 0.435 "Stator's phase resistance";
-  parameter Modelica.Units.SI.Inductance Lsl = 4.0e-3 "Stator's leakage inductance";
-  parameter Modelica.Units.SI.Inductance M = 69.3e-3 "Stator's leakage inductance";
-  parameter Modelica.Units.SI.Resistance Rr = 0.4 "Rotor's phase resistance";
-  parameter Modelica.Units.SI.Inductance Lrl = 2.0e-3 "Rotor's leakage inductance";
+  parameter Modelica.Units.SI.Resistance Rs = 0.435 "stator's phase resistance";
+  parameter Modelica.Units.SI.Inductance Lsl = 4.0e-3 "stator's leakage inductance";
+  parameter Modelica.Units.SI.Inductance M = 69.3e-3 "stator's leakage inductance";
+  parameter Modelica.Units.SI.Resistance Rr = 0.4 "rotor's phase resistance";
+  parameter Modelica.Units.SI.Inductance Lrl = 2.0e-3 "rotor's leakage inductance";
   parameter Modelica.Units.SI.AngularFrequency wNom = 2*pi*50 "Nominal angular speed";
-  parameter Modelica.Units.SI.MomentOfInertia J = 2.0 "Rotor's moment of inertia";
+  parameter Modelica.Units.SI.MomentOfInertia J = 2.0 "rotor's moment of inertia";
   parameter Boolean startSteadyState = false "If true start with zero derivatives; otherwise zero currents"
-        annotation(  choices(checkBox = true));
+                                                                                                           annotation(
+    choices(checkBox = true));
 
   final parameter Real Ls = Lsl + M, Lr = Lrl + M;
   Modelica.Units.SI.Torque tauElectrical, tauElec;
   Modelica.Units.SI.AngularVelocity wMechanical = inertia.w "Mechanical speed";
   Modelica.Units.SI.AngularFrequency W0 "Synchronous mechanical speed";
   Modelica.Units.SI.AngularFrequency w0 = W0*pp "Synchronous electrical speed";
-  Real s "Slip";
+  Real s "slip";
   Modelica.Units.SI.ComplexCurrent i_s, i_r;
   Modelica.Units.SI.ComplexVoltage v_s, v_m;
   Modelica.Units.SI.ComplexPower S = 3*v_s*Modelica.ComplexMath.conj(i_s);
