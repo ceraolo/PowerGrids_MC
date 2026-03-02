@@ -1,6 +1,6 @@
 within PowerGridsMC.Electrical.Test.AsynchronousMachines;
-model AsynchronousMachine2
-  "Compares MSL and PowerGridsMC asynchronous machine models start from standstill"
+model SSandFault
+  "Steady-state start and fault analysis"
   import Modelica.Constants.pi;
   extends Modelica.Icons.Example;
   parameter Real T1=10, T2=50 "Load torque constants";
@@ -59,4 +59,4 @@ equation
 <p>For instance, the user can check the trend of machines' tauElectrical and wMechanical, as well as its terminal voltage over time.</p>
 <p>NOTE: this model does not run on Dymola, which complains about the busFault component. This iissue is not addressed yet, since Dymola has another isue, related to the initi9alization of AsynchronousMachine2, for which the \"Experimental\" model has been created. Once the initialization issue shown in \"Experimental\" is solved the issue with this busFault will be addressed.</p>
 </body></html>"));
-end AsynchronousMachine2;
+end SSandFault;
