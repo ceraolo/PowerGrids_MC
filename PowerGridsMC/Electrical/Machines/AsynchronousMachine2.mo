@@ -23,7 +23,7 @@ model AsynchronousMachine2
     Dialog(showStartAttribute = true, enable = startSteadyState));
   Modelica.Units.SI.AngularFrequency W0 "Synchronous mechanical speed";
   Modelica.Units.SI.AngularFrequency w0 = W0*pp "Synchronous electrical speed";
-  Real s "Slip";
+  Real s(start=0.01) "Slip";
   Modelica.Units.SI.ComplexCurrent i_s, i_r;
   Modelica.Units.SI.ComplexVoltage v_s, v_m;
   Modelica.Units.SI.ComplexPower S = 3*v_s*Modelica.ComplexMath.conj(i_s);
@@ -74,11 +74,9 @@ initial equation
     tauElectrical=T1+T2*(wStart/Wsyn)^2;
   Modelica.Utilities.Streams.print("\ninitial tau: "+String(tauElectrical)+", initial W: "+String(wStart));
 
-/*  IMPORTANT USAGE NOTE
-    Effectiveness of function asmaVlaluesFunOfSpeed is checked thourouhgly in Functions.Test.FindSteadyState.
-    Very strangely, however, there are combinations of T11 and T2 that, using Dymola, cause lack of convergence or convergence with positive angular speeds ONLY IN THIS PgAsma2, AND NOT IN FindSteadyState.
-    Indeed, the same function with the same inputs should give rise to the same results.
-    Nevertheless, the technique used here and in FindSteadyState, operates very smoothly in OpenModelica, thus offering good initialization.
+/*  USAGE NOTE
+    Effectiveness of function asmaValuesFunOfSpeed is checked thourouhgly in Functions.Test.FindSteadyState.
+    To get the same steady-state values (check especially tauElectrical and wMechanical) use in asmaValuesFunOfSpeed the same voltage we have at the machine's terminal here.
  */
 
 equation
@@ -128,11 +126,10 @@ equation
     Diagram(coordinateSystem(preserveAspectRatio = true, extent={{-100,-40},{60,
             40}})),
     Icon(coordinateSystem(preserveAspectRatio = true, grid = {2, 2}), graphics = {Text(textColor = {0, 0, 255}, extent = {{-120, 150}, {120, 112}}, textString = "%name"), Rectangle(lineColor = {28, 108, 200}, fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid, extent = {{-100, 100}, {100, -100}}), Line(points = {{-108, 0}, {-58, 0}}, color = {28, 108, 200}),                                                                                                                     Rectangle(fillColor = {175, 175, 175}, fillPattern = FillPattern.HorizontalCylinder, extent = {{-70, 60}, {76, -54}}), Polygon(fillPattern = FillPattern.Solid, points = {{-60, -84}, {-50, -84}, {-20, -14}, {30, -14}, {60, -84}, {70, -84}, {70, -94}, {-60, -94}, {-60, -84}}), Text(origin = {3, 10.9231}, textColor = {255, 255, 255}, extent = {{-71, 43.0769}, {71, 3.07689}}, textString = "Park IM")}),
-    Documentation(info="<html>
-<p>This is a modification of AsynchronousMachine model.</p>
+    Documentation(info= "<html><head></head><body><p>This is a modification of AsynchronousMachine model.</p>
 <p>This allows steady-state initialisation, when the load torque is of the type <span style=\"font-family: Arial;\">A+B*W^2 (actually expressed as T1+T2*(W/Wsyn)^2).</span></p>
 <p><span style=\"font-family: Arial;\">It incorporates load torque; its inertia constant J is the aggregate of machine and load inertia.</span></p>
-<p>This model does not work on Dymola 2025, but works well with OpenModelica 1.26. Checks made show that this shoulg be a dymola&apos;s problem (See &quot;IMPORTANT USAGE NOTE&quot; in the code)</p>
-</html>"),
+<p>This model works on Dymola 2025, and OM 1.26.3.&nbsp;</p>
+</body></html>"),
     experiment(StopTime=0.1, __Dymola_Algorithm="Dassl"));
 end AsynchronousMachine2;

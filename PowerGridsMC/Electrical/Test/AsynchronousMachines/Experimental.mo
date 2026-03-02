@@ -24,7 +24,7 @@ model Experimental "Like AsynchronousMachine2, but without busFault"
     Rr=aimcData.Rr,
     Rs=aimcData.Rs,
 //    SNom(displayUnit="V.A") = 0.1,
-//    UNom=100,
+ //    UNom=100,
     T1=T1,
     T2=T2) annotation (Placement(transformation(origin={28,0}, extent={{-20,-40},
             {0,-20}})));
@@ -38,8 +38,6 @@ equation
       StopTime=1,
       Interval=0.0005,
       Tolerance=1e-06, StartTime = 0),
-    Documentation(info="<html>
-<p>This is a variation of AsynchronousMachine2 model, created to show an initialization problem with Dymola.</p>
-<p>Once this problem is solved, this model will be deleted.</p>
-</html>"));
+    Documentation(info="<html><head></head><body><p>This is a variation of AsynchronousMachine2 model, created to show that the asynchnous machine is correctly initialized. the same can be seen in the first part of Test.AsynchrnousMachines.AsynchronousMachine2 transient. Unfortunately, the latter contains a bus short circuit that is not accepted by Dymola (it works well with OpenModelica).</p><p>Therefore, this Experimental model will be kept until the issue with Dymola is solved.</p><p><br></p>
+</body></html>"));
 end Experimental;
