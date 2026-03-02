@@ -53,10 +53,10 @@ equation
       StopTime=1,
       Interval=0.0005,
       Tolerance=1e-06, StartTime = 0),
-    Documentation(info="<html><head></head><body><p>This model tests AsynchronousMachine2 model.</p>
+    Documentation(info= "<html><head></head><body><p>This model tests AsynchronousMachine2 model.</p>
 <p>It shows that the system starts in steady-state, no matter what the values of load torque and external system internal impedance is, given that there exists a speed able to match machine and load torque.</p>
 <p>Then a perturbation is made on the system, causing a transient.</p>
 <p>For instance, the user can check the trend of machines' tauElectrical and wMechanical, as well as its terminal voltage over time.</p>
-<p>NOTE: this model does not run on Dymola, which complains about the busFault component. This iissue is not addressed yet, since Dymola has another isue, related to the initi9alization of AsynchronousMachine2, for which the \"Experimental\" model has been created. Once the initialization issue shown in \"Experimental\" is solved the issue with this busFault will be addressed.</p>
+<p>NOTE: this model does not run on Dymola, which complains about the busFault component. This iissue is not addressed yet.</p>
 </body></html>"));
 end SSandFault;
