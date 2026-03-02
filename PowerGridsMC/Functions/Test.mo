@@ -16,11 +16,11 @@ package Test
   model TestAsmaFunOfVW
     extends Modelica.Icons.Example;
     /* Function AsmFunOfSpeeed returns the steady-state equivalent impedance of 
-            an asynchronous machine as a function of rotational speed, and the torque related 
-            to this speed and the given the input voltage. 
-            It refers to the single-phase equivalent circuit represented by impedances 
-            described by complex numbers.
-          */
+       an asynchronous machine as a function of rotational speed, and the torque related 
+       to this speed and the given the input voltage. 
+       It refers to the single-phase equivalent circuit represented by impedances 
+       described by complex numbers.
+    */
     parameter PowerGridsMC.Electrical.Test.AsynchronousMachines.AsmaMSL r;
     import Modelica.Constants.pi;
     Real W "rotational velocity";
