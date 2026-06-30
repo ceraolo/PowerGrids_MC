@@ -1,9 +1,8 @@
 within PowerGridsMC.Electrical.Machines;
+
 model AsynchronousMachine "With dynamic equations from Fitzgerald-Ceraolo"
   import Modelica.Constants.pi;
-  extends PowerGridsMC.Electrical.BaseClasses.OnePortAC3 (final UStart, final UPhaseStart,
-      final PStart, final QStart, final localInit, final portVariablesPhases,
-      final UNom=1, final SNom=1);
+  extends PowerGridsMC.Electrical.BaseClasses.OnePortAC3(final UStart, final UPhaseStart, final PStart, final QStart, final localInit, final portVariablesPhases, final UNom = 1, final SNom = 1);
   //The component nead special  initialization. Therefore we add specific parameters:
   outer PowerGridsMC.Electrical.System systemPowerGrids;
   import Modelica.ComplexMath.*;
@@ -15,10 +14,8 @@ model AsynchronousMachine "With dynamic equations from Fitzgerald-Ceraolo"
   parameter Modelica.Units.SI.Inductance Lrl = 2.0e-3 "rotor's leakage inductance";
   parameter Modelica.Units.SI.AngularFrequency wNom = 2*pi*50 "Nominal angular speed";
   parameter Modelica.Units.SI.MomentOfInertia J = 2.0 "rotor's moment of inertia";
-  parameter Boolean startSteadyState = false "If true start with zero derivatives; otherwise zero currents"
-                                                                                                           annotation(
+  parameter Boolean startSteadyState = false "If true start with zero derivatives; otherwise zero currents" annotation(
     choices(checkBox = true));
-
   final parameter Real Ls = Lsl + M, Lr = Lrl + M;
   Modelica.Units.SI.Torque tauElectrical, tauElec;
   Modelica.Units.SI.AngularVelocity wMechanical = inertia.w "Mechanical speed";
@@ -39,20 +36,20 @@ model AsynchronousMachine "With dynamic equations from Fitzgerald-Ceraolo"
     Placement(transformation(origin = {-46, 0}, extent = {{70, -10}, {90, 10}}), iconTransformation(extent = {{90, -10}, {110, 10}})));
 initial equation
   if startSteadyState then
-    der(lambdaS.re)=0;
-    der(lambdaS.im)=0;
-    der(lambdaR.re)=0;
-    der(lambdaR.im)=0;
+    der(lambdaS.re) = 0;
+    der(lambdaS.im) = 0;
+    der(lambdaR.re) = 0;
+    der(lambdaR.im) = 0;
   else
-    i_s.re=0;
-    i_s.im=0;
-    i_r.re=0;
-    i_r.im=0;
+    i_s.re = 0;
+    i_s.im = 0;
+    i_r.re = 0;
+    i_r.im = 0;
   end if;
 equation
   W0 = (systemPowerGrids.omegaRef + der(port.UPhase))/pp;
   s = (W0 - inertia.w)/W0;
-  /* The following four complex equations, along with an external constitutive equation, 
+/* The following four complex equations, along with an external constitutive equation, 
      allow determining the five variables 
      v_s, i_s, i_r, lambdaS, lambdaR
      Note: because of the use of der() operator, the first two equations 
@@ -61,31 +58,31 @@ equation
       The main difference there is that PS uses vectors instead of complexes.
       E.g. i[1] corresponds to i_s.re and i[2] to i_s.im.
   */
-  //The following four equations are eqs in rows 713-716 of PS's AsynchronBase
-  //when omega[2]=omega and n_r=1 (v_rd=v_rq=0 by PS's in rows 688-689)
+//The following four equations are eqs in rows 713-716 of PS's AsynchronBase
+//when omega[2]=omega and n_r=1 (v_rd=v_rq=0 by PS's in rows 688-689)
   v_s.re = Rs*i_s.re + der(lambdaS.re) - w0*lambdaS.im;
-  //Stator's faraday-real
+//Stator's faraday-real
   v_s.im = Rs*i_s.im + der(lambdaS.im) + w0*lambdaS.re;
-  //Stator's faraday-imaginary
+//Stator's faraday-imaginary
   0 = Rr*i_r.re + der(lambdaR.re) - w0*s*lambdaR.im;
-  //Rotor's faraday-real
+//Rotor's faraday-real
   0 = Rr*i_r.im + der(lambdaR.im) + w0*s*lambdaR.re;
-  //Rotor's faraday.imaginary
+//Rotor's faraday.imaginary
   lambdaS = Ls*i_s + M*i_r;
-  //Eq in row 708 in PS's AsynchronBase
+//Eq in row 708 in PS's AsynchronBase
   lambdaR = Lr*i_r + M*i_s;
-  //Eqs in rows 709-710 in PS's AsynchronBase
+//Eqs in rows 709-710 in PS's AsynchronBase
   port.v = v_s;
   port.i = i_s;
-  //v_m (only for monitoring):
+//v_m (only for monitoring):
   v_m.re = M*der(i_s.re + i_r.re);
   v_m.im = M*der(i_s.im + i_r.im);
-  //
-  //electrical torque
+//
+//electrical torque
   tauElectrical = -3*pp*(lambdaS.im*i_s.re - lambdaS.re*i_s.im);
   tauElec = tauElectrical;
   connect(tauGen.y, torque.tau) annotation(
-    Line(points={{-46.7,0},{-32,0}},      color = {0, 0, 127}));
+    Line(points = {{-46.7, 0}, {-32, 0}}, color = {0, 0, 127}));
   connect(inertia.flange_b, flange) annotation(
     Line(points = {{18, 0}, {34, 0}}));
   connect(torque.flange, inertia.flange_a) annotation(
@@ -93,18 +90,14 @@ equation
   annotation(
     Diagram(coordinateSystem(preserveAspectRatio = true, extent = {{-100, -20}, {40, 20}})),
     Icon(coordinateSystem(preserveAspectRatio = true, grid = {2, 2}), graphics = {Text(textColor = {0, 0, 255}, extent = {{-120, 150}, {120, 112}}, textString = "%name"), Rectangle(lineColor = {28, 108, 200}, fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid, extent = {{-100, 100}, {100, -100}}), Line(points = {{-108, 0}, {-58, 0}}, color = {28, 108, 200}), Rectangle(fillColor = {95, 95, 95}, fillPattern = FillPattern.HorizontalCylinder, extent = {{62, 10}, {102, -10}}), Rectangle(fillColor = {175, 175, 175}, fillPattern = FillPattern.HorizontalCylinder, extent = {{-70, 60}, {76, -54}}), Polygon(fillPattern = FillPattern.Solid, points = {{-60, -84}, {-50, -84}, {-20, -14}, {30, -14}, {60, -84}, {70, -84}, {70, -94}, {-60, -94}, {-60, -84}}), Text(origin = {3, 10.9231}, textColor = {255, 255, 255}, extent = {{-71, 43.0769}, {71, 3.07689}}, textString = "Park IM")}),
-    Documentation(info="<html>
-<p>This model models an asynchronous machines based on Park&apos;s equations written in a reference frame rotating at the synchronous speed.</p>
-<p>The equations contain the transformer terms (derivatives of flux), which determine oscillating torques, during severe transients, such as startup from a constant-frequency grid. They have nearly no influence in stransients, if &quot;startSteadyState=true&quot; in the intialization tab.</p>
+    Documentation(info = "<html><head></head><body><p>This model models an asynchronous machines based on Park's equations written in a reference frame rotating at the synchronous speed.</p>
+<p>The equations contain the transformer terms (derivatives of flux), which determine oscillating torques, during severe transients, such as startup from a constant-frequency grid. They have nearly no influence in stransients, if \"startSteadyState=true\" in the intialization tab.</p>
 <h4>Initialization</h4>
 <p>Currently initialisation can be made setting either </p>
-<p>1. all currents to zero (&quot;startSteadyState=false&quot; in the intialization tab) or </p>
-<p>2. all derivaties of fluxes to zero &quot;startSteadyState=true&quot; in the intialization tab).</p>
+<p>1. all currents to zero (\"startSteadyState=false\" in the intialization tab) or </p>
+<p>2. all derivaties of fluxes to zero \"startSteadyState=true\" in the intialization tab).</p>
 <p>Solution 1 is adequate to simulate machine startups from standstill as per the example StartElecPg_MSL</p>
-<p>Solution 2 is adequate to simulate simulations in steady state, without current, fluz and torque oscillations, machine startups from standstill as per the example StartPg_MSL_QS, PG_SS</p>
-<h4><span style=\"color: #ee2e2f\">Problematiche di inizializzazione</span></h4>
-<p><span style=\"color: #ee2e2f;\">La maschera del modello contiene delle opzioni di inizializzazione. Al momento la situazione &egrave; embrionale per due ragioni:</span></p>
-<p><span style=\"color: #ee2e2f;\">- la maschera propone UStart, UPhaseStart, Pstart e Qstart che sono quelli del terminal di PowerGrids e non si sa che fine fanno</span></p>
-<p><span style=\"color: #ee2e2f;\">- manca del tutto un&apos;opzione adatta alll&apos;inizializzazione assieme al pPower flow.</span></p>
-</html>"));
+<p>Solution 2 is adequate to simulate simulations in steady state, without current, flux and torque oscillations, machine startups from standstill as per the example StartPg_MSL_QS, PG_SS</p>
+<h4><br></h4>
+</body></html>"));
 end AsynchronousMachine;
